@@ -3,145 +3,234 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: stales <stales@42.fr>                      +#+  +:+       +#+         #
+#    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/29 18:23:35 by stales            #+#    #+#              #
-#    Updated: 2022/04/04 18:48:20 by stales           ###   ########.fr        #
+#    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
+#    Updated: 2022/06/30 22:10:05 by brda-sil         ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
-
-#  Bash Color
-
-green			:= \033[38;5;82m
-blue			:= \033[38;5;75m
-red				:= \033[38;5;196m
-yellow			:= \033[38;5;226m
-
-blinking		:= \033[5m
-reset			:= \033[0m
-
-font_color		:= $(blue)
-bold			:= $(red)
-
-define print_ascii
-	@printf "$(red)"
-	@printf "██▓     ██▓ ▄▄▄▄     █████▒▄▄▄█████▓\n"
-	@printf "▓██▒    ▓██▒▓█████▄ ▓██   ▒ ▓  ██▒ ▓▒\n"
-	@printf "▒██░    ▒██▒▒██▒ ▄██▒████ ░ ▒ ▓██░ ▒░\n"
-	@printf "▒██░    ░██░▒██░█▀  ░▓█▒  ░ ░ ▓██▓ ░\n"
-	@printf "░██████▒░██░░▓█  ▀█▓░▒█░      ▒██▒ ░\n"
-	@printf "░ ▒░▓  ░░▓  ░▒▓███▀▒ ▒ ░      ▒ ░░\n"
-	@printf "░ ░ ▒  ░ ▒ ░▒░▒   ░  ░          ░\n"
-	@printf "  ░ ░    ▒ ░ ░    ░  ░ ░      ░\n"
-	@printf "    ░  ░ ░   ░\n"
-	@printf "                  ░\n"
-	@printf "$(reset)"
-endef
-
 # **************************************************************************** #
 
 # **************************************************************************** #
 # config
 
-BASE_SRC		:= ft_atoi.c \
-				   ft_bzero.c \
-				   ft_calloc.c \
-				   ft_get_words.c \
-				   ft_isalnum.c \
-				   ft_isalpha.c \
-				   ft_isascii.c \
-				   ft_isdigit.c \
-				   ft_isprint.c \
-				   ft_itoa.c \
-				   ft_memchr.c \
-				   ft_memcmp.c \
-				   ft_memcpy.c \
-				   ft_memmove.c \
-				   ft_memset.c \
-				   ft_nbrlen.c \
-				   ft_putchar_fd.c \
-				   ft_putendl_fd.c \
-				   ft_putnbr_fd.c \
-				   ft_putstr_fd.c \
-				   ft_split.c \
-				   ft_strcchr.c \
-				   ft_strchr.c \
-				   ft_strdup.c \
-				   ft_striteri.c \
-				   ft_strcpy.c \
-				   ft_strcat.c \
-				   ft_strjoin.c \
-				   ft_strlcat.c \
-				   ft_strlcpy.c \
-				   ft_strlen.c \
-				   ft_strmapi.c \
-				   ft_strncat.c \
-				   ft_strncmp.c \
-				   ft_strncpy.c \
-				   ft_strnstr.c \
-				   ft_strrchr.c \
-				   ft_strtrim.c \
-				   ft_substr.c \
-				   ft_tolower.c \
-				   ft_toupper.c
+VERSION				:= 1.0.0
+ifeq ($(findstring integer,$(MAKECMDGOALS)),integer)
+INTEGER				:= 1
+else
+ifeq ($(findstring string,$(MAKECMDGOALS)),string)
+STRING				:= 1
+else
+ALL					:= 1
+endif
+endif
+TARGET				:= libft.a
+CFLAGS				:= -Wall -Wextra -pthread
+RM					:= rm -rf
+CC					:= gcc
+MAKE				:= make -C
+$(eval export MAIN=1)
 
-BONUS_SRC		:= $(BASE_SRC) \
-				   ft_lstadd_back_bonus.c \
-				   ft_lstadd_front_bonus.c \
-				   ft_lstclear_bonus.c \
-				   ft_lstdelone_bonus.c \
-				   ft_lstiter_bonus.c \
-				   ft_lstlast_bonus.c \
-				   ft_lstmap_bonus.c \
-				   ft_lstnew_bonus.c \
-				   ft_lstsize_bonus.c
+ifneq ($(PADDING),35)
+PADDING				:= 35
+endif
 
-BONUS_SRC		:= $(sort $(BONUS_SRC))
+ifeq ($(DEBUG),)
+CFLAGS				+= -Werror
+else
+CFLAGS				+= -g3
+endif
 
-OBJ				:= $(BASE_SRC:.c=.o)
-BONUS_OBJ		:= $(BONUS_SRC:.c=.o)
-CFLAGS			:= -Wall -Wextra -Werror -I.
-NAME			:= libft.a
-LIBSHARE		:= libft.so
+# DIR
+SRC_DIR				:= src
+OBJ_DIR				:= obj_bonus
+OBJ_SUBDIR			:= $(sort $(shell find $(SRC_DIR) -type d | \
+										sed 's|$(SRC_DIR)|$(OBJ_DIR)|g'))
+INC_DIR				:= -Iincludes
+
+# SRC
+SRC_INT				:= integer/ft_atoi.c \
+					   integer/ft_atol.c \
+					   integer/ft_atoll.c \
+					   integer/ft_nbrlen.c \
+					   integer/ft_rev_int.c
+
+SRC_STR				:= string/ft_get_words.c \
+					   string/ft_itoa.c \
+					   string/ft_ltoa.c \
+					   string/ft_split.c \
+					   string/ft_strcat.c \
+					   string/ft_strcchr.c \
+					   string/ft_strchr.c \
+					   string/ft_strclr.c \
+					   string/ft_strcmp.c \
+					   string/ft_strcpy.c \
+					   string/ft_strcspn.c \
+					   string/ft_strdel.c \
+					   string/ft_strdup.c \
+					   string/ft_striteri.c \
+					   string/ft_strjoin.c \
+					   string/ft_strlcat.c \
+					   string/ft_strlcpy.c \
+					   string/ft_strlen.c \
+					   string/ft_strmapi.c \
+					   string/ft_strncat.c \
+					   string/ft_strncmp.c \
+					   string/ft_strncpy.c \
+					   string/ft_strnstr.c \
+					   string/ft_strrchr.c \
+					   string/ft_strtrim.c \
+					   string/ft_substr.c \
+					   string/ft_tolower.c \
+					   string/ft_toupper.c
+ifeq ($(INTEGER),1)
+SRC_C				:= $(SRC_INT)
+else
+ifeq ($(STRING),1)
+SRC_C				:= $(SRC_STR)
+else
+SRC_C				:= $(SRC_INT)
+SRC_C				+= $(SRC_STR)
+endif
+endif
+
+# OBJ
+OBJ_C				:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
+
+# LIB DIR
+CFLAGS				+= $(INC_DIR)
+
+#  Bash Color / unicode char
+
+#get_random		= $(shell seq 0 256 | shuf | head -n1)
+green				:= \033[38;5;82m
+blue				:= \033[38;5;75m
+red					:= \033[38;5;196m
+orange				:= \033[38;5;214m
+
+blinking			:= \033[5m
+reset				:= \033[0m
+
+font_color			:= $(blue)
+bold				:= $(green)
+ascii_color			:= $(bold)
+
+green_plus			:= $(font_color)[$(green)+$(font_color)]
+red_minus			:= $(font_color)[$(red)-$(font_color)]
+orange_star			:= $(font_color)[$(orange)*$(font_color)]
+blinking_arrow		:= $(blinking)$(font_color)->
+#font_color			:= \033[38;5;$(get_random)m
+#bold				:= \033[38;5;$(get_random)m
+#ascii_color		:= \033[38;5;$(get_random)m
+
+UL="\xe2\x95\x94"
+HO="\xe2\x95\x90"
+UR="\xe2\x95\x97"
+VE="\xe2\x95\x91"
+LL="\xe2\x95\x9a"
+LR="\xe2\x95\x9d"
 
 # **************************************************************************** #
 
 # **************************************************************************** #
-# Building rules
+# utils
 
-all:			$(NAME)
+define ascii_art
+██████╗ ██╗  ██╗██╗██╗      ██████╗
+██╔══██╗██║  ██║██║██║     ██╔═══██╗
+██████╔╝███████║██║██║     ██║   ██║
+██╔═══╝ ██╔══██║██║██║     ██║   ██║
+██║     ██║  ██║██║███████╗╚██████╔╝
+╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝ ╚═════╝
+$(reset)
+endef
+export ascii_art
 
-%.o: %.c
-	@tabs 18
-	@printf "$(font_color)[$(green)+$(font_color)] Creation of the object $(bold)$< $(blinking)$(font_color)\t-> $(reset)$(bold) $@ $(reset)\n"
+define print_padded
+	@printf '   $(orange_star) $(font_color)Creation of $(bold)$1'
+	$(eval OBJ_LEN := $(shell printf $1 | wc -c))
+	$(eval PAD_LEN := $(shell expr $(PADDING) - $(OBJ_LEN)))
+	@printf '%-$(PAD_LEN)s' ' '
+	@printf '$(blinking_arrow) $(reset)$(bold)$2 $(reset)'
+	@printf '\n'
+endef
+
+define usage
+$(orange_star) $(bold)$(TARGET)$(font_color): $(bold)needed_args \
+$(font_color)[$(bold)optional_args$(font_color)]$(reset)
+        $(bold)arg$(font_color): eplanation
+        $(bold)arg$(font_color): eplanation
+        $(bold)arg$(font_color): eplanation, $(bold)WARNING$(reset)
+$(font_color)Version: $(bold)$(VERSION)$(reset)
+
+endef
+export usage
+
+define make_dir
+	@if [ ! -d $1 ]; then														\
+		mkdir $1;																\
+		printf "$(green_plus) $(font_color)Create dir $(bold)$1$(reset)\n";		\
+	fi
+endef
+
+# **************************************************************************** #
+
+# **************************************************************************** #
+# Rules
+
+all:					setup $(TARGET)
+	@printf "$$usage"
+
+bonus:					setup $(TARGET)
+	@printf "$$usage"
+
+$(TARGET):				$(OBJ_C)
+	@printf "$(green_plus) $(font_color)Creation of $(bold)$@$(reset)\n"
+	@$(CC) $(CFLAGS) -o $@ $(OBJ_C)
+
+$(OBJ_DIR)/%.o: 		$(SRC_DIR)/%.c
+	$(call print_padded,$^,$@)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
-$(NAME):		$(OBJ)
-	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)libft.a$(reset)\n"
-	@ar rcs $(NAME) $(OBJ)
-	$(print_ascii)
+$(BIN_DIR):
+	@printf "$(green_plus) $(font_color)Create dir $(bold)$(BIN_DIR)$(reset)\n"
+	@mkdir $(BIN_DIR)
 
-so:
-	$(CC) -c -fPIC $(CFLAGS) $(BASE_SRC)
-	gcc -nostartfiles -shared -o $(LIBSHARE) $(OBJ)
+setup:					call_logo $(OBJ_SUBDIR) $(BIN_DIR)
+
+call_logo:
+	@printf "$(ascii_color)$$ascii_art"
+
+$(OBJ_SUBDIR):
+	$(foreach dir,$@,$(call make_dir,$(dir)))
 
 clean:
-	@printf "$(font_color)[$(red)-$(font_color)] Deleting object files$(reset)\n"
-	@$(RM) $(OBJ)
-	@$(RM) $(BONUS_OBJ)
-	@$(RM) $(LIBSHARE)
+ifneq ($(wildcard ./obj),)
+	@printf "$(red_minus) $(font_color)Deleting $(bold)obj$(reset)\n"
+	@$(RM) ./obj
+endif
+ifneq ($(wildcard ./obj_bonus),)
+	@printf "$(red_minus) $(font_color)Deleting $(bold)obj_bonus$(reset)\n"
+	@$(RM) ./obj_bonus
+endif
 
-fclean:			clean
-	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)$(NAME)$(reset)\n"
-	@$(RM) $(NAME) $(LIBSHARE)
+fclean:					clean
+ifneq ($(wildcard ./bin/philo),)
+	@printf "$(red_minus) $(font_color)Deleting $(bold)bin/philo$(reset)\n"
+	@$(RM) ./bin/philo
+endif
+ifneq ($(wildcard ./bin/philo_bonus),)
+	@printf "$(red_minus) $(font_color)Deleting $(bold)bin/philo_bonus$(reset)\n"
+	@$(RM) ./bin/philo_bonus
+endif
+ifneq ($(wildcard $(BIN_DIR)),)
+	@printf "$(red_minus) $(font_color)Deleting $(bold)$(BIN_DIR)$(reset)\n"
+	@$(RM) -rf $(BIN_DIR)
+endif
 
-re:				fclean $(NAME)
+re:						fclean all
 
-bonus:			$(BONUS_OBJ)
-	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)libft.a$(font_color) with bonus $(reset)\n"
-	@ar rcs $(NAME) $(BONUS_OBJ)
-	$(print_ascii)
+re_bonus:				fclean bonus
 
-.PHONY:			all clean fclean re
+.PHONY:					all clean fclean re setup call_logo bonus
 
 # **************************************************************************** #
