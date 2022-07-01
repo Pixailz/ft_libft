@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rev_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 11:06:28 by stales            #+#    #+#             */
-/*   Updated: 2022/04/04 02:58:41 by pix              ###   ########.fr       */
+/*   Updated: 2022/07/01 12:03:53 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_integer.h"
 
 /**
  * @brief			Reverse an integer

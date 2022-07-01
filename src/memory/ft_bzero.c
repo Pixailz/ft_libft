@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:52:28 by stales            #+#    #+#             */
-/*   Updated: 2022/04/04 02:53:00 by pix              ###   ########.fr       */
+/*   Updated: 2022/07/01 12:04:25 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_memory.h"
 
 /**
  * @brief			Erases the data in the n bytes of the memory starting at the

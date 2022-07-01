@@ -6,12 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:15:57 by stales            #+#    #+#             */
-/*   Updated: 2022/06/30 21:46:08 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:04:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
-#include <stdlib.h>
+#include "libft_string.h"
 
 /**
  * @brief			Applies function f to string and return it
@@ -27,7 +26,7 @@ char	*ft_strmapi(char const *s1, char (*f)(unsigned int, char))
 	int		i;
 
 	if (!s1 || !f)
-		return (LIBFT_NULL);
+		return (FT_NULL);
 	i = 0;
 	ptr = (char *)malloc(ft_strlen((char *)s1) + 1);
 	while (ptr && s1[i])

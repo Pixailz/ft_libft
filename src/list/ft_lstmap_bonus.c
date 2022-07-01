@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stales <stales@42.fr>                      +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 17:59:23 by stales            #+#    #+#             */
-/*   Updated: 2022/04/04 17:39:26 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/01 08:48:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_list.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
 	t_list	*tmp;
 
-	new = LIBFT_NULL;
+	new = FT_NULL;
 	while (lst)
 	{
 		if (f)
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (!tmp && del)
 		{
 			ft_lstclear(&tmp, del);
-			return (LIBFT_NULL);
+			return (FT_NULL);
 		}
 		ft_lstadd_back(&new, tmp);
 		lst = lst->next;

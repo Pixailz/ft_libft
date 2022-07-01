@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 22:26:32 by stales            #+#    #+#             */
-/*   Updated: 2022/04/04 02:55:53 by pix              ###   ########.fr       */
+/*   Updated: 2022/07/01 12:04:25 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_memory.h"
 
 /**
  * @brief			Scans the initial n bytes of the memory area pointed to by s
@@ -35,5 +35,5 @@ void	*ft_memchr(const void *s, int c, t_size n)
 			return (tmp);
 		tmp++;
 	}
-	return (LIBFT_NULL);
+	return (FT_NULL);
 }

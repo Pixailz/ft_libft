@@ -6,12 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 13:18:24 by stales            #+#    #+#             */
-/*   Updated: 2022/06/30 21:46:08 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:04:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
-#include <stdlib.h>
+#include "libft_string.h"
 
 /**
  * @brief			Return a portion of s, begin at start for size of len
@@ -29,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, t_size len)
 
 	str = (char *)malloc(len + 1);
 	if (!str || !s)
-		return (LIBFT_NULL);
+		return (FT_NULL);
 	if ((int)start > ft_strlen((char *)s))
 		return (ft_strdup(""));
 	i = 0;

@@ -6,11 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:12:39 by stales            #+#    #+#             */
-/*   Updated: 2022/06/30 21:46:08 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:04:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
+#include "libft_string.h"
 
 /**
  * @brief			copy src to dest, don't check for the length of dest

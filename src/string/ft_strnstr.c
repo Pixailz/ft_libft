@@ -6,11 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 21:54:11 by stales            #+#    #+#             */
-/*   Updated: 2022/06/30 21:46:08 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:04:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
+#include "libft_string.h"
 
 /**
  * @brief			Locates the first occurrence of the null-terminated
@@ -22,7 +22,7 @@
  * @param n			Size to search
  *
  * @return  (char *)If to_find is an empty string, str is returned; if to_find
- *					occurs nowhere in str, LIBFT_NULL is returned; otherwise a
+ *					occurs nowhere in str, FT_NULL is returned; otherwise a
  *					pointer to the first character of the first occurrence of
  *					to_find is returned.
  */
@@ -48,5 +48,5 @@ char	*ft_strnstr(char *str, char *to_find, int n)
 		}
 		str++;
 	}
-	return (LIBFT_NULL);
+	return (FT_NULL);
 }

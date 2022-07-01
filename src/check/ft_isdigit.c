@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:31:21 by pix               #+#    #+#             */
-/*   Updated: 2022/04/04 02:54:57 by pix              ###   ########.fr       */
+/*   Updated: 2022/07/01 11:49:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_check.h"
 
 /**
  * @brief			checks if c is a digit (0 through 9).
@@ -19,7 +19,7 @@
  *
  * @return (int)	nonzero if character is a digit and zero if not
  */
-int	ft_isdigit(int c)
+int	ft_isdigit(const char c)
 {
 	return (c >= '0' && c <= '9');
 }

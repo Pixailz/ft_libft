@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 12:49:20 by stales            #+#    #+#             */
-/*   Updated: 2022/04/04 02:58:20 by pix              ###   ########.fr       */
+/*   Updated: 2022/07/01 08:51:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <unistd.h>
+#include "libft_print.h"
 
 /**
  * @brief			Write the string s to the file descriptor fd

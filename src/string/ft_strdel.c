@@ -6,12 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 13:13:32 by stales            #+#    #+#             */
-/*   Updated: 2022/06/30 21:46:08 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:04:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
-#include <stdlib.h>
+#include "libft_string.h"
 
 /**
  * @brief			Delete a string

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stales <stales@42.fr>                      +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 19:52:40 by stales            #+#    #+#             */
-/*   Updated: 2022/04/04 17:35:59 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/01 08:48:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_list.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
@@ -23,5 +23,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 			del(*lst);
 		*lst = next;
 	}
-	*lst = LIBFT_NULL;
+	*lst = FT_NULL;
 }

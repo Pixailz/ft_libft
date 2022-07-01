@@ -6,12 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 13:58:41 by stales            #+#    #+#             */
-/*   Updated: 2022/06/30 21:46:08 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:04:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
-#include <stdlib.h>
+#include "libft_string.h"
 
 /**
  * @brief			Concatenate two strings
@@ -27,11 +26,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*ptr;
 
 	if (!s1 || !s2)
-		return (LIBFT_NULL);
+		return (FT_NULL);
 	size = ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1;
 	ptr = ft_calloc(0b1, size + 0b1);
 	if (!ptr)
-		return (LIBFT_NULL);
+		return (FT_NULL);
 	ptr[size] = 0;
 	ft_strcpy(ptr, (char *)s1);
 	ft_strcat(ptr, (char *)s2);
