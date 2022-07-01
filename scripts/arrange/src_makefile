@@ -85,6 +85,18 @@ function main()
 	SRC_DIR="src/string"
 	VARIABLE_SRC="SRC_STR"
 	launch
+	SRC_DIR="src/memory"
+	VARIABLE_SRC="SRC_MEM"
+	launch
+	SRC_DIR="src/check"
+	VARIABLE_SRC="SRC_CHK"
+	launch
+	SRC_DIR="src/list"
+	VARIABLE_SRC="SRC_LST"
+	launch
+	SRC_DIR="src/print"
+	VARIABLE_SRC="SRC_PRT"
+	launch
 }
 
 main

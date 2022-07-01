@@ -114,10 +114,22 @@ function launch ()
 function main
 {
 	SRC_DIR="src/integer"
-	INC_FILE="include/libft_int.h"
+	INC_FILE="include/libft_integer.h"
 	launch
 	SRC_DIR="src/string"
-	INC_FILE="include/libft_str.h"
+	INC_FILE="include/libft_string.h"
+	launch
+	SRC_DIR="src/memory"
+	INC_FILE="include/libft_memory.h"
+	launch
+	SRC_DIR="src/check"
+	INC_FILE="include/libft_check.h"
+	launch
+	SRC_DIR="src/list"
+	INC_FILE="include/libft_list.h"
+	launch
+	SRC_DIR="src/print"
+	INC_FILE="include/libft_print.h"
 	launch
 }
 
