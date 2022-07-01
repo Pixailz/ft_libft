@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/07/01 12:22:32 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/07/01 14:15:32 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,10 @@ SRC_INT				:= integer/ft_atoi_base.c \
 
 SRC_INT				+= string/ft_strlen.c
 
+ifeq ($(INTEGER),1)
+SRC_C_TMP			+= $(SRC_INT)
+endif
+
 SRC_STR				:= string/ft_get_words.c \
 					   string/ft_itoa_base.c \
 					   string/ft_itoa.c \
@@ -107,7 +111,11 @@ SRC_STR				:= string/ft_get_words.c \
 SRC_STR				+= integer/ft_nbrlen_base.c \
 					   integer/ft_nbrlen.c \
 					   memory/ft_calloc.c \
-					   memory/ft_memset.c \
+					   memory/ft_memset.c
+
+ifeq ($(STRING),1)
+SRC_C_TMP			+= $(SRC_STR)
+endif
 
 SRC_MEM				:= memory/ft_bzero.c \
 					   memory/ft_calloc.c \
@@ -117,11 +125,19 @@ SRC_MEM				:= memory/ft_bzero.c \
 					   memory/ft_memmove.c \
 					   memory/ft_memset.c
 
+ifeq ($(MEMORY),1)
+SRC_C_TMP			+= $(SRC_MEM)
+endif
+
 SRC_CHK				:= check/ft_isalnum.c \
 					   check/ft_isalpha.c \
 					   check/ft_isascii.c \
 					   check/ft_isdigit.c \
 					   check/ft_isprint.c
+
+ifeq ($(CHECK),1)
+SRC_C_TMP			+= $(SRC_CHK)
+endif
 
 SRC_LST				:= list/ft_lstadd_back_bonus.c \
 					   list/ft_lstadd_front_bonus.c \
@@ -133,29 +149,22 @@ SRC_LST				:= list/ft_lstadd_back_bonus.c \
 					   list/ft_lstnew_bonus.c \
 					   list/ft_lstsize_bonus.c
 
+ifeq ($(LIST),1)
+SRC_C_TMP			+= $(SRC_LST)
+endif
+
 SRC_PRT				:= print/ft_putchar_fd.c \
 					   print/ft_putendl_fd.c \
 					   print/ft_putnbr_fd.c \
 					   print/ft_putstr_fd.c
 
-ifeq ($(INTEGER),1)
-SRC_C				:= $(SRC_INT)
-else
-ifeq ($(STRING),1)
-SRC_C				:= $(SRC_STR)
-else
-ifeq ($(MEMORY),1)
-SRC_C				:= $(SRC_MEM)
-else
-ifeq ($(CHECK),1)
-SRC_C				:= $(SRC_CHK)
-else
-ifeq ($(LIST),1)
-SRC_C				:= $(SRC_LST)
-else
 ifeq ($(PRINT),1)
-SRC_C				:= $(SRC_PRT)
-else
+SRC_C_TMP			+= $(SRC_PRT)
+endif
+
+SRC_C				:= $(SRC_C_TMP)
+
+ifeq ($(ALL),1)
 SRC_C				:= $(SRC_INT)
 SRC_C				+= $(SRC_STR)
 SRC_C				+= $(SRC_MEM)
@@ -163,11 +172,7 @@ SRC_C				+= $(SRC_CHK)
 SRC_C				+= $(SRC_LST)
 SRC_C				+= $(SRC_PRT)
 endif
-endif
-endif
-endif
-endif
-endif
+
 SRC_C				:= $(addprefix $(SRC_DIR)/,$(SRC_C))
 
 # OBJ
@@ -251,6 +256,9 @@ endef
 # **************************************************************************** #
 # Rules
 
+# rules that does not create file
+.PHONY:					clean fclean setup call_logo $(OBJ_SUBDIR)
+
 all:					setup $(TARGET)
 	@printf "$$usage"
 
@@ -315,9 +323,5 @@ ifneq ($(wildcard $(TARGET)),)
 endif
 
 re:						fclean all
-
-re_bonus:				fclean bonus
-
-.PHONY:					all clean fclean re setup call_logo bonus
 
 # **************************************************************************** #
