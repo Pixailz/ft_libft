@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/06/30 22:10:05 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/07/01 12:22:32 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,26 @@ else
 ifeq ($(findstring string,$(MAKECMDGOALS)),string)
 STRING				:= 1
 else
+ifeq ($(findstring memory,$(MAKECMDGOALS)),memory)
+MEMORY				:= 1
+else
+ifeq ($(findstring check,$(MAKECMDGOALS)),check)
+CHECK				:= 1
+else
+ifeq ($(findstring list,$(MAKECMDGOALS)),list)
+LIST				:= 1
+else
+ifeq ($(findstring print,$(MAKECMDGOALS)),print)
+PRINT				:= 1
+else
 ALL					:= 1
 endif
 endif
+endif
+endif
+endif
+endif
+
 TARGET				:= libft.a
 CFLAGS				:= -Wall -Wextra -pthread
 RM					:= rm -rf
@@ -42,19 +59,23 @@ endif
 
 # DIR
 SRC_DIR				:= src
-OBJ_DIR				:= obj_bonus
+OBJ_DIR				:= obj
 OBJ_SUBDIR			:= $(sort $(shell find $(SRC_DIR) -type d | \
 										sed 's|$(SRC_DIR)|$(OBJ_DIR)|g'))
-INC_DIR				:= -Iincludes
+INC_DIR				:= -Iinclude
 
 # SRC
-SRC_INT				:= integer/ft_atoi.c \
+SRC_INT				:= integer/ft_atoi_base.c \
+					   integer/ft_atoi.c \
 					   integer/ft_atol.c \
-					   integer/ft_atoll.c \
+					   integer/ft_nbrlen_base.c \
 					   integer/ft_nbrlen.c \
 					   integer/ft_rev_int.c
 
+SRC_INT				+= string/ft_strlen.c
+
 SRC_STR				:= string/ft_get_words.c \
+					   string/ft_itoa_base.c \
 					   string/ft_itoa.c \
 					   string/ft_ltoa.c \
 					   string/ft_split.c \
@@ -82,16 +103,72 @@ SRC_STR				:= string/ft_get_words.c \
 					   string/ft_substr.c \
 					   string/ft_tolower.c \
 					   string/ft_toupper.c
+
+SRC_STR				+= integer/ft_nbrlen_base.c \
+					   integer/ft_nbrlen.c \
+					   memory/ft_calloc.c \
+					   memory/ft_memset.c \
+
+SRC_MEM				:= memory/ft_bzero.c \
+					   memory/ft_calloc.c \
+					   memory/ft_memchr.c \
+					   memory/ft_memcmp.c \
+					   memory/ft_memcpy.c \
+					   memory/ft_memmove.c \
+					   memory/ft_memset.c
+
+SRC_CHK				:= check/ft_isalnum.c \
+					   check/ft_isalpha.c \
+					   check/ft_isascii.c \
+					   check/ft_isdigit.c \
+					   check/ft_isprint.c
+
+SRC_LST				:= list/ft_lstadd_back_bonus.c \
+					   list/ft_lstadd_front_bonus.c \
+					   list/ft_lstclear_bonus.c \
+					   list/ft_lstdelone_bonus.c \
+					   list/ft_lstiter_bonus.c \
+					   list/ft_lstlast_bonus.c \
+					   list/ft_lstmap_bonus.c \
+					   list/ft_lstnew_bonus.c \
+					   list/ft_lstsize_bonus.c
+
+SRC_PRT				:= print/ft_putchar_fd.c \
+					   print/ft_putendl_fd.c \
+					   print/ft_putnbr_fd.c \
+					   print/ft_putstr_fd.c
+
 ifeq ($(INTEGER),1)
 SRC_C				:= $(SRC_INT)
 else
 ifeq ($(STRING),1)
 SRC_C				:= $(SRC_STR)
 else
+ifeq ($(MEMORY),1)
+SRC_C				:= $(SRC_MEM)
+else
+ifeq ($(CHECK),1)
+SRC_C				:= $(SRC_CHK)
+else
+ifeq ($(LIST),1)
+SRC_C				:= $(SRC_LST)
+else
+ifeq ($(PRINT),1)
+SRC_C				:= $(SRC_PRT)
+else
 SRC_C				:= $(SRC_INT)
 SRC_C				+= $(SRC_STR)
+SRC_C				+= $(SRC_MEM)
+SRC_C				+= $(SRC_CHK)
+SRC_C				+= $(SRC_LST)
+SRC_C				+= $(SRC_PRT)
 endif
 endif
+endif
+endif
+endif
+endif
+SRC_C				:= $(addprefix $(SRC_DIR)/,$(SRC_C))
 
 # OBJ
 OBJ_C				:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
@@ -101,7 +178,7 @@ CFLAGS				+= $(INC_DIR)
 
 #  Bash Color / unicode char
 
-#get_random		= $(shell seq 0 256 | shuf | head -n1)
+get_random		= \033[38;5;$(shell seq 0 256 | shuf | head -n1)m
 green				:= \033[38;5;82m
 blue				:= \033[38;5;75m
 red					:= \033[38;5;196m
@@ -114,13 +191,10 @@ font_color			:= $(blue)
 bold				:= $(green)
 ascii_color			:= $(bold)
 
-green_plus			:= $(font_color)[$(green)+$(font_color)]
-red_minus			:= $(font_color)[$(red)-$(font_color)]
-orange_star			:= $(font_color)[$(orange)*$(font_color)]
-blinking_arrow		:= $(blinking)$(font_color)->
-#font_color			:= \033[38;5;$(get_random)m
-#bold				:= \033[38;5;$(get_random)m
-#ascii_color		:= \033[38;5;$(get_random)m
+green_plus			:= $(font_color)[$(green)+$(font_color)]$(reset)
+red_minus			:= $(font_color)[$(red)-$(font_color)]$(reset)
+orange_star			:= $(font_color)[$(orange)*$(font_color)]$(reset)
+blinking_arrow		:= $(blinking)$(get_random)->$(reset)
 
 UL="\xe2\x95\x94"
 HO="\xe2\x95\x90"
@@ -180,22 +254,47 @@ endef
 all:					setup $(TARGET)
 	@printf "$$usage"
 
-bonus:					setup $(TARGET)
+integer:				setup $(TARGET)
+	@printf "$$usage"
+
+string:					setup $(TARGET)
+	@printf "$$usage"
+
+memory:					setup $(TARGET)
+	@printf "$$usage"
+
+check:					setup $(TARGET)
+	@printf "$$usage"
+
+list:					setup $(TARGET)
+	@printf "$$usage"
+
+print:					setup $(TARGET)
 	@printf "$$usage"
 
 $(TARGET):				$(OBJ_C)
 	@printf "$(green_plus) $(font_color)Creation of $(bold)$@$(reset)\n"
-	@$(CC) $(CFLAGS) -o $@ $(OBJ_C)
+	@ar rcs $(TARGET) $(OBJ_C)
 
 $(OBJ_DIR)/%.o: 		$(SRC_DIR)/%.c
 	$(call print_padded,$^,$@)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
-$(BIN_DIR):
-	@printf "$(green_plus) $(font_color)Create dir $(bold)$(BIN_DIR)$(reset)\n"
-	@mkdir $(BIN_DIR)
-
-setup:					call_logo $(OBJ_SUBDIR) $(BIN_DIR)
+setup:					call_logo $(OBJ_SUBDIR)
+	@printf "$(orange_star) $(font_color)Info$(reset)\n"
+	@printf "   $(orange_star) $(bold)Switch$(reset)\n"
+	@printf "      $(orange_star) $(font_color)INTEGER $(bold)%d$(reset)\n" $(INTEGER)
+	@printf "      $(orange_star) $(font_color)STRING $(bold)%d$(reset)\n" $(STRING)
+	@printf "      $(orange_star) $(font_color)MEMORY $(bold)%d$(reset)\n" $(MEMORY)
+	@printf "      $(orange_star) $(font_color)CHECK $(bold)%d$(reset)\n" $(CHECK)
+	@printf "      $(orange_star) $(font_color)LIST $(bold)%d$(reset)\n" $(LIST)
+	@printf "      $(orange_star) $(font_color)PRINT $(bold)%d$(reset)\n" $(PRINT)
+	@printf "   $(orange_star) $(font_color)TARGET $(bold)%s$(reset)\n" $(TARGET)
+	@printf "   $(orange_star) $(bold)SRC_C$(reset)\n"
+	@printf "      $(orange_star) $(font_color)%s$(reset)\n" $(SRC_C)
+	@printf "   $(orange_star) $(bold)OBJ_C$(reset)\n"
+	@printf "      $(orange_star) $(font_color)%s$(reset)\n" $(OBJ_C)
+	@printf "$(orange_star) $(font_color)Building$(reset)\n"
 
 call_logo:
 	@printf "$(ascii_color)$$ascii_art"
@@ -204,27 +303,15 @@ $(OBJ_SUBDIR):
 	$(foreach dir,$@,$(call make_dir,$(dir)))
 
 clean:
-ifneq ($(wildcard ./obj),)
-	@printf "$(red_minus) $(font_color)Deleting $(bold)obj$(reset)\n"
-	@$(RM) ./obj
-endif
-ifneq ($(wildcard ./obj_bonus),)
-	@printf "$(red_minus) $(font_color)Deleting $(bold)obj_bonus$(reset)\n"
-	@$(RM) ./obj_bonus
+ifneq ($(wildcard $(OBJ_DIR)),)
+	@printf "$(red_minus) $(font_color)Deleting $(bold)$(OBJ_DIR)$(reset)\n"
+	@$(RM) $(OBJ_DIR)
 endif
 
 fclean:					clean
-ifneq ($(wildcard ./bin/philo),)
-	@printf "$(red_minus) $(font_color)Deleting $(bold)bin/philo$(reset)\n"
-	@$(RM) ./bin/philo
-endif
-ifneq ($(wildcard ./bin/philo_bonus),)
-	@printf "$(red_minus) $(font_color)Deleting $(bold)bin/philo_bonus$(reset)\n"
-	@$(RM) ./bin/philo_bonus
-endif
-ifneq ($(wildcard $(BIN_DIR)),)
-	@printf "$(red_minus) $(font_color)Deleting $(bold)$(BIN_DIR)$(reset)\n"
-	@$(RM) -rf $(BIN_DIR)
+ifneq ($(wildcard $(TARGET)),)
+	@printf "$(red_minus) $(font_color)Deleting $(bold)$(TARGET)$(reset)\n"
+	@$(RM) $(TARGET)
 endif
 
 re:						fclean all
