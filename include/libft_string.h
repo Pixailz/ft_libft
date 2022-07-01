@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_str.h                                        :+:      :+:    :+:   */
+/*   libft_string.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/30 21:49:03 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:20:33 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_STR_H
-# define LIBFT_STR_H
+#ifndef LIBFT_STRING_H
+# define LIBFT_STRING_H
 
 /* ########################################################################## */
 /* INCLUDE */
 /* ####### */
 
-# include "libft_int.h"
+# include "libft.h"
+# include <stdlib.h>
 
 /* ########################################################################## */
 
@@ -25,14 +26,32 @@
 /* FILES */
 /* ##### */
 
+# ifndef LIBFT_INTEGER
+// ft_strlen.c
+t_size		ft_nbrlen_base(const void *void_nbr, const char *base);
+
+// ft_nbrlen.c
+t_size		ft_nbrlen(const void *void_nbr);
+# endif
+# ifndef LIBFT_MEMORY
+// ft_calloc.c
+void		*ft_calloc(t_size nmemb, t_size size);
+
+// ft_memset.c
+void		*ft_memset(void *s, int c, t_size n);
+# endif
+
 // ft_get_words.c
 int			ft_get_words(char *str, char c);
 
+// ft_itoa_base.c
+char		*ft_itoa_base(const int const_nb, const char *base);
+
 // ft_itoa.c
-char		*ft_itoa(int nb);
+char		*ft_itoa(const int const_nb);
 
 // ft_ltoa.c
-long		ft_atol(char *nbr_str);
+char		*ft_ltoa(const t_int64 const_nb);
 
 // ft_split.c
 char		**ft_split(char *s, char c);
@@ -76,6 +95,7 @@ t_uint32	ft_strlcat(char *dest, char *src, t_size size);
 
 // ft_strlcpy.c
 t_uint32	ft_strlcpy(char *dest, char *src, t_size size);
+
 // ft_strlen.c
 int			ft_strlen(char *str);
 

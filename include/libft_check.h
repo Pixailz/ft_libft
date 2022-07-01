@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_int.h                                        :+:      :+:    :+:   */
+/*   libft_check.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/30 21:49:28 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/01 08:36:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_INT_H
-# define LIBFT_INT_H
+#ifndef LIBFT_CHECK_H
+# define LIBFT_CHECK_H
 
 /* ########################################################################## */
-/* DEFINE */
-/* ###### */
+/* INCLUDE */
+/* ####### */
 
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
-# define LONG_MAX 2147483647
-# define LONG_MIN -2147483648
-# define LLONG_MAX 9223372036854775807L
-# define LLONG_MAX -9223372036854775808L
-# define UINT_MAX 0xffffffffU
-# define ULONG_MAX 0xffffffffU
-# define ULLONG_MAX 0xffffffffffffffffUL
+# include "libft.h"
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* CONFIG */
+/* ###### */
 
 /* ########################################################################## */
 
@@ -33,10 +31,11 @@
 /* TYPEDEF */
 /* ####### */
 
-typedef unsigned char		t_uint8;
-typedef unsigned int		t_uint32;
-typedef long long			t_int64;
-typedef unsigned long		t_size;
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* STRUCT */
+/* ###### */
 
 /* ########################################################################## */
 
@@ -44,20 +43,20 @@ typedef unsigned long		t_size;
 /* FILES */
 /* ##### */
 
-// ft_atoi.c
-int			ft_atoi(char *nptr);
+// ft_isalnum.c
+int		ft_isalnum(const char c);
 
-// ft_atol.c
-long		ft_atol(char *nbr_str);
+// ft_isalpha.c
+int		ft_isalpha(const char c);
 
-// ft_atoll.c
-long long	ft_atoll(char *nbr_str);
+// ft_isascii.c
+int		ft_isascii(const char c);
 
-// ft_nbrlen.c
-int			ft_nbrlen(long int nb);
+// ft_isdigit.c
+int		ft_isdigit(const char c);
 
-// ft_rev_int.c
-int			ft_rev_int(int nb);
+// ft_isprint.c
+int		ft_isprint(const char c);
 
 /* ########################################################################## */
 
