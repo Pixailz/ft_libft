@@ -6,11 +6,25 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:24:34 by stales            #+#    #+#             */
-/*   Updated: 2022/07/01 12:10:44 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/05 01:11:58 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_integer.h"
+
+static int	ft_get_base(int c, const char *base)
+{
+	int	counter;
+
+	counter = 0;
+	while (base[counter])
+	{
+		if (c == base[counter])
+			return (counter);
+		counter++;
+	}
+	return (-1);
+}
 
 /**
  * @brief			Converts the initial portion of the string pointed to by str
@@ -37,8 +51,8 @@ int	ft_atoi_base(char *nstr, const char *base)
 	if ((*nptr == '+' || *nptr == '-'))
 		if (*nptr++ == '-')
 			neg = ~(neg - 1);
-	while (*nptr >= '0' && *nptr <= '9')
-		to_dec = (to_dec * base_len) + (*nptr++ % base_len);
+	while (ft_get_base(*nptr, base) != -1)
+		to_dec = (to_dec * base_len) + ft_get_base(*nptr++, base);
 	if (neg == -1 && to_dec < INT_MIN)
 		return (0);
 	else if (to_dec < INT_MIN)
