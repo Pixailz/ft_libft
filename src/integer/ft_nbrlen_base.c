@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:17:18 by pix               #+#    #+#             */
-/*   Updated: 2022/07/01 12:38:33 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/05 01:00:55 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ t_size	ft_nbrlen_base(const void *void_nbr, const char *base)
 		size++;
 	}
 	while (nb && ++size)
-	{
-		nb =
 		nb /= size_base;
-	}
 	return (size);
 }
