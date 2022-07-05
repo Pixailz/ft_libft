@@ -27,7 +27,7 @@ function clean_source_makefile()
 	begin_src=${begin_src/:*/}
 	cursor=${begin_src}
 	sed -i "${cursor}d" ${MAKEFILE_PATH}
-	end_src=$(grep -nE '^\s*.*[0-9a-zA-Z]\.c$' ${MAKEFILE_PATH})
+	end_src=$(grep -nE '(:| )+(=| )+[A-z0-9\_\/]+\.c$' ${MAKEFILE_PATH})
 	end_src=${end_src##*$'\n'}
 	end_src=${end_src/:*/}
 	sed -i "${begin_src},${end_src}d" ${MAKEFILE_PATH}
@@ -96,6 +96,9 @@ function main()
 	launch
 	SRC_DIR="src/print"
 	VARIABLE_SRC="SRC_PRT"
+	launch
+	SRC_DIR="src/input"
+	VARIABLE_SRC="SRC_INP"
 	launch
 }
 

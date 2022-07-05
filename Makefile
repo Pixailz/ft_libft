@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/07/01 14:15:32 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/07/05 03:35:46 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,11 @@ else
 ifeq ($(findstring print,$(MAKECMDGOALS)),print)
 PRINT				:= 1
 else
+ifeq ($(findstring input,$(MAKECMDGOALS)),input)
+INPUT				:= 1
+else
 ALL					:= 1
+endif
 endif
 endif
 endif
@@ -81,6 +85,7 @@ endif
 SRC_STR				:= string/ft_get_words.c \
 					   string/ft_itoa_base.c \
 					   string/ft_itoa.c \
+					   string/ft_ltoa_base.c \
 					   string/ft_ltoa.c \
 					   string/ft_split.c \
 					   string/ft_strcat.c \
@@ -122,8 +127,12 @@ SRC_MEM				:= memory/ft_bzero.c \
 					   memory/ft_memchr.c \
 					   memory/ft_memcmp.c \
 					   memory/ft_memcpy.c \
+					   memory/ft_memjoin.c \
 					   memory/ft_memmove.c \
+					   memory/ft_memnchr.c \
 					   memory/ft_memset.c
+
+SRC_MEM				+= string/ft_strlen.c
 
 ifeq ($(MEMORY),1)
 SRC_C_TMP			+= $(SRC_MEM)
@@ -156,10 +165,30 @@ endif
 SRC_PRT				:= print/ft_putchar_fd.c \
 					   print/ft_putendl_fd.c \
 					   print/ft_putnbr_fd.c \
-					   print/ft_putstr_fd.c
+					   print/ft_putstr_fd.c \
+					   print/ft_printf.c
+
+SRC_PRT				+= string/ft_itoa_base.c \
+					   string/ft_strlen.c \
+					   print/ft_putnbr_fd.c \
+					   print/ft_putunbr_fd.c \
+					   integer/ft_nbrlen_base.c \
+					   integer/ft_nbrlen.c \
+					   memory/ft_calloc.c \
+					   memory/ft_memset.c
 
 ifeq ($(PRINT),1)
 SRC_C_TMP			+= $(SRC_PRT)
+endif
+
+SRC_INP				:= input/ft_get_next_line.c
+
+SRC_INP				+= memory/ft_memchr.c \
+					   memory/ft_memjoin.c \
+					   string/ft_strlen.c
+
+ifeq ($(INPUT),1)
+SRC_C_TMP			+= $(SRC_INP)
 endif
 
 SRC_C				:= $(SRC_C_TMP)
@@ -171,6 +200,7 @@ SRC_C				+= $(SRC_MEM)
 SRC_C				+= $(SRC_CHK)
 SRC_C				+= $(SRC_LST)
 SRC_C				+= $(SRC_PRT)
+SRC_C				+= $(SRC_INP)
 endif
 
 SRC_C				:= $(addprefix $(SRC_DIR)/,$(SRC_C))
@@ -199,7 +229,7 @@ ascii_color			:= $(bold)
 green_plus			:= $(font_color)[$(green)+$(font_color)]$(reset)
 red_minus			:= $(font_color)[$(red)-$(font_color)]$(reset)
 orange_star			:= $(font_color)[$(orange)*$(font_color)]$(reset)
-blinking_arrow		:= $(blinking)$(get_random)->$(reset)
+blinking_arrow		:= $(blinking)$(green)->$(reset)
 
 UL="\xe2\x95\x94"
 HO="\xe2\x95\x90"
@@ -214,12 +244,12 @@ LR="\xe2\x95\x9d"
 # utils
 
 define ascii_art
-██████╗ ██╗  ██╗██╗██╗      ██████╗
-██╔══██╗██║  ██║██║██║     ██╔═══██╗
-██████╔╝███████║██║██║     ██║   ██║
-██╔═══╝ ██╔══██║██║██║     ██║   ██║
-██║     ██║  ██║██║███████╗╚██████╔╝
-╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝ ╚═════╝
+███████╗████████╗     ██╗     ██╗██████╗ ███████╗████████╗
+██╔════╝╚══██╔══╝     ██║     ██║██╔══██╗██╔════╝╚══██╔══╝
+█████╗     ██║        ██║     ██║██████╔╝█████╗     ██║
+██╔══╝     ██║        ██║     ██║██╔══██╗██╔══╝     ██║
+██║        ██║        ███████╗██║██████╔╝██║        ██║
+╚═╝        ╚═╝        ╚══════╝╚═╝╚═════╝ ╚═╝        ╚═╝
 $(reset)
 endef
 export ascii_art
@@ -278,6 +308,9 @@ list:					setup $(TARGET)
 	@printf "$$usage"
 
 print:					setup $(TARGET)
+	@printf "$$usage"
+
+input:					setup $(TARGET)
 	@printf "$$usage"
 
 $(TARGET):				$(OBJ_C)

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 10:30:45 by stales            #+#    #+#             */
-/*   Updated: 2022/07/01 08:50:34 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/05 02:53:26 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
  * @param c			Character to write
  * @param fd		File descriptor
  *
- * @return (void)	None.
+ * @return (size_t)	Number of char written to fd.
  */
-void	ft_putchar_fd(char c, int fd)
+size_t	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	return (write(fd, &c, 1));
 }

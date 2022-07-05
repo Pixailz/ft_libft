@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:43:03 by pix               #+#    #+#             */
-/*   Updated: 2022/07/01 11:49:11 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/05 02:29:14 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@
  */
 int	ft_isascii(const char c)
 {
-	return (c >= 0 && c <= 0x7F);
+	int	tmp_c;
+
+	tmp_c = (int)c;
+	return (tmp_c >= 0 && tmp_c <= 0x7F);
 }

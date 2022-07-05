@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_ltoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:25:32 by stales            #+#    #+#             */
-/*   Updated: 2022/07/05 03:37:44 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/05 03:34:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  *
  * @return (char *)	The converted value or FT_NULL on error
  */
-char	*ft_itoa_base(const t_int64 const_nb, const char *base)
+char	*ft_ltoa_base(const t_int64 const_nb, const char *base)
 {
 	t_int64	nb;
 	t_size	nb_size;

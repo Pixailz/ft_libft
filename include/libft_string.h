@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/07/01 12:20:33 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/05 03:37:56 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 /* ####### */
 
 # include "libft.h"
+
 # include <stdlib.h>
 
 /* ########################################################################## */
@@ -33,6 +34,7 @@ t_size		ft_nbrlen_base(const void *void_nbr, const char *base);
 // ft_nbrlen.c
 t_size		ft_nbrlen(const void *void_nbr);
 # endif
+
 # ifndef LIBFT_MEMORY
 // ft_calloc.c
 void		*ft_calloc(t_size nmemb, t_size size);
@@ -45,10 +47,13 @@ void		*ft_memset(void *s, int c, t_size n);
 int			ft_get_words(char *str, char c);
 
 // ft_itoa_base.c
-char		*ft_itoa_base(const int const_nb, const char *base);
+char		*ft_itoa_base(const t_int64 const_nb, const char *base);
 
 // ft_itoa.c
 char		*ft_itoa(const int const_nb);
+
+// ft_ltoa_base.c
+char		*ft_ltoa_base(const t_int64 const_nb, const char *base);
 
 // ft_ltoa.c
 char		*ft_ltoa(const t_int64 const_nb);
