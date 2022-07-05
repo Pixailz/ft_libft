@@ -8,4 +8,4 @@
 	- working with single lib
 		- check working with single
 	- but not with multiple (string memory, string integer memory, etc..)
-3. fix (atoi|itoa)_base
+3. finish adding ft_printf
