@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/07/05 03:37:56 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/06 16:23:44 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,40 +27,29 @@
 /* FILES */
 /* ##### */
 
-# ifndef LIBFT_INTEGER
-// ft_strlen.c
-t_size		ft_nbrlen_base(const void *void_nbr, const char *base);
+// ft_atoi_base.c
+int			ft_atoi_base(char *nstr, const char *base);
 
-// ft_nbrlen.c
-t_size		ft_nbrlen(const void *void_nbr);
-# endif
+// ft_atoi.c
+int			ft_atoi(char *nstr);
 
-# ifndef LIBFT_MEMORY
-// ft_calloc.c
-void		*ft_calloc(t_size nmemb, t_size size);
+// ft_atol.c
+t_int64		ft_atol(char *nstr);
 
-// ft_memset.c
-void		*ft_memset(void *s, int c, t_size n);
-# endif
+// ft_atol_base.c
+t_int64		ft_atol_base(char *nstr, const char *base);
+
+// ft_atou.c
+t_uint64	ft_atou_base(char *nstr, const char *base);
+
+// ft_atou_base.c
+t_uint64	ft_atou_base(char *nstr, const char *base);
 
 // ft_get_words.c
 int			ft_get_words(char *str, char c);
 
-// ft_itoa_base.c
-char		*ft_itoa_base(const t_int64 const_nb, const char *base);
-
-// ft_itoa.c
-char		*ft_itoa(const int const_nb);
-
-// ft_ltoa_base.c
-char		*ft_ltoa_base(const t_int64 const_nb, const char *base);
-
-// ft_ltoa.c
-char		*ft_ltoa(const t_int64 const_nb);
-
 // ft_split.c
 char		**ft_split(char *s, char c);
-char		*init_str(char *s, char c);
 
 // ft_strcat.c
 char		*ft_strcat(char *dest, char *src);
@@ -122,6 +111,12 @@ char		*ft_strnstr(char *str, char *to_find, int n);
 // ft_strrchr.c
 char		*ft_strrchr(const char *s, int c);
 
+// ft_strspn.c
+size_t		ft_strspn(char *s, const char *accepts);
+
+// ft_strtok.c
+char		*ft_strtok(char *str, char *token);
+
 // ft_strtrim.c
 char		*ft_strtrim(char const *s1, char const *set);
 
@@ -133,6 +128,28 @@ int			ft_tolower(int c);
 
 // ft_toupper.c
 int			ft_toupper(int c);
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* REQUIREMENTS */
+/* ############ */
+
+# ifndef LIBFT_INTEGER
+// ft_strlen.c
+t_size		ft_nbrlen_base(const void *void_nbr, const char *base);
+
+// ft_nbrlen.c
+t_size		ft_nbrlen(const void *void_nbr);
+# endif
+
+# ifndef LIBFT_MEMORY
+// ft_calloc.c
+void		*ft_calloc(t_size nmemb, t_size size);
+
+// ft_memset.c
+void		*ft_memset(void *s, int c, t_size n);
+# endif
 
 /* ########################################################################## */
 

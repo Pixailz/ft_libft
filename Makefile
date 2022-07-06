@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/07/05 03:35:46 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/07/06 16:32:30 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,24 +69,31 @@ OBJ_SUBDIR			:= $(sort $(shell find $(SRC_DIR) -type d | \
 INC_DIR				:= -Iinclude
 
 # SRC
-SRC_INT				:= integer/ft_atoi_base.c \
-					   integer/ft_atoi.c \
-					   integer/ft_atol.c \
+SRC_INT				:= integer/ft_itoa_base.c \
+					   integer/ft_itoa.c \
+					   integer/ft_ltoa_base.c \
+					   integer/ft_nbrlen.c \
 					   integer/ft_nbrlen_base.c \
 					   integer/ft_nbrlen.c \
-					   integer/ft_rev_int.c
+					   integer/ft_rev_int.c \
+					   integer/ft_utoa_base.c \
+					   integer/ft_utoa.c
 
+ifneq ($(ALL),1)
 SRC_INT				+= string/ft_strlen.c
+endif
 
 ifeq ($(INTEGER),1)
 SRC_C_TMP			+= $(SRC_INT)
 endif
 
-SRC_STR				:= string/ft_get_words.c \
-					   string/ft_itoa_base.c \
-					   string/ft_itoa.c \
-					   string/ft_ltoa_base.c \
-					   string/ft_ltoa.c \
+SRC_STR				:= string/ft_atoi_base.c \
+					   string/ft_atoi.c \
+					   string/ft_atol_base.c \
+					   string/ft_atol.c \
+					   string/ft_atou_base.c \
+					   string/ft_atou.c \
+					   string/ft_get_words.c \
 					   string/ft_split.c \
 					   string/ft_strcat.c \
 					   string/ft_strcchr.c \
@@ -113,10 +120,12 @@ SRC_STR				:= string/ft_get_words.c \
 					   string/ft_tolower.c \
 					   string/ft_toupper.c
 
+ifneq ($(ALL),1)
 SRC_STR				+= integer/ft_nbrlen_base.c \
 					   integer/ft_nbrlen.c \
 					   memory/ft_calloc.c \
 					   memory/ft_memset.c
+endif
 
 ifeq ($(STRING),1)
 SRC_C_TMP			+= $(SRC_STR)
@@ -132,7 +141,9 @@ SRC_MEM				:= memory/ft_bzero.c \
 					   memory/ft_memnchr.c \
 					   memory/ft_memset.c
 
+ifneq ($(ALL),1)
 SRC_MEM				+= string/ft_strlen.c
+endif
 
 ifeq ($(MEMORY),1)
 SRC_C_TMP			+= $(SRC_MEM)
@@ -148,27 +159,30 @@ ifeq ($(CHECK),1)
 SRC_C_TMP			+= $(SRC_CHK)
 endif
 
-SRC_LST				:= list/ft_lstadd_back_bonus.c \
-					   list/ft_lstadd_front_bonus.c \
-					   list/ft_lstclear_bonus.c \
-					   list/ft_lstdelone_bonus.c \
-					   list/ft_lstiter_bonus.c \
-					   list/ft_lstlast_bonus.c \
-					   list/ft_lstmap_bonus.c \
-					   list/ft_lstnew_bonus.c \
-					   list/ft_lstsize_bonus.c
+SRC_LST				:= list/ft_lstadd_back.c \
+					   list/ft_lstadd_front.c \
+					   list/ft_lstclear.c \
+					   list/ft_lstdelone.c \
+					   list/ft_lstiter.c \
+					   list/ft_lstlast.c \
+					   list/ft_lstmap.c \
+					   list/ft_lstnew.c \
+					   list/ft_lstsize.c
 
 ifeq ($(LIST),1)
 SRC_C_TMP			+= $(SRC_LST)
 endif
 
-SRC_PRT				:= print/ft_putchar_fd.c \
+SRC_PRT				:= print/ft_error.c \
+					   print/ft_putchar_fd.c \
 					   print/ft_putendl_fd.c \
 					   print/ft_putnbr_fd.c \
 					   print/ft_putstr_fd.c \
+					   print/ft_printf_fd.c \
 					   print/ft_printf.c
 
-SRC_PRT				+= string/ft_itoa_base.c \
+ifneq ($(ALL),1)
+SRC_PRT				+= integer/ft_itoa_base.c \
 					   string/ft_strlen.c \
 					   print/ft_putnbr_fd.c \
 					   print/ft_putunbr_fd.c \
@@ -176,6 +190,7 @@ SRC_PRT				+= string/ft_itoa_base.c \
 					   integer/ft_nbrlen.c \
 					   memory/ft_calloc.c \
 					   memory/ft_memset.c
+endif
 
 ifeq ($(PRINT),1)
 SRC_C_TMP			+= $(SRC_PRT)
@@ -183,9 +198,11 @@ endif
 
 SRC_INP				:= input/ft_get_next_line.c
 
+ifneq ($(ALL),1)
 SRC_INP				+= memory/ft_memchr.c \
 					   memory/ft_memjoin.c \
 					   string/ft_strlen.c
+endif
 
 ifeq ($(INPUT),1)
 SRC_C_TMP			+= $(SRC_INP)
@@ -229,7 +246,7 @@ ascii_color			:= $(bold)
 green_plus			:= $(font_color)[$(green)+$(font_color)]$(reset)
 red_minus			:= $(font_color)[$(red)-$(font_color)]$(reset)
 orange_star			:= $(font_color)[$(orange)*$(font_color)]$(reset)
-blinking_arrow		:= $(blinking)$(green)->$(reset)
+blinking_arrow		:= $(blinking)$(font_color)->$(reset)
 
 UL="\xe2\x95\x94"
 HO="\xe2\x95\x90"
@@ -330,6 +347,7 @@ setup:					call_logo $(OBJ_SUBDIR)
 	@printf "      $(orange_star) $(font_color)CHECK $(bold)%d$(reset)\n" $(CHECK)
 	@printf "      $(orange_star) $(font_color)LIST $(bold)%d$(reset)\n" $(LIST)
 	@printf "      $(orange_star) $(font_color)PRINT $(bold)%d$(reset)\n" $(PRINT)
+	@printf "      $(orange_star) $(font_color)ALL $(bold)%d$(reset)\n" $(ALL)
 	@printf "   $(orange_star) $(font_color)TARGET $(bold)%s$(reset)\n" $(TARGET)
 	@printf "   $(orange_star) $(bold)SRC_C$(reset)\n"
 	@printf "      $(orange_star) $(font_color)%s$(reset)\n" $(SRC_C)

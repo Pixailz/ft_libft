@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/07/05 02:21:54 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/06 16:02:15 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,18 @@
 /* FILES */
 /* ##### */
 
+// ft_get_next_line.c
+char	*ft_get_next_line(int fd);
+char	*ft_line(char *buf);
+char	*ft_stash(char *s);
+char	*ft_read(int fd, char *buf);
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* REQUIREMENTS */
+/* ############ */
+
 # ifndef LIBFT_MEMORY_H
 // ft_memchr.c
 char	*ft_memchr(char *buf, unsigned char c);
@@ -54,12 +66,6 @@ char	*ft_memjoin(char *s1, char *s2);
 // ft_strlen.c
 int		ft_strlen(char *str);
 # endif
-
-// ft_get_next_line.c
-char	*ft_get_next_line(int fd);
-char	*ft_line(char *buf);
-char	*ft_stash(char *s);
-char	*ft_read(int fd, char *buf);
 
 /* ########################################################################## */
 

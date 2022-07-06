@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/18 15:25:32 by stales            #+#    #+#             */
+/*   Updated: 2022/07/06 15:23:26 by brda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft_string.h"
+
+/**
+ * @brief			Constructs a string representation of an integer.
+ *
+ * @param nb		Integer to convert
+ *
+ * @return (char *)	The converted value or FT_NULL on error
+ */
+char	*ft_utoa(const t_uint64 const_nb)
+{
+	t_uint64	nb;
+	t_size		nb_size;
+	char		*nb_str;
+
+	nb = (t_uint64)const_nb;
+	nb_size = ft_nbrlen((void *)nb);
+	nb_str = ft_calloc(1, nb_size + 1);
+	if (!nb_str)
+		return (FT_NULL);
+	if (nb == 0)
+		nb_str[0] = '0';
+	while (nb)
+	{
+		nb_str[nb_size - 1] = '0' + (nb % 10);
+		nb /= 10;
+		nb_size--;
+	}
+	return (nb_str);
+}

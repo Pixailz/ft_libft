@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 22:01:09 by stales            #+#    #+#             */
-/*   Updated: 2022/07/01 12:04:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/06 15:33:57 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  *
  * @return (char **)Allocated list of separated string, termined by NULL char
  */
-char	*init_str(char *s, char c)
+static char	*ft_init_str(char *s, char c)
 {
 	int		i;
 	char	*ptr;
@@ -49,7 +49,7 @@ char	**ft_split(char *s, char c)
 	{
 		while (s[0] == c)
 			s++;
-		ptr[i[0]] = init_str(s, c);
+		ptr[i[0]] = ft_init_str(s, c);
 		if (!ptr[i[0]])
 		{
 			while (i[0] > 0)

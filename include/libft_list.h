@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/07/05 01:20:40 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/06 15:37:17 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_list
 {
 	struct s_list	*next;
 	struct s_list	*prev;
+	t_uint64		*index;
 	void			*content;
 	t_size			size;
 }					t_list;

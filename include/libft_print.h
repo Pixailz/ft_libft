@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/07/05 03:30:13 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/07/06 16:25:14 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+// ft_error.c
+# include <errno.h>
 
 /* ########################################################################## */
 
@@ -33,28 +35,9 @@
 /* ########################################################################## */
 
 /* ########################################################################## */
-
-/* ########################################################################## */
 /* FILES */
 /* ##### */
 
-# ifndef LIBFT_STRING_H
-// ft_itoa_base.c
-char	*ft_itoa_base(const int const_nb, const char *base);
-# endif
-
-# ifndef LIBFT_INTEGER
-// ft_strlen.c
-t_size	ft_nbrlen_base(const void *void_nbr, const char *base);
-# endif
-
-# ifndef LIBFT_MEMORY
-// ft_calloc.c
-void	*ft_calloc(t_size nmemb, t_size size);
-
-// ft_memset.c
-void	*ft_memset(void *s, int c, t_size n);
-# endif
 // ft_putchar_fd.c
 size_t	ft_putchar_fd(char c, int fd);
 
@@ -72,6 +55,34 @@ size_t	ft_putstr_fd(char const *s, int fd);
 
 // ft_printf.c
 size_t	ft_printf(const char *format, ...);
+
+// ft_printf_fd.c
+size_t	ft_printf_fd(int fd, const char *format, ...);
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* REQUIREMENTS */
+/* ############ */
+
+# ifndef LIBFT_INTEGER
+// ft_itoa_base.c
+char	*ft_itoa_base(const t_int64 const_nb, const char *base);
+
+// ft_strlen.c
+t_size	ft_nbrlen_base(const void *void_nbr, const char *base);
+# endif
+
+# ifndef LIBFT_MEMORY
+// ft_calloc.c
+void	*ft_calloc(t_size nmemb, t_size size);
+
+// ft_error.c
+int		ft_error(char *msg, int return_code);
+
+// ft_memset.c
+void	*ft_memset(void *s, int c, t_size n);
+# endif
 
 /* ########################################################################## */
 
