@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/07/06 15:37:17 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/08/18 19:14:48 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 /* INCLUDE */
 /* ####### */
 
-# include "libft.h"
+# ifndef LIBFT_DEFINE_H
+#  include "libft_define.h"
+# endif
 
 # include <stdlib.h>
 

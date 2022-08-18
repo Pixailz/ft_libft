@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   libft_define.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/08/18 19:15:47 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/08/18 19:13:22 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/08/18 19:13:54 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef LIBFT_DEFINE_H
+# define LIBFT_DEFINE_H
 
 /* ########################################################################## */
-/* INCLUDE */
+/* CONFIG */
+/* ###### */
+
+# define FT_NULL (void *)0
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* TYPEDEF */
 /* ####### */
 
-# include "libft_check.h"
-# include "libft_input.h"
-# include "libft_integer.h"
-# include "libft_list.h"
-# include "libft_memory.h"
-# include "libft_print.h"
-# include "libft_string.h"
+typedef unsigned char		t_uint8;
+typedef unsigned int		t_uint32;
+typedef long long			t_int64;
+typedef unsigned long long	t_uint64;
+typedef unsigned long		t_size;
 
 /* ########################################################################## */
 
