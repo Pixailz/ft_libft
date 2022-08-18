@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/07/06 16:32:30 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/08/18 19:39:42 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,34 +14,34 @@
 # config
 
 VERSION				:= 1.0.0
+ifeq ($(findstring multiple,$(MAKECMDGOALS)),multiple)
+MULTIPLE		:= 1
+endif
+
+ifeq ($(MULTIPLE), 1)
 ifeq ($(findstring integer,$(MAKECMDGOALS)),integer)
-INTEGER				:= 1
-else
+INTEGER			:= 1
+endif
 ifeq ($(findstring string,$(MAKECMDGOALS)),string)
-STRING				:= 1
-else
+STRING			:= 1
+endif
 ifeq ($(findstring memory,$(MAKECMDGOALS)),memory)
-MEMORY				:= 1
-else
+MEMORY			:= 1
+endif
 ifeq ($(findstring check,$(MAKECMDGOALS)),check)
-CHECK				:= 1
-else
+CHECK			:= 1
+endif
 ifeq ($(findstring list,$(MAKECMDGOALS)),list)
-LIST				:= 1
-else
+LIST			:= 1
+endif
 ifeq ($(findstring print,$(MAKECMDGOALS)),print)
-PRINT				:= 1
-else
+PRINT			:= 1
+endif
 ifeq ($(findstring input,$(MAKECMDGOALS)),input)
-INPUT				:= 1
+INPUT			:= 1
+endif
 else
-ALL					:= 1
-endif
-endif
-endif
-endif
-endif
-endif
+ALL				:= 1
 endif
 
 TARGET				:= libft.a
@@ -309,26 +309,29 @@ endef
 all:					setup $(TARGET)
 	@printf "$$usage"
 
-integer:				setup $(TARGET)
-	@printf "$$usage"
+multiple:
+	@printf ""
 
-string:					setup $(TARGET)
-	@printf "$$usage"
+integer:
+	@printf ""
 
-memory:					setup $(TARGET)
-	@printf "$$usage"
+string:
+	@printf ""
 
-check:					setup $(TARGET)
-	@printf "$$usage"
+memory:
+	@printf ""
 
-list:					setup $(TARGET)
-	@printf "$$usage"
+check:
+	@printf ""
 
-print:					setup $(TARGET)
-	@printf "$$usage"
+list:
+	@printf ""
 
-input:					setup $(TARGET)
-	@printf "$$usage"
+print:
+	@printf ""
+
+input:
+	@printf ""
 
 $(TARGET):				$(OBJ_C)
 	@printf "$(green_plus) $(font_color)Creation of $(bold)$@$(reset)\n"
@@ -339,6 +342,7 @@ $(OBJ_DIR)/%.o: 		$(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 setup:					call_logo $(OBJ_SUBDIR)
+ifeq ($(DEBUG),1)
 	@printf "$(orange_star) $(font_color)Info$(reset)\n"
 	@printf "   $(orange_star) $(bold)Switch$(reset)\n"
 	@printf "      $(orange_star) $(font_color)INTEGER $(bold)%d$(reset)\n" $(INTEGER)
@@ -354,6 +358,7 @@ setup:					call_logo $(OBJ_SUBDIR)
 	@printf "   $(orange_star) $(bold)OBJ_C$(reset)\n"
 	@printf "      $(orange_star) $(font_color)%s$(reset)\n" $(OBJ_C)
 	@printf "$(orange_star) $(font_color)Building$(reset)\n"
+endif
 
 call_logo:
 	@printf "$(ascii_color)$$ascii_art"
