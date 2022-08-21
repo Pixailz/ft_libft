@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/08/18 19:39:42 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/08/21 02:44:05 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,10 +69,11 @@ OBJ_SUBDIR			:= $(sort $(shell find $(SRC_DIR) -type d | \
 INC_DIR				:= -Iinclude
 
 # SRC
-SRC_INT				:= integer/ft_itoa_base.c \
+SRC_INT				:= integer/ft_get_base.c \
+					   integer/ft_itoa_base.c \
 					   integer/ft_itoa.c \
 					   integer/ft_ltoa_base.c \
-					   integer/ft_nbrlen.c \
+					   integer/ft_ltoa.c \
 					   integer/ft_nbrlen_base.c \
 					   integer/ft_nbrlen.c \
 					   integer/ft_rev_int.c \
@@ -115,6 +116,8 @@ SRC_STR				:= string/ft_atoi_base.c \
 					   string/ft_strncpy.c \
 					   string/ft_strnstr.c \
 					   string/ft_strrchr.c \
+					   string/ft_strspn.c \
+					   string/ft_strtok.c \
 					   string/ft_strtrim.c \
 					   string/ft_substr.c \
 					   string/ft_tolower.c \
@@ -174,12 +177,13 @@ SRC_C_TMP			+= $(SRC_LST)
 endif
 
 SRC_PRT				:= print/ft_error.c \
+					   print/ft_printf.c \
+					   print/ft_printf_fd.c \
 					   print/ft_putchar_fd.c \
 					   print/ft_putendl_fd.c \
 					   print/ft_putnbr_fd.c \
 					   print/ft_putstr_fd.c \
-					   print/ft_printf_fd.c \
-					   print/ft_printf.c
+					   print/ft_putunbr_fd.c
 
 ifneq ($(ALL),1)
 SRC_PRT				+= integer/ft_itoa_base.c \
