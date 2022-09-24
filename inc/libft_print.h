@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/08/18 19:14:53 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/09/24 21:24:41 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,33 +37,6 @@
 /* ########################################################################## */
 
 /* ########################################################################## */
-/* FILES */
-/* ##### */
-
-// ft_putchar_fd.c
-size_t	ft_putchar_fd(char c, int fd);
-
-// ft_putendl_fd.c
-size_t	ft_putendl_fd(char const *s, int fd);
-
-// ft_putnbr_fd.c
-size_t	ft_putnbr_fd(int n, int fd);
-
-// ft_putunbr_fd.c
-size_t	ft_putunbr_fd(unsigned long n, int fd);
-
-// ft_putstr_fd.c
-size_t	ft_putstr_fd(char const *s, int fd);
-
-// ft_printf.c
-size_t	ft_printf(const char *format, ...);
-
-// ft_printf_fd.c
-size_t	ft_printf_fd(int fd, const char *format, ...);
-
-/* ########################################################################## */
-
-/* ########################################################################## */
 /* REQUIREMENTS */
 /* ############ */
 
@@ -85,6 +58,36 @@ int		ft_error(char *msg, int return_code);
 // ft_memset.c
 void	*ft_memset(void *s, int c, t_size n);
 # endif
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* FILES */
+/* ##### */
+
+// ft_error.c
+int		ft_error(char *msg, int return_code);
+
+// ft_printf.c
+size_t	ft_printf(const char *format, ...);
+
+// ft_printf_fd.c
+size_t	ft_printf_fd(int fd, const char *format, ...);
+
+// ft_putchar_fd.c
+size_t	ft_putchar_fd(char c, int fd);
+
+// ft_putendl_fd.c
+size_t	ft_putendl_fd(char const *s, int fd);
+
+// ft_putnbr_fd.c
+size_t	ft_putnbr_fd(int n, int fd);
+
+// ft_putstr_fd.c
+size_t	ft_putstr_fd(char const *s, int fd);
+
+// ft_putunbr_fd.c
+size_t	ft_putunbr_fd(unsigned long n, int fd);
 
 /* ########################################################################## */
 

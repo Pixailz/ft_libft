@@ -46,25 +46,25 @@
 /* ##### */
 
 // ft_isalnum.c
-int		ft_isalnum(const char c);
+int	ft_isalnum(const char c);
 
 // ft_isalpha.c
-int		ft_isalpha(const char c);
+int	ft_isalpha(const char c);
 
 // ft_isascii.c
-int		ft_isascii(const char c);
+int	ft_isascii(const char c);
 
 // ft_isblank.c
-int		ft_isblank(const char c);
+int	ft_isblank(const char c);
 
 // ft_isdigit.c
-int		ft_isdigit(const char c);
+int	ft_isdigit(const char c);
 
 // ft_isprint.c
-int		ft_isprint(const char c);
+int	ft_isprint(const char c);
 
 // ft_isspace.c
-int		ft_isspace(const char c);
+int	ft_isspace(const char c);
 
 /* ########################################################################## */
 

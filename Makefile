@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/09/24 21:11:23 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/09/24 21:25:15 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,15 +70,15 @@ INC_DIR				:= -Iinc
 
 # SRC
 SRC_INT				:= integer/ft_get_base.c \
-					   integer/ft_itoa_base.c \
 					   integer/ft_itoa.c \
-					   integer/ft_ltoa_base.c \
+					   integer/ft_itoa_base.c \
 					   integer/ft_ltoa.c \
-					   integer/ft_nbrlen_base.c \
+					   integer/ft_ltoa_base.c \
 					   integer/ft_nbrlen.c \
+					   integer/ft_nbrlen_base.c \
 					   integer/ft_rev_int.c \
-					   integer/ft_utoa_base.c \
-					   integer/ft_utoa.c
+					   integer/ft_utoa.c \
+					   integer/ft_utoa_base.c
 
 ifneq ($(ALL),1)
 SRC_INT				+= string/ft_strlen.c
@@ -88,12 +88,12 @@ ifeq ($(INTEGER),1)
 SRC_C_TMP			+= $(SRC_INT)
 endif
 
-SRC_STR				:= string/ft_atoi_base.c \
-					   string/ft_atoi.c \
-					   string/ft_atol_base.c \
+SRC_STR				:= string/ft_atoi.c \
+					   string/ft_atoi_base.c \
 					   string/ft_atol.c \
-					   string/ft_atou_base.c \
+					   string/ft_atol_base.c \
 					   string/ft_atou.c \
+					   string/ft_atou_base.c \
 					   string/ft_get_words.c \
 					   string/ft_split.c \
 					   string/ft_strcat.c \
@@ -155,8 +155,8 @@ endif
 SRC_CHK				:= check/ft_isalnum.c \
 					   check/ft_isalpha.c \
 					   check/ft_isascii.c \
-					   check/ft_isdigit.c \
 					   check/ft_isblank.c \
+					   check/ft_isdigit.c \
 					   check/ft_isprint.c \
 					   check/ft_isspace.c
 
