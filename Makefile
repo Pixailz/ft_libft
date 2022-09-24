@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/09/24 21:25:15 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/09/24 21:46:06 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,33 +14,37 @@
 # config
 
 VERSION				:= 1.0.0
-ifeq ($(findstring multiple,$(MAKECMDGOALS)),multiple)
-MULTIPLE		:= 1
-endif
+MULTIPLE			:= 0
 
-ifeq ($(MULTIPLE), 1)
 ifeq ($(findstring integer,$(MAKECMDGOALS)),integer)
 INTEGER			:= 1
+MULTIPLE		:= 1
 endif
 ifeq ($(findstring string,$(MAKECMDGOALS)),string)
 STRING			:= 1
+MULTIPLE		:= 1
 endif
 ifeq ($(findstring memory,$(MAKECMDGOALS)),memory)
 MEMORY			:= 1
+MULTIPLE		:= 1
 endif
 ifeq ($(findstring check,$(MAKECMDGOALS)),check)
 CHECK			:= 1
+MULTIPLE		:= 1
 endif
 ifeq ($(findstring list,$(MAKECMDGOALS)),list)
 LIST			:= 1
+MULTIPLE		:= 1
 endif
 ifeq ($(findstring print,$(MAKECMDGOALS)),print)
 PRINT			:= 1
+MULTIPLE		:= 1
 endif
 ifeq ($(findstring input,$(MAKECMDGOALS)),input)
 INPUT			:= 1
+MULTIPLE		:= 1
 endif
-else
+ifeq ($(MULTIPLE), 0)
 ALL				:= 1
 endif
 
@@ -311,12 +315,10 @@ endef
 
 # rules that does not create file
 .PHONY:					clean fclean setup call_logo $(OBJ_SUBDIR)
+.SILENT:				integer
 
 all:					setup $(TARGET)
 	@printf "$$usage"
-
-multiple:
-	@printf ""
 
 integer:
 	@printf ""
