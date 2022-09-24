@@ -1,0 +1,13 @@
+# python3 venv
+bin/
+include/
+lib/
+lib64
+pyvenv.cfg
+
+# vscode settings
+.vscode/
+
+# test project
+philosophers/
+ft_libft/
