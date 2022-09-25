@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/09/24 21:46:06 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/09/25 01:46:05 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,11 +94,17 @@ endif
 
 SRC_STR				:= string/ft_atoi.c \
 					   string/ft_atoi_base.c \
-					   string/ft_atol.c \
-					   string/ft_atol_base.c \
+					   string/ft_atoll.c \
+					   string/ft_atoll_base.c \
 					   string/ft_atou.c \
 					   string/ft_atou_base.c \
 					   string/ft_get_words.c \
+					   string/ft_patoi.c \
+					   string/ft_patoi_base.c \
+					   string/ft_patoll.c \
+					   string/ft_patoll_base.c \
+					   string/ft_patou.c \
+					   string/ft_patou_base.c \
 					   string/ft_split.c \
 					   string/ft_strcat.c \
 					   string/ft_strcchr.c \
@@ -131,7 +137,10 @@ ifneq ($(ALL),1)
 SRC_STR				+= integer/ft_nbrlen_base.c \
 					   integer/ft_nbrlen.c \
 					   memory/ft_calloc.c \
-					   memory/ft_memset.c
+					   memory/ft_memset.c \
+					   check/ft_isgoodi.c \
+					   check/ft_isgoodll.c \
+					   check/ft_isgoodu.c
 endif
 
 ifeq ($(STRING),1)
@@ -161,6 +170,9 @@ SRC_CHK				:= check/ft_isalnum.c \
 					   check/ft_isascii.c \
 					   check/ft_isblank.c \
 					   check/ft_isdigit.c \
+					   check/ft_isgoodi.c \
+					   check/ft_isgoodll.c \
+					   check/ft_isgoodu.c \
 					   check/ft_isprint.c \
 					   check/ft_isspace.c
 
@@ -206,7 +218,7 @@ ifeq ($(PRINT),1)
 SRC_C_TMP			+= $(SRC_PRT)
 endif
 
-SRC_INP				:= input/ft_get_next_line.c
+SRC_INP				:= ft_get_next_line.c
 
 ifneq ($(ALL),1)
 SRC_INP				+= memory/ft_memchr.c \

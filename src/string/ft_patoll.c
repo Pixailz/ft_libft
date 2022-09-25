@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_patoll.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 18:24:34 by stales            #+#    #+#             */
-/*   Updated: 2022/07/06 15:14:09 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/09/25 00:34:32 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/09/25 01:10:31 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_integer.h"
+#include "libft_string.h"
 
-/**
- * @brief			Converts the initial portion of the string pointed to by str
- *					to t_int64.
- *
- * @param nstr	String to convert
- *
- * @return (t_int64)	The converted value or 0 on error
- */
-t_int64	ft_atol(char *nstr)
+static t_int64	ft_atoll_protected(char *nstr, int *has_overflow)
 {
 	char	*nptr;
 	t_int64	to_dec;
@@ -29,16 +21,31 @@ t_int64	ft_atol(char *nstr)
 	to_dec = 0;
 	neg = 1;
 	nptr = nstr;
+	*has_overflow = 0;
 	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
 		nptr++;
 	if ((*nptr == '+' || *nptr == '-'))
 		if (*nptr++ == '-')
 			neg = ~(neg - 1);
-	while (*nptr >= '0' && *nptr <= '9')
-		to_dec = (to_dec * 10) + (*nptr++ & 0xF);
-	if (neg == -1 && to_dec < LLONG_MIN)
-		return (0);
-	else if (to_dec < LLONG_MIN)
-		return (-1);
+	while (*nptr >= '0' && *nptr <= '9' && !*has_overflow)
+	{
+		if (!ft_isgoodll(to_dec, neg))
+			*has_overflow = 1;
+		to_dec = (to_dec * 0xA) + (*nptr++ & 0xF);
+	}
+	if (!ft_isgoodll(to_dec, neg))
+		*has_overflow = 1;
 	return (to_dec * neg);
+}
+
+t_int64	ft_patoll(char *nstr, int *has_overflow)
+{
+	t_int64	to_dec;
+
+	to_dec = 0;
+	if (has_overflow == FT_NULL)
+		to_dec = ft_atoll(nstr);
+	else
+		to_dec = ft_atoll_protected(nstr, has_overflow);
+	return (to_dec);
 }

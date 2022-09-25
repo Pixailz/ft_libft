@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol_base.c                                     :+:      :+:    :+:   */
+/*   ft_atoll_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:24:34 by stales            #+#    #+#             */
-/*   Updated: 2022/07/06 15:20:39 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/09/25 01:07:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  *
  * @return (t_int64)	The converted value or 0 on error
  */
-t_int64	ft_atol_base(char *nstr, const char *base)
+t_int64	ft_atoll_base(char *nstr, const char *base)
 {
 	char		*nptr;
 	t_int64		to_dec;

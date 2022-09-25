@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/24 21:24:55 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/09/25 01:57:33 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,20 @@ t_size		ft_nbrlen_base(const void *void_nbr, const char *base);
 
 // ft_nbrlen.c
 t_size		ft_nbrlen(const void *void_nbr);
+
+// ft_get_base.c
+int			ft_get_base(int c, const char *base);
+# endif
+
+# ifndef LIBFT_CHECK
+// ft_isgoodi.c
+t_bool		ft_isgoodi(t_int64 n, int neg);
+
+// ft_isgoodll.c
+t_bool		ft_isgoodll(t_int64 n, int neg);
+
+// ft_isgoodu.c
+t_bool		ft_isgoodu(unsigned int n);
 # endif
 
 # ifndef LIBFT_MEMORY
@@ -57,11 +71,11 @@ int			ft_atoi(char *nstr);
 // ft_atoi_base.c
 int			ft_atoi_base(char *nstr, const char *base);
 
-// ft_atol.c
-t_int64		ft_atol(char *nstr);
+// ft_atoll.c
+t_int64		ft_atoll(char *nstr);
 
-// ft_atol_base.c
-t_int64		ft_atol_base(char *nstr, const char *base);
+// ft_atoll_base.c
+t_int64		ft_atoll_base(char *nstr, const char *base);
 
 // ft_atou.c
 t_uint64	ft_atou(char *nstr);
@@ -71,6 +85,24 @@ t_uint64	ft_atou_base(char *nstr, const char *base);
 
 // ft_get_words.c
 int			ft_get_words(char *str, char c);
+
+// ft_patoi.c
+t_int64		ft_patoi(char *nstr, int *has_overflow);
+
+// ft_patoi_base.c
+t_int64		ft_patoi_base(char *nstr, const char *base, int *has_overflow);
+
+// ft_patoll.c
+t_int64		ft_patoll(char *nstr, int *has_overflow);
+
+// ft_patoll_base.c
+t_int64		ft_patoll_base(char *nstr, const char *base, int *has_overflow);
+
+// ft_patou.c
+t_uint32	ft_patou(char *nstr, int *has_overflow);
+
+// ft_patou_base.c
+t_uint32	ft_patou_base(char *nstr, const char *base, int *has_overflow);
 
 // ft_split.c
 char		**ft_split(char *s, char c);
