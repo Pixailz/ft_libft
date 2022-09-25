@@ -69,7 +69,7 @@ t_bool	ft_isgoodi(int n, int neg);
 t_bool	ft_isgoodll(t_int64 n, int neg);
 
 // ft_isgoodu.c
-t_bool	ft_isgoodu(t_uint32 n);
+t_bool	ft_isgoodu(t_uint32 n, int is_last);
 
 // ft_isprint.c
 int		ft_isprint(const char c);

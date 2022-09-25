@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 01:57:33 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/09/25 04:16:33 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_bool		ft_isgoodi(t_int64 n, int neg);
 t_bool		ft_isgoodll(t_int64 n, int neg);
 
 // ft_isgoodu.c
-t_bool		ft_isgoodu(unsigned int n);
+t_bool		ft_isgoodu(t_uint32 n, int is_last);
 # endif
 
 # ifndef LIBFT_MEMORY

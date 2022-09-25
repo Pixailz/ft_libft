@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 00:34:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 01:58:46 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/09/25 04:26:32 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static t_int64	ft_atoll_base_p(char *nstr, const char *base, int *has_overflow)
 	{
 		if (!ft_isgoodll(to_dec, neg))
 			*has_overflow = 1;
-		to_dec = (to_dec * base_len) + ft_get_base(*nptr, base);
+		to_dec = (to_dec * base_len) + ft_get_base(*nptr++, base);
 	}
 	if (!ft_isgoodll(to_dec, neg))
 		*has_overflow = 1;

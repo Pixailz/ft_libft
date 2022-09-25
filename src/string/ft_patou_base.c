@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 00:34:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 01:55:05 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/09/25 04:15:42 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static t_uint32	ft_atou_base_p(char *nstr, const char *base, int *has_overflow)
 			*has_overflow = 1;
 	while (ft_get_base(*nptr, base) != -1 && !*has_overflow)
 	{
-		if (!ft_isgoodu(to_dec))
+		if (!ft_isgoodu(to_dec, 0))
 			*has_overflow = 1;
 		to_dec = (to_dec * base_len) + ft_get_base(*nptr++, base);
 	}
-	if (!ft_isgoodu(to_dec))
+	if (!ft_isgoodu(to_dec, 1))
 		*has_overflow = 1;
 	return (to_dec);
 }

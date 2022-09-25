@@ -6,13 +6,13 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 01:15:28 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 01:44:58 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/09/25 04:15:29 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_check.h"
 
-t_bool	ft_isgoodu(t_uint32 n)
+t_bool	ft_isgoodu(t_uint32 n, int is_last)
 {
 	int				is_good;
 	static t_uint32	last_value = 0;
@@ -23,6 +23,9 @@ t_bool	ft_isgoodu(t_uint32 n)
 	if (last_value)
 		if (last_value > n)
 			is_good = False;
-	last_value = n;
+	if (is_last)
+		last_value = 0;
+	else
+		last_value = n;
 	return (is_good);
 }

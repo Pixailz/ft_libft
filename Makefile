@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/09/25 01:46:05 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/09/25 04:03:22 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -136,6 +136,7 @@ SRC_STR				:= string/ft_atoi.c \
 ifneq ($(ALL),1)
 SRC_STR				+= integer/ft_nbrlen_base.c \
 					   integer/ft_nbrlen.c \
+					   integer/ft_get_base.c \
 					   memory/ft_calloc.c \
 					   memory/ft_memset.c \
 					   check/ft_isgoodi.c \
