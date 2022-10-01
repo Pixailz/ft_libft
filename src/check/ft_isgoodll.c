@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 01:08:36 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 01:11:22 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:38:48 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_bool	ft_isgoodll(t_int64 n, int neg)
 {
-	int	is_good;
+	t_bool	is_good;
 
 	is_good = True;
 	if (neg == 1)

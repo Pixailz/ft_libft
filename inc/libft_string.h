@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/01 18:20:24 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:36:21 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			ft_get_base(int c, const char *base);
 
 # ifndef LIBFT_CHECK
 // ft_isgoodi.c
-t_bool		ft_isgoodi(t_int64 n, int neg);
+t_bool		ft_isgoodi(int n, int neg);
 
 // ft_isgoodll.c
 t_bool		ft_isgoodll(t_int64 n, int neg);

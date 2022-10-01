@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 01:15:28 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 04:15:29 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:38:58 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_bool	ft_isgoodu(t_uint32 n, int is_last)
 {
-	int				is_good;
+	t_bool			is_good;
 	static t_uint32	last_value = 0;
 
 	is_good = True;
