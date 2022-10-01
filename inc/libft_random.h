@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_check.h                                      :+:      :+:    :+:   */
+/*   libft_random.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/01 02:31:17 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/01 02:12:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_CHECK_H
-# define LIBFT_CHECK_H
+#ifndef LIBFT_RANDOM_H
+# define LIBFT_RANDOM_H
 
 /* ########################################################################## */
 /* INCLUDE */
@@ -21,14 +21,17 @@
 #  include "libft_define.h"
 # endif
 
-# include <limits.h>
-# include <sys/stat.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 /* ########################################################################## */
 
 /* ########################################################################## */
 /* CONFIG */
 /* ###### */
+
+# define TMP_ST "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 /* ########################################################################## */
 
@@ -45,44 +48,33 @@
 /* ########################################################################## */
 
 /* ########################################################################## */
+/* REQUIREMENTS */
+/* ############ */
+
+# ifndef LIBFT_STRING
+// ft_strncpy.c
+char	*ft_strncpy(char *dest, char *src, t_size n);
+
+// ft_strlen.c
+int		ft_strlen(char *str);
+# endif
+
+# ifndef LIBFT_MEMORY
+// ft_calloc.c
+void	*ft_calloc(t_size nmemb, t_size size);
+# endif
+
+/* ########################################################################## */
+
+/* ########################################################################## */
 /* FILES */
 /* ##### */
 
-// ft_isalnum.c
-int		ft_isalnum(const char c);
+// ft_randint.c
+t_int64	ft_randint(int start, int end);
 
-// ft_isalpha.c
-int		ft_isalpha(const char c);
-
-// ft_isascii.c
-int		ft_isascii(const char c);
-
-// ft_isblank.c
-int		ft_isblank(const char c);
-
-// ft_isdigit.c
-int		ft_isdigit(const char c);
-
-// ft_isdir.c
-int		ft_isdir(char *dir_name, int mode);
-
-// ft_isfile.c
-int		ft_isfile(char *file_path, int mode);
-
-// ft_isgoodi.c
-t_bool	ft_isgoodi(int n, int neg);
-
-// ft_isgoodll.c
-t_bool	ft_isgoodll(t_int64 n, int neg);
-
-// ft_isgoodu.c
-t_bool	ft_isgoodu(t_uint32 n, int is_last);
-
-// ft_isprint.c
-int		ft_isprint(const char c);
-
-// ft_isspace.c
-int		ft_isspace(const char c);
+// ft_tmpfile.c
+char	*ft_tmpfile(int in_tmp);
 
 /* ########################################################################## */
 

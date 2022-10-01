@@ -294,3 +294,21 @@ if __name__ == "__main__":
 		"makefile_path_depth":	2
 	}
 	ft_libft_string = ft_helper(**config)
+
+	config = {
+		"makefile":				"Makefile",
+		"makefile_var":			"SRC_RDM",
+		"header":				"inc/libft_random.h",
+		"src_folder":			"src/random",
+		"makefile_path_depth":	2
+	}
+	ft_libft_random = ft_helper(**config)
+
+	config = {
+		"makefile":				"Makefile",
+		"makefile_var":			"SRC_LNX",
+		"header":				"inc/libft_linux.h",
+		"src_folder":			"src/linux",
+		"makefile_path_depth":	2
+	}
+	ft_libft_linux = ft_helper(**config)

@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/09/25 04:03:22 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/10/01 02:37:03 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,14 @@ MULTIPLE		:= 1
 endif
 ifeq ($(findstring input,$(MAKECMDGOALS)),input)
 INPUT			:= 1
+MULTIPLE		:= 1
+endif
+ifeq ($(findstring random,$(MAKECMDGOALS)),random)
+RANDOM			:= 1
+MULTIPLE		:= 1
+endif
+ifeq ($(findstring linux,$(MAKECMDGOALS)),linux)
+LINUX			:= 1
 MULTIPLE		:= 1
 endif
 ifeq ($(MULTIPLE), 0)
@@ -171,6 +179,8 @@ SRC_CHK				:= check/ft_isalnum.c \
 					   check/ft_isascii.c \
 					   check/ft_isblank.c \
 					   check/ft_isdigit.c \
+					   check/ft_isdir.c \
+					   check/ft_isfile.c \
 					   check/ft_isgoodi.c \
 					   check/ft_isgoodll.c \
 					   check/ft_isgoodu.c \
@@ -219,7 +229,7 @@ ifeq ($(PRINT),1)
 SRC_C_TMP			+= $(SRC_PRT)
 endif
 
-SRC_INP				:= ft_get_next_line.c
+SRC_INP				:= input/ft_get_next_line.c
 
 ifneq ($(ALL),1)
 SRC_INP				+= memory/ft_memchr.c \
@@ -229,6 +239,32 @@ endif
 
 ifeq ($(INPUT),1)
 SRC_C_TMP			+= $(SRC_INP)
+endif
+
+SRC_RDM				:= random/ft_randint.c \
+					   random/ft_tmpfile.c
+
+ifneq ($(ALL),1)
+SRC_RDM				+= string/ft_strlen.c \
+					   memory/ft_calloc.c \
+					   string/ft_strncpy.c
+endif
+
+ifeq ($(RANDOM),1)
+SRC_C_TMP			+= $(SRC_RDM)
+endif
+
+SRC_LNX				:= linux/ft_getgid.c \
+					   linux/ft_getuid.c \
+					   linux/ft_iscdable.c
+
+ifneq ($(ALL),1)
+SRC_LNX				+= check/ft_isdir.c \
+					   random/ft_tmpfile.c
+endif
+
+ifeq ($(LINUX),1)
+SRC_C_TMP			+= $(SRC_LNX)
 endif
 
 SRC_C				:= $(SRC_C_TMP)
@@ -241,6 +277,8 @@ SRC_C				+= $(SRC_CHK)
 SRC_C				+= $(SRC_LST)
 SRC_C				+= $(SRC_PRT)
 SRC_C				+= $(SRC_INP)
+SRC_C				+= $(SRC_RDM)
+SRC_C				+= $(SRC_LNX)
 endif
 
 SRC_C				:= $(addprefix $(SRC_DIR)/,$(SRC_C))
@@ -328,30 +366,35 @@ endef
 
 # rules that does not create file
 .PHONY:					clean fclean setup call_logo $(OBJ_SUBDIR)
-.SILENT:				integer
 
 all:					setup $(TARGET)
 	@printf "$$usage"
 
-integer:
+integer:	setup $(TARGET)
 	@printf ""
 
-string:
+string:		setup $(TARGET)
 	@printf ""
 
-memory:
+memory:		setup $(TARGET)
 	@printf ""
 
-check:
+check:		setup $(TARGET)
 	@printf ""
 
-list:
+list:		setup $(TARGET)
 	@printf ""
 
-print:
+print:		setup $(TARGET)
 	@printf ""
 
-input:
+input:		setup $(TARGET)
+	@printf ""
+
+random:		setup $(TARGET)
+	@printf ""
+
+linux:		setup $(TARGET)
 	@printf ""
 
 $(TARGET):				$(OBJ_C)
@@ -372,6 +415,9 @@ ifeq ($(DEBUG),1)
 	@printf "      $(orange_star) $(font_color)CHECK $(bold)%d$(reset)\n" $(CHECK)
 	@printf "      $(orange_star) $(font_color)LIST $(bold)%d$(reset)\n" $(LIST)
 	@printf "      $(orange_star) $(font_color)PRINT $(bold)%d$(reset)\n" $(PRINT)
+	@printf "      $(orange_star) $(font_color)INPUT $(bold)%d$(reset)\n" $(INPUT)
+	@printf "      $(orange_star) $(font_color)RANDOM $(bold)%d$(reset)\n" $(RANDOM)
+	@printf "      $(orange_star) $(font_color)LINUX $(bold)%d$(reset)\n" $(LINUX)
 	@printf "      $(orange_star) $(font_color)ALL $(bold)%d$(reset)\n" $(ALL)
 	@printf "   $(orange_star) $(font_color)TARGET $(bold)%s$(reset)\n" $(TARGET)
 	@printf "   $(orange_star) $(bold)SRC_C$(reset)\n"

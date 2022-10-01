@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_check.h                                      :+:      :+:    :+:   */
+/*   libft_linux.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/01 02:31:17 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/01 02:36:16 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_CHECK_H
-# define LIBFT_CHECK_H
+#ifndef LIBFT_LINUX_H
+# define LIBFT_LINUX_H
 
 /* ########################################################################## */
 /* INCLUDE */
@@ -21,8 +21,10 @@
 #  include "libft_define.h"
 # endif
 
-# include <limits.h>
 # include <sys/stat.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 /* ########################################################################## */
 
@@ -45,44 +47,37 @@
 /* ########################################################################## */
 
 /* ########################################################################## */
+/* REQUIREMENTS */
+/* ############ */
+
+# ifndef LIBFT_RANDOM
+// ft_tmpfile.c
+char	*ft_tmpfile(int in_tmp);
+# endif
+
+# ifndef LIBFT_CHECK
+// ft_isdir.c
+int		ft_isdir(char *dir_name, int mode);
+# endif
+
+/* ########################################################################## */
+
+/* ########################################################################## */
 /* FILES */
 /* ##### */
 
-// ft_isalnum.c
-int		ft_isalnum(const char c);
+// ft_getgid.c
+int		ft_getgid(void);
+int		ft_getgid_dir(char *file_name);
+int		ft_getgid_file(char *file_name);
 
-// ft_isalpha.c
-int		ft_isalpha(const char c);
+// ft_getuid.c
+int		ft_getuid(void);
+int		ft_getuid_dir(char *file_name);
+int		ft_getuid_file(char *file_name);
 
-// ft_isascii.c
-int		ft_isascii(const char c);
-
-// ft_isblank.c
-int		ft_isblank(const char c);
-
-// ft_isdigit.c
-int		ft_isdigit(const char c);
-
-// ft_isdir.c
-int		ft_isdir(char *dir_name, int mode);
-
-// ft_isfile.c
-int		ft_isfile(char *file_path, int mode);
-
-// ft_isgoodi.c
-t_bool	ft_isgoodi(int n, int neg);
-
-// ft_isgoodll.c
-t_bool	ft_isgoodll(t_int64 n, int neg);
-
-// ft_isgoodu.c
-t_bool	ft_isgoodu(t_uint32 n, int is_last);
-
-// ft_isprint.c
-int		ft_isprint(const char c);
-
-// ft_isspace.c
-int		ft_isspace(const char c);
+// ft_iscdable.c
+t_bool	ft_iscdable(char *dir_name);
 
 /* ########################################################################## */
 
