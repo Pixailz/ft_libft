@@ -18,6 +18,8 @@ part are:
 - list
 - print
 - input
+- random
+- linux
 
 ## TODO LIST
 
