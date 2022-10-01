@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/10/01 02:37:03 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/10/01 18:20:47 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,6 +114,7 @@ SRC_STR				:= string/ft_atoi.c \
 					   string/ft_patou.c \
 					   string/ft_patou_base.c \
 					   string/ft_split.c \
+					   string/ft_splitb.c \
 					   string/ft_strcat.c \
 					   string/ft_strcchr.c \
 					   string/ft_strchr.c \

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 04:16:33 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:20:24 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,13 @@ t_uint32	ft_patou_base(char *nstr, const char *base, int *has_overflow);
 
 // ft_split.c
 char		**ft_split(char *s, char c);
+
+// ft_splitb.c
+int			ft_splitb_get_word(char **str, char delim, char *encl);
+int			ft_splitb_get_size(char *str, char delim, char *encl);
+char		**ft_splitb_get_words(char *s, char delim, char *encl, \
+				int tab_size);
+char		**ft_splitb(char *s, char delim, char *encl);
 
 // ft_strcat.c
 char		*ft_strcat(char *dest, char *src);
