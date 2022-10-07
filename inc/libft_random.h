@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/01 02:12:18 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/07 22:37:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ int		ft_strlen(char *str);
 # ifndef LIBFT_MEMORY
 // ft_calloc.c
 void	*ft_calloc(t_size nmemb, t_size size);
+
+// ft_memset.c
+void	*ft_memset(void *s, int c, t_size n);
 # endif
 
 /* ########################################################################## */

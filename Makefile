@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/10/01 18:20:47 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/10/07 22:37:11 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -247,6 +247,7 @@ SRC_RDM				:= random/ft_randint.c \
 
 ifneq ($(ALL),1)
 SRC_RDM				+= string/ft_strlen.c \
+					   memory/ft_memset.c \
 					   memory/ft_calloc.c \
 					   string/ft_strncpy.c
 endif
