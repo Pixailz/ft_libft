@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/01 18:37:15 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/14 01:40:37 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 /* INCLUDE */
 /* ####### */
 
+# include "libft_define.h"
 # include "libft_check.h"
 # include "libft_input.h"
 # include "libft_integer.h"

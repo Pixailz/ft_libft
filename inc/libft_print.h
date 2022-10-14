@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/24 21:24:41 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/14 01:45:13 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,23 @@
 # endif
 
 # include <unistd.h>
+/* write()
+ **/
+
 # include <stdarg.h>
-// ft_error.c
+/* va_arg()
+ * va_list()
+ * va_start()
+ * va_end()
+ **/
+
 # include <errno.h>
+/* errorno()
+ **/
+
+# include <stdio.h>
+/* perror()
+ **/
 
 /* ########################################################################## */
 

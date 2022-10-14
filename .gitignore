@@ -1,6 +1,7 @@
 # builded thing
 obj/
 libft.a
+a.out
 
 # .vscode
 .vscode

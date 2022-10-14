@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/24 21:50:41 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/14 02:52:04 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,6 @@
 # endif
 
 # include <limits.h>
-
-/* ########################################################################## */
-
-/* ########################################################################## */
-/* DEFINE */
-/* ###### */
 
 /* ########################################################################## */
 
@@ -48,6 +42,18 @@ int		ft_strlen(char *str);
 
 // ft_get_base.c
 int		ft_get_base(int c, const char *base);
+
+// ft_int4_comp.c
+t_int4	ft_int4_comp(t_int1 n1, t_int1 n2, t_int1 n3, t_int1 n4);
+
+// ft_int4_dcomp.c
+t_int1	ft_int4_dcomp(t_int4 n, int level);
+
+// ft_int4_inc.c
+void	ft_int4_inc(t_int4 *n, int level);
+
+// ft_int4_dec.c
+void	ft_int4_dec(t_int4 *n, int level);
 
 // ft_itoa.c
 char	*ft_itoa(const int const_nb);

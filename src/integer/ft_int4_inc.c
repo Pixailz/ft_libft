@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_int4_inc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 15:43:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 01:46:59 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/10/14 02:40:50 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/10/14 02:43:04 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_print.h"
+#include <libft_integer.h>
 
-int	ft_error(char *msg, int return_code)
+void	ft_int4_inc(t_int4 *n, int level)
 {
-	if (!errno)
-		ft_putendl_fd(msg, 2);
-	else
-		perror(msg);
-	return (return_code);
+	t_int1	n1;
+	t_int1	n2;
+	t_int1	n3;
+	t_int1	n4;
+
+	n1 = ft_int4_dcomp(*n, 0);
+	n2 = ft_int4_dcomp(*n, 1);
+	n3 = ft_int4_dcomp(*n, 2);
+	n4 = ft_int4_dcomp(*n, 3);
+	if (!level)
+		n1++;
+	else if (level == 1)
+		n2++;
+	else if (level == 2)
+		n3++;
+	else if (level == 3)
+		n4++;
+	*n = ft_int4_comp(n1, n2, n3, n4);
 }

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:13:22 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 01:04:43 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/14 02:51:57 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,13 @@ typedef long long			t_int64;
 typedef unsigned long long	t_uint64;
 typedef unsigned long		t_size;
 
+typedef unsigned int		t_int4;
+typedef unsigned char		t_int1;
+
 typedef enum e_bool
 {
-	False,
-	True
+	FALSE,
+	TRUE
 }			t_bool;
 
 /* ########################################################################## */

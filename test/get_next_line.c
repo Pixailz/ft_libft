@@ -1,45 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_random.c                                      :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 02:53:03 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/01 03:03:05 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/10/07 22:34:10 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/10/14 02:06:54 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_random.h"
-
-#include <stdio.h>
-#include <string.h>
+#include <libft.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 int	main(int argc, char **argv)
 {
-	int	counter;
-	int	max;
+	int		file;
+	char	*line;
+	t_size	counter;
 
 	if (argc != 2)
-		return (1);
-	max = atoi(argv[1]);
+		return (ft_error("args error", 1));
+	file = open(argv[1], O_RDONLY);
+	if (file < 0)
+		return (ft_error(argv[1], 2));
+	line = ft_get_next_line(file);
 	counter = 0;
-	while (counter < max)
+	ft_printf("line[%u] \t[%s", counter++, line);
+	while (TRUE)
 	{
-		printf("[0-100] -> [%lld]\n", ft_randint(0, 100));
-		counter++;
-	}
-	counter = 0;
-	while (counter < max)
-	{
-		printf("[-10, 10] -> [%lld]\n", ft_randint(-10, 10));
-		counter++;
-	}
-	counter = 0;
-	while (counter < max)
-	{
-		printf("[0-100000] -> [%lld]\n", ft_randint(0, 100000));
-		counter++;
+		free(line);
+		line = ft_get_next_line(file);
+		if (!line)
+		{
+			free(line);
+			break ;
+		}
+		ft_printf("line[%u] \t[%s", counter++, line);
 	}
 	return (0);
 }

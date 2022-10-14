@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ato.c                                         :+:      :+:    :+:   */
+/*   ato.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 09:12:28 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 04:24:53 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/14 02:51:01 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_string.h"
-#include "libft_print.h"
+#include <libft_string.h>
+#include <libft_print.h>
 
 void	test_string_u(char *nstr, char *base)
 {

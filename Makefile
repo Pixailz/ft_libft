@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/10/07 22:37:11 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/10/14 02:45:42 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,10 @@ INC_DIR				:= -Iinc
 
 # SRC
 SRC_INT				:= integer/ft_get_base.c \
+					   integer/ft_int4_comp.c \
+					   integer/ft_int4_dcomp.c \
+					   integer/ft_int4_dec.c \
+					   integer/ft_int4_inc.c \
 					   integer/ft_itoa.c \
 					   integer/ft_itoa_base.c \
 					   integer/ft_ltoa.c \
