@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/10/14 03:20:06 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/10/14 03:21:02 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -467,6 +467,9 @@ ifeq ($(DEBUG),1)
 	@printf "      $(orange_star) $(font_color)%s$(reset)\n" $(OBJ_C)
 	@printf "$(orange_star) $(font_color)Building$(reset)\n"
 endif
+
+help:
+	@printf "$$usage"
 
 call_logo:
 	@printf "$(ascii_color)$$ascii_art"
