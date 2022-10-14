@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/10/14 03:21:02 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/10/14 06:02:25 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,7 @@ INC_DIR				:= -Iinc
 
 # SRC
 SRC_INT				:= integer/ft_get_base.c \
+					   integer/ft_int4_chg.c \
 					   integer/ft_int4_comp.c \
 					   integer/ft_int4_dcomp.c \
 					   integer/ft_int4_dec.c \
@@ -147,14 +148,19 @@ SRC_STR				:= string/ft_atoi.c \
 					   string/ft_toupper.c
 
 ifneq ($(ALL),1)
-SRC_STR				+= integer/ft_nbrlen_base.c \
+SRC_STR				+= integer/ft_int4_chg.c \
+					   integer/ft_int4_comp.c \
+					   integer/ft_nbrlen_base.c \
 					   integer/ft_nbrlen.c \
 					   integer/ft_get_base.c \
 					   memory/ft_calloc.c \
+					   memory/ft_free_char_pp.c \
 					   memory/ft_memset.c \
 					   check/ft_isgoodi.c \
 					   check/ft_isgoodll.c \
-					   check/ft_isgoodu.c
+					   check/ft_isgoodu.c \
+					   check/ft_sisdigit.c \
+
 endif
 
 ifeq ($(STRING),1)
@@ -163,6 +169,7 @@ endif
 
 SRC_MEM				:= memory/ft_bzero.c \
 					   memory/ft_calloc.c \
+					   memory/ft_free_char_pp.c \
 					   memory/ft_memchr.c \
 					   memory/ft_memcmp.c \
 					   memory/ft_memcpy.c \
@@ -190,7 +197,14 @@ SRC_CHK				:= check/ft_isalnum.c \
 					   check/ft_isgoodll.c \
 					   check/ft_isgoodu.c \
 					   check/ft_isprint.c \
-					   check/ft_isspace.c
+					   check/ft_isspace.c \
+					   check/ft_sisalnum.c \
+					   check/ft_sisalpha.c \
+					   check/ft_sisascii.c \
+					   check/ft_sisblank.c \
+					   check/ft_sisdigit.c \
+					   check/ft_sisprint.c \
+					   check/ft_sisspace.c \
 
 ifeq ($(CHECK),1)
 SRC_C_TMP			+= $(SRC_CHK)

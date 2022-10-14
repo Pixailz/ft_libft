@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/01 18:36:21 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/14 06:00:37 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,14 @@
 /* ############ */
 
 # ifndef LIBFT_INTEGER
-// ft_strlen.c
+// ft_nbrlen_base.c
 t_size		ft_nbrlen_base(const void *void_nbr, const char *base);
+
+// ft_int4_chg.c
+void		ft_int4_chg(t_int4 *n, int level, t_int1 change);
+
+// ft_int4_comp.c
+t_int4		ft_int4_comp(t_int1 n1, t_int1 n2, t_int1 n3, t_int1 n4);
 
 // ft_nbrlen.c
 t_size		ft_nbrlen(const void *void_nbr);
@@ -49,11 +55,18 @@ t_bool		ft_isgoodll(t_int64 n, int neg);
 
 // ft_isgoodu.c
 t_bool		ft_isgoodu(t_uint32 n, int is_last);
+
+// ft_sisdigit.c
+t_bool		ft_sisdigit(const char *str);
+
 # endif
 
 # ifndef LIBFT_MEMORY
 // ft_calloc.c
 void		*ft_calloc(t_size nmemb, t_size size);
+
+// ft_free_char_pp.c
+void		ft_free_char_pp(char **str_str);
 
 // ft_memset.c
 void		*ft_memset(void *s, int c, t_size n);
@@ -85,6 +98,11 @@ t_uint64	ft_atou_base(char *nstr, const char *base);
 
 // ft_get_words.c
 int			ft_get_words(char *str, char c);
+
+// ft_ipstr.c
+t_int4		ft_ipstr(char *str);
+char		**ft_ip_check(char *str);
+int			ft_ip_check_part(char *splitted);
 
 // ft_patoi.c
 t_int64		ft_patoi(char *nstr, int *has_overflow);

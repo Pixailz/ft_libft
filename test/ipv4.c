@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int4.c                                             :+:      :+:    :+:   */
+/*   ipv4.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 01:52:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 05:04:36 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/10/14 04:10:51 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/10/14 05:56:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,15 @@ void	print_dcomp(t_int4 n)
 	ft_printf("n4 -> [%u]\n\n", ft_int4_dcomp(n, 3));
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	t_int1	n1;
-	t_int1	n2;
-	t_int1	n3;
-	t_int1	n4;
-	t_int4	test;
+	t_int4	ip;
 
-	n1 = 0;
-	n2 = 1;
-	n3 = 2;
-	n4 = 3;
-	test = ft_int4_comp(n1, n2, n3, n4);
-	print_dcomp(test);
-	ft_int4_inc(&test, 0);
-	print_dcomp(test);
-	ft_int4_dec(&test, 0);
-	print_dcomp(test);
-	ft_int4_chg(&test, 0, 123);
-	print_dcomp(test);
+	if (argc != 2)
+		return (ft_error("not enought args", 1));
+	ip = ft_ipstr(argv[1]);
+	if (!ip)
+		return (ft_error("invalid ip error", 2));
+	print_dcomp(ip);
 	return (0);
 }

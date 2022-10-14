@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 02:52:04 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/14 04:43:44 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ int		ft_strlen(char *str);
 
 // ft_get_base.c
 int		ft_get_base(int c, const char *base);
+
+// ft_int4_chg.c
+void	ft_int4_chg(t_int4 *n, int level, t_int1 change);
 
 // ft_int4_comp.c
 t_int4	ft_int4_comp(t_int1 n1, t_int1 n2, t_int1 n3, t_int1 n4);

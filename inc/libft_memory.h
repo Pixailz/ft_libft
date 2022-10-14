@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/24 21:24:30 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/14 05:41:21 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ void	ft_bzero(void *s, t_size n);
 
 // ft_calloc.c
 void	*ft_calloc(t_size nmemb, t_size size);
+
+// ft_free_char_pp.c
+void	ft_free_char_pp(char **str_str);
 
 // ft_memchr.c
 char	*ft_memchr(char *buf, unsigned char c);

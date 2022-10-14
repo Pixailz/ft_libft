@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_free_char_pp.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 18:39:55 by pix               #+#    #+#             */
-/*   Updated: 2022/10/14 05:07:58 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/10/14 05:38:46 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/10/14 05:41:41 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_check.h"
+#include "libft_memory.h"
 
-/**
- * @brief			Checks if c is an alphanumeric character. equivalent to
- *					(ft_isalpha(c) || ft_isdigit(c))
- *
- * @param c			Character value to check
- *
- * @return (t_bool)	TRUE if character is alphanumeric and FALSE if not
- */
-t_bool	ft_isalnum(const char c)
+void	ft_free_char_pp(char **str_str)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	t_size	counter;
+
+	counter = 0;
+	while (str_str[counter])
+	{
+		free(str_str[counter]);
+		str_str[counter] = FT_NULL;
+		counter++;
+	}
+	free(str_str);
+	str_str = FT_NULL;
 }
