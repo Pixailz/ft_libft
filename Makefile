@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/10/14 02:45:42 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/10/14 03:20:06 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -348,11 +348,46 @@ define print_padded
 endef
 
 define usage
-$(orange_star) $(bold)$(TARGET)$(font_color): $(bold)needed_args \
-$(font_color)[$(bold)optional_args$(font_color)]$(reset)
-        $(bold)arg$(font_color): eplanation
-        $(bold)arg$(font_color): eplanation
-        $(bold)arg$(font_color): eplanation, $(bold)WARNING$(reset)
+$(orange_star) $(bold)modulable$(font_color) ft_library
+	You can make $(bold)any$(font_color) parts into the archive of the library.
+		$(bold)exemple$(font_color):
+			make $(bold)string$(font_color)
+			make $(bold)string integer$(font_color)
+			make re $(bold)string integer$(font_color)
+
+	The following parts are available (non-exhaustive list of function):
+		$(bold)integer$(font_color)\tmanipulate integer
+			$(bold)ft_itoa$(font_color), $(bold)ft_nbrlen$(font_color), \
+$(bold)ft_int4_comp
+
+		string$(font_color)\tmanipulate string
+			$(bold)ft_atoi$(font_color), $(bold)ft_strlen$(font_color), \
+$(bold)ft_strjoin
+
+		memory$(font_color)\tmanipulate / allocate memory
+			$(bold)ft_calloc$(font_color), $(bold)ft_memchr$(font_color), \
+$(bold)ft_memjoin
+
+		check$(font_color)\tcheck something
+			$(bold)ft_isalnum$(font_color), $(bold)ft_isgoodi
+
+		list$(font_color)\twork with linked list
+			$(bold)ft_lstnew$(font_color), $(bold)ft_lstadd_back
+
+		print$(font_color)\tprint something
+			$(bold)ft_printf$(font_color), $(bold)ft_printf_fd$(font_color),\
+$(bold)ft_putchar
+
+		input$(font_color)\twork with input
+			$(bold)ft_get_next_line
+
+		random$(font_color)\twork with randomness
+			$(bold)ft_randint$(font_color), $(bold)ft_tmpfile
+
+		linux$(font_color)\twork with linux
+			$(bold)ft_iscdable$(font_color), $(bold)ft_getuid$(font_color), \
+$(bold)ft_getgid$(font_color)
+
 $(font_color)Version: $(bold)$(VERSION)$(reset)
 
 endef
