@@ -6,19 +6,19 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 00:34:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 04:16:48 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:45:28 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_string.h"
 
-static t_uint32	ft_atou_protected(char *nstr, int *has_overflow)
+static t_uint32	ft_atou_protected(const char *nstr, int *has_overflow)
 {
 	char		*nptr;
 	t_uint32	to_dec;
 
 	to_dec = 0;
-	nptr = nstr;
+	nptr = (char *)nstr;
 	*has_overflow = 0;
 	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
 		nptr++;
@@ -36,7 +36,7 @@ static t_uint32	ft_atou_protected(char *nstr, int *has_overflow)
 	return (to_dec);
 }
 
-t_uint32	ft_patou(char *nstr, int *has_overflow)
+t_uint32	ft_patou(const char *nstr, int *has_overflow)
 {
 	t_uint32	to_dec;
 

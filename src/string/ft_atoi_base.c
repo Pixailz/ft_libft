@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:24:34 by stales            #+#    #+#             */
-/*   Updated: 2022/07/06 15:10:19 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:41:20 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  *
  * @return (int)	The converted value or 0 on error
  */
-int	ft_atoi_base(char *nstr, const char *base)
+int	ft_atoi_base(const char *nstr, const char *base)
 {
 	char		*nptr;
 	long int	to_dec;
@@ -30,7 +30,7 @@ int	ft_atoi_base(char *nstr, const char *base)
 
 	to_dec = 0;
 	neg = 1;
-	nptr = nstr;
+	nptr = (char *)nstr;
 	base_len = ft_strlen((char *)base);
 	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
 		nptr++;

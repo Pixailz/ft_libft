@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:24:34 by stales            #+#    #+#             */
-/*   Updated: 2022/07/06 15:23:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:45:50 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@
  *
  * @return (t_uint64)	The converted value or 0 on error
  */
-t_uint64	ft_atou_base(char *nstr, const char *base)
+t_uint64	ft_atou_base(const char *nstr, const char *base)
 {
 	char		*nptr;
 	t_uint64	to_dec;
 	t_size		base_len;
 
 	to_dec = 0;
-	nptr = nstr;
+	nptr = (char *)nstr;
 	base_len = ft_strlen((char *)base);
 	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
 		nptr++;

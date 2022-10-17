@@ -6,20 +6,24 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 00:34:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/25 04:15:42 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:46:32 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_string.h"
 
-static t_uint32	ft_atou_base_p(char *nstr, const char *base, int *has_overflow)
+static t_uint32	ft_atou_base_p(			\
+					const char *nstr,	\
+					const char *base,	\
+					int *has_overflow
+				)
 {
 	char		*nptr;
 	t_uint32	to_dec;
 	t_size		base_len;
 
 	to_dec = 0;
-	nptr = nstr;
+	nptr = (char *)nstr;
 	base_len = ft_strlen((char *)base);
 	*has_overflow = 0;
 	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
@@ -38,7 +42,7 @@ static t_uint32	ft_atou_base_p(char *nstr, const char *base, int *has_overflow)
 	return (to_dec);
 }
 
-t_uint32	ft_patou_base(char *nstr, const char *base, int *has_overflow)
+t_uint32	ft_patou_base(const char *nstr, const char *base, int *has_overflow)
 {
 	t_uint32	to_dec;
 

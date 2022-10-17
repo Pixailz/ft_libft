@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/15 11:53:27 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:29:20 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ t_bool	ft_isblank(const char c);
 t_bool	ft_isdigit(const char c);
 
 // ft_isgoodi.c
-t_bool	ft_isgoodi(int n, int neg);
+int		ft_isgoodi(int n, int neg);
 
 // ft_isgoodll.c
-t_bool	ft_isgoodll(t_int64 n, int neg);
+int		ft_isgoodll(t_int64 n, int neg);
 
 // ft_isgoodu.c
 t_bool	ft_isgoodu(t_uint32 n, int is_last);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:24:34 by stales            #+#    #+#             */
-/*   Updated: 2022/09/25 01:03:17 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:42:56 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  *
  * @return (t_int64)	The converted value or 0 on error
  */
-t_int64	ft_atoll(char *nstr)
+t_int64	ft_atoll(const char *nstr)
 {
 	char	*nptr;
 	t_int64	to_dec;
@@ -28,7 +28,7 @@ t_int64	ft_atoll(char *nstr)
 
 	to_dec = 0;
 	neg = 1;
-	nptr = nstr;
+	nptr = (char *)nstr;
 	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
 		nptr++;
 	if ((*nptr == '+' || *nptr == '-'))
