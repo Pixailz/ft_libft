@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/10/14 06:02:25 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/10/17 07:26:03 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -191,8 +191,6 @@ SRC_CHK				:= check/ft_isalnum.c \
 					   check/ft_isascii.c \
 					   check/ft_isblank.c \
 					   check/ft_isdigit.c \
-					   check/ft_isdir.c \
-					   check/ft_isfile.c \
 					   check/ft_isgoodi.c \
 					   check/ft_isgoodll.c \
 					   check/ft_isgoodu.c \
@@ -276,10 +274,13 @@ endif
 
 SRC_LNX				:= linux/ft_getgid.c \
 					   linux/ft_getuid.c \
-					   linux/ft_iscdable.c
+					   linux/ft_iscdable.c \
+					   linux/ft_isdir.c \
+					   linux/ft_isexec.c \
+					   linux/ft_isfile.c
 
 ifneq ($(ALL),1)
-SRC_LNX				+= check/ft_isdir.c \
+SRC_LNX				+= linux/ft_isdir.c \
 					   random/ft_tmpfile.c
 endif
 

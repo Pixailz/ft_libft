@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 05:26:13 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/10/15 11:53:27 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,6 @@ t_bool	ft_isblank(const char c);
 
 // ft_isdigit.c
 t_bool	ft_isdigit(const char c);
-
-// ft_isdir.c
-int		ft_isdir(char *dir_name, int mode);
-
-// ft_isfile.c
-int		ft_isfile(char *file_path, int mode);
 
 // ft_isgoodi.c
 t_bool	ft_isgoodi(int n, int neg);
