@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/10/17 07:26:03 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/11/06 08:08:27 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,8 @@ OBJ_DIR				:= obj
 OBJ_SUBDIR			:= $(sort $(shell find $(SRC_DIR) -type d | \
 										sed 's|$(SRC_DIR)|$(OBJ_DIR)|g'))
 INC_DIR				:= -Iinc
+# LIB DIR
+CFLAGS				+= $(INC_DIR)
 
 # SRC
 SRC_INT				:= integer/ft_get_base.c \
@@ -112,6 +114,7 @@ SRC_STR				:= string/ft_atoi.c \
 					   string/ft_atou.c \
 					   string/ft_atou_base.c \
 					   string/ft_get_words.c \
+					   string/ft_ipstr.c \
 					   string/ft_patoi.c \
 					   string/ft_patoi_base.c \
 					   string/ft_patoll.c \
@@ -307,8 +310,6 @@ SRC_C				:= $(addprefix $(SRC_DIR)/,$(SRC_C))
 # OBJ
 OBJ_C				:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
 
-# LIB DIR
-CFLAGS				+= $(INC_DIR)
 
 #  Bash Color / unicode char
 
@@ -503,6 +504,15 @@ ifneq ($(wildcard $(TARGET)),)
 	@printf "$(red_minus) $(font_color)Deleting $(bold)$(TARGET)$(reset)\n"
 	@$(RM) $(TARGET)
 endif
+
+clean_test:
+	@printf "$(red_minus) $(font_color)Deleting $(bold)./test_run$(reset)\n"
+	@$(RM) ./test_run
+
+test_run:				clean_test $(TARGET)
+	@printf "$(green_plus) $(font_color)Create test file from $(bold)$(TEST)$(reset)\n"
+	@$(CC) $(CFLAGS) $(TEST) $(TARGET) -o test_run
+	./test_run $(TEST_ARGS)
 
 re:						fclean all
 
