@@ -28,8 +28,8 @@ class RegexFinder():
 			r'^(?!static)\w+\*?\*?\s+\*?\*?(?!main\()\w+?\(.*\)$',
 			**self.options
 		)
-		self.re_c_files = re.compile(r'.*\.c', re.ASCII)
-		self.re_h_files = re.compile(r'.*\.h', re.ASCII)
+		self.re_c_files = re.compile(r'.*\.c$', re.ASCII)
+		self.re_h_files = re.compile(r'.*\.h$', re.ASCII)
 		self.re_get_header = re.compile(r'^#include "(.*)"')
 		self.re_get_first_src_makefile = re.compile(
 			r'^' + re.escape(makefile_var) + r'\s+:=.*\\?$'
@@ -46,14 +46,14 @@ class RegexFinder():
 
 	def	get_src_makefile(self, file_str):
 		current_line = self.re_get_first_src_makefile.findall(file_str)
-		if len(current_line) == 0:
+		if len(current_line[0]) == 0:
 			print("Error finding makefile_var")
 			exit()
 		elif (current_line[0][-1] != '\\'):
 			return (current_line[0])
 		src_makefile = current_line[0]
 		current_line = re.findall(
-			re.escape(src_makefile) + r'\n(\s+\w+.*\.c \\?)$',
+			re.escape(src_makefile) + r'\n(\s+\w+.*\.c ?\\?)$',
 			file_str,
 			**self.options
 		)
@@ -156,8 +156,8 @@ class	ft_helper():
 		first_src = self.regex.re_get_first_src_makefile.findall(file_str)[0]
 		nb_tab = first_src.count('\t')
 		first_src_path = list(self.c_files.keys())[0]
-		src_makefile_str += self.makefile_var + str('\t' * nb_tab) + ":= " + \
-			first_src_path.replace(self.src_folder + '/', '')
+		src_makefile_str += self.get_makefile_get_src(
+			self.makefile_var + str('\t' * nb_tab) + ":= ", first_src_path)
 		return(src_makefile_str)
 
 	def	replace_src_makefile(self):

@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/11/06 08:08:27 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/11/07 04:17:43 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -162,7 +162,7 @@ SRC_STR				+= integer/ft_int4_chg.c \
 					   check/ft_isgoodi.c \
 					   check/ft_isgoodll.c \
 					   check/ft_isgoodu.c \
-					   check/ft_sisdigit.c \
+					   check/ft_sisdigit.c
 
 endif
 
@@ -205,7 +205,7 @@ SRC_CHK				:= check/ft_isalnum.c \
 					   check/ft_sisblank.c \
 					   check/ft_sisdigit.c \
 					   check/ft_sisprint.c \
-					   check/ft_sisspace.c \
+					   check/ft_sisspace.c
 
 ifeq ($(CHECK),1)
 SRC_C_TMP			+= $(SRC_CHK)
@@ -230,6 +230,8 @@ SRC_PRT				:= print/ft_error.c \
 					   print/ft_printf_fd.c \
 					   print/ft_putchar_fd.c \
 					   print/ft_putendl_fd.c \
+					   print/ft_putip_fd.c \
+					   print/ft_putnbr_base_fd.c \
 					   print/ft_putnbr_fd.c \
 					   print/ft_putstr_fd.c \
 					   print/ft_putunbr_fd.c
@@ -237,10 +239,9 @@ SRC_PRT				:= print/ft_error.c \
 ifneq ($(ALL),1)
 SRC_PRT				+= integer/ft_itoa_base.c \
 					   string/ft_strlen.c \
-					   print/ft_putnbr_fd.c \
-					   print/ft_putunbr_fd.c \
 					   integer/ft_nbrlen_base.c \
 					   integer/ft_nbrlen.c \
+					   integer/ft_get_base.c \
 					   memory/ft_calloc.c \
 					   memory/ft_memset.c
 endif

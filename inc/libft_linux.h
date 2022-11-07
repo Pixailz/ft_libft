@@ -79,11 +79,11 @@ int		ft_getuid_file(char *file_path);
 // ft_iscdable.c
 t_bool	ft_iscdable(char *dir_path);
 
-// ft_isexec.c
-t_bool	ft_isexec(char *file_path);
-
 // ft_isdir.c
 int		ft_isdir(char *dir_path, int mode);
+
+// ft_isexec.c
+t_bool	ft_isexec(char *file_path);
 
 // ft_isfile.c
 int		ft_isfile(char *file_path, int mode);

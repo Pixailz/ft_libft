@@ -52,11 +52,11 @@ t_int4	ft_int4_comp(t_int1 n1, t_int1 n2, t_int1 n3, t_int1 n4);
 // ft_int4_dcomp.c
 t_int1	ft_int4_dcomp(t_int4 n, int level);
 
-// ft_int4_inc.c
-void	ft_int4_inc(t_int4 *n, int level);
-
 // ft_int4_dec.c
 void	ft_int4_dec(t_int4 *n, int level);
+
+// ft_int4_inc.c
+void	ft_int4_inc(t_int4 *n, int level);
 
 // ft_itoa.c
 char	*ft_itoa(const int const_nb);

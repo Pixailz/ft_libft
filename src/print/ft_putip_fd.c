@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int4_dec.c                                      :+:      :+:    :+:   */
+/*   ft_putip_fd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 02:40:50 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/11/07 04:45:12 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/11/07 03:36:06 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/11/07 03:39:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_integer.h"
+#include <libft_print.h>
 
-void	ft_int4_dec(t_int4 *n, int level)
+t_size	ft_putip_fd(t_int4 n, int fd)
 {
-	t_int1	n1;
-	t_int1	n2;
-	t_int1	n3;
-	t_int1	n4;
+	t_size	printed;
 
-	n1 = ft_int4_dcomp(*n, 3);
-	n2 = ft_int4_dcomp(*n, 2);
-	n3 = ft_int4_dcomp(*n, 1);
-	n4 = ft_int4_dcomp(*n, 0);
-	if (!level)
-		n4--;
-	else if (level == 1)
-		n3--;
-	else if (level == 2)
-		n2--;
-	else if (level == 3)
-		n1--;
-	*n = ft_int4_comp(n1, n2, n3, n4);
+	printed = ft_putunbr_fd(ft_int4_dcomp(n, 3), fd);
+	printed = ft_putchar_fd('.', fd);
+	printed = ft_putunbr_fd(ft_int4_dcomp(n, 2), fd);
+	printed = ft_putchar_fd('.', fd);
+	printed = ft_putunbr_fd(ft_int4_dcomp(n, 1), fd);
+	printed = ft_putchar_fd('.', fd);
+	printed = ft_putunbr_fd(ft_int4_dcomp(n, 0), fd);
+	return (printed);
 }

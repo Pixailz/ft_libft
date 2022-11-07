@@ -78,12 +78,6 @@ t_bool	ft_isprint(const char c);
 // ft_isspace.c
 t_bool	ft_isspace(const char c);
 
-// ft_sisprint.c
-t_bool	ft_sisprint(const char *str);
-
-// ft_sisspace.c
-t_bool	ft_sisspace(const char *str);
-
 // ft_sisalnum.c
 t_bool	ft_sisalnum(const char *str);
 
@@ -98,6 +92,12 @@ t_bool	ft_sisblank(const char *str);
 
 // ft_sisdigit.c
 t_bool	ft_sisdigit(const char *str);
+
+// ft_sisprint.c
+t_bool	ft_sisprint(const char *str);
+
+// ft_sisspace.c
+t_bool	ft_sisspace(const char *str);
 
 /* ########################################################################## */
 
