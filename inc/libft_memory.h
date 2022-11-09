@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 05:41:21 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:32:41 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 /* INCLUDE */
 /* ####### */
 
-# ifndef LIBFT_DEFINE_H
-#  include "libft_define.h"
-# endif
-
 # include <stdlib.h>
 
 /* ########################################################################## */
@@ -29,10 +25,8 @@
 /* REQUIREMENTS */
 /* ############ */
 
-# ifndef LIBFT_STRING_H
-// ft_strlen.c
-int		ft_strlen(char *str);
-# endif
+# include "libft_define.h"
+# include "libft_string.h"
 
 /* ########################################################################## */
 

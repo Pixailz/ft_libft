@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/11/07 04:17:43 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/11/09 05:32:14 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,14 +19,22 @@ MULTIPLE			:= 0
 ifeq ($(findstring integer,$(MAKECMDGOALS)),integer)
 INTEGER			:= 1
 MULTIPLE		:= 1
+# dependecies
+STRING			:= 1
 endif
 ifeq ($(findstring string,$(MAKECMDGOALS)),string)
 STRING			:= 1
 MULTIPLE		:= 1
+# dependecies
+INTEGER			:= 1
+CHECK			:= 1
+MEMORY			:= 1
 endif
 ifeq ($(findstring memory,$(MAKECMDGOALS)),memory)
 MEMORY			:= 1
 MULTIPLE		:= 1
+# dependecies
+STRING			:= 1
 endif
 ifeq ($(findstring check,$(MAKECMDGOALS)),check)
 CHECK			:= 1
@@ -39,18 +47,41 @@ endif
 ifeq ($(findstring print,$(MAKECMDGOALS)),print)
 PRINT			:= 1
 MULTIPLE		:= 1
+# dependecies
+STRING			:= 1
+MEMORY			:= 1
+INTEGER			:= 1
 endif
 ifeq ($(findstring input,$(MAKECMDGOALS)),input)
 INPUT			:= 1
 MULTIPLE		:= 1
+# dependecies
+STRING			:= 1
+MEMORY			:= 1
 endif
 ifeq ($(findstring random,$(MAKECMDGOALS)),random)
 RANDOM			:= 1
 MULTIPLE		:= 1
+# dependecies
+STRING			:= 1
+MEMORY			:= 1
 endif
 ifeq ($(findstring linux,$(MAKECMDGOALS)),linux)
 LINUX			:= 1
 MULTIPLE		:= 1
+# dependecies
+RANDOM			:= 1
+CHECK			:= 1
+endif
+ifeq ($(findstring ipv4,$(MAKECMDGOALS)),ipv4)
+NET_IPV4		:= 1
+MULTIPLE		:= 1
+# dependecies
+PRINT			:= 1
+INTEGER			:= 1
+CHECK			:= 1
+STRING			:= 1
+MEMORY			:= 1
 endif
 ifeq ($(MULTIPLE), 0)
 ALL				:= 1
@@ -63,7 +94,7 @@ CC					:= gcc
 MAKE				:= make -C
 $(eval export MAIN=1)
 
-ifneq ($(PADDING),35)
+ifeq ($(PADDING),)
 PADDING				:= 35
 endif
 
@@ -82,7 +113,11 @@ INC_DIR				:= -Iinc
 # LIB DIR
 CFLAGS				+= $(INC_DIR)
 
-# SRC
+# MULTIPLE PART SOURCE INCLUDE
+
+## add base of SRC_*
+
+### INTEGER
 SRC_INT				:= integer/ft_get_base.c \
 					   integer/ft_int4_chg.c \
 					   integer/ft_int4_comp.c \
@@ -99,14 +134,7 @@ SRC_INT				:= integer/ft_get_base.c \
 					   integer/ft_utoa.c \
 					   integer/ft_utoa_base.c
 
-ifneq ($(ALL),1)
-SRC_INT				+= string/ft_strlen.c
-endif
-
-ifeq ($(INTEGER),1)
-SRC_C_TMP			+= $(SRC_INT)
-endif
-
+### STRING
 SRC_STR				:= string/ft_atoi.c \
 					   string/ft_atoi_base.c \
 					   string/ft_atoll.c \
@@ -114,7 +142,6 @@ SRC_STR				:= string/ft_atoi.c \
 					   string/ft_atou.c \
 					   string/ft_atou_base.c \
 					   string/ft_get_words.c \
-					   string/ft_ipstr.c \
 					   string/ft_patoi.c \
 					   string/ft_patoi_base.c \
 					   string/ft_patoll.c \
@@ -150,26 +177,7 @@ SRC_STR				:= string/ft_atoi.c \
 					   string/ft_tolower.c \
 					   string/ft_toupper.c
 
-ifneq ($(ALL),1)
-SRC_STR				+= integer/ft_int4_chg.c \
-					   integer/ft_int4_comp.c \
-					   integer/ft_nbrlen_base.c \
-					   integer/ft_nbrlen.c \
-					   integer/ft_get_base.c \
-					   memory/ft_calloc.c \
-					   memory/ft_free_char_pp.c \
-					   memory/ft_memset.c \
-					   check/ft_isgoodi.c \
-					   check/ft_isgoodll.c \
-					   check/ft_isgoodu.c \
-					   check/ft_sisdigit.c
-
-endif
-
-ifeq ($(STRING),1)
-SRC_C_TMP			+= $(SRC_STR)
-endif
-
+### MEMORY
 SRC_MEM				:= memory/ft_bzero.c \
 					   memory/ft_calloc.c \
 					   memory/ft_free_char_pp.c \
@@ -181,15 +189,9 @@ SRC_MEM				:= memory/ft_bzero.c \
 					   memory/ft_memnchr.c \
 					   memory/ft_memset.c
 
-ifneq ($(ALL),1)
-SRC_MEM				+= string/ft_strlen.c
-endif
-
-ifeq ($(MEMORY),1)
-SRC_C_TMP			+= $(SRC_MEM)
-endif
-
-SRC_CHK				:= check/ft_isalnum.c \
+### CHECK
+SRC_CHK				:= check/ft_is_str.c \
+					   check/ft_isalnum.c \
 					   check/ft_isalpha.c \
 					   check/ft_isascii.c \
 					   check/ft_isblank.c \
@@ -198,19 +200,9 @@ SRC_CHK				:= check/ft_isalnum.c \
 					   check/ft_isgoodll.c \
 					   check/ft_isgoodu.c \
 					   check/ft_isprint.c \
-					   check/ft_isspace.c \
-					   check/ft_sisalnum.c \
-					   check/ft_sisalpha.c \
-					   check/ft_sisascii.c \
-					   check/ft_sisblank.c \
-					   check/ft_sisdigit.c \
-					   check/ft_sisprint.c \
-					   check/ft_sisspace.c
+					   check/ft_isspace.c
 
-ifeq ($(CHECK),1)
-SRC_C_TMP			+= $(SRC_CHK)
-endif
-
+### LIST
 SRC_LST				:= list/ft_lstadd_back.c \
 					   list/ft_lstadd_front.c \
 					   list/ft_lstclear.c \
@@ -221,61 +213,25 @@ SRC_LST				:= list/ft_lstadd_back.c \
 					   list/ft_lstnew.c \
 					   list/ft_lstsize.c
 
-ifeq ($(LIST),1)
-SRC_C_TMP			+= $(SRC_LST)
-endif
-
+### PRINT
 SRC_PRT				:= print/ft_error.c \
 					   print/ft_printf.c \
 					   print/ft_printf_fd.c \
 					   print/ft_putchar_fd.c \
 					   print/ft_putendl_fd.c \
-					   print/ft_putip_fd.c \
 					   print/ft_putnbr_base_fd.c \
 					   print/ft_putnbr_fd.c \
 					   print/ft_putstr_fd.c \
 					   print/ft_putunbr_fd.c
 
-ifneq ($(ALL),1)
-SRC_PRT				+= integer/ft_itoa_base.c \
-					   string/ft_strlen.c \
-					   integer/ft_nbrlen_base.c \
-					   integer/ft_nbrlen.c \
-					   integer/ft_get_base.c \
-					   memory/ft_calloc.c \
-					   memory/ft_memset.c
-endif
-
-ifeq ($(PRINT),1)
-SRC_C_TMP			+= $(SRC_PRT)
-endif
-
+### INPUT
 SRC_INP				:= input/ft_get_next_line.c
 
-ifneq ($(ALL),1)
-SRC_INP				+= memory/ft_memchr.c \
-					   memory/ft_memjoin.c \
-					   string/ft_strlen.c
-endif
-
-ifeq ($(INPUT),1)
-SRC_C_TMP			+= $(SRC_INP)
-endif
-
+### RANDOM
 SRC_RDM				:= random/ft_randint.c \
 					   random/ft_tmpfile.c
 
-ifneq ($(ALL),1)
-SRC_RDM				+= string/ft_strlen.c \
-					   memory/ft_memset.c \
-					   memory/ft_calloc.c \
-					   string/ft_strncpy.c
-endif
-
-ifeq ($(RANDOM),1)
-SRC_C_TMP			+= $(SRC_RDM)
-endif
-
+### LINUX
 SRC_LNX				:= linux/ft_getgid.c \
 					   linux/ft_getuid.c \
 					   linux/ft_iscdable.c \
@@ -283,19 +239,15 @@ SRC_LNX				:= linux/ft_getgid.c \
 					   linux/ft_isexec.c \
 					   linux/ft_isfile.c
 
-ifneq ($(ALL),1)
-SRC_LNX				+= linux/ft_isdir.c \
-					   random/ft_tmpfile.c
-endif
+### NETWORK
 
-ifeq ($(LINUX),1)
-SRC_C_TMP			+= $(SRC_LNX)
-endif
+#### IPV4
+SRC_NET_IPV4		:= network/ipv4/ft_ipstr.c \
+					   network/ipv4/ft_putip_fd.c
 
-SRC_C				:= $(SRC_C_TMP)
-
+## if all, add all base to SRC_C
 ifeq ($(ALL),1)
-SRC_C				:= $(SRC_INT)
+SRC_C				+= $(SRC_INT)
 SRC_C				+= $(SRC_STR)
 SRC_C				+= $(SRC_MEM)
 SRC_C				+= $(SRC_CHK)
@@ -304,6 +256,40 @@ SRC_C				+= $(SRC_PRT)
 SRC_C				+= $(SRC_INP)
 SRC_C				+= $(SRC_RDM)
 SRC_C				+= $(SRC_LNX)
+SRC_C				+= $(SRC_NET_IPV4)
+
+## add base part to SRC_C
+else
+ifeq ($(INTEGER),1)
+SRC_C			+= $(SRC_INT)
+endif
+ifeq ($(STRING),1)
+SRC_C			+= $(SRC_STR)
+endif
+ifeq ($(MEMORY),1)
+SRC_C			+= $(SRC_MEM)
+endif
+ifeq ($(CHECK),1)
+SRC_C			+= $(SRC_CHK)
+endif
+ifeq ($(PRINT),1)
+SRC_C			+= $(SRC_PRT)
+endif
+ifeq ($(LIST),1)
+SRC_C			+= $(SRC_LST)
+endif
+ifeq ($(INPUT),1)
+SRC_C			+= $(SRC_INP)
+endif
+ifeq ($(RANDOM),1)
+SRC_C			+= $(SRC_RDM)
+endif
+ifeq ($(LINUX),1)
+SRC_C			+= $(SRC_LNX)
+endif
+ifeq ($(NET_IPV4),1)
+SRC_C			+= $(SRC_NET_IPV4)
+endif
 endif
 
 SRC_C				:= $(addprefix $(SRC_DIR)/,$(SRC_C))
@@ -314,7 +300,7 @@ OBJ_C				:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
 
 #  Bash Color / unicode char
 
-get_random		= \033[38;5;$(shell seq 0 256 | shuf | head -n1)m
+get_random			= \033[38;5;$(shell seq 0 256 | shuf | head -n1)m
 green				:= \033[38;5;82m
 blue				:= \033[38;5;75m
 red					:= \033[38;5;196m
@@ -455,6 +441,9 @@ random:		setup $(TARGET)
 linux:		setup $(TARGET)
 	@printf ""
 
+ipv4:		setup $(TARGET)
+	@printf ""
+
 $(TARGET):				$(OBJ_C)
 	@printf "$(green_plus) $(font_color)Creation of $(bold)$@$(reset)\n"
 	@ar rcs $(TARGET) $(OBJ_C)
@@ -476,6 +465,8 @@ ifeq ($(DEBUG),1)
 	@printf "      $(orange_star) $(font_color)INPUT $(bold)%d$(reset)\n" $(INPUT)
 	@printf "      $(orange_star) $(font_color)RANDOM $(bold)%d$(reset)\n" $(RANDOM)
 	@printf "      $(orange_star) $(font_color)LINUX $(bold)%d$(reset)\n" $(LINUX)
+	@printf "      $(orange_star) $(font_color)NET_IPV4 $(bold)%d$(reset)\n" $(NET_IPV4)
+	@printf "\n"
 	@printf "      $(orange_star) $(font_color)ALL $(bold)%d$(reset)\n" $(ALL)
 	@printf "   $(orange_star) $(font_color)TARGET $(bold)%s$(reset)\n" $(TARGET)
 	@printf "   $(orange_star) $(bold)SRC_C$(reset)\n"

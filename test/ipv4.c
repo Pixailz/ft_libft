@@ -6,13 +6,14 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 04:10:51 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/11/07 04:37:50 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:18:22 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft_print.h>
 #include <libft_string.h>
 #include <libft_integer.h>
+#include <libft_network/ipv4.h>
 
 void	print_dcomp(t_int4 n)
 {

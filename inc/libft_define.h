@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:13:22 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 04:35:02 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:18:42 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef unsigned long		t_size;
 
 typedef unsigned int		t_int4;
 typedef unsigned char		t_int1;
-typedef unsigned int		t_ip;
 
 typedef enum e_bool
 {

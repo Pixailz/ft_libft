@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 05:54:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 05:56:41 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:10:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	**ft_ip_check(char *str)
 	counter = 0;
 	while (counter < 4)
 	{
-		if (!ft_sisdigit(splitted[counter]))
+		if (!ft_is_str(splitted[counter], ft_isdigit))
 			return (FT_NULL);
 		counter++;
 	}
@@ -60,7 +60,7 @@ t_int4	ft_ipstr(char *str)
 		tmp_part_ip = ft_ip_check_part(splitted[counter]);
 		if (tmp_part_ip == -1)
 			return (0);
-		ft_int4_chg(&ip, counter, tmp_part_ip);
+		ft_int4_chg(&ip, 3 - counter, tmp_part_ip);
 		counter++;
 	}
 	ft_free_char_pp(splitted);

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/09/24 21:23:59 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:36:15 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,19 @@
 /* INCLUDE */
 /* ####### */
 
-# ifndef LIBFT_DEFINE_H
-#  include "libft_define.h"
-# endif
-
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* REQUIREMENTS */
+/* ############ */
+
+# include "libft_define.h"
+# include "libft_string.h"
+# include "libft_memory.h"
 
 /* ########################################################################## */
 
@@ -36,25 +42,6 @@
 # endif
 # ifndef MAX_FD
 #  define MAX_FD 0x400
-# endif
-
-/* ########################################################################## */
-
-/* ########################################################################## */
-/* REQUIREMENTS */
-/* ############ */
-
-# ifndef LIBFT_MEMORY_H
-// ft_memchr.c
-char	*ft_memchr(char *buf, unsigned char c);
-
-// ft_memjoin.c
-char	*ft_memjoin(char *s1, char *s2);
-# endif
-
-# ifndef LIBFT_STRING_H
-// ft_strlen.c
-int		ft_strlen(char *str);
 # endif
 
 /* ########################################################################## */

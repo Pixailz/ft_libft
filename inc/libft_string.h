@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/17 09:48:14 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:34:24 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,48 +29,10 @@
 /* REQUIREMENTS */
 /* ############ */
 
-# ifndef LIBFT_INTEGER
-// ft_nbrlen_base.c
-t_size		ft_nbrlen_base(const void *void_nbr, const char *base);
-
-// ft_int4_chg.c
-void		ft_int4_chg(t_int4 *n, int level, t_int1 change);
-
-// ft_int4_comp.c
-t_int4		ft_int4_comp(t_int1 n1, t_int1 n2, t_int1 n3, t_int1 n4);
-
-// ft_nbrlen.c
-t_size		ft_nbrlen(const void *void_nbr);
-
-// ft_get_base.c
-int			ft_get_base(int c, const char *base);
-# endif
-
-# ifndef LIBFT_CHECK
-// ft_isgoodi.c
-int			ft_isgoodi(int n, int neg);
-
-// ft_isgoodll.c
-int			ft_isgoodll(t_int64 n, int neg);
-
-// ft_isgoodu.c
-t_bool		ft_isgoodu(t_uint32 n, int is_last);
-
-// ft_sisdigit.c
-t_bool		ft_sisdigit(const char *str);
-
-# endif
-
-# ifndef LIBFT_MEMORY
-// ft_calloc.c
-void		*ft_calloc(t_size nmemb, t_size size);
-
-// ft_free_char_pp.c
-void		ft_free_char_pp(char **str_str);
-
-// ft_memset.c
-void		*ft_memset(void *s, int c, t_size n);
-# endif
+# include "libft_define.h"
+# include "libft_integer.h"
+# include "libft_check.h"
+# include "libft_memory.h"
 
 /* ########################################################################## */
 
@@ -98,11 +60,6 @@ t_uint64	ft_atou_base(const char *nstr, const char *base);
 
 // ft_get_words.c
 int			ft_get_words(char *str, char c);
-
-// ft_ipstr.c
-char		**ft_ip_check(char *str);
-int			ft_ip_check_part(char *splitted);
-t_int4		ft_ipstr(char *str);
 
 // ft_patoi.c
 int			ft_patoi(const char *nstr, int *has_flow);

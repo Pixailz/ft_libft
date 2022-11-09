@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 01:06:36 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/17 09:27:11 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:02:14 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
  * @param n			number to check
  * @param neg		is negative
  *
- * @return (int)	zero if n is a good number and, 1 if overflow,
+ * @return (t_bool)	zero if n is a good number and, 1 if overflow,
  * 					2 if underflow
  */
-int	ft_isgoodi(int n, int neg)
+t_bool	ft_isgoodi(int n, int neg)
 {
-	int	is_good;
+	t_bool	is_good;
 
 	is_good = 0;
 	if (neg == 1)

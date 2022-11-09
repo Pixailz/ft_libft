@@ -1,44 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_print.h                                      :+:      :+:    :+:   */
+/*   ipv4.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/11/09 03:33:31 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/11/09 03:30:10 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_PRINT_H
-# define LIBFT_PRINT_H
+#ifndef IPV4_H
+# define IPV4_H
 
 /* ########################################################################## */
-/* INCLUDE */
-/* ####### */
+/* REQUIREMENTS */
+/* ############ */
 
-# ifndef LIBFT_DEFINE_H
-#  include "libft_define.h"
-# endif
-
-# include <unistd.h>
-/* write()
- **/
-
-# include <stdarg.h>
-/* va_arg()
- * va_list()
- * va_start()
- * va_end()
- **/
-
-# include <errno.h>
-/* errorno()
- **/
-
-# include <stdio.h>
-/* perror()
- **/
+# include "libft_define.h"
+# include "libft_print.h"
+# include "libft_integer.h"
+# include "libft_check.h"
+# include "libft_string.h"
+# include "libft_memory.h"
 
 /* ########################################################################## */
 
@@ -46,18 +30,35 @@
 /* CONFIG */
 /* ###### */
 
-# define FT_PRINTF_PARAMS_LIST "cspdiuxX%"
+# define CLASS_A_MIN			0b00000000
+# define CLASS_A_MAX			0b01111110
+# define CLASS_B_MIN			0b10000000
+# define CLASS_B_MAX			0b10111111
+# define CLASS_C_MIN			0b11000000
+# define CLASS_C_MAX			0b11011111
+# define CLASS_D_MIN			0b11100000
+# define CLASS_D_MAX			0b11101111
+# define CLASS_E_MIN			0b11110000
+# define CLASS_E_MAX			0b11111111
 
 /* ########################################################################## */
 
 /* ########################################################################## */
-/* REQUIREMENTS */
-/* ############ */
+/* TYPEDEF */
+/* ####### */
 
-# include "libft_define.h"
-# include "libft_integer.h"
-# include "libft_memory.h"
-# include "libft_string.h"
+typedef struct s_ip
+{
+	char		ip_class;
+	t_int4		ip_int;
+	t_int4		netmask_int;
+	t_int4		wildcard_int;
+	t_int4		network_int;
+	t_int4		network_int_min;
+	t_int4		network_int_max;
+	t_int4		broadcast_int;
+	int			netmask_n;
+}				t_ip;
 
 /* ########################################################################## */
 
@@ -65,32 +66,13 @@
 /* FILES */
 /* ##### */
 
-// ft_error.c
-int		ft_error(char *msg, int return_code);
+// ft_ipstr.c
+char	**ft_ip_check(char *str);
+int		ft_ip_check_part(char *splitted);
+t_int4	ft_ipstr(char *str);
 
-// ft_printf.c
-size_t	ft_printf(const char *format, ...);
-
-// ft_printf_fd.c
-size_t	ft_printf_fd(int fd, const char *format, ...);
-
-// ft_putchar_fd.c
-size_t	ft_putchar_fd(char c, int fd);
-
-// ft_putendl_fd.c
-size_t	ft_putendl_fd(char const *s, int fd);
-
-// ft_putnbr_base_fd.c
-size_t	ft_putnbr_base_fd(t_int64 n, const char *base, int fd);
-
-// ft_putnbr_fd.c
-size_t	ft_putnbr_fd(int n, int fd);
-
-// ft_putstr_fd.c
-size_t	ft_putstr_fd(char const *s, int fd);
-
-// ft_putunbr_fd.c
-size_t	ft_putunbr_fd(unsigned long n, int fd);
+// ft_putip_fd.c
+t_size	ft_putip_fd(t_int4 n, int fd);
 
 /* ########################################################################## */
 

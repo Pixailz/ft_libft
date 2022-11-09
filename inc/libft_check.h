@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/17 09:29:20 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:30:32 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,25 @@
 /* INCLUDE */
 /* ####### */
 
-# ifndef LIBFT_DEFINE_H
-#  include "libft_define.h"
-# endif
-
 # include <limits.h>
 # include <sys/stat.h>
 
 /* ########################################################################## */
 
 /* ########################################################################## */
-/* CONFIG */
-/* ###### */
+/* REQUIREMENTS */
+/* ############ */
 
-/* ########################################################################## */
-
-/* ########################################################################## */
-/* TYPEDEF */
-/* ####### */
-
-/* ########################################################################## */
-
-/* ########################################################################## */
-/* STRUCT */
-/* ###### */
+# include "libft_define.h"
 
 /* ########################################################################## */
 
 /* ########################################################################## */
 /* FILES */
 /* ##### */
+
+// ft_is_str.c
+t_bool	ft_is_str(const char *str, t_bool func(char));
 
 // ft_isalnum.c
 t_bool	ft_isalnum(const char c);
@@ -64,7 +53,7 @@ t_bool	ft_isblank(const char c);
 t_bool	ft_isdigit(const char c);
 
 // ft_isgoodi.c
-int		ft_isgoodi(int n, int neg);
+t_bool	ft_isgoodi(int n, int neg);
 
 // ft_isgoodll.c
 int		ft_isgoodll(t_int64 n, int neg);
@@ -77,27 +66,6 @@ t_bool	ft_isprint(const char c);
 
 // ft_isspace.c
 t_bool	ft_isspace(const char c);
-
-// ft_sisalnum.c
-t_bool	ft_sisalnum(const char *str);
-
-// ft_sisalpha.c
-t_bool	ft_sisalpha(const char *str);
-
-// ft_sisascii.c
-t_bool	ft_sisascii(const char *str);
-
-// ft_sisblank.c
-t_bool	ft_sisblank(const char *str);
-
-// ft_sisdigit.c
-t_bool	ft_sisdigit(const char *str);
-
-// ft_sisprint.c
-t_bool	ft_sisprint(const char *str);
-
-// ft_sisspace.c
-t_bool	ft_sisspace(const char *str);
 
 /* ########################################################################## */
 

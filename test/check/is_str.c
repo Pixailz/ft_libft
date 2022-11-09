@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sisalpha.c                                      :+:      :+:    :+:   */
+/*   is_str.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 18:39:55 by pix               #+#    #+#             */
-/*   Updated: 2022/10/14 05:18:01 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/11/09 02:45:23 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/11/09 03:06:16 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_check.h"
+#include <libft_print.h>
+#include <libft_check.h>
 
-t_bool	ft_sisalpha(const char *str)
+int	main(int argc, char **argv)
 {
-	char	*ptr;
+	t_bool	return_value;
 
-	ptr = (char *)str;
-	while (*ptr)
-		if (!ft_isalpha(*ptr++))
-			return (FALSE);
-	return (TRUE);
+	if (argc != 2)
+		return (ft_error("args", 1));
+	return_value = ft_is_str(argv[1], ft_isblank);
+	if (return_value)
+		ft_printf("pass   ft_isblank(%s)\n", argv[1]);
+	else
+		ft_printf("failed ft_isblank(%s)\n", argv[1]);
+	return (0);
 }
