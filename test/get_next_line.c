@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 22:34:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 02:06:54 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/12/28 12:35:22 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	{
 		free(line);
 		line = ft_get_next_line(file);
-		if (!line)
+		if (!*line)
 		{
 			free(line);
 			break ;

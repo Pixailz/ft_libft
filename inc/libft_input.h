@@ -52,9 +52,6 @@
 
 // ft_get_next_line.c
 char	*ft_get_next_line(int fd);
-char	*ft_line(char *buf);
-char	*ft_read(int fd, char *buf);
-char	*ft_stash(char *s);
 
 /* ########################################################################## */
 
