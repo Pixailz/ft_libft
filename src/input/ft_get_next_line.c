@@ -6,104 +6,80 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 01:18:23 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/07/05 01:40:51 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/12/28 12:47:38 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_input.h"
 
-char	*ft_read(int fd, char *buf)
+static void	fill_buff(int fd, char **buff)
 {
-	char	*tmp;
-	int		bytes;
+	char	*joined_tmp;
+	char	*buff_tmp;
+	t_size	readed;
 
-	if (!buf)
-		return (NULL);
-	tmp = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (!tmp)
-		return (NULL);
-	bytes = 1;
-	while (bytes && !ft_memchr(buf, '\n'))
+	buff_tmp = (char *)ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+	if (!buff_tmp)
+		return ;
+	readed = 1;
+	while (readed && !ft_strcchr(buff_tmp, '\n'))
 	{
-		bytes = read(fd, tmp, BUFFER_SIZE);
-		if (bytes < 0)
-			break ;
-		tmp[bytes] = 0;
-		buf = ft_memjoin(buf, tmp);
+		readed = read(fd, buff_tmp, BUFFER_SIZE);
+		buff_tmp[readed] = 0;
+		joined_tmp = ft_strjoin(*buff, buff_tmp);
+		free(*buff);
+		*buff = joined_tmp;
 	}
-	free(tmp);
-	tmp = NULL;
-	if (bytes < 0 || !*buf)
-	{
-		free(buf);
-		buf = NULL;
-	}
-	return (buf);
+	free(buff_tmp);
 }
 
-char	*ft_stash(char *s)
+static void	push_buff(char **buff, t_size len_line)
 {
-	char	*new;
-	char	*start;
-	char	*tmp;
+	t_size	len_buff;
+	t_size	len_new_buff;
+	char	*new_buff;
 
-	if (!s)
-		return (NULL);
-	start = ft_memchr(s, '\n');
-	if (!start)
-		return (NULL);
-	new = (char *)malloc((ft_strlen(s) - (start - s)) + 1);
-	if (!new)
-		return (NULL);
-	tmp = new;
-	while (*start)
-		*tmp++ = *start++;
-	*tmp = 0;
-	free(s);
-	s = NULL;
-	return (new);
+	len_buff = ft_strlen(*buff);
+	if (len_buff == len_line)
+	{
+		free(*buff);
+		*buff = FT_NULL;
+		return ;
+	}
+	len_new_buff = len_buff - len_line;
+	new_buff = (char *)ft_calloc(sizeof(char), len_new_buff + 1);
+	ft_strncpy(new_buff, *buff + len_line, len_new_buff);
+	free(*buff);
+	*buff = new_buff;
 }
 
-char	*ft_line(char *buf)
+static void	get_line(char **line, char **buff)
 {
-	char	*tmp;
-	char	*new;
-	char	*end;
+	char	*newline_ptr;
+	t_size	len_line;
 
-	end = ft_memchr(buf, '\n');
-	if (!end)
-		return (buf);
-	new = (char *)malloc(end - buf + 1);
-	if (!new)
-		return (NULL);
-	tmp = new;
-	while (buf < end)
-		*tmp++ = *buf++;
-	*tmp = 0;
-	return (new);
+	newline_ptr = ft_strchr(*buff, '\n');
+	if (!newline_ptr)
+		len_line = ft_strlen(*buff);
+	else
+		len_line = (newline_ptr - *buff) + 1;
+	*line = ft_calloc(sizeof(char), len_line + 1);
+	if (!line)
+		return ;
+	ft_strncpy(*line, *buff, len_line);
+	push_buff(buff, len_line);
 }
 
 char	*ft_get_next_line(int fd)
 {
-	static char	*bufs[MAX_FD];
+	static char	*buff[MAX_FD] = {FT_NULL};
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > MAX_FD)
-		return (NULL);
-	if (!bufs[fd])
-	{
-		bufs[fd] = (char *)malloc(BUFFER_SIZE + 1);
-		if (!bufs[fd])
-			return (NULL);
-		bufs[fd][0] = 0;
-	}
-	bufs[fd] = ft_read(fd, bufs[fd]);
-	if (bufs[fd] == NULL)
-	{
-		free(bufs[fd]);
-		bufs[fd] = NULL;
-	}
-	line = ft_line(bufs[fd]);
-	bufs[fd] = ft_stash(bufs[fd]);
+	if (fd < 0 || BUFFER_SIZE < 1)
+		return (FT_NULL);
+	if (buff[fd] == FT_NULL)
+		buff[fd] = (char *)ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+	fill_buff(fd, &buff[fd]);
+	get_line(&line, &buff[fd]);
 	return (line);
 }

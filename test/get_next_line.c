@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 22:34:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 02:06:54 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/12/28 13:24:26 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	{
 		free(line);
 		line = ft_get_next_line(file);
-		if (!line)
+		if (!*line)
 		{
 			free(line);
 			break ;
@@ -41,3 +41,32 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+
+// int	main(int argc, char **argv)
+// {
+// 	int		fd_1;
+// 	int		fd_2;
+// 	char	*line_1;
+// 	char	*line_2;
+// 	int		counter[2];
+
+// 	if (argc != 3)
+// 		return (ft_error("args", 1));
+// 	fd_1 = open(argv[1], O_RDONLY);
+// 	fd_2 = open(argv[2], O_RDONLY);
+// 	line_1 = ft_get_next_line(fd_1);
+// 	line_2 = ft_get_next_line(fd_2);
+// 	counter[0] = 0;
+// 	counter[1] = 0;
+// 	ft_printf("line_1[%d] [%s]", counter[0]++, line_1);
+// 	ft_printf("line_2[%d] [%s]", counter[1]++, line_2);
+// 	free(line_1);
+// 	free(line_2);
+// 	line_1 = ft_get_next_line(fd_1);
+// 	line_2 = ft_get_next_line(fd_2);
+// 	ft_printf("line_1[%d] [%s]", counter[0]++, line_1);
+// 	ft_printf("line_2[%d] [%s]", counter[1]++, line_2);
+// 	free(line_1);
+// 	free(line_2);
+// 	return (0);
+// }
