@@ -19,41 +19,41 @@ IS_GE				= [ $(1) -ge $(2) ] && printf 1 || printf 0 ;
 IS_Z_OR_E			= [ -z $(1) -o $(1) -eq 0 ] && printf 1 || printf 0 ;
 
 ## print function
-P_ANSI				= printf "%b" $(ESC)$(1);
-P_INF				= printf "[%b] %b" $(I) "$(1)"; $(call PB_PRINT_ELAPSED)
-P_WAR				= printf "[%b] %b" $(W) "$(1)"; $(call PB_PRINT_ELAPSED)
-P_PAS				= printf "[%b] %b" $(P) "$(1)"; $(call PB_PRINT_ELAPSED)
-P_FAI				= printf "[%b] %b" $(F) "$(1)"; $(call PB_PRINT_ELAPSED)
+P_ANSI				= printf "%b" "$(ESC)$(1)";
+P_INF				= printf "[%b] %b" "$(I)" "$(1)"; $(call PB_PRINT_ELAPSED)
+P_WAR				= printf "[%b] %b" "$(W)" "$(1)"; $(call PB_PRINT_ELAPSED)
+P_PAS				= printf "[%b] %b" "$(P)" "$(1)"; $(call PB_PRINT_ELAPSED)
+P_FAI				= printf "[%b] %b" "$(F)" "$(1)"; $(call PB_PRINT_ELAPSED)
 ## ansi mov cursor
 GOTO_COL			= $(call P_ANSI,$(1)G)
 
 # ANSI
-ESC					:= "\x1b["
+ESC					:= \x1b[
 ## COLOR
-RST					:= "$(ESC)0m"
-R					:= "$(ESC)31m"
-G					:= "$(ESC)32m"
-Y					:= "$(ESC)33m"
-B					:= "$(ESC)34m"
-M					:= "$(ESC)35m"
-C					:= "$(ESC)36m"
-O					:= "$(ESC)38\;5\;214m"
+RST					:= $(ESC)0m
+R					:= $(ESC)31m
+G					:= $(ESC)32m
+Y					:= $(ESC)33m
+B					:= $(ESC)34m
+M					:= $(ESC)35m
+C					:= $(ESC)36m
+D					:= $(ESC)39m
+O					:= $(ESC)38;5;214m
 
 ### COMPOSITE
-I					:= "$(B)i$(RST)"			# info
-W					:= "$(O)⚠$(RST)"			# warning
-P					:= "$(G)✓$(RST)"			# pass
-F					:= "$(R)✗$(RST)"			# failed
-ASCII_COLOR			:= "$(G)"
+I					:= $(B)i$(RST)
+W					:= $(O)⚠$(RST)
+P					:= $(G)✓$(RST)
+F					:= $(R)✗$(RST)
+ASCII_COLOR			:= $(G)
 
 ## CURSOR
-CU					:= "$(ESC)1F"
-DL					:= "$(ESC)2K"
-CUDL				:= "$(CU)$(DL)"
+CU					:= $(ESC)1F
+DL					:= $(ESC)2K
+CUDL				:= $(CU)$(DL)
 
-font_color			:= \x1b[39m
-
-
+bold				:= $(D)
+font_color			:= $(G)
 
 define ASCII_BANNER
 ███████╗████████╗     ██╗     ██╗██████╗ ███████╗████████╗
@@ -66,7 +66,7 @@ endef
 export ASCII_BANNER
 
 define USAGE
-$(I) $(bold)modulable$(font_color) ft_library
+$(bold)modulable$(font_color) ft_library
 	You can make $(bold)any$(font_color) parts into the archive of the library.
 		$(bold)exemple$(font_color):
 			make $(bold)string$(font_color)
@@ -106,7 +106,7 @@ $(bold)ft_putchar
 			$(bold)ft_iscdable$(font_color), $(bold)ft_getuid$(font_color), \
 $(bold)ft_getgid$(font_color)
 
-$(font_color)Version: $(bold)$(VERSION)$(reset)
+$(font_color)Version: $(bold)$(VERSION)$(RST)
 
 endef
 export USAGE

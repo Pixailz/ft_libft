@@ -74,7 +74,7 @@ $(BIN_DIR):
 > $(call MKDIR,$(BIN_DIR))
 
 print_usage:
-> printf "$$USAGE"
+> printf "%b" "$$USAGE"
 
 print_debug:
 ifeq ($(shell [ $(DEBUG) -ge 1 ] && printf 1 || printf 0),1)
@@ -116,8 +116,7 @@ endif
 
 print_logo:
 ifeq ($(LOGO_PRINTED),)
-> $(call P_ANSI,)
-> printf "%b\n" $(ASCII_COLOR)"$$ASCII_BANNER$(RST)"
+> printf "%b\n" "$(ASCII_COLOR)$$ASCII_BANNER$(RST)"
 > $(eval export LOGO_PRINTED=1)
 endif
 
