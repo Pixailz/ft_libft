@@ -117,6 +117,7 @@ BIN_DIR				:= ./
 SRC_DIR				:= src
 OBJ_DIR				:= obj
 INC_DIR				:= inc
+MK_DIR				:= mk
 
 INC_DIR				:= $(addprefix -I,$(INC_DIR))
 CFLAGS				+= $(INC_DIR)
