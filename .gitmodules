@@ -1,0 +1,3 @@
+[submodule "rsc/corrector"]
+	path = rsc/corrector
+	url = git@github.com:Pixailz/corrector.git
