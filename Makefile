@@ -14,27 +14,29 @@ $(call PB_INIT)
 
 .DEFAULT: all
 
-all:			setup $(TARGET) print_usage
+workflow:		setup $(TARGET) print_usage
 
-integer:		setup $(TARGET) print_usage
+all:			workflow
 
-string:			setup $(TARGET) print_usage
+integer:		workflow
 
-memory:			setup $(TARGET) print_usage
+string:			workflow
 
-check:			setup $(TARGET) print_usage
+memory:			workflow
 
-list:			setup $(TARGET) print_usage
+check:			workflow
 
-print:			setup $(TARGET) print_usage
+list:			workflow
 
-input:			setup $(TARGET) print_usage
+print:			workflow
 
-random:			setup $(TARGET) print_usage
+input:			workflow
 
-linux:			setup $(TARGET) print_usage
+random:			workflow
 
-ipv4:			setup $(TARGET) print_usage
+linux:			workflow
+
+ipv4:			workflow
 
 ### TARGETS
 $(TARGET):		$(OBJ_C)
@@ -151,4 +153,4 @@ fclean_all:				fclean
 > make -C lib/minilibx-linux clean
 
 ### RE
-re:						setup fclean $(TARGET)
+re:						fclean workflow
