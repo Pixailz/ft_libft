@@ -4,6 +4,15 @@ CC					:= gcc
 CFLAGS				:= -Wall -Wextra
 VERSION				:= 1.2.0
 
+# check if the makefile is called from another or directly called
+ifeq ($(MAIN),1)
+DO_PRINT_USAGE		:= 0
+else
+DO_PRINT_USAGE		:= 1
+endif
+
+MAIN				:= 1
+export MAIN
 
 # SPECIFY MAKEFILE FLAGS (not working with re)
 # MAKEFLAGS			:= --jobs=$(shell nproc)	# number of jobs

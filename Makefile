@@ -76,7 +76,9 @@ $(BIN_DIR):
 > $(call MKDIR,$(BIN_DIR))
 
 print_usage:
+ifeq ($(DO_PRINT_USAGE),1)
 > printf "%b" "$$USAGE"
+endif
 
 print_debug:
 ifeq ($(shell [ $(DEBUG) -ge 1 ] && printf 1 || printf 0),1)
