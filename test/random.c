@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	counter = 0;
 	while (counter < max)
 	{
-		printf("[0-100] -> [%lld]\n", ft_randint(0, 100));
+		printf("[0, 100] -> [%lld]\n", ft_randint(0, 100));
 		counter++;
 	}
 	counter = 0;
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	counter = 0;
 	while (counter < max)
 	{
-		printf("[0-100000] -> [%lld]\n", ft_randint(0, 100000));
+		printf("[0, 100000] -> [%lld]\n", ft_randint(0, 100000));
 		counter++;
 	}
 	return (0);
