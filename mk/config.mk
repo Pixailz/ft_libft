@@ -116,6 +116,12 @@ CHECK			:= 1
 STRING			:= 1
 MEMORY			:= 1
 endif
+ifeq ($(findstring error,$(MAKECMDGOALS)),error)
+ERROR			:= 1
+MULTIPLE		:= 1
+# dependecies
+PRINT			:= 1
+endif
 
 ifeq ($(MULTIPLE), 0)
 ALL				:= 1

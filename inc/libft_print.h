@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/30 05:00:22 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/30 05:31:23 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,6 @@
  * va_list()
  * va_start()
  * va_end()
- **/
-
-# include <errno.h>
-/* errorno()
- **/
-
-# include <stdio.h>
-/* perror()
  **/
 
 /* ########################################################################## */
@@ -83,9 +75,6 @@
 /* ########################################################################## */
 /* FILES */
 /* ##### */
-
-// ft_error.c
-int		ft_error(char *msg, int return_code);
 
 // ft_printf.c
 size_t	ft_printf(const char *format, ...);

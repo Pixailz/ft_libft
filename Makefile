@@ -38,6 +38,8 @@ linux:			workflow
 
 ipv4:			workflow
 
+error:			workflow
+
 ### TARGETS
 $(TARGET):		$(OBJ_C)
 > $(call P_INF,Creating $(R)$(TARGET)$(RST))
@@ -108,6 +110,7 @@ ifeq ($(shell [ $(DEBUG) -ge 1 ] && printf 1 || printf 0),1)
 > printf "       $(font_color)RANDOM $(bold)%d$(reset)\n" $(RANDOM)
 > printf "       $(font_color)LINUX $(bold)%d$(reset)\n" $(LINUX)
 > printf "       $(font_color)NET_IPV4 $(bold)%d$(reset)\n" $(NET_IPV4)
+> printf "       $(font_color)ERROR $(bold)%d$(reset)\n" $(ERROR)
 > printf "\n"
 > printf "      $(orange_star) $(font_color)ALL $(bold)%d$(reset)\n" $(ALL)
 > printf "   $(orange_star) $(font_color)TARGET $(bold)%s$(reset)\n" $(TARGET)

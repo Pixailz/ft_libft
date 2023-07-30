@@ -23,3 +23,4 @@ make <part1|part2 ... partN>
 	- input
 	- random
 	- linux
+	- error

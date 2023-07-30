@@ -84,9 +84,10 @@ SRC_CHK := check/ft_isalnum.c \
 		   check/ft_is_str.c
 
 ### LIST
-SRC_LST := print/ft_error.c \
+SRC_LST := print/ft_dprintf.c \
+		   print/ft_error.c \
 		   print/ft_printf.c \
-		   print/ft_dprintf.c \
+		   print/ft_printf_wrap.c \
 		   print/ft_putchar_fd.c \
 		   print/ft_putendl_fd.c \
 		   print/ft_putnbr_base_fd.c \
@@ -126,6 +127,9 @@ SRC_LNX := linux/ft_getgid.c \
 SRC_NET_IPV4	   := network/ipv4/ft_ipstr.c \
 				   network/ipv4/ft_putip_fd.c
 
+### ERROR
+SRC_ERR := error/ft_perror.c
+
 ## if all, add all base to SRC_C
 ifeq ($(ALL),1)
 SRC_C				+= $(SRC_INT)
@@ -138,6 +142,7 @@ SRC_C				+= $(SRC_INP)
 SRC_C				+= $(SRC_RDM)
 SRC_C				+= $(SRC_LNX)
 SRC_C				+= $(SRC_NET_IPV4)
+SRC_C				+= $(SRC_ERR)
 
 ## add base part to SRC_C
 else
@@ -170,6 +175,9 @@ SRC_C			+= $(SRC_LNX)
 endif
 ifeq ($(NET_IPV4),1)
 SRC_C			+= $(SRC_NET_IPV4)
+endif
+ifeq ($(ERROR),1)
+SRC_C			+= $(SRC_ERROR)
 endif
 endif
 

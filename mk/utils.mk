@@ -106,6 +106,9 @@ $(bold)ft_putchar
 			$(bold)ft_iscdable$(font_color), $(bold)ft_getuid$(font_color), \
 $(bold)ft_getgid$(font_color)
 
+		$(bold)error$(font_color)\tfunction and enum to help with error
+			$(bold)ft_perror$(font_color)
+
 $(font_color)Version: $(bold)$(VERSION)$(RST)
 
 endef
