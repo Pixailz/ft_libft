@@ -69,7 +69,7 @@ ifeq ($(USE_MINI_LIBX),1)
 > make -C lib/minilibx-linux all
 endif
 
-setup:	$(BIN_DIR) print_logo print_debug corrector
+setup:	$(BIN_DIR) print_logo print_debug helper
 
 help:
 > printf "$$USAGE"
@@ -127,10 +127,10 @@ ifeq ($(LOGO_PRINTED),)
 > $(eval export LOGO_PRINTED=1)
 endif
 
-### CORRECTOR
+### HELPER
 
-corrector:				export_vars
-> ./rsc/corrector/run
+helper:				export_vars
+> ./rsc/helper/helper
 
 export_vars:
 export MK_DIR

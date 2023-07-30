@@ -5,32 +5,32 @@ SRC_INT := integer/ft_get_base.c \
 		   integer/ft_int4_dcomp.c \
 		   integer/ft_int4_dec.c \
 		   integer/ft_int4_inc.c \
-		   integer/ft_itoa_base.c \
 		   integer/ft_itoa.c \
-		   integer/ft_ltoa_base.c \
+		   integer/ft_itoa_base.c \
 		   integer/ft_ltoa.c \
-		   integer/ft_nbrlen_base.c \
+		   integer/ft_ltoa_base.c \
 		   integer/ft_nbrlen.c \
+		   integer/ft_nbrlen_base.c \
 		   integer/ft_rev_int.c \
-		   integer/ft_utoa_base.c \
-		   integer/ft_utoa.c
+		   integer/ft_utoa.c \
+		   integer/ft_utoa_base.c
 
 ### STRING
-SRC_STR := string/ft_atoi_base.c \
-		   string/ft_atoi.c \
-		   string/ft_atoll_base.c \
+SRC_STR := string/ft_atoi.c \
+		   string/ft_atoi_base.c \
 		   string/ft_atoll.c \
-		   string/ft_atou_base.c \
+		   string/ft_atoll_base.c \
 		   string/ft_atou.c \
+		   string/ft_atou_base.c \
 		   string/ft_get_words.c \
-		   string/ft_patoi_base.c \
 		   string/ft_patoi.c \
-		   string/ft_patoll_base.c \
+		   string/ft_patoi_base.c \
 		   string/ft_patoll.c \
-		   string/ft_patou_base.c \
+		   string/ft_patoll_base.c \
 		   string/ft_patou.c \
-		   string/ft_splitb.c \
+		   string/ft_patou_base.c \
 		   string/ft_split.c \
+		   string/ft_splitb.c \
 		   string/ft_strcat.c \
 		   string/ft_strcchr.c \
 		   string/ft_strchr.c \
@@ -71,7 +71,8 @@ SRC_MEM := memory/ft_bzero.c \
 		   memory/ft_memset.c
 
 ### CHECK
-SRC_CHK := check/ft_isalnum.c \
+SRC_CHK := check/ft_is_str.c \
+		   check/ft_isalnum.c \
 		   check/ft_isalpha.c \
 		   check/ft_isascii.c \
 		   check/ft_isblank.c \
@@ -80,23 +81,10 @@ SRC_CHK := check/ft_isalnum.c \
 		   check/ft_isgoodll.c \
 		   check/ft_isgoodu.c \
 		   check/ft_isprint.c \
-		   check/ft_isspace.c \
-		   check/ft_is_str.c
+		   check/ft_isspace.c
 
 ### LIST
-SRC_LST := print/ft_dprintf.c \
-		   print/ft_error.c \
-		   print/ft_printf.c \
-		   print/ft_printf_wrap.c \
-		   print/ft_putchar_fd.c \
-		   print/ft_putendl_fd.c \
-		   print/ft_putnbr_base_fd.c \
-		   print/ft_putnbr_fd.c \
-		   print/ft_putstr_fd.c \
-		   print/ft_putunbr_fd.c
-
-### PRINT
-SRC_PRT := list/ft_lstadd_back.c \
+SRC_LST := list/ft_lstadd_back.c \
 		   list/ft_lstadd_front.c \
 		   list/ft_lstclear.c \
 		   list/ft_lstdelone.c \
@@ -105,6 +93,16 @@ SRC_PRT := list/ft_lstadd_back.c \
 		   list/ft_lstmap.c \
 		   list/ft_lstnew.c \
 		   list/ft_lstsize.c
+
+### PRINT
+SRC_PRT := print/ft_dprintf.c \
+		   print/ft_printf.c \
+		   print/ft_putchar_fd.c \
+		   print/ft_putendl_fd.c \
+		   print/ft_putnbr_base_fd.c \
+		   print/ft_putnbr_fd.c \
+		   print/ft_putstr_fd.c \
+		   print/ft_putunbr_fd.c
 
 ### INPUT
 SRC_INP := input/ft_get_next_line.c
@@ -124,8 +122,8 @@ SRC_LNX := linux/ft_getgid.c \
 ### NETWORK
 
 #### IPV4
-SRC_NET_IPV4	   := network/ipv4/ft_ipstr.c \
-				   network/ipv4/ft_putip_fd.c
+SRC_NET_IPV4 := network/ipv4/ft_ipstr.c \
+				network/ipv4/ft_putip_fd.c
 
 ### ERROR
 SRC_ERR := error/ft_perror.c
