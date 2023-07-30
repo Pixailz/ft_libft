@@ -86,7 +86,7 @@ SRC_CHK := check/ft_isalnum.c \
 ### LIST
 SRC_LST := print/ft_error.c \
 		   print/ft_printf.c \
-		   print/ft_printf_fd.c \
+		   print/ft_dprintf.c \
 		   print/ft_putchar_fd.c \
 		   print/ft_putendl_fd.c \
 		   print/ft_putnbr_base_fd.c \

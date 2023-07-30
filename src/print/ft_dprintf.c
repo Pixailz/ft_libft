@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_fd.c                                     :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 02:32:03 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/07/06 16:07:21 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/30 04:37:14 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int	ft_parse(int fd, va_list args, const char *format)
 	return (size);
 }
 
-size_t	ft_printf_fd(int fd, const char *format, ...)
+size_t	ft_dprintf(int fd, const char *format, ...)
 {
 	size_t	size;
 	va_list	args;

@@ -93,7 +93,7 @@ $(bold)ft_memjoin
 			$(bold)ft_lstnew$(font_color), $(bold)ft_lstadd_back
 
 		print$(font_color)\tprint something
-			$(bold)ft_printf$(font_color), $(bold)ft_printf_fd$(font_color),\
+			$(bold)ft_printf$(font_color), $(bold)ft_dprintf$(font_color),\
 $(bold)ft_putchar
 
 		input$(font_color)\twork with input

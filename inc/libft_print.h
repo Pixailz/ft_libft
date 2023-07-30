@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/11/09 03:33:31 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/30 04:37:35 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int		ft_error(char *msg, int return_code);
 // ft_printf.c
 size_t	ft_printf(const char *format, ...);
 
-// ft_printf_fd.c
-size_t	ft_printf_fd(int fd, const char *format, ...);
+// ft_dprintf.c
+size_t	ft_dprintf(int fd, const char *format, ...);
 
 // ft_putchar_fd.c
 size_t	ft_putchar_fd(char c, int fd);
