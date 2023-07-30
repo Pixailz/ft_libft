@@ -1,4 +1,4 @@
-[submodule "rsc/corrector"]
-	path = rsc/corrector
-	url = git@github.com:Pixailz/corrector.git
-	branch = ft_libft
+[submodule "rsc/helper"]
+	path = rsc/helper
+	url = git@github.com:Pixailz/helper.git
+	branch = main
