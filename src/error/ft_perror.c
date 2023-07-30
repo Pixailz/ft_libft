@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 15:43:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/30 05:47:29 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/30 06:21:32 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	ft_perror(char *msg)
 {
-	ft_putstr_fd(2, "Error: ");
-	ft_putstr_fd(2, msg);
+	ft_putstr_fd("Error: ", 2);
+	ft_putstr_fd(msg, 2);
 }
