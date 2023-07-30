@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/30 04:37:35 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/30 05:00:22 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,25 @@
 /* ###### */
 
 # define FT_PRINTF_PARAMS_LIST "cspdiuxX%"
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* ANSI CODE */
+/* ###### */
+
+# define	ESC			"\x1b"
+# define	BLACK		ESC "[30m"
+# define	RED			ESC "[31m"
+# define	GREEN		ESC "[32m"
+# define	YELLOW		ESC "[33m"
+# define	BLUE		ESC "[34m"
+# define	PURPLE		ESC "[35m"
+# define	CYAN		ESC "[36m"
+# define	WHITE		ESC "[37m"
+# define	RST			ESC "[00m"
+
+# define	SEP		" → "
 
 /* ########################################################################## */
 
