@@ -4,7 +4,7 @@ CC					:= gcc
 AR					:= ar
 PRINTF				:= @printf
 CFLAGS				:= -Wall -Wextra
-VERSION				:= 1.2.0
+VERSION				:= 1.3.3
 
 # check if the makefile is called from another or directly called
 ifeq ($(MAIN),1)
