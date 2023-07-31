@@ -36,7 +36,7 @@ jobs:
           draft: false
           prerelease: true
           name: build ${{ env.sha7 }}
-          tag_name: v${{ env.ver }}-prerelease
+          tag_name: v${{ env.ver }}-${{ env.sha7 }}
           files: |
             libft.a
             inc/**
