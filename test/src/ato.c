@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 09:12:28 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 20:10:08 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 23:52:53 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ void	ci_base()
 int	ci_test()
 {
 	// TODO: return value always 0
+
 	ci_base();
 	return (0);
 }

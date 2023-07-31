@@ -112,6 +112,9 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Build up libft.a
+        run: DISABLE_HELPER=1 make re
+
       - name: Declare some var
         run: |+
           {
