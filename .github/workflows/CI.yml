@@ -22,15 +22,30 @@ jobs:
         run: |+
           make --version && echo
           ar --version && echo
+          valgrind --version && echo
           gcc --verbose && echo
           python3 --version
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
 
-      - name: First build
-        run: make
+  #     - name: Build up libft.a
+  #       run: make
+
+  #     - name: Call make fclean
+  #       run: make fclean
+
+  # test:
+  #   runs-on:ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
+
+  #     - name: launch "test"
+  #       run: make test
+
