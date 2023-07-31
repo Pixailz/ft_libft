@@ -12,11 +12,16 @@ jobs:
   info:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
       - name: "github"
         run: |+
           echo "Who launched: ${{github.actor}}"
           echo "On branch:    ${{github.ref_name}}"
           echo "Commit sha:   ${{github.sha}}"
+          cat .git/config
 
       - name: "Bin utils"
         run: |+
@@ -29,7 +34,7 @@ jobs:
     strategy:
       max-parallel: 5
       matrix:
-        os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
