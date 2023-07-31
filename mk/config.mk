@@ -1,6 +1,8 @@
 # BASE
 TARGET				:= libft.a
 CC					:= gcc
+AR					:= ar
+PRINTF				:= @printf
 CFLAGS				:= -Wall -Wextra
 VERSION				:= 1.2.0
 
