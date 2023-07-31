@@ -78,3 +78,19 @@ jobs:
       - name: launch ${{ matrix.test_src }}
         run: CI_TARGET=${{ matrix.test_src }} make ci-run
 
+  norminette:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Installing Norminette
+        run: pip install norminette
+
+      - name: Run
+        run: python3 -m norminette ./src

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 02:02:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/01 02:02:41 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 21:46:51 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ t_int64	ft_randint(int start, int end)
 	file = open("/dev/urandom", O_RDONLY);
 	read(file, buff, 4);
 	close(file);
-	return ((int)(*((unsigned int*)buff) % (end - start)) + start);
+	return ((int)(*((unsigned int *)buff) % (end - start)) + start);
 }
