@@ -117,7 +117,7 @@ endif
 ### HELPER
 
 helper:
-ifneq ($(CI_TEST),1)
+ifneq ($(DISABLE_HELPER),1)
 > ./rsc/helper/helper
 endif
 
