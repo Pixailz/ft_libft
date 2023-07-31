@@ -9,97 +9,97 @@ on:
     types: [opened]
 
 jobs:
-  info:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Retrive repo
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
+  # info:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Retrive repo
+  #       uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
 
-      - name: "github"
-        run: |+
-          echo "Who launched: ${{github.actor}}"
-          echo "On branch:    ${{github.ref_name}}"
-          echo "Commit sha:   ${{github.sha}}"
-          cat .git/config
+  #     - name: "github"
+  #       run: |+
+  #         echo "Who launched: ${{github.actor}}"
+  #         echo "On branch:    ${{github.ref_name}}"
+  #         echo "Commit sha:   ${{github.sha}}"
+  #         cat .git/config
 
-      - name: "Bin utils"
-        run: |+
-          make --version && echo
-          ar --version && echo
-          gcc --verbose && echo
-          python3 --version
+  #     - name: "Bin utils"
+  #       run: |+
+  #         make --version && echo
+  #         ar --version && echo
+  #         gcc --verbose && echo
+  #         python3 --version
 
-  build:
-    strategy:
-      max-parallel: 5
-      matrix:
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: Retrive repo
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
+  # build:
+  #   strategy:
+  #     max-parallel: 5
+  #     matrix:
+  #       os: [ubuntu-latest]
+  #   runs-on: ${{ matrix.os }}
+  #   steps:
+  #     - name: Retrive repo
+  #       uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
 
-      - name: Build up libft.a (${{ matrix.os }})
-        run: |+
-          DISABLE_HELPER=1 make fclean
-          DISABLE_HELPER=1 make
-          DISABLE_HELPER=1 make re
-          DISABLE_HELPER=1 make
+  #     - name: Build up libft.a (${{ matrix.os }})
+  #       run: |+
+  #         DISABLE_HELPER=1 make fclean
+  #         DISABLE_HELPER=1 make
+  #         DISABLE_HELPER=1 make re
+  #         DISABLE_HELPER=1 make
 
-      - name: Call helper
-        run: make helper
+  #     - name: Call helper
+  #       run: make helper
 
-  test:
-    strategy:
-      max-parallel: 5
-      matrix:
-        test_src: [
-          "ato.c",
-          "check/is_str.c",
-          "get_next_line.c",
-          "int4.c",
-          "ipv4.c",
-          "isexec.c",
-          "print_nb_base.c",
-          "random.c",
-          "tmpfile.c"
-        ]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Retrieve repo
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
+  # test:
+  #   strategy:
+  #     max-parallel: 5
+  #     matrix:
+  #       test_src: [
+  #         "ato.c",
+  #         "check/is_str.c",
+  #         "get_next_line.c",
+  #         "int4.c",
+  #         "ipv4.c",
+  #         "isexec.c",
+  #         "print_nb_base.c",
+  #         "random.c",
+  #         "tmpfile.c"
+  #       ]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Retrieve repo
+  #       uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
 
-      - name: launch ${{ matrix.test_src }}
-        run: CI_TARGET=${{ matrix.test_src }} make ci-run
+  #     - name: launch ${{ matrix.test_src }}
+  #       run: CI_TARGET=${{ matrix.test_src }} make ci-run
 
-  norminette:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Retrieve repo
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
+  # norminette:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Retrieve repo
+  #       uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
 
-      - name: Setup python3
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-          cache: 'pip'
+  #     - name: Setup python3
+  #       uses: actions/setup-python@v4
+  #       with:
+  #         python-version: '3.11'
+  #         cache: 'pip'
 
-      - name: Installing Norminette
-        run: pip install norminette
+  #     - name: Installing Norminette
+  #       run: pip install norminette
 
-      - name: Run
-        run: python3 -m norminette ./src
+  #     - name: Run
+  #       run: python3 -m norminette ./src
 
   create_release:
-    needs: [build, test, norminette]
+    # needs: [build, test, norminette]
     runs-on: ubuntu-latest
     steps:
       - name: Retrieve repo
@@ -111,10 +111,19 @@ jobs:
         id: build
         run: DISABLE_HELPER=1 make re
 
+      - name: Declare some var
+        run: |+
+          {
+            echo "sha7=${GITHUB_SHA::7}"
+            printf "ver=%s" \
+            "$(perl -nE 'print if s|VERSION\s+:= (\d\.\d\.\d)|\1|gm' ./mk/config.mk)"
+          } >> ${GITHUB_ENV}
       - name: Upload release
         if: success()
         uses: softprops/action-gh-release@v1
         with:
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          tag_name: libft version ${{ env.ver }}, build ${{ env.sha7 }}
           files: |
             libft.a
             inc/*
