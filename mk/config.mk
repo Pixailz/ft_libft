@@ -135,6 +135,9 @@ SRC_DIR				:= src
 OBJ_DIR				:= obj
 INC_DIR				:= inc
 MK_DIR				:= mk
+CI_DIR				:= test
+CI_BIN_DIR			:= $(CI_DIR)/bin
+CI_SRC_DIR			:= $(CI_DIR)/src
 
 INC_DIR				:= $(addprefix -I,$(INC_DIR))
 CFLAGS				+= $(INC_DIR)

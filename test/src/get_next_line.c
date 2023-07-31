@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 22:34:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 18:32:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 20:08:15 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,27 @@
 #include "libft_print.h"
 #include "libft_error.h"
 
-int	main(int argc, char **argv)
+#ifndef CI_TEST
+# define CI_TEST FALSE
+#endif
+
+int	ci_test(void)
+{
+	// TODO: add more stuff
+	return (0);
+}
+
+int	interactive(int ac, char **av)
 {
 	int		file;
 	char	*line;
 	t_size	counter;
 
-	if (argc != 2)
-		return (ft_perror("args error"));
-	file = open(argv[1], O_RDONLY);
+	if (ac != 2)
+		return (ft_perror("args error\n"));
+	file = open(av[1], O_RDONLY);
 	if (file < 0)
-		return (ft_perror(argv[1]));
+		return (ft_perror(av[1]));
 	line = ft_get_next_line(file);
 	counter = 0;
 	ft_printf("line[%u] \t[%s", counter++, line);
@@ -42,6 +52,15 @@ int	main(int argc, char **argv)
 		}
 		ft_printf("line[%u] \t[%s", counter++, line);
 	}
+	return (0);
+}
+
+int	main(int ac, char **av)
+{
+	if (CI_TEST)
+		return (ci_test());
+	else
+		return (interactive(ac, av));
 	return (0);
 }
 

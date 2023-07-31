@@ -183,18 +183,5 @@ endif
 SRC_C				:= $(addprefix $(SRC_DIR)/,$(SRC_C))
 OBJ_C				:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
 
-
 OBJ_C_NB			:= $(words $(OBJ_C))
 OBJ_C_NB_LEN		:= $(shell printf "$(OBJ_C_NB)" | wc -c)
-
-SRC_CI_TEST := ato.c \
-			   check/is_str.c \
-			   get_next_line.c \
-			   int4.c \
-			   ipv4.c \
-			   isexec.c \
-			   print_nb_base.c \
-			   random.c \
-			   tmpfile.c
-
-SRC_CI_TEST			:= $(addprefix test/,$(SRC_CI_TEST))

@@ -132,11 +132,14 @@ fclean:							clean
 re:						fclean workflow
 
 ## CI TEST
-ci-compile: $(TARGET)
-> $(CC) -DCI_TEST=1 $(CFLAGS) $(CI_TARGET) $(TARGET) -o $(CI_TARGET:%.c=%)
+$(CI_BIN_DIR):
+> $(call MKDIR,$@)
+
+ci-compile: $(TARGET) $(CI_BIN_DIR)
+> $(call MKDIR,$(CI_BIN_DIR)/$$(dirname $(CI_TARGET)))
+> $(CC) -DCI_TEST=1 $(CFLAGS) $(CI_SRC_DIR)/$(CI_TARGET) $(TARGET) -o $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
+> $(call P_PAS,compilation pass) \
 
 ci-run: ci-compile
-> ./$(CI_TARGET:%.c=%)
-
-ci-start: ci-run
-> $(PRINTF) "$(CI_TARGET)\n"
+> $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
+> $(call P_PAS,return value $(font_color)$(CI_BIN_DIR)/$(CI_TARGET:%.c=%)$(RST) [$(G)$${?}$(RST)])

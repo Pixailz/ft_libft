@@ -6,12 +6,17 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 09:12:28 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 19:17:33 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 20:10:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_string.h"
+#include "libft_error.h"
 #include "libft_print.h"
+
+#ifndef CI_TEST
+# define CI_TEST FALSE
+#endif
 
 void	test_string_u(char *nstr, char *base)
 {
@@ -84,10 +89,60 @@ int	test_string(char *nstr, char *base)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+void	ci_base()
 {
-	if (argc != 3)
-		return (ft_error("args", 1));
-	test_string(argv[1], argv[2]);
+	test_string("0xA", BUHEX);
+	test_string("0xA", BUHEX);
+	test_string("0x10", BUHEX);
+	test_string("0xFF", BUHEX);
+	test_string("-0x0A", BUHEX);
+	test_string("0x", BUHEX);
+	test_string("0x0a", BUHEX);
+
+	ft_putendl_fd("", 1);
+
+	test_string("0xa", BUHEX);
+	test_string("0xa", BUHEX);
+	test_string("0x10", BUHEX);
+	test_string("0xff", BUHEX);
+	test_string("-0x0a", BUHEX);
+	test_string("0x", BUHEX);
+	test_string("0x0A", BUHEX);
+
+	ft_putendl_fd("", 1);
+
+	test_string("1234", BDEC);
+	test_string("-1234", BDEC);
+	test_string("-1234.0", BDEC);
+	test_string("1234.a", BDEC);
+
+	ft_putendl_fd("", 1);
+
+	test_string("10", BBIN);
+	test_string("1011", BBIN);
+	test_string("102", BBIN);
+}
+
+int	ci_test()
+{
+	// TODO: return value always 0
+	ci_base();
+	return (0);
+}
+
+int	interactive(int ac, char **av)
+{
+	if (ac != 3)
+		return (ft_perror("args\n"));
+	test_string(av[1], av[2]);
+	return (0);
+}
+
+int	main(int ac, char **av)
+{
+	if (CI_TEST)
+		return (ci_test());
+	else
+		return (interactive(ac, av));
 	return (0);
 }
