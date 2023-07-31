@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 22:34:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 23:35:46 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 23:48:33 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 int	ci_test(void)
 {
 	// TODO: add more stuff
-	return (1);
+	return (12);
 }
 
 int	interactive(int ac, char **av)
