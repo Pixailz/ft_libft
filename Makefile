@@ -158,3 +158,13 @@ fclean_all:				fclean
 
 ### RE
 re:						fclean workflow
+
+## CI TEST
+ci-compile: $(TARGET)
+> $(CC) -DCI_TEST=1 $(CFLAGS) $(CI_TARGET) $(TARGET) -o $(CI_TARGET:%.c=%)
+
+ci-run: ci-compile
+> ./$(CI_TARGET:%.c=%)
+
+ci-start: ci-run
+> $(PRINTF) "$(CI_TARGET)\n"
