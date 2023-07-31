@@ -22,30 +22,50 @@ jobs:
         run: |+
           make --version && echo
           ar --version && echo
-          valgrind --version && echo
           gcc --verbose && echo
           python3 --version
 
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #       with:
-  #         submodules: recursive
+  build:
+    strategy:
+      max-parallel: 5
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
+    runs-on: ${{ matix.os }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
-  #     - name: Build up libft.a
-  #       run: make
+      - name: Build up libft.a ({{ matix.os }})
+        run: make
 
-  #     - name: Call make fclean
-  #       run: make fclean
+      - name: Call some Makefile rules
+        run: |+
+          make fclean
+          make re
+          make
 
-  # test:
-  #   runs-on:ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #       with:
-  #         submodules: recursive
+  test:
+    strategy:
+      max-parallel: 5
+      matrix:
+        test_src: [
+          "ato.c",
+          "check/is_str.c",
+          "get_next_line.c",
+          "int4.c",
+          "ipv4.c",
+          "isexec.c",
+          "print_nb_base.c",
+          "random.c",
+          "tmpfile.c"
+        ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
-  #     - name: launch "test"
-  #       run: make test
+      - name: launch ${{ matrix.test_src }}
+        run: CI_TARGET=${{ matrix.test_src }} make ci-run
 
