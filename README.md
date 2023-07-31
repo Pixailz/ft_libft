@@ -1,5 +1,7 @@
 # libft
 
+[![CI](https://github.com/Pixailz/ft_libft/actions/workflows/CI.yml/badge.svg)](https://github.com/Pixailz/ft_libft/actions/workflows/CI.yml)
+
 ## USAGE
 
 ```bash
