@@ -76,29 +76,29 @@
 /* FILES */
 /* ##### */
 
-// ft_printf.c
-size_t	ft_printf(const char *format, ...);
-
 // ft_dprintf.c
-size_t	ft_dprintf(int fd, const char *format, ...);
+size_t		ft_dprintf(int fd, const char *format, ...);
+
+// ft_printf.c
+size_t		ft_printf(const char *format, ...);
 
 // ft_putchar_fd.c
-size_t	ft_putchar_fd(char c, int fd);
+size_t		ft_putchar_fd(char c, int fd);
 
 // ft_putendl_fd.c
-size_t	ft_putendl_fd(char const *s, int fd);
+size_t		ft_putendl_fd(char const *s, int fd);
 
 // ft_putnbr_base_fd.c
-size_t	ft_putnbr_base_fd(t_int64 n, const char *base, int fd);
+size_t		ft_putnbr_base_fd(t_int64 n, const char *base, int fd);
 
 // ft_putnbr_fd.c
-size_t	ft_putnbr_fd(int n, int fd);
+size_t		ft_putnbr_fd(int n, int fd);
 
 // ft_putstr_fd.c
-size_t	ft_putstr_fd(char const *s, int fd);
+size_t		ft_putstr_fd(char const *s, int fd);
 
 // ft_putunbr_fd.c
-size_t	ft_putunbr_fd(unsigned long n, int fd);
+size_t		ft_putunbr_fd(unsigned long n, int fd);
 
 /* ########################################################################## */
 

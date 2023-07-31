@@ -74,7 +74,7 @@ typedef enum	e_errno
 /* FILES */
 /* ##### */
 
-// ft_error.c
+// ft_perror.c
 int		ft_perror(char *msg);
 
 /* ########################################################################## */

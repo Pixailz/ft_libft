@@ -48,7 +48,6 @@ $(TARGET):		$(OBJ_C)
 > ar rcs $(TARGET) $(OBJ_C)
 > $(call PB_TARGET_DONE)
 
-
 ## objs
 # https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables
 # $(<)		: dependencies

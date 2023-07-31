@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/12/28 12:46:53 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 05:50:05 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,16 @@ t_int64		ft_patoll_base(const char *nstr, const char *base, int *has_flow);
 t_uint32	ft_patou(const char *nstr, int *has_overflow);
 
 // ft_patou_base.c
-t_uint32	ft_patou_base(const char *nstr, const char *base, \
-				int *has_overflow);
+t_uint32	ft_patou_base(const char *nstr, const char *base, int *has_overflow);
 
 // ft_split.c
 char		**ft_split(char *s, char c);
 
 // ft_splitb.c
-char		**ft_splitb(char *s, char delim, char *encl);
-char		**ft_splitb_get_words(char *s, char delim, char *encl, \
-				int tab_size);
-int			ft_splitb_get_size(char *str, char delim, char *encl);
 int			ft_splitb_get_word(char **str, char delim, char *encl);
+int			ft_splitb_get_size(char *str, char delim, char *encl);
+char		**ft_splitb_get_words(char *s, char delim, char *encl, int tab_size);
+char		**ft_splitb(char *s, char delim, char *encl);
 
 // ft_strcat.c
 char		*ft_strcat(char *dest, char *src);

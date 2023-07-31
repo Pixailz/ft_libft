@@ -30,7 +30,6 @@ if [ "$(CREATED_DIR)" == true ]; then											\
 	printf "\n"; $(eval CREATED_DIR:=false)										\
 fi																				; \
 
-
 PB_PRINT_HEADER		= \
 printf "[$(1)$($(call PB_GET_CHAR))$(RST)] "									; \
 $(call PB_PRINT_INDEX)															\
