@@ -118,12 +118,18 @@ jobs:
             printf "ver=%s" \
             "$(perl -nE 'print if s|VERSION\s+:= (\d\.\d\.\d)|\1|gm' ./mk/config.mk)"
           } >> ${GITHUB_ENV}
-      - name: Upload release
+
+      - name: Upload release artifact
         if: success()
         uses: softprops/action-gh-release@v1
         with:
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
-          tag_name: libft version ${{ env.ver }}, build ${{ env.sha7 }}
+          fail_on_unmatched_files: true
+          draft: false
+          prerelease: false
+          name: libft version ${{ env.ver }}, build ${{ env.sha7 }}
+          tag_name: ${{ env.sha7 }}
           files: |
             libft.a
-            inc/*
+            inc/**
+          token: ${{ secrets.GITHUB_TOKEN }}
+
