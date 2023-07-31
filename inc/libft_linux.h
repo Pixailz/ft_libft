@@ -42,26 +42,26 @@
 /* FILES */
 /* ##### */
 
-// ft_getgid.c
+// linux/ft_getgid.c
 int			ft_getgid_file(char *file_path);
 int			ft_getgid_dir(char *file_path);
 int			ft_getgid(void);
 
-// ft_getuid.c
+// linux/ft_getuid.c
 int			ft_getuid_file(char *file_path);
 int			ft_getuid_dir(char *file_path);
 int			ft_getuid(void);
 
-// ft_iscdable.c
+// linux/ft_iscdable.c
 t_bool		ft_iscdable(char *dir_path);
 
-// ft_isdir.c
+// linux/ft_isdir.c
 int			ft_isdir(char *dir_path, int mode);
 
-// ft_isexec.c
+// linux/ft_isexec.c
 t_bool		ft_isexec(char *file_path);
 
-// ft_isfile.c
+// linux/ft_isfile.c
 int			ft_isfile(char *file_path, int mode);
 
 /* ########################################################################## */

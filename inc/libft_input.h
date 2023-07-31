@@ -50,7 +50,7 @@
 /* FILES */
 /* ##### */
 
-// ft_get_next_line.c
+// input/ft_get_next_line.c
 char	*ft_get_next_line(int fd);
 
 /* ########################################################################## */

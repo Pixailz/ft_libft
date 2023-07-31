@@ -49,10 +49,10 @@
 /* FILES */
 /* ##### */
 
-// ft_randint.c
+// random/ft_randint.c
 t_int64		ft_randint(int start, int end);
 
-// ft_tmpfile.c
+// random/ft_tmpfile.c
 char		*ft_tmpfile(int in_tmp);
 
 /* ########################################################################## */

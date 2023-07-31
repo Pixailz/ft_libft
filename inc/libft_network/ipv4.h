@@ -66,12 +66,12 @@ typedef struct s_ip
 /* FILES */
 /* ##### */
 
-// ft_ipstr.c
+// network/ipv4/ft_ipstr.c
 int			ft_ip_check_part(char *splitted);
 char		**ft_ip_check(char *str);
 t_int4		ft_ipstr(char *str);
 
-// ft_putip_fd.c
+// network/ipv4/ft_putip_fd.c
 t_size		ft_putip_fd(t_int4 n, int fd);
 
 /* ########################################################################## */
