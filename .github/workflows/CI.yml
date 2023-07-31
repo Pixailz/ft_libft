@@ -5,6 +5,11 @@ run-name: Library build and test CI
 on:
   push:
     branches: [main]
+    paths:
+      - '**.c'
+      - '**.h'
+      - Makefile
+      - '**.mk'
   pull_request:
     types: [opened]
 
@@ -98,38 +103,4 @@ jobs:
       - name: Run
         run: python3 -m norminette ./src
 
-  create_release:
-    needs: [build, test, norminette]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Retrieve repo
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
-
-      - name: Build release
-        id: build
-        run: DISABLE_HELPER=1 make re
-
-      - name: Declare some var
-        run: |+
-          {
-            echo "sha7=${GITHUB_SHA::7}"
-            printf "ver=%s" \
-            "$(perl -nE 'print if s|VERSION\s+:= (\d\.\d\.\d)|\1|gm' ./mk/config.mk)"
-          } >> ${GITHUB_ENV}
-
-      - name: Upload release artifact
-        if: success()
-        uses: softprops/action-gh-release@v1
-        with:
-          fail_on_unmatched_files: true
-          draft: false
-          prerelease: false
-          name: libft version ${{ env.ver }}, build ${{ env.sha7 }}
-          tag_name: ${{ env.sha7 }}
-          files: |
-            libft.a
-            inc/**
-          token: ${{ secrets.GITHUB_TOKEN }}
 

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 22:34:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 20:08:15 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 23:34:28 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 		return (ci_test());
 	else
 		return (interactive(ac, av));
-	return (0);
+	return (1);
 }
 
 // int	main(int argc, char **argv)
