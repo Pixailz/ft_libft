@@ -2,6 +2,7 @@
 PB_BEGIN_TS			:= 0
 PB_LOAD_TTS			:= 0.2
 PB_INDEX			:= 0
+$(eval export TERM=xterm-256color)
 SCREEN_COL			= $(shell tput cols)
 SCREEN_ROW			= $(shell tput lines)
 
