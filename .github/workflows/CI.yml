@@ -30,13 +30,13 @@ jobs:
       max-parallel: 5
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
-    runs-on: ${{ matix.os }}
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
 
-      - name: Build up libft.a ({{ matix.os }})
+      - name: Build up libft.a ({{ matrix.os }})
         run: make
 
       - name: Call some Makefile rules
