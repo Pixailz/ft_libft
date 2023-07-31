@@ -12,7 +12,8 @@ jobs:
   info:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Retrive repo
+        uses: actions/checkout@v3
         with:
           submodules: recursive
 
@@ -37,22 +38,20 @@ jobs:
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Retrive repo
+        uses: actions/checkout@v3
         with:
           submodules: recursive
 
       - name: Build up libft.a (${{ matrix.os }})
-        run: CI_TEST=1 make
-
-      - name: Call some Makefile rules
         run: |+
-          CI_TEST=1 make fclean
-          CI_TEST=1 make re
-          CI_TEST=1 make
+          DISABLE_HELPER=1 make fclean
+          DISABLE_HELPER=1 make
+          DISABLE_HELPER=1 make re
+          DISABLE_HELPER=1 make
 
       - name: Call helper
-        run: |+
-          make helper
+        run: make helper
 
   test:
     strategy:
@@ -71,7 +70,8 @@ jobs:
         ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Retrieve repo
+        uses: actions/checkout@v3
         with:
           submodules: recursive
 
@@ -81,10 +81,13 @@ jobs:
   norminette:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Retrieve repo
+        uses: actions/checkout@v3
         with:
           submodules: recursive
-      - uses: actions/setup-python@v4
+
+      - name: Setup python3
+        uses: actions/setup-python@v4
         with:
           python-version: '3.11'
           cache: 'pip'
@@ -94,3 +97,23 @@ jobs:
 
       - name: Run
         run: python3 -m norminette ./src
+
+  create_release:
+    needs: build test norminette
+    runs-on: ubuntu-latest
+      - name: Retrieve repo
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Build release
+        id: build
+        run: DISABLE_HELPER=1 make re
+
+      - name: Upload release
+        if: success()
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            libft.a
+            inc/*
