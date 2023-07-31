@@ -6,13 +6,16 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 22:34:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/12/28 13:24:26 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:32:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
 #include <unistd.h>
 #include <fcntl.h>
+
+#include "libft_input.h"
+#include "libft_print.h"
+#include "libft_error.h"
 
 int	main(int argc, char **argv)
 {
@@ -21,10 +24,10 @@ int	main(int argc, char **argv)
 	t_size	counter;
 
 	if (argc != 2)
-		return (ft_error("args error", 1));
+		return (ft_perror("args error"));
 	file = open(argv[1], O_RDONLY);
 	if (file < 0)
-		return (ft_error(argv[1], 2));
+		return (ft_perror(argv[1]));
 	line = ft_get_next_line(file);
 	counter = 0;
 	ft_printf("line[%u] \t[%s", counter++, line);

@@ -6,12 +6,12 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 01:52:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/11/07 04:38:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:24:06 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft_integer.h>
-#include <libft_print.h>
+#include "libft_integer.h"
+#include "libft_print.h"
 
 void	print_dcomp(t_int4 n)
 {

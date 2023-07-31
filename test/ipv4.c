@@ -6,14 +6,15 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 04:10:51 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/11/09 03:18:22 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:33:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft_print.h>
-#include <libft_string.h>
-#include <libft_integer.h>
-#include <libft_network/ipv4.h>
+#include "libft_print.h"
+#include "libft_error.h"
+#include "libft_string.h"
+#include "libft_integer.h"
+#include "libft_network/ipv4.h"
 
 void	print_dcomp(t_int4 n)
 {
@@ -27,13 +28,12 @@ void	print_dcomp(t_int4 n)
 int	main(int argc, char **argv)
 {
 	t_int4	ip;
-	t_int4	ip2;
 
 	if (argc != 2)
-		return (ft_error("not enought args", 1));
+		return (ft_perror("not enought args"));
 	ip = ft_ipstr(argv[1]);
 	if (!ip && ft_strncmp("0.0.0.0\0", argv[1], 8))
-		return (ft_error("invalid ip error", 2));
+		return (ft_perror("invalid ip error"));
 	print_dcomp(ip);
 	ft_putip_fd(ip, 1);
 	ft_putendl_fd("", 1);

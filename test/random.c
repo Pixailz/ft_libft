@@ -6,11 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 02:53:03 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 02:51:11 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:24:30 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft_random.h>
+#include "libft_random.h"
 
 #include <stdio.h>
 #include <string.h>
