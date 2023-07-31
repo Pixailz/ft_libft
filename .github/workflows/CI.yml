@@ -37,13 +37,19 @@ jobs:
           submodules: recursive
 
       - name: Build up libft.a (${{ matrix.os }})
-        run: make
+        run: CI_TEST=1 make
 
       - name: Call some Makefile rules
         run: |+
-          make fclean
-          make re
-          make
+          CI_TEST=1 make fclean
+          CI_TEST=1 make re
+          CI_TEST=1 make
+
+      # - name: Call helper
+      #   run: |+
+      #     CI_TEST=1 make fclean
+      #     CI_TEST=1 make re
+      #     CI_TEST=1 make
 
   # test:
   #   strategy:

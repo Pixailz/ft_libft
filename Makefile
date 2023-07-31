@@ -117,7 +117,9 @@ endif
 ### HELPER
 
 helper:
+ifneq ($(CI_TEST),1)
 > ./rsc/helper/helper
+endif
 
 ### CLEAN
 clean:
