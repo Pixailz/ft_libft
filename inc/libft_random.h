@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/11/09 03:33:51 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:29:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 /* INCLUDE */
 /* ####### */
 
-# ifndef LIBFT_DEFINE_H
-#  include "libft_define.h"
-# endif
-
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# include "libft_define.h"
+# include "libft_string.h"
+# include "libft_memory.h"
 
 /* ########################################################################## */
 
@@ -32,16 +32,6 @@
 /* ###### */
 
 # define TMP_ST "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-
-/* ########################################################################## */
-
-/* ########################################################################## */
-/* REQUIREMENTS */
-/* ############ */
-
-# include "libft_define.h"
-# include "libft_string.h"
-# include "libft_memory.h"
 
 /* ########################################################################## */
 

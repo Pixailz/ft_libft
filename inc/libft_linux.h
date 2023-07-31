@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/11/09 03:32:04 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:28:51 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,10 @@
 /* INCLUDE */
 /* ####### */
 
-# ifndef LIBFT_DEFINE_H
-#  include "libft_define.h"
-# endif
-
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-/* ########################################################################## */
-
-/* ########################################################################## */
-/* REQUIREMENTS */
-/* ############ */
 
 # include "libft_define.h"
 # include "libft_random.h"

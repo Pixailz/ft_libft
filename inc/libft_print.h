@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/30 05:31:23 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:28:10 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 /* ########################################################################## */
 /* INCLUDE */
 /* ####### */
-
-# ifndef LIBFT_DEFINE_H
-#  include "libft_define.h"
-# endif
 
 # include <unistd.h>
 /* write()
@@ -31,6 +27,11 @@
  * va_start()
  * va_end()
  **/
+
+# include "libft_define.h"
+# include "libft_integer.h"
+# include "libft_memory.h"
+# include "libft_string.h"
 
 /* ########################################################################## */
 
@@ -58,17 +59,6 @@
 # define	RST			ESC "[00m"
 
 # define	SEP		" → "
-
-/* ########################################################################## */
-
-/* ########################################################################## */
-/* REQUIREMENTS */
-/* ############ */
-
-# include "libft_define.h"
-# include "libft_integer.h"
-# include "libft_memory.h"
-# include "libft_string.h"
 
 /* ########################################################################## */
 
