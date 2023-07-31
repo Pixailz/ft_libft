@@ -1,0 +1,36 @@
+name: CI
+
+run-name: Library build and test CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened]
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "github"
+        run: |+
+          echo "Who launched: ${{github.actor}}"
+          echo "On branch:    ${{github.ref_name}}"
+          echo "Commit sha:   ${{github.sha}}"
+
+      - name: "Bin utils"
+        run: |+
+          make --version && echo
+          ar --version && echo
+          gcc --verbose && echo
+          python3 --version
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: First build
+        run: make
