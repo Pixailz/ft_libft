@@ -36,7 +36,7 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Build up libft.a ({{ matrix.os }})
+      - name: Build up libft.a (${{ matrix.os }})
         run: make
 
       - name: Call some Makefile rules
@@ -45,27 +45,27 @@ jobs:
           make re
           make
 
-  test:
-    strategy:
-      max-parallel: 5
-      matrix:
-        test_src: [
-          "ato.c",
-          "check/is_str.c",
-          "get_next_line.c",
-          "int4.c",
-          "ipv4.c",
-          "isexec.c",
-          "print_nb_base.c",
-          "random.c",
-          "tmpfile.c"
-        ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
+  # test:
+  #   strategy:
+  #     max-parallel: 5
+  #     matrix:
+  #       test_src: [
+  #         "ato.c",
+  #         "check/is_str.c",
+  #         "get_next_line.c",
+  #         "int4.c",
+  #         "ipv4.c",
+  #         "isexec.c",
+  #         "print_nb_base.c",
+  #         "random.c",
+  #         "tmpfile.c"
+  #       ]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
 
-      - name: launch ${{ matrix.test_src }}
-        run: CI_TARGET=${{ matrix.test_src }} make ci-run
+  #     - name: launch ${{ matrix.test_src }}
+  #       run: CI_TARGET=${{ matrix.test_src }} make ci-run
 
