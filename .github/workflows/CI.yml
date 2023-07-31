@@ -99,7 +99,7 @@ jobs:
         run: python3 -m norminette ./src
 
   create_release:
-    needs: build test norminette
+    needs: [build, test, norminette]
     runs-on: ubuntu-latest
     steps:
       - name: Retrieve repo
