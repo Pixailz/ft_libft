@@ -21,9 +21,10 @@ jobs:
     steps:
       - name: "💬 github"
         run: |+
-          echo "Who launched: ${{github.actor}}"
-          echo "On branch:    ${{github.ref_name}}"
-          echo "Commit sha:   ${{github.sha}}"
+          echo "Who launched:       ${{ github.actor }}"
+          echo "On branch:          ${{ github.ref_name }}"
+          echo "Commit sha:         ${{ github.sha }}"
+          echo "Trigger event name  ${{ github.event_name }}"
 
       - name: "💬 Bin utils"
         run: |+
@@ -46,7 +47,7 @@ jobs:
           submodules: recursive
 
       - name: ☁️ Update submodule
-        if: ${{ github.event_name == 'workflow_call' }}
+        if: ${{ github.event_name }} == 'workflow_call'
         run: git submodule update --remote --recursive
 
       - name: 🔧 Build up libft.a (${{ matrix.os }})
@@ -83,7 +84,7 @@ jobs:
           submodules: recursive
 
       - name: ☁️ Update submodule
-        if: ${{ github.event_name == 'workflow_call' }}
+        if: ${{ github.event_name }} == 'workflow_call'
         run: git submodule update --remote --recursive
 
       - name: 🔧 launch ${{ matrix.test_src }}
@@ -99,7 +100,7 @@ jobs:
           submodules: recursive
 
       - name: ☁️ Update submodule
-        if: ${{ github.event_name == 'workflow_call' }}
+        if: ${{ github.event_name }} == 'workflow_call'
         run: git submodule update --remote --recursive
 
       - name: ☁️ Setup python3
@@ -116,6 +117,6 @@ jobs:
 
   do_release:
     needs: [build, test, norminette]
-    if: ${{ github.event_name != 'workflow_call' }}
+    if: ${{ github.event_name }} != 'workflow_call'
     uses: ./.github/workflows/CD.yml
     secrets: inherit
