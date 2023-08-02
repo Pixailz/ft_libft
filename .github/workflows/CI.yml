@@ -43,6 +43,10 @@ jobs:
         with:
           submodules: recursive
 
+      - name: ☁️ Update submodule
+        if: ${{ github.event_name == 'workflow_call' }}
+        run: git submodule update --remote --recursive
+
       - name: 🔧 Build up libft.a (${{ matrix.os }})
         run: |+
           DISABLE_HELPER=1 make fclean
@@ -75,6 +79,10 @@ jobs:
         with:
           submodules: recursive
 
+      - name: ☁️ Update submodule
+        if: ${{ github.event_name == 'workflow_call' }}
+        run: git submodule update --remote --recursive
+
       - name: 🔧 launch ${{ matrix.test_src }}
         run: CI_TARGET=${{ matrix.test_src }} make ci-run
 
@@ -85,6 +93,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: recursive
+
+      - name: ☁️ Update submodule
+        if: ${{ github.event_name == 'workflow_call' }}
+        run: git submodule update --remote --recursive
 
       - name: ☁️ Setup python3
         uses: actions/setup-python@v4
