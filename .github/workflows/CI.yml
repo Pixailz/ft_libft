@@ -12,7 +12,7 @@ on:
       - '**.mk'
   pull_request:
     types: [opened]
-  workflow_call
+  workflow_call:
 
 jobs:
   info:
