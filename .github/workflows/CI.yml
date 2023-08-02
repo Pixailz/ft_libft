@@ -25,6 +25,7 @@ jobs:
           echo "On branch:          ${{ github.ref_name }}"
           echo "Commit sha:         ${{ github.sha }}"
           echo "Trigger event name  ${{ github.event_name }}"
+          echo "Action  ${{ github.event.action }}"
 
       - name: "💬 Bin utils"
         run: |+
@@ -47,7 +48,7 @@ jobs:
           submodules: recursive
 
       - name: ☁️ Update submodule
-        if: ${{ github.event_name }} == 'workflow_call'
+        if: ${{ github.event_name }} == workflow_call
         run: git submodule update --remote --recursive
 
       - name: 🔧 Build up libft.a (${{ matrix.os }})
