@@ -100,5 +100,4 @@ jobs:
 
   do_release:
     needs: [build, test, norminette]
-    runs-on: ubuntu-latest
-    - uses: Pixailz/ft_libft/.github/workflows/CD.yml@main
+    uses: Pixailz/ft_libft/.github/workflows/CD.yml@main
