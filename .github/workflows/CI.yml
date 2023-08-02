@@ -41,6 +41,7 @@ jobs:
       - name: ☁️ Retrieve repo
         uses: actions/checkout@v3
         with:
+          repository: "Pixailz/ft_libft"
           submodules: recursive
 
       - name: ☁️ Update submodule
@@ -77,6 +78,7 @@ jobs:
       - name: ☁️ Retrieve repo
         uses: actions/checkout@v3
         with:
+          repository: "Pixailz/ft_libft"
           submodules: recursive
 
       - name: ☁️ Update submodule
@@ -92,6 +94,7 @@ jobs:
       - name: ☁️ Retrieve repo
         uses: actions/checkout@v3
         with:
+          repository: "Pixailz/ft_libft"
           submodules: recursive
 
       - name: ☁️ Update submodule
@@ -108,7 +111,7 @@ jobs:
         run: pip install norminette
 
       - name: 🔧 Run
-        run: python3 -m norminette ./src
+        run: python3 -m norminette ./src ./inc
 
   do_release:
     needs: [build, test, norminette]
