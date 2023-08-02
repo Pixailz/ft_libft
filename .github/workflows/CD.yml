@@ -38,3 +38,49 @@ jobs:
             libft.a
             inc/**
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  update_SupaBlank:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ☁️ Retrieve SupaBlank repo
+        uses: actions/checkout@v2
+        with:
+          repository: "Pixailz/SupaBlank"
+          submodules: recursive
+          token: ${{ secrets.PAT_ACTIONS }}
+
+      - name: ☁️ Configure and update
+        run: |+
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git submodule update --remote --recursive
+          git commit -a -m "[ft_libft] update submodule"
+
+      - name: 🔧 test SupaBlank
+        run: make
+
+      - name: ☁️ SupaBlank push
+        run: git status && git push
+
+  update_ft_ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ☁️ Retrieve ft_ping repo
+        uses: actions/checkout@v2
+        with:
+          repository: "Pixailz/ft_ping"
+          submodules: recursive
+          token: ${{ secrets.PAT_ACTIONS }}
+
+      - name: ☁️ Configure and update
+        run: |+
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git submodule update --remote --recursive
+          git commit -a -m "[ft_libft] update submodule"
+
+      - name: 🔧 test ft_ping
+        run: make
+
+      - name: ☁️ ft_ping push
+        run: git status && git push

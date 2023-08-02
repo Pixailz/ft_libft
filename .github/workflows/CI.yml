@@ -100,4 +100,5 @@ jobs:
 
   do_release:
     needs: [build, test, norminette]
-    uses: Pixailz/ft_libft/.github/workflows/CD.yml@main
+    if: ${{ github.event_name != 'workflow_call' }}
+    uses: ./.github/workflows/CD.yml
