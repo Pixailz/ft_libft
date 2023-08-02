@@ -118,3 +118,4 @@ jobs:
     needs: [build, test, norminette]
     if: ${{ github.event_name != 'workflow_call' }}
     uses: ./.github/workflows/CD.yml
+    secrets: inherit
