@@ -12,6 +12,7 @@ on:
       - '**.mk'
   pull_request:
     types: [opened]
+  workflow_dispatch:
   workflow_call:
     inputs:
       is_called:
