@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 00:03:22 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/01 18:19:01 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/08/03 00:55:28 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ int	ft_splitb_get_size(char *str, char delim, char *encl)
 	return (count);
 }
 
-char	**ft_splitb_get_words(char *s, char delim, char *encl, int tab_size)
+char	**ft_splitb_get_words(char *s, char delim, char *encl, \
+								int tab_size)
 {
 	int		counter;
 	int		size;

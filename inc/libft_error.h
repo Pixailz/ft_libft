@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/30 05:31:51 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/08/03 00:57:16 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 /* TYPEDEF */
 /* ####### */
 
-typedef enum	e_errno
+typedef enum e_errno
 {
 	ERRN_00 = 0,
 	ERRN_01 = 1U,

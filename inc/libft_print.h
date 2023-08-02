@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 18:28:10 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/08/03 00:56:25 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,18 @@
 /* ANSI CODE */
 /* ###### */
 
-# define	ESC			"\x1b"
-# define	BLACK		ESC "[30m"
-# define	RED			ESC "[31m"
-# define	GREEN		ESC "[32m"
-# define	YELLOW		ESC "[33m"
-# define	BLUE		ESC "[34m"
-# define	PURPLE		ESC "[35m"
-# define	CYAN		ESC "[36m"
-# define	WHITE		ESC "[37m"
-# define	RST			ESC "[00m"
+# define ESC			"\x1b"
+# define BLACK			ESC "[30m"
+# define RED			ESC "[31m"
+# define GREEN			ESC "[32m"
+# define YELLOW			ESC "[33m"
+# define BLUE			ESC "[34m"
+# define PURPLE			ESC "[35m"
+# define CYAN			ESC "[36m"
+# define WHITE			ESC "[37m"
+# define RST			ESC "[00m"
 
-# define	SEP		" → "
+# define SEP			" → "
 
 /* ########################################################################## */
 

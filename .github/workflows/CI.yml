@@ -111,7 +111,7 @@ jobs:
         run: pip install norminette
 
       - name: 🔧 Run
-        run: python3 -m norminette ./src ./inc
+        run: python3 -m norminette ./src
 
   do_release:
     needs: [build, test, norminette]

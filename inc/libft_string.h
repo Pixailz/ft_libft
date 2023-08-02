@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 19:09:35 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/08/03 00:55:56 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ t_int64		ft_patoll_base(const char *nstr, const char *base, int *has_flow);
 t_uint32	ft_patou(const char *nstr, int *has_overflow);
 
 // string/ft_patou_base.c
-t_uint32	ft_patou_base(const char *nstr, const char *base, int *has_overflow);
+t_uint32	ft_patou_base(const char *nstr, const char *base, \
+							int *has_overflow);
 
 // string/ft_split.c
 char		**ft_split(char *s, char c);
@@ -87,7 +88,8 @@ char		**ft_split(char *s, char c);
 // string/ft_splitb.c
 int			ft_splitb_get_word(char **str, char delim, char *encl);
 int			ft_splitb_get_size(char *str, char delim, char *encl);
-char		**ft_splitb_get_words(char *s, char delim, char *encl, int tab_size);
+char		**ft_splitb_get_words(char *s, char delim, char *encl, \
+								int tab_size);
 char		**ft_splitb(char *s, char delim, char *encl);
 
 // string/ft_strcat.c

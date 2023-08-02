@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 00:34:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/17 09:46:32 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/08/03 00:55:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static t_uint32	ft_atou_base_p(			\
 	return (to_dec);
 }
 
-t_uint32	ft_patou_base(const char *nstr, const char *base, int *has_overflow)
+t_uint32	ft_patou_base(const char *nstr, const char *base, \
+							int *has_overflow)
 {
 	t_uint32	to_dec;
 
