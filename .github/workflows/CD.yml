@@ -3,7 +3,7 @@ name: CD
 run-name: ft_libft CD deployment
 
 on:
-  workflow_call
+  workflow_call:
 
 jobs:
   git_release:
