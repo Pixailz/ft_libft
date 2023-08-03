@@ -124,7 +124,12 @@ MULTIPLE		:= 1
 # dependecies
 PRINT			:= 1
 endif
-
+ifeq ($(findstring unit_test,$(MAKECMDGOALS)),unit_test)
+UNIT_TEST		:= 1
+MULTIPLE		:= 1
+# dependecies
+PRINT			:= 1
+endif
 ifeq ($(MULTIPLE), 0)
 ALL				:= 1
 endif
