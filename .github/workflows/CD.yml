@@ -49,18 +49,19 @@ jobs:
           submodules: recursive
           token: ${{ secrets.PAT_ACTIONS }}
 
-      - name: ☁️ Configure and update
+      - name: ☁️ Update submodules
         run: |+
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
           git submodule update --remote --recursive
-          git commit -a -m "[ft_libft] submodule update spread"
 
       - name: 🔧 test SupaBlank
         run: make
 
-      - name: ☁️ SupaBlank push
-        run: git status && git push
+      - name: ☁️ Configure, commit and push
+        run: |+
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -a -m "[helper] submodule update spread"
+          git status && git push
 
   update_ft_ping:
     runs-on: ubuntu-latest
@@ -72,15 +73,16 @@ jobs:
           submodules: recursive
           token: ${{ secrets.PAT_ACTIONS }}
 
-      - name: ☁️ Configure and update
+      - name: ☁️ Update submodules
         run: |+
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
           git submodule update --remote --recursive
-          git commit -a -m "[ft_libft] submodule update spread"
 
       - name: 🔧 test ft_ping
         run: make
 
-      - name: ☁️ ft_ping push
-        run: git status && git push
+      - name: ☁️ Configure, commit and push
+        run: |+
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -a -m "[helper] submodule update spread"
+          git status && git push
