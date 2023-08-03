@@ -40,6 +40,8 @@ ipv4:			workflow
 
 error:			workflow
 
+unit_test:		workflow
+
 $(TARGET):	$(OBJ_C)
 > $(call P_INF,Creating $(R)$(TARGET)$(RST))
 > $(PRINTF) "\n\n"

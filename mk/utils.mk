@@ -74,40 +74,44 @@ $(bold)modulable$(font_color) ft_library
 			make re $(bold)string integer$(font_color)
 
 	The following parts are available (non-exhaustive list of function):
-		$(bold)integer$(font_color)\tmanipulate integer
+		$(bold)integer$(font_color)\t\tmanipulate integer
 			$(bold)ft_itoa$(font_color), $(bold)ft_nbrlen$(font_color), \
 $(bold)ft_int4_comp
 
-		string$(font_color)\tmanipulate string
+		string$(font_color)\t\tmanipulate string
 			$(bold)ft_atoi$(font_color), $(bold)ft_strlen$(font_color), \
 $(bold)ft_strjoin
 
-		memory$(font_color)\tmanipulate / allocate memory
+		memory$(font_color)\t\tmanipulate / allocate memory
 			$(bold)ft_calloc$(font_color), $(bold)ft_memchr$(font_color), \
 $(bold)ft_memjoin
 
-		check$(font_color)\tcheck something
+		check$(font_color)\t\tcheck something
 			$(bold)ft_isalnum$(font_color), $(bold)ft_isgoodi
 
-		list$(font_color)\twork with linked list
+		list$(font_color)\t\twork with linked list
 			$(bold)ft_lstnew$(font_color), $(bold)ft_lstadd_back
 
-		print$(font_color)\tprint something
+		print$(font_color)\t\tprint something
 			$(bold)ft_printf$(font_color), $(bold)ft_dprintf$(font_color),\
 $(bold)ft_putchar
 
-		input$(font_color)\twork with input
+		input$(font_color)\t\twork with input
 			$(bold)ft_get_next_line
 
-		random$(font_color)\twork with randomness
+		random$(font_color)\t\twork with randomness
 			$(bold)ft_randint$(font_color), $(bold)ft_tmpfile
 
-		linux$(font_color)\twork with linux
+		linux$(font_color)\t\twork with linux
 			$(bold)ft_iscdable$(font_color), $(bold)ft_getuid$(font_color), \
-$(bold)ft_getgid$(font_color)
+$(bold)ft_getgid
 
-		$(bold)error$(font_color)\tfunction and enum to help with error
-			$(bold)ft_perror$(font_color)
+		error$(font_color)\t\tfunction and enum to help with error
+			$(bold)ft_perror
+
+		unit_test$(font_color)\tfunction to make sure some other function work \
+as expected
+			$(bold)ft_assert
 
 $(font_color)Version: $(bold)$(VERSION)$(RST)
 
