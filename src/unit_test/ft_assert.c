@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 02:14:34 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/08/03 02:20:39 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/08/03 03:23:01 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_assert(void)
 {
-	return ;
+	return;
 }

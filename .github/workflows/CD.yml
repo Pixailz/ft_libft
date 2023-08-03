@@ -14,9 +14,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: 🔧 Build up libft.a
-        run: DISABLE_HELPER=1 make re
-
       - name: 🔧 Declare some var
         run: |+
           {
@@ -24,6 +21,12 @@ jobs:
             printf "ver=%s" \
             "$(perl -nE 'print if s|VERSION\s+:= (\d\.\d\.\d)|\1|gm' ./mk/config.mk)"
           } >> ${GITHUB_ENV}
+
+      - name: 🔧 Build up libft.a and pack release
+        run: |+
+          DISABLE_HELPER=1 make re
+          DISABLE_HELPER=1 make clean
+          tar czf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ../ft_libft
 
       - name: ☁️ Upload release artifact
         if: success()
@@ -34,9 +37,7 @@ jobs:
           prerelease: true
           name: build ${{ env.sha7 }}
           tag_name: v${{ env.ver }}-${{ env.sha7 }}
-          files: |
-            libft.a
-            inc/**
+          files: ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz
           token: ${{ secrets.GITHUB_TOKEN }}
 
   update_SupaBlank:
