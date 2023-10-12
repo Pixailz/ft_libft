@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/08/03 00:56:25 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:48:32 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,20 @@
 /* ###### */
 
 # define ESC			"\x1b"
-# define BLACK			ESC "[30m"
-# define RED			ESC "[31m"
-# define GREEN			ESC "[32m"
-# define YELLOW			ESC "[33m"
-# define BLUE			ESC "[34m"
-# define PURPLE			ESC "[35m"
-# define CYAN			ESC "[36m"
-# define WHITE			ESC "[37m"
-# define RST			ESC "[00m"
+# define END			"\007"
+# define BLACK			ESC "[30m" END
+# define RED			ESC "[31m" END
+# define GREEN			ESC "[32m" END
+# define YELLOW			ESC "[33m" END
+# define BLUE			ESC "[34m" END
+# define PURPLE			ESC "[35m" END
+# define CYAN			ESC "[36m" END
+# define WHITE			ESC "[37m" END
+# define RST			ESC "[00m" END
 
 # define SEP			" → "
+
+# define P_ERR			"[" RED "ERROR" RST "]" SEP
 
 /* ########################################################################## */
 
@@ -68,6 +71,9 @@
 
 // print/ft_dprintf.c
 size_t		ft_dprintf(int fd, const char *format, ...);
+
+// print/ft_print_err.c
+int			ft_print_err(char *msg, int r_value);
 
 // print/ft_printf.c
 size_t		ft_printf(const char *format, ...);
