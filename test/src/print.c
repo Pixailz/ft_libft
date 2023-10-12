@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 03:09:08 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/12 19:46:00 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:50:09 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ci_test(void)
 
 int	interactive(void)
 {
-	ft_print_err("parsing", 2);
+	ft_perr("parsing", 2);
 	return (0);
 }
 

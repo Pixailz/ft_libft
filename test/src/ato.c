@@ -6,12 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 09:12:28 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/08/03 01:34:57 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:56:11 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_string.h"
-#include "libft_error.h"
 #include "libft_print.h"
 
 #ifndef CI_TEST
@@ -134,7 +133,7 @@ int	ci_test()
 int	interactive(int ac, char **av)
 {
 	if (ac != 3)
-		return (ft_perror("args\n"));
+		return (ft_perr("args\n", 1));
 	test_string(av[1], av[2]);
 	return (0);
 }

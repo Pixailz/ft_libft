@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 22:34:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 23:49:49 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:56:33 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include "libft_input.h"
 #include "libft_print.h"
-#include "libft_error.h"
 
 #ifndef CI_TEST
 # define CI_TEST FALSE
@@ -34,10 +33,10 @@ int	interactive(int ac, char **av)
 	t_size	counter;
 
 	if (ac != 2)
-		return (ft_perror("args error\n"));
+		return (ft_perr("args error\n", 2));
 	file = open(av[1], O_RDONLY);
 	if (file < 0)
-		return (ft_perror(av[1]));
+		return (ft_perr(av[1], 2));
 	line = ft_get_next_line(file);
 	counter = 0;
 	ft_printf("line[%u] \t[%s", counter++, line);

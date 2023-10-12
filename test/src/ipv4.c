@@ -6,12 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 04:10:51 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 20:34:05 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:56:56 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_print.h"
-#include "libft_error.h"
 #include "libft_string.h"
 #include "libft_integer.h"
 #include "libft_network/ipv4.h"
@@ -40,10 +39,10 @@ int	interactive(int ac, char **av)
 	t_int4	ip;
 
 	if (ac != 2)
-		return (ft_perror("not enought args\n"));
+		return (ft_perr("not enought args\n", 1));
 	ip = ft_ipstr(av[1]);
 	if (!ip && ft_strncmp("0.0.0.0\0", av[1], 8))
-		return (ft_perror("invalid ip error\n"));
+		return (ft_perror("invalid ip error\n", 2));
 	print_dcomp(ip);
 	ft_putip_fd(ip, 1);
 	ft_putendl_fd("", 1);
