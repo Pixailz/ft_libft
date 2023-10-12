@@ -144,3 +144,13 @@ ci-compile: $(TARGET) $(CI_BIN_DIR)
 ci-run: ci-compile
 > $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
 > $(call P_PAS,return value $(font_color)$(CI_BIN_DIR)/$(CI_TARGET:%.c=%)$(RST) [$(G)$${?}$(RST)])
+
+
+test-compile: $(TARGET) $(CI_BIN_DIR)
+> $(call MKDIR,$(CI_BIN_DIR)/$$(dirname $(CI_TARGET)))
+> $(CC) $(CFLAGS) $(CI_SRC_DIR)/$(CI_TARGET) $(TARGET) -o $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
+> $(call P_PAS,compilation pass) \
+
+test-run: test-compile
+> $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
+> $(call P_PAS,return value $(font_color)$(CI_BIN_DIR)/$(CI_TARGET:%.c=%)$(RST) [$(G)$${?}$(RST)])
