@@ -96,7 +96,7 @@ SRC_LST := list/ft_lstadd_back.c \
 
 ### PRINT
 SRC_PRT := print/ft_dprintf.c \
-		   print/ft_print_err.c \
+		   print/ft_perr.c \
 		   print/ft_printf.c \
 		   print/ft_putchar_fd.c \
 		   print/ft_putendl_fd.c \

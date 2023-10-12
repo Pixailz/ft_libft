@@ -72,8 +72,8 @@
 // print/ft_dprintf.c
 size_t		ft_dprintf(int fd, const char *format, ...);
 
-// print/ft_print_err.c
-int			ft_print_err(char *msg, int r_value);
+// print/ft_perr.c
+int			ft_perr(char *msg, int r_value);
 
 // print/ft_printf.c
 size_t		ft_printf(const char *format, ...);
