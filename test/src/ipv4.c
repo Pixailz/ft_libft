@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 04:10:51 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/12 19:56:56 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:02:31 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	interactive(int ac, char **av)
 		return (ft_perr("not enought args\n", 1));
 	ip = ft_ipstr(av[1]);
 	if (!ip && ft_strncmp("0.0.0.0\0", av[1], 8))
-		return (ft_perror("invalid ip error\n", 2));
+		return (ft_perr("invalid ip error\n", 2));
 	print_dcomp(ip);
 	ft_putip_fd(ip, 1);
 	ft_putendl_fd("", 1);
