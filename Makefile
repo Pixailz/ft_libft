@@ -38,8 +38,6 @@ linux:			workflow
 
 ipv4:			workflow
 
-error:			workflow
-
 unit_test:		workflow
 
 $(TARGET):	$(OBJ_C)
@@ -99,7 +97,6 @@ ifeq ($(shell [ $(DEBUG) -ge 1 ] && echo 1 || echo 0),1)
 > $(PRINTF) "       $(font_color)RANDOM $(bold)%d$(reset)\n" $(RANDOM)
 > $(PRINTF) "       $(font_color)LINUX $(bold)%d$(reset)\n" $(LINUX)
 > $(PRINTF) "       $(font_color)NET_IPV4 $(bold)%d$(reset)\n" $(NET_IPV4)
-> $(PRINTF) "       $(font_color)ERROR $(bold)%d$(reset)\n" $(ERROR)
 > $(PRINTF) "\n"
 > $(PRINTF) "      $(orange_star) $(font_color)ALL $(bold)%d$(reset)\n" $(ALL)
 > $(PRINTF) "   $(orange_star) $(font_color)TARGET $(bold)%s$(reset)\n" $(TARGET)

@@ -126,9 +126,6 @@ SRC_NET_IPV4 := network/ipv4/ft_ipstr.c \
 				network/ipv4/ft_putip_fd.c
 
 ### ERROR
-SRC_ERR := error/ft_perror.c
-
-### ERROR
 SRC_UNI_TEST := unit_test/ft_assert.c
 
 ## if all, add all base to SRC_C
@@ -143,7 +140,6 @@ SRC_C				+= $(SRC_INP)
 SRC_C				+= $(SRC_RDM)
 SRC_C				+= $(SRC_LNX)
 SRC_C				+= $(SRC_NET_IPV4)
-SRC_C				+= $(SRC_ERR)
 SRC_C				+= $(SRC_UNI_TEST)
 
 ## add base part to SRC_C
@@ -177,9 +173,6 @@ SRC_C			+= $(SRC_LNX)
 endif
 ifeq ($(NET_IPV4),1)
 SRC_C			+= $(SRC_NET_IPV4)
-endif
-ifeq ($(ERROR),1)
-SRC_C			+= $(SRC_ERROR)
 endif
 ifeq ($(UNIT_TEST),1)
 SRC_C			+= $(SRC_UNI_TEST)
