@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_str.c                                        :+:      :+:    :+:   */
+/*   ft_optadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 02:43:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/25 12:07:49 by brda-sil         ###   ########.fr       */
+/*   Created: 2023/10/24 14:30:54 by brda-sil          #+#    #+#             */
+/*   Updated: 2023/10/25 12:20:23 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_check.h"
+#include "libft_parsing.h"
 
-t_bool	ft_is_str(const char *str, t_bool func(char))
+void	ft_optadd(char *opt_long, char *opt_short, t_uint8 flag)
 {
-	char	*ptr;
+	t_opt	*opts;
+	t_opt	*tmp;
 
-	ptr = (char *)str;
-	while (*ptr)
-		if (!func(*ptr++))
-			return (FALSE);
-	return (TRUE);
+	tmp = (t_opt *)ft_calloc(sizeof(t_opt), 1);
+	tmp->opt_long = opt_long;
+	tmp->opt_short = opt_short;
+	tmp->flag = flag;
+	opts = ft_sin_arg(FT_NULL);
+	if (!opts)
+	{
+		ft_sin_arg(tmp);
+	}
+	else
+	{
+		while (opts->next)
+			opts = opts->next;
+		opts->next = tmp;
+	}
 }

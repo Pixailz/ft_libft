@@ -71,6 +71,18 @@ MULTIPLE		:= 1
 # dependecies
 STRING			:= 1
 endif
+ifeq ($(findstring parsing,$(MAKECMDGOALS)),parsing)
+PARSING			:= 1
+MULTIPLE		:= 1
+# dependecies
+MEMORY			:= 1
+PRINT			:= 1
+endif
+ifeq ($(findstring error,$(MAKECMDGOALS)),error)
+ERROR			:= 1
+MULTIPLE		:= 1
+# dependecies
+endif
 ifeq ($(findstring check,$(MAKECMDGOALS)),check)
 CHECK			:= 1
 MULTIPLE		:= 1

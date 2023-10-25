@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 18:28:44 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:29:42 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,4 @@ char		*ft_utoa_base(const t_uint64 const_nb, const char *base);
 
 /* ########################################################################## */
 
-#endif
+#endif // LIBFT_INTEGER_H

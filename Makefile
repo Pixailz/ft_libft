@@ -24,6 +24,8 @@ string:			workflow
 
 memory:			workflow
 
+parsing:		workflow
+
 check:			workflow
 
 list:			workflow
@@ -136,7 +138,7 @@ re:						fclean workflow
 $(CI_BIN_DIR):
 > $(call MKDIR,$@)
 
-ci-compile: $(TARGET) $(CI_BIN_DIR)
+ci-compile: workflow $(CI_BIN_DIR)
 > $(call MKDIR,$(CI_BIN_DIR)/$$(dirname $(CI_TARGET)))
 > $(CC) -DCI_TEST=1 $(CFLAGS) $(CI_SRC_DIR)/$(CI_TARGET) $(TARGET) -o $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
 > $(call P_PAS,compilation pass) \
@@ -146,7 +148,7 @@ ci-run: ci-compile
 > $(call P_PAS,return value $(font_color)$(CI_BIN_DIR)/$(CI_TARGET:%.c=%)$(RST) [$(G)$${?}$(RST)])
 
 
-test-compile: $(TARGET) $(CI_BIN_DIR)
+test-compile: workflow $(CI_BIN_DIR)
 > $(call MKDIR,$(CI_BIN_DIR)/$$(dirname $(CI_TARGET)))
 > $(CC) $(CFLAGS) $(CI_SRC_DIR)/$(CI_TARGET) $(TARGET) -o $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
 > $(call P_PAS,compilation pass) \

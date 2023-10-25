@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_str.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 02:43:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/25 12:07:49 by brda-sil         ###   ########.fr       */
+/*   Created: 2023/10/25 12:26:56 by brda-sil          #+#    #+#             */
+/*   Updated: 2023/10/25 12:27:19 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_check.h"
+#include "libft_error.h"
 
-t_bool	ft_is_str(const char *str, t_bool func(char))
+void	ft_error(void)
 {
-	char	*ptr;
-
-	ptr = (char *)str;
-	while (*ptr)
-		if (!func(*ptr++))
-			return (FALSE);
-	return (TRUE);
+	return ;
 }

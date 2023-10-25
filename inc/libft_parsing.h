@@ -1,30 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_linux.h                                      :+:      :+:    :+:   */
+/*   libft_parsing.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/24 14:55:55 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:23:44 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_LINUX_H
-# define LIBFT_LINUX_H
+#ifndef LIBFT_PARSING_H
+# define LIBFT_PARSING_H
 
 /* ########################################################################## */
 /* INCLUDE */
 /* ####### */
 
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <stdlib.h>
 # include <unistd.h>
-
 # include "libft_define.h"
-# include "libft_random.h"
-# include "libft_check.h"
+# include "libft_memory.h"
+# include "libft_print.h"
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* CONFIG */
+/* ###### */
+
+typedef enum e_flag_opt
+{
+	OPT_FLAG,
+	OPT_SINGLE		= 1 << 0,
+	OPT_MULTIPLE	= 1 << 1,
+}	t_flag_opt;
+
+typedef struct s_opt
+{
+	char			*opt_long;
+	char			*opt_short;
+	t_uint8			flag;
+	char			**value;
+	struct s_opt	*next;
+}	t_opt;
 
 /* ########################################################################## */
 
@@ -32,28 +50,16 @@
 /* FILES */
 /* ##### */
 
-// linux/ft_getgid.c
-int			ft_getgid_file(char *file_path);
-int			ft_getgid_dir(char *file_path);
-int			ft_getgid(void);
+// parsing/ft_optadd.c
+void		ft_optadd(char *opt_long, char *opt_short, t_uint8 flag);
 
-// linux/ft_getuid.c
-int			ft_getuid_file(char *file_path);
-int			ft_getuid_dir(char *file_path);
-int			ft_getuid(void);
+// parsing/ft_optparse.c
+void		ft_optparse(int ac, char **av);
 
-// linux/ft_iscdable.c
-t_bool		ft_iscdable(char *dir_path);
-
-// linux/ft_isdir.c
-int			ft_isdir(char *dir_path, int mode);
-
-// linux/ft_isexec.c
-t_bool		ft_isexec(char *file_path);
-
-// linux/ft_isfile.c
-int			ft_isfile(char *file_path, int mode);
+// parsing/ft_sin_arg.c
+t_opt		*ft_sin_arg(t_opt *opt);
+void		ft_sin_free_arg(void);
 
 /* ########################################################################## */
 
-#endif // LIBFT_LINUX_H
+#endif // LIBFT_PARSING_H

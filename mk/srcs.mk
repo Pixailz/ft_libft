@@ -70,6 +70,14 @@ SRC_MEM := memory/ft_bzero.c \
 		   memory/ft_memnchr.c \
 		   memory/ft_memset.c
 
+### PARSING
+SRC_PAR := parsing/ft_optadd.c \
+		   parsing/ft_optparse.c \
+		   parsing/ft_sin_arg.c
+
+### ERROR
+SRC_ERR := error/ft_error.c
+
 ### CHECK
 SRC_CHK := check/ft_is_str.c \
 		   check/ft_isalnum.c \
@@ -134,6 +142,8 @@ ifeq ($(ALL),1)
 SRC_C				+= $(SRC_INT)
 SRC_C				+= $(SRC_STR)
 SRC_C				+= $(SRC_MEM)
+SRC_C				+= $(SRC_PAR)
+SRC_C				+= $(SRC_ERR)
 SRC_C				+= $(SRC_CHK)
 SRC_C				+= $(SRC_LST)
 SRC_C				+= $(SRC_PRT)
@@ -153,6 +163,12 @@ SRC_C			+= $(SRC_STR)
 endif
 ifeq ($(MEMORY),1)
 SRC_C			+= $(SRC_MEM)
+endif
+ifeq ($(PARSING),1)
+SRC_C			+= $(SRC_PAR)
+endif
+ifeq ($(ERROR),1)
+SRC_C			+= $(SRC_ERR)
 endif
 ifeq ($(CHECK),1)
 SRC_C			+= $(SRC_CHK)

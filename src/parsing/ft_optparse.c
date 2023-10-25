@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_str.c                                        :+:      :+:    :+:   */
+/*   ft_optparse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 02:43:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/25 12:07:49 by brda-sil         ###   ########.fr       */
+/*   Created: 2023/10/24 14:30:54 by brda-sil          #+#    #+#             */
+/*   Updated: 2023/10/25 12:23:34 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_check.h"
+#include "libft_parsing.h"
 
-t_bool	ft_is_str(const char *str, t_bool func(char))
+void	ft_optparse(int ac, char **av)
 {
-	char	*ptr;
-
-	ptr = (char *)str;
-	while (*ptr)
-		if (!func(*ptr++))
-			return (FALSE);
-	return (TRUE);
+	(void)ac;
+	(void)av;
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/12 19:13:48 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:30:27 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "libft_integer.h"
 # include "libft_list.h"
 # include "libft_memory.h"
+# include "libft_parsing.h"
 # include "libft_print.h"
 # include "libft_string.h"
 # include "libft_random.h"
@@ -30,4 +31,4 @@
 
 /* ########################################################################## */
 
-#endif
+#endif // LIBFT_H
