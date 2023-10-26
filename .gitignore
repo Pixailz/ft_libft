@@ -9,3 +9,4 @@ a.out
 # test
 test/test
 test/bin
+**/exec.log
