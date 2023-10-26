@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/25 12:05:51 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/26 22:45:27 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@
 /* CONFIG */
 /* ###### */
 
-# define FT_PRINTF_PARAMS_LIST "cspdiuxX%"
+# define FT_PRINTF_PARAMS_LIST	"cspdiuxX%"
+
+# define DEBUG_FD				420
 
 /* ########################################################################## */
 
@@ -61,7 +63,10 @@
 
 # define SEP			" → "
 
-# define P_ERR			"[" RED "ERROR" RST "]" SEP
+# define P_FAIL			"[" RED "-" RST "]" SEP
+# define P_PASS			"[" GREEN "+" RST "]" SEP
+# define P_DEBG			"[" BLUE "*" RST "]" SEP
+# define P_INFO			"[" CYAN "+" RST "]" SEP
 
 /* ########################################################################## */
 
@@ -70,12 +75,17 @@
 /* ##### */
 
 // print/ft_dprintf.c
+int			ft_dprintf_parse(int fd, va_list args, const char *format);
 size_t		ft_dprintf(int fd, const char *format, ...);
 
+// print/ft_pdeb.c
+t_size		ft_pdeb(const char *format, ...);
+
 // print/ft_perr.c
-int			ft_perr(char *msg, int r_value);
+int			ft_perr(const char *format, ...);
 
 // print/ft_printf.c
+int			ft_printf_parse(va_list args, const char *format);
 size_t		ft_printf(const char *format, ...);
 
 // print/ft_putchar_fd.c
@@ -95,6 +105,12 @@ size_t		ft_putstr_fd(char const *s, int fd);
 
 // print/ft_putunbr_fd.c
 size_t		ft_putunbr_fd(unsigned long n, int fd);
+
+// print/ft_vdprintf.c
+size_t		ft_vdprintf(int fd, const char *format, va_list args);
+
+// print/ft_vprintf.c
+size_t		ft_vprintf(const char *format, va_list args);
 
 /* ########################################################################## */
 

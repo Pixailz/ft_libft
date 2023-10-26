@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_pdeb.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 01:30:06 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/26 22:50:27 by brda-sil         ###   ########.fr       */
+/*   Created: 2023/10/26 20:24:53 by brda-sil          #+#    #+#             */
+/*   Updated: 2023/10/26 22:45:35 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_memory.h"
+#include "libft_print.h"
 
-char	*ft_memchr(char *buf, unsigned char c, t_size n)
+t_size	ft_pdeb(const char *format, ...)
 {
-	if (!buf)
-		return (NULL);
-	while (*buf && *buf != c && n--)
-		buf++;
-	if (!*buf)
-		return (NULL);
-	return (++buf);
+	va_list	args;
+	t_size	size;
+
+	ft_putstr_fd(P_DEBG, DEBUG_FD);
+	va_start(args, format);
+	size = ft_vdprintf(DEBUG_FD, format, args);
+	va_end(args);
+	return (size);
 }

@@ -71,9 +71,15 @@ SRC_MEM := memory/ft_bzero.c \
 		   memory/ft_memset.c
 
 ### PARSING
-SRC_PAR := parsing/ft_optadd.c \
+SRC_PAR := parsing/ft_opt_long.c \
+		   parsing/ft_opt_other.c \
+		   parsing/ft_opt_short.c \
+		   parsing/ft_optadd.c \
+		   parsing/ft_optconf.c \
 		   parsing/ft_optparse.c \
-		   parsing/ft_sin_arg.c
+		   parsing/ft_sin_arg.c \
+		   parsing/ft_sin_arg_print.c \
+		   parsing/ft_sin_opt_perr.c
 
 ### ERROR
 SRC_ERR := error/ft_error.c
@@ -104,6 +110,7 @@ SRC_LST := list/ft_lstadd_back.c \
 
 ### PRINT
 SRC_PRT := print/ft_dprintf.c \
+		   print/ft_pdeb.c \
 		   print/ft_perr.c \
 		   print/ft_printf.c \
 		   print/ft_putchar_fd.c \
@@ -111,7 +118,9 @@ SRC_PRT := print/ft_dprintf.c \
 		   print/ft_putnbr_base_fd.c \
 		   print/ft_putnbr_fd.c \
 		   print/ft_putstr_fd.c \
-		   print/ft_putunbr_fd.c
+		   print/ft_putunbr_fd.c \
+		   print/ft_vdprintf.c \
+		   print/ft_vprintf.c
 
 ### INPUT
 SRC_INP := input/ft_get_next_line.c

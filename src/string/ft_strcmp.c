@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:22:08 by stales            #+#    #+#             */
-/*   Updated: 2022/07/01 12:04:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/26 22:30:51 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@
  */
 int	ft_strcmp(char *s1, char *s2)
 {
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return (0 - (unsigned char)*s2);
+	if (!s2)
+		return ((unsigned char)*s1);
 	while (*s1 && *s2 && *s1 == *s2)
 	{
 		s1++;

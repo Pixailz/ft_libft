@@ -135,6 +135,9 @@ fclean:							clean
 re:						fclean workflow
 
 ## CI TEST
+so:
+> $(CC) $(OBJ_C) --shared -o libft.so
+
 $(CI_BIN_DIR):
 > $(call MKDIR,$@)
 
@@ -144,7 +147,7 @@ ci-compile: workflow $(CI_BIN_DIR)
 > $(call P_PAS,compilation pass) \
 
 ci-run: ci-compile
-> $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
+> $(CI_BIN_DIR)/$(CI_TARGET:%.c=%) 420>exec.log
 > $(call P_PAS,return value $(font_color)$(CI_BIN_DIR)/$(CI_TARGET:%.c=%)$(RST) [$(G)$${?}$(RST)])
 
 
@@ -154,5 +157,5 @@ test-compile: workflow $(CI_BIN_DIR)
 > $(call P_PAS,compilation pass) \
 
 test-run: test-compile
-> $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
+> $(CI_BIN_DIR)/$(CI_TARGET:%.c=%) 420>exec.log
 > $(call P_PAS,return value $(font_color)$(CI_BIN_DIR)/$(CI_TARGET:%.c=%)$(RST) [$(G)$${?}$(RST)])

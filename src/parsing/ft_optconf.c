@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_optconf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 01:30:06 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/26 22:50:27 by brda-sil         ###   ########.fr       */
+/*   Created: 2023/10/24 14:30:54 by brda-sil          #+#    #+#             */
+/*   Updated: 2023/10/26 22:09:39 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_memory.h"
+#include "libft_parsing.h"
 
-char	*ft_memchr(char *buf, unsigned char c, t_size n)
+void	ft_optconf(int ac, char **av)
 {
-	if (!buf)
-		return (NULL);
-	while (*buf && *buf != c && n--)
-		buf++;
-	if (!*buf)
-		return (NULL);
-	return (++buf);
+	t_opts	*opts;
+
+	opts = ft_sin_opts(FALSE);
+	opts->ac = ac;
+	opts->av = av;
 }

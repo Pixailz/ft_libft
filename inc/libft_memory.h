@@ -38,7 +38,7 @@ void	*ft_calloc(t_size nmemb, t_size size);
 void	ft_free_char_pp(char **str_str);
 
 // memory/ft_memchr.c
-char	*ft_memchr(char *buf, unsigned char c);
+char	*ft_memchr(char *buf, unsigned char c, t_size n);
 
 // memory/ft_memcmp.c
 int		ft_memcmp(const void *s1, const void *s2, t_size n);

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 02:32:03 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/07/06 15:24:54 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:39:40 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	ft_checkparams(char c)
 	return (0);
 }
 
-static int	ft_parse(va_list args, const char *format)
+int	ft_printf_parse(va_list args, const char *format)
 {
 	int	size;
 
@@ -82,7 +82,7 @@ size_t	ft_printf(const char *format, ...)
 
 	size = 0;
 	va_start(args, format);
-	size = ft_parse(args, format);
+	size = ft_printf_parse(args, format);
 	va_end(args);
 	return (size);
 }

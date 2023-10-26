@@ -78,7 +78,8 @@ jobs:
           "isexec.c",
           "print_nb_base.c",
           "random.c",
-          "tmpfile.c"
+          "tmpfile.c",
+          "parsing.c",
         ]
     runs-on: ubuntu-latest
     steps:

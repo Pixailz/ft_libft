@@ -1,37 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_optadd.c                                        :+:      :+:    :+:   */
+/*   ft_opt_other.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:30:54 by brda-sil          #+#    #+#             */
+/*   Created: 2023/10/26 01:10:46 by brda-sil          #+#    #+#             */
 /*   Updated: 2023/10/26 22:09:39 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_parsing.h"
 
-void	ft_optadd(char *opt_long, char opt_short, t_uint8 flag)
+void	ft_optvalue_append(t_opt_value *dst, t_opt_value *src)
 {
-	t_opts	*opts;
-	t_opt	*tmp;
-	t_opt	*ptr;
+	t_opt_value	*ptr;
 
-	tmp = (t_opt *)ft_calloc(sizeof(t_opt), 1);
-	tmp->opt_long = opt_long;
-	tmp->opt_short = opt_short;
-	tmp->flag = flag;
+	ptr = dst;
+	while (ptr->next)
+		ptr = ptr->next;
+	ptr->next = src;
+}
+
+void	ft_optother_parse(char *arg)
+{
+	t_opts		*opts;
+	t_opt_value	*src;
+
 	opts = ft_sin_opts(FALSE);
-	if (!opts->opt)
+	src = (t_opt_value *)ft_calloc(sizeof(t_opt_value), 1);
+	src->value = arg;
+	if (opts->last_parsed_opt)
 	{
-		opts->opt = tmp;
+		if (opts->last_parsed_opt->value)
+			ft_optvalue_append(opts->last_parsed_opt->value, src);
+		else
+			opts->last_parsed_opt->value = src;
 	}
 	else
 	{
-		ptr = opts->opt;
-		while (ptr->next)
-			ptr = ptr->next;
-		ptr->next = tmp;
+		if (opts->value)
+			ft_optvalue_append(opts->value, src);
+		else
+			opts->value = src;
 	}
 }
