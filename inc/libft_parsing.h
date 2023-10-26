@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/26 22:02:09 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/27 00:57:53 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef enum e_flag_opt
 
 typedef enum e_err_opt
 {
-	ERR_ALLGOOD	= BIT_00,
-	ERR_UNK_OPT	= BIT_01,
+	ERR_ALLGOOD		= BIT_00,
+	ERR_UNK_OPT		= BIT_01,
 }	t_err_opt;
 
 typedef struct s_opt_value
@@ -51,7 +51,7 @@ typedef struct s_opt
 	char			*opt_long;
 	char			opt_short;
 	t_bool			is_present;
-	t_uint8			flag;
+	t_bin			flag;
 	t_opt_value		*value;
 	struct s_opt	*next;
 }	t_opt;
@@ -65,7 +65,7 @@ typedef struct s_opts
 	t_opt		*last_parsed_opt;
 	int			parse_index;
 	t_bool		opt_finished;
-	t_uint32	err;
+	t_bin		err;
 	char		*err_param;
 }	t_opts;
 

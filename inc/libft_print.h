@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/26 22:45:27 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/27 01:05:06 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,11 @@
 
 # define SEP			" → "
 
-# define P_FAIL			"[" RED "-" RST "]" SEP
-# define P_PASS			"[" GREEN "+" RST "]" SEP
-# define P_DEBG			"[" BLUE "*" RST "]" SEP
-# define P_INFO			"[" CYAN "+" RST "]" SEP
+# define P_ERRO			"[" RED "ERRO" RST "]" SEP
+# define P_FAIL			"[" RED "FAIL" RST "]" SEP
+# define P_PASS			"[" GREEN "PASS" RST "]" SEP
+# define P_DEBG			"[" BLUE "DEBG" RST "]" SEP
+# define P_INFO			"[" CYAN "INFO " RST "]" SEP
 
 /* ########################################################################## */
 
