@@ -62,7 +62,7 @@ jobs:
         run: |+
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit -a -m "[helper] submodule update spread"
+          git commit -a -m "[ft_libft] submodule update spread"
           git status && git push
 
   update_ft_ping:
@@ -86,5 +86,5 @@ jobs:
         run: |+
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit -a -m "[helper] submodule update spread"
+          git commit -a -m "[ft_libft] submodule update spread"
           git status && git push
