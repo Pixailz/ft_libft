@@ -71,13 +71,16 @@ SRC_MEM := memory/ft_bzero.c \
 		   memory/ft_memset.c
 
 ### PARSING
-SRC_PAR := parsing/ft_opt_long.c \
+SRC_PAR := parsing/ft_opt_ispresent.c \
+		   parsing/ft_opt_long.c \
 		   parsing/ft_opt_other.c \
 		   parsing/ft_opt_short.c \
 		   parsing/ft_optadd.c \
-		   parsing/ft_optconf.c \
+		   parsing/ft_optget.c \
+		   parsing/ft_optorder.c \
 		   parsing/ft_optparse.c \
 		   parsing/ft_sin_arg.c \
+		   parsing/ft_sin_arg_free.c \
 		   parsing/ft_sin_arg_print.c \
 		   parsing/ft_sin_opt_perr.c
 

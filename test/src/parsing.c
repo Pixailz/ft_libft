@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:42:07 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/26 23:00:31 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/27 03:44:24 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int	ci_parsing_normal(void)
 	av[3] = ft_strdup("mult_3");
 	av[4] = ft_strdup("--single");
 	av[5] = ft_strdup("single_3");
-	ft_optconf(6, av);
-	ft_optparse();
+	ft_optparse(7, av);
 	ft_print_sin_opts();
 	ft_sin_free_opts();
 	ft_free_char_pp(av);
@@ -51,8 +50,7 @@ int	ci_parsing_wrong(void)
 	av[3] = ft_strdup("-asd");
 	av[4] = ft_strdup("");
 	av[5] = ft_strdup("single_3");
-	ft_optconf(6, av);
-	ft_optparse();
+	ft_optparse(7, av);
 	ft_print_sin_opts();
 	ft_sin_free_opts();
 	ft_free_char_pp(av);
@@ -93,8 +91,7 @@ int	interactive(int ac, char **av)
 	ft_optadd("help", 'h', OPT_FLAG);
 	ft_optadd("part", 'p', OPT_VALUE);
 	ft_optadd("module", 'm', OPT_VALUE);
-	ft_optconf(ac - 1, av + 1);
-	ft_optparse();
+	ft_optparse(ac, av);
 	ft_print_sin_opts();
 	ft_sin_free_opts();
 	return (0);
@@ -104,7 +101,7 @@ int	main(int ac, char **av)
 {
 	if (CI_TEST)
 		return (ci_test());
-	else if (ac != 1)
+	else
 		return (interactive(ac, av));
 	return (0);
 }

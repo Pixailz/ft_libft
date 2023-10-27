@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 01:10:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/26 22:09:39 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:37:09 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_optother_parse(char *arg)
 	opts = ft_sin_opts(FALSE);
 	src = (t_opt_value *)ft_calloc(sizeof(t_opt_value), 1);
 	src->value = arg;
-	if (opts->last_parsed_opt)
+	if (opts->last_parsed_opt && opts->last_parsed_opt->flag ^ OPT_FLAG)
 	{
 		if (opts->last_parsed_opt->value)
 			ft_optvalue_append(opts->last_parsed_opt->value, src);
@@ -44,4 +44,5 @@ void	ft_optother_parse(char *arg)
 		else
 			opts->value = src;
 	}
+	ft_optorder_add(OPT_ORD_VAL, arg);
 }

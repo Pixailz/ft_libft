@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 01:10:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/26 22:12:41 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/27 03:51:32 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static	t_bool	isgood_optlong(char *arg)
 	ptr = opts->opt;
 	while (ptr)
 	{
-		if (ptr->opt_long && !ft_strncmp(ptr->opt_long, arg, arg_len))
+		if (ptr->name && !ft_strncmp(ptr->name, arg, arg_len))
 		{
 			ptr->is_present = TRUE;
-			if (ptr->flag ^ OPT_FLAG)
-				opts->last_parsed_opt = ptr;
+			opts->last_parsed_opt = ptr;
+			ft_optorder_add(OPT_ORD_OPT, arg);
 			return (TRUE);
 		}
 		ptr = ptr->next;
@@ -45,7 +45,7 @@ t_bool	ft_is_optlong(char *arg)
 	if (!isgood_optlong(arg + 2))
 	{
 		opts->err ^= ERR_UNK_OPT;
-		opts->err_param = arg;
+		opts->err_param_name = arg;
 		return (FALSE);
 	}
 	return (TRUE);
@@ -58,9 +58,7 @@ t_bool	ft_optlong_parse(char *arg)
 	opts = ft_sin_opts(FALSE);
 	if (!ft_is_optlong(arg))
 	{
-		if (opts->err & ERR_UNK_OPT)
-			ft_sin_opt_perr();
-		else
+		if (opts->err ^ ERR_UNK_OPT)
 			return (FALSE);
 	}
 	return (TRUE);

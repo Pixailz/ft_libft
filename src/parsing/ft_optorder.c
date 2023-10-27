@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_optconf.c                                       :+:      :+:    :+:   */
+/*   ft_optorder.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:30:54 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/26 22:09:39 by brda-sil         ###   ########.fr       */
+/*   Created: 2023/10/27 03:18:37 by brda-sil          #+#    #+#             */
+/*   Updated: 2023/10/27 03:19:16 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_parsing.h"
 
-void	ft_optconf(int ac, char **av)
+void	ft_optorder_add(t_opt_order_type type, char *val)
 {
-	t_opts	*opts;
+	t_opts		*opts;
+	t_opt_order	*tmp;
+	t_opt_order	*ptr;
 
-	opts = ft_sin_opts(FALSE);
-	opts->ac = ac;
-	opts->av = av;
+	opts = ft_sin_opts(0);
+	tmp = (t_opt_order *)ft_calloc(sizeof(t_opt_order), 1);
+	tmp->type = type;
+	tmp->value = val;
+	tmp->opt = opts->last_parsed_opt;
+	if (!opts->opt_order)
+	{
+		opts->opt_order = tmp;
+	}
+	else
+	{
+		ptr = opts->opt_order;
+		while (ptr->next)
+			ptr = ptr->next;
+		ptr->next = tmp;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:09:03 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/26 22:17:47 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/27 04:02:22 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,29 @@ void	ft_print_opt_value(t_opt_value *value)
 	ptr = value;
 	while (ptr)
 	{
-		ft_printf("\tvalue  %s\n", ptr->value);
+		ft_printf("    value  %s\n", ptr->value);
 		ptr = ptr->next;
 	}
 }
 
 void	ft_print_opt(t_opt opt)
 {
-	if (opt.opt_long)
-		ft_printf("opt_long   %s\n", opt.opt_long);
+	ft_printf("name         %s\n", opt.name);
 	if (opt.opt_short)
-		ft_printf("opt_short  %c\n", opt.opt_short);
-	ft_printf("flag       %d\n", opt.flag);
-	ft_printf("is_present %d\n", opt.is_present);
+		ft_printf("opt_short    %c\n", opt.opt_short);
+	ft_printf("  flag       %d\n", opt.flag);
+	ft_printf("  is_present %d\n", opt.is_present);
 	ft_print_opt_value(opt.value);
 }
 
-void	ft_print_opts(t_opts opts)
+void	ft_print_sin_opts_order(t_opt_order *ptr)
 {
-	if (opts.err)
+	ft_printf("opts_order\n");
+	while (ptr)
 	{
-		ft_printf("opts.err %d\n", opts.err);
-		ft_printf("opts.err_param %s\n", opts.err_param);
-	}
-	if (opts.last_parsed_opt)
-		ft_printf("opts.last_parsed_opt set\n");
-	if (opts.value)
-	{
-		ft_printf("opts.value\n");
-		ft_print_opt_value(opts.value);
+		ft_printf("  type %d\n", ptr->type);
+		ft_printf("  value %s\n", ptr->value);
+		ptr = ptr->next;
 	}
 }
 
@@ -57,7 +51,20 @@ void	ft_print_sin_opts(void)
 	t_opt	*ptr;
 
 	opts = ft_sin_opts(FALSE);
-	ft_print_opts(*opts);
+	if (opts->err)
+	{
+		ft_printf("opts->err %d\n", opts->err);
+		ft_printf("opts->err_param_name %s\n", opts->err_param_name);
+		ft_printf("opts->err_param_short %c\n", opts->err_param_short);
+	}
+	if (opts->last_parsed_opt)
+		ft_printf("opts->last_parsed_opt set\n");
+	if (opts->value)
+	{
+		ft_printf("opts->value\n");
+		ft_print_opt_value(opts->value);
+	}
+	ft_print_sin_opts_order(opts->opt_order);
 	ptr = opts->opt;
 	while (ptr)
 	{
