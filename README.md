@@ -2,6 +2,11 @@
 
 [![CI](https://github.com/Pixailz/ft_libft/actions/workflows/CI.yml/badge.svg)](https://github.com/Pixailz/ft_libft/actions/workflows/CI.yml)
 
+## TODO
+
+1. implement singleton for error
+1. update usage / help
+
 ## USAGE
 
 ```bash
