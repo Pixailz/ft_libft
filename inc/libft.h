@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/24 14:30:27 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/31 17:01:05 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 # include "libft_string.h"
 # include "libft_random.h"
 # include "libft_linux.h"
+# include "libft_error.h"
+# include "libft_network/ipv4.h"
+# include "libft_unit_test.h"
 
 /* ########################################################################## */
 
