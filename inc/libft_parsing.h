@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/27 03:51:10 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/28 05:57:32 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@
 typedef enum e_flag_opt
 {
 	OPT_FLAG		= BIT_00,
-	OPT_VALUE		= BIT_01,
+	OPT_SINGLE		= BIT_01,
+	OPT_MULTIPLE	= BIT_01,
 }	t_flag_opt;
 
 typedef enum e_err_opt

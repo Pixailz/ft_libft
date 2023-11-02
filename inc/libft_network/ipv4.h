@@ -71,6 +71,11 @@ int			ft_ip_check_part(char *splitted);
 char		**ft_ip_check(char *str);
 t_int4		ft_ipstr(char *str);
 
+// network/ipv4/ft_is_goodhost.c
+t_bool		ft_is_goodchar_host(char c);
+t_bool		ft_host_check(char *fqnd);
+t_bool		ft_is_goodhost(char *fqnd);
+
 // network/ipv4/ft_putip_fd.c
 t_size		ft_putip_fd(t_int4 n, int fd);
 

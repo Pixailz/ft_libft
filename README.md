@@ -4,8 +4,12 @@
 
 ## TODO
 
-1. implement singleton for error
-1. update usage / help
+1. parsing
+    1. implement SINGLE | MULTIPLE
+1. error
+    1. implement singleton
+1. doc
+    1. update usage / help
 
 ## USAGE
 

@@ -144,6 +144,7 @@ SRC_LNX := linux/ft_getgid.c \
 
 #### IPV4
 SRC_NET_IPV4 := network/ipv4/ft_ipstr.c \
+				network/ipv4/ft_is_goodhost.c \
 				network/ipv4/ft_putip_fd.c
 
 ### ERROR

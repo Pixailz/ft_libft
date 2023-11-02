@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:42:07 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/27 03:44:24 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/10/28 06:00:23 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	ci_parsing_normal(void)
 {
 	char	**av;
 
-	ft_optadd("mutl", 'm', OPT_VALUE);
-	ft_optadd("single", 's', OPT_VALUE);
+	ft_optadd("mutl", 'm', OPT_MULTIPLE);
+	ft_optadd("single", 's', OPT_SINGLE);
 	av = (char **)ft_calloc(sizeof(char *), 7);
 	av[0] = ft_strdup("-m");
 	av[1] = ft_strdup("mult_1");
@@ -42,7 +42,7 @@ int	ci_parsing_wrong(void)
 
 	ft_optadd("first", 'f', OPT_FLAG);
 	ft_optadd("single", 's', OPT_FLAG);
-	ft_optadd("multiple", 'm', OPT_VALUE);
+	ft_optadd("multiple", 'm', OPT_MULTIPLE);
 	av = (char **)ft_calloc(sizeof(char *), 7);
 	av[0] = ft_strdup("-f");
 	av[1] = ft_strdup("-t");
@@ -89,8 +89,8 @@ int	interactive(int ac, char **av)
 	ft_optadd("force", 'f', OPT_FLAG);
 	ft_optadd("dry-run", 0, OPT_FLAG);
 	ft_optadd("help", 'h', OPT_FLAG);
-	ft_optadd("part", 'p', OPT_VALUE);
-	ft_optadd("module", 'm', OPT_VALUE);
+	ft_optadd("part", 'p', OPT_MULTIPLE);
+	ft_optadd("module", 'm', OPT_MULTIPLE);
 	ft_optparse(ac, av);
 	ft_print_sin_opts();
 	ft_sin_free_opts();
