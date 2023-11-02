@@ -27,7 +27,7 @@ jobs:
           DISABLE_HELPER=1 make re
           DISABLE_HELPER=1 make clean
           rm -rf ./.git && cd ..
-          tar czf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ./ft_libft
+          tar czf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ft_libft
 
       - name: ☁️ Upload release artifact
         if: success()
