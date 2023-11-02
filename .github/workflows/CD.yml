@@ -38,7 +38,7 @@ jobs:
           prerelease: true
           name: build ${{ env.sha7 }}
           tag_name: v${{ env.ver }}-${{ env.sha7 }}
-          files: ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz
+          files: ../ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz
           token: ${{ secrets.GITHUB_TOKEN }}
 
   update_SupaBlank:
