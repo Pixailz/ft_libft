@@ -26,16 +26,16 @@ jobs:
         run: |+
           DISABLE_HELPER=1 make re
           DISABLE_HELPER=1 make clean
-          sleep 1
-          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ../ft_libft/inc/**/**
-          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ../ft_libft/src/**/**
-          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ../ft_libft/mk/**/**
-          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ../ft_libft/rsc/**/**
-          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ../ft_libft/test/**/**
-          tar czf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ../ft_libft/libft.a
-          tar czf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ../ft_libft/Makefile
-          tar czf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ../ft_libft/README.md
-          tar czf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ../ft_libft/LICENSE
+          cd ..
+          tar czf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ./ft_libft/libft.a
+          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ./ft_libft/Makefile
+          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ./ft_libft/README.md
+          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ./ft_libft/LICENSE
+          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ./ft_libft/inc/**/**
+          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ./ft_libft/src/**/**
+          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ./ft_libft/mk/**/**
+          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ./ft_libft/rsc/**/**
+          tar rzf ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz ./ft_libft/test/**/**
 
       - name: ☁️ Upload release artifact
         if: success()
