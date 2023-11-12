@@ -119,7 +119,7 @@ endif
 
 helper:
 ifneq ($(DISABLE_HELPER),1)
-> HELPER_SETUP_NAME="ft_libft" ./rsc/helper/helper
+> ./rsc/helper/helper -S ft_libft
 endif
 
 ### CLEAN
