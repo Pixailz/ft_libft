@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_string.h"
-
 /**
  * @brief			Compares the two strings s1 and s2
  *

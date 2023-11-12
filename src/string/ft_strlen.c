@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_string.h"
-
 /**
  * @brief			Calculate the length of a string
  *

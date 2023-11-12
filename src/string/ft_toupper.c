@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_string.h"
-
 /**
  * @brief			Converts the letter c to upper case, if possible.
  *

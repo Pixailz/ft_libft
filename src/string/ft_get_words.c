@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_string.h"
-
 int	ft_get_words(char *str, char c)
 {
 	int	count;

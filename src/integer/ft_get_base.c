@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_integer.h"
-
 int	ft_get_base(int c, const char *base)
 {
 	int	counter;

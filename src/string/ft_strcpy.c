@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_string.h"
-
 /**
  * @brief			copy src to dest, don't check for the length of dest
  *
