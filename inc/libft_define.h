@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:13:22 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/28 04:23:24 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/14 04:38:05 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,19 @@
 /* TYPEDEF */
 /* ####### */
 
+// UNSIGNED
 typedef unsigned char		t_uint8;
+typedef unsigned short		t_uint16;
 typedef unsigned int		t_uint32;
-typedef long long			t_int64;
-typedef unsigned long long	t_uint64;
-typedef unsigned long		t_size;
+typedef unsigned long		t_uint64;
+
+// SIGNED
+typedef char				t_int8;
+typedef short				t_int16;
+typedef int					t_int32;
+typedef long				t_int64;
+
+typedef t_uint64			t_size;
 
 typedef t_uint32			t_int4;
 typedef t_uint8				t_int1;
