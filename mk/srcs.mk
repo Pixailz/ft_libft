@@ -71,18 +71,18 @@ SRC_MEM := memory/ft_bzero.c \
 		   memory/ft_memset.c
 
 ### PARSING
-SRC_PAR := parsing/ft_opt_ispresent.c \
+SRC_PAR := parsing/ft_is_optpresent.c \
+		   parsing/ft_opt.c \
 		   parsing/ft_opt_long.c \
 		   parsing/ft_opt_other.c \
 		   parsing/ft_opt_short.c \
 		   parsing/ft_optadd.c \
+		   parsing/ft_optfree.c \
 		   parsing/ft_optget.c \
 		   parsing/ft_optorder.c \
 		   parsing/ft_optparse.c \
-		   parsing/ft_sin_arg.c \
-		   parsing/ft_sin_arg_free.c \
-		   parsing/ft_sin_arg_print.c \
-		   parsing/ft_sin_opt_perr.c
+		   parsing/ft_optperr.c \
+		   parsing/ft_optprint.c
 
 ### ERROR
 SRC_ERR := error/ft_error.c
@@ -143,7 +143,8 @@ SRC_LNX := linux/ft_getgid.c \
 ### NETWORK
 
 #### IPV4
-SRC_NET_IPV4 := network/ipv4/ft_ipstr.c \
+SRC_NET_IPV4 := network/ipv4/ft_htoi4.c \
+				network/ipv4/ft_ipstr.c \
 				network/ipv4/ft_is_goodhost.c \
 				network/ipv4/ft_putip_fd.c
 

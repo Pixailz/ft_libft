@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 01:10:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/27 03:51:32 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/14 07:38:28 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static	t_bool	isgood_optlong(char *arg)
 	t_opt	*ptr;
 
 	arg_len = ft_strlen(arg);
-	opts = ft_sin_opts(FALSE);
+	opts = ft_get_opts(FALSE);
 	ptr = opts->opt;
 	while (ptr)
 	{
@@ -41,10 +41,10 @@ t_bool	ft_is_optlong(char *arg)
 
 	if (!arg || arg[0] != '-' || !arg[1] || arg[1] != '-')
 		return (FALSE);
-	opts = ft_sin_opts(FALSE);
+	opts = ft_get_opts(FALSE);
 	if (!isgood_optlong(arg + 2))
 	{
-		opts->err ^= ERR_UNK_OPT;
+		opts->err |= ERR_UNK_OPT;
 		opts->err_param_name = arg;
 		return (FALSE);
 	}
@@ -55,7 +55,7 @@ t_bool	ft_optlong_parse(char *arg)
 {
 	t_opts	*opts;
 
-	opts = ft_sin_opts(FALSE);
+	opts = ft_get_opts(FALSE);
 	if (!ft_is_optlong(arg))
 	{
 		if (opts->err ^ ERR_UNK_OPT)

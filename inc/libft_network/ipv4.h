@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/25 12:11:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/14 05:55:41 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 /* ########################################################################## */
 /* REQUIREMENTS */
 /* ############ */
+
+# include <netdb.h>
+/*
+ getaddrinfo()
+ freeaddrinfo()
+ */
 
 # include "libft_define.h"
 # include "libft_print.h"
@@ -65,6 +71,9 @@ typedef struct s_ip
 /* ########################################################################## */
 /* FILES */
 /* ##### */
+
+// network/ipv4/ft_htoi4.c
+t_int4		ft_htoi4(char *hostname, char *service);
 
 // network/ipv4/ft_ipstr.c
 int			ft_ip_check_part(char *splitted);

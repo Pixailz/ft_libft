@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 03:18:37 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/27 03:19:16 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/14 06:19:41 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_optorder_add(t_opt_order_type type, char *val)
 	t_opt_order	*tmp;
 	t_opt_order	*ptr;
 
-	opts = ft_sin_opts(0);
+	opts = ft_get_opts(0);
 	tmp = (t_opt_order *)ft_calloc(sizeof(t_opt_order), 1);
 	tmp->type = type;
 	tmp->value = val;

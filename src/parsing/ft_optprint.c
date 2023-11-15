@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:09:03 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/27 04:02:22 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/14 06:18:31 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_print_opt(t_opt opt)
 	ft_print_opt_value(opt.value);
 }
 
-void	ft_print_sin_opts_order(t_opt_order *ptr)
+void	ft_print_opts_order(t_opt_order *ptr)
 {
 	ft_printf("opts_order\n");
 	while (ptr)
@@ -45,12 +45,12 @@ void	ft_print_sin_opts_order(t_opt_order *ptr)
 	}
 }
 
-void	ft_print_sin_opts(void)
+void	ft_print_opts(void)
 {
 	t_opts	*opts;
 	t_opt	*ptr;
 
-	opts = ft_sin_opts(FALSE);
+	opts = ft_get_opts(FALSE);
 	if (opts->err)
 	{
 		ft_printf("opts->err %d\n", opts->err);
@@ -64,7 +64,7 @@ void	ft_print_sin_opts(void)
 		ft_printf("opts->value\n");
 		ft_print_opt_value(opts->value);
 	}
-	ft_print_sin_opts_order(opts->opt_order);
+	ft_print_opts_order(opts->opt_order);
 	ptr = opts->opt;
 	while (ptr)
 	{

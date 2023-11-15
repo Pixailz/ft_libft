@@ -6,13 +6,13 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:09:03 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/27 03:12:14 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/14 06:18:14 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_parsing.h"
 
-t_opts	*ft_sin_opts(t_bool free)
+t_opts	*ft_get_opts(t_bool free)
 {
 	static t_opts	*opts = FT_NULL;
 

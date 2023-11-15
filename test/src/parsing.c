@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:42:07 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/28 06:00:23 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/14 06:36:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	ci_parsing_normal(void)
 	av[4] = ft_strdup("--single");
 	av[5] = ft_strdup("single_3");
 	ft_optparse(7, av);
-	ft_print_sin_opts();
-	ft_sin_free_opts();
+	ft_print_opts();
+	ft_free_opts();
 	ft_free_char_pp(av);
 	return (0);
 }
@@ -51,8 +51,8 @@ int	ci_parsing_wrong(void)
 	av[4] = ft_strdup("");
 	av[5] = ft_strdup("single_3");
 	ft_optparse(7, av);
-	ft_print_sin_opts();
-	ft_sin_free_opts();
+	ft_print_opts();
+	ft_free_opts();
 	ft_free_char_pp(av);
 	return (0);
 }
@@ -92,8 +92,8 @@ int	interactive(int ac, char **av)
 	ft_optadd("part", 'p', OPT_MULTIPLE);
 	ft_optadd("module", 'm', OPT_MULTIPLE);
 	ft_optparse(ac, av);
-	ft_print_sin_opts();
-	ft_sin_free_opts();
+	ft_print_opts();
+	ft_free_opts();
 	return (0);
 }
 
