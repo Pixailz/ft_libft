@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:42:07 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/14 06:36:49 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:31:42 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ci_parsing_normal(void)
 	av[3] = ft_strdup("mult_3");
 	av[4] = ft_strdup("--single");
 	av[5] = ft_strdup("single_3");
-	ft_optparse(7, av);
+	ft_optparse(6, av);
 	ft_print_opts();
 	ft_free_opts();
 	ft_free_char_pp(av);
@@ -50,7 +50,7 @@ int	ci_parsing_wrong(void)
 	av[3] = ft_strdup("-asd");
 	av[4] = ft_strdup("");
 	av[5] = ft_strdup("single_3");
-	ft_optparse(7, av);
+	ft_optparse(6, av);
 	ft_print_opts();
 	ft_free_opts();
 	ft_free_char_pp(av);
