@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 02:53:03 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/07/31 20:36:38 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:20:22 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ int	interactive(int ac, char **av)
 	counter = 0;
 	while (counter < max)
 	{
-		printf("[0, 100] -> [%lld]\n", ft_randint(0, 100));
+		printf("[0, 100] -> [%ld]\n", ft_randint(0, 100));
 		counter++;
 	}
 	counter = 0;
 	while (counter < max)
 	{
-		printf("[-10, 10] -> [%lld]\n", ft_randint(-10, 10));
+		printf("[-10, 10] -> [%ld]\n", ft_randint(-10, 10));
 		counter++;
 	}
 	counter = 0;
 	while (counter < max)
 	{
-		printf("[0, 100000] -> [%lld]\n", ft_randint(0, 100000));
+		printf("[0, 100000] -> [%ld]\n", ft_randint(0, 100000));
 		counter++;
 	}
 	return (0);
