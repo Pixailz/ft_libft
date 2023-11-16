@@ -73,13 +73,15 @@ jobs:
           "ato.c",
           "check/is_str.c",
           "get_next_line.c",
+          "hton.c",
           "int4.c",
           "ipv4.c",
           "isexec.c",
+          "parsing.c",
           "print_nb_base.c",
+          "print.c",
           "random.c",
           "tmpfile.c",
-          "parsing.c",
         ]
     runs-on: ubuntu-latest
     steps:
