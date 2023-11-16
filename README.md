@@ -4,12 +4,15 @@
 
 ## TODO
 
+1. improve ft_printf
+   1. add a buffer
+   1. add format and other usefull stuff ("%02x", "%#02x")
 1. parsing
-    1. implement SINGLE | MULTIPLE
+   1. implement SINGLE | MULTIPLE
 1. error
-    1. implement singleton
+   1. implement singleton
 1. doc
-    1. update usage / help
+   1. update usage / help
 
 ## USAGE
 
