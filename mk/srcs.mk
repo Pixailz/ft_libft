@@ -75,6 +75,7 @@ SRC_PAR := parsing/ft_is_optpresent.c \
 		   parsing/ft_opt.c \
 		   parsing/ft_opt_long.c \
 		   parsing/ft_opt_other.c \
+		   parsing/ft_opt_other_last_parsed.c \
 		   parsing/ft_opt_short.c \
 		   parsing/ft_optadd.c \
 		   parsing/ft_optfree.c \

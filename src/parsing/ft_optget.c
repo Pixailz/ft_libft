@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:31:01 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/14 06:19:41 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/17 10:56:10 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ t_opt	*ft_optget(char *name)
 			return (opt);
 		opt = opt->next;
 	}
-	return (FALSE);
+	return (FT_NULL);
 }

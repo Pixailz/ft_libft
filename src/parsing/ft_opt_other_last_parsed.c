@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_opt_other.c                                     :+:      :+:    :+:   */
+/*   ft_opt_other_last_parsed.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 01:10:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/17 12:26:10 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:45:03 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_parsing.h"
 
-void	ft_optvalue_append(t_opt_value *dst, t_opt_value *src)
+void	ft_optother_parse_flag(t_opt_value *src, t_opt_value *dst)
 {
-	t_opt_value	*ptr;
-
-	ptr = dst;
-	while (ptr->next)
-		ptr = ptr->next;
-	ptr->next = src;
+	if (dst)
+		ft_optvalue_append(dst, src);
+	else
+		dst = src;
 }
 
-void	ft_optother_parse(char *arg)
+void	ft_opt_other_last_parsed(t_opt_value *src)
 {
-	t_opts		*opts;
-	t_opt_value	*src;
+	t_opts	*opts;
 
-	opts = ft_get_opts(FALSE);
-	src = (t_opt_value *)ft_calloc(sizeof(t_opt_value), 1);
-	src->value = arg;
-	if (opts->last_parsed_opt)
-		ft_opt_other_last_parsed(src);
-	else
+	opts = ft_get_opts(0);
+	if (opts->last_parsed_opt->flag & OPT_FLAG)
+		ft_optother_parse_flag(src, opts->last_parsed_opt->value);
+	else if (opts->last_parsed_opt->flag & OPT_SINGLE)
 	{
-		if (opts->value)
-			ft_optvalue_append(opts->value, src);
-		else
-			opts->value = src;
+		if (opts->last_parsed_opt->value)
+			free(opts->last_parsed_opt->value);
+		opts->last_parsed_opt->value = src;
+		opts->last_parsed_opt = FT_NULL;
 	}
-	ft_optorder_add(OPT_ORD_VAL, arg);
 }

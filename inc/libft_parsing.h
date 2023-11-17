@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/14 06:23:08 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:20:27 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@
 
 typedef enum e_flag_opt
 {
-	OPT_FLAG		= BIT_00,
-	OPT_SINGLE		= BIT_01,
-	OPT_MULTIPLE	= BIT_01,
+	OPT_FLAG		= BIT_01,
+	OPT_SINGLE		= BIT_02,
+	OPT_MULTIPLE	= BIT_03,
 }	t_flag_opt;
 
 typedef enum e_err_opt
@@ -106,6 +106,10 @@ t_bool		ft_optlong_parse(char *arg);
 // parsing/ft_opt_other.c
 void		ft_optvalue_append(t_opt_value *dst, t_opt_value *src);
 void		ft_optother_parse(char *arg);
+
+// parsing/ft_opt_other_last_parsed.c
+void		ft_optother_parse_flag(t_opt_value *src, t_opt_value *dst);
+void		ft_opt_other_last_parsed(t_opt_value *src);
 
 // parsing/ft_opt_short.c
 t_bool		ft_is_optshort(char *arg);
