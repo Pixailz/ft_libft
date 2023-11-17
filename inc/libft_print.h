@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/17 07:58:02 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/17 08:38:06 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 
 // BASE
 #  define ESC			"\x1b"
-#  define END			"\007"
+#  define END			""
 
 // COLOR
 #  define BLA			ESC "[30m" END			// BLACK
