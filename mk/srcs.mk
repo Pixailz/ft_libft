@@ -150,6 +150,7 @@ SRC_NET_IPV4 := network/ipv4/ft_htoi4.c \
 				network/ipv4/ft_is_goodhost.c \
 				network/ipv4/ft_ntohl.c \
 				network/ipv4/ft_ntohs.c \
+				network/ipv4/ft_ntop.c \
 				network/ipv4/ft_putip_fd.c
 
 ### ERROR

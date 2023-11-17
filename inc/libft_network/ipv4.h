@@ -97,6 +97,9 @@ t_uint32	ft_ntohl(t_uint32 h);
 // network/ipv4/ft_ntohs.c
 t_uint16	ft_ntohs(t_uint16 n);
 
+// network/ipv4/ft_ntop.c
+void		ft_ntop(t_bin pf, t_int4 ip, char *ip_str);
+
 // network/ipv4/ft_putip_fd.c
 t_size		ft_putip_fd(t_int4 n, int fd);
 
