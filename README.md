@@ -9,8 +9,6 @@
    1. add format and other usefull stuff ("%02x", "%#02x")
 1. error
    1. implement singleton, utils like perror etc ..
-1. parsing
-   1. better parsing for error (after implementing error)
 1. doc
    1. update usage / help
 
@@ -37,4 +35,8 @@ make <part1|part2 ... partN>
 	- input
 	- random
 	- linux
-	- error
+	- parsing
+	- *error
+	- *unit_test
+	-
+> part marked with a `*` are WIP

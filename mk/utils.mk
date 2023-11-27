@@ -117,6 +117,10 @@ $(bold)ft_getgid
 as expected
 			$(bold)ft_assert
 
+		parsing$(font_color)\t\tfunction to make parsing of scripting easy
+			$(bold)ft_optadd$(font_color), $(bold)ft_optparse$(font_color), \
+$(bold)ft_optget
+
 $(font_color)Version: $(bold)$(VERSION)$(RST)
 
 endef
