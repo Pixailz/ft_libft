@@ -140,6 +140,7 @@ void		ft_opt_perr(void);
 void		ft_print_opt_value(t_opt_value *value);
 void		ft_print_opt(t_opt opt);
 void		ft_print_opts_order(t_opt_order *ptr);
+void		ft_print_all_opt(t_opts *opts);
 void		ft_print_opts(void);
 
 /* ########################################################################## */

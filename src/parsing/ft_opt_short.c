@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 01:10:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/14 07:37:47 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:40:53 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,19 @@ static	t_bool	isgood_optshort(char arg)
 			ptr->is_present = TRUE;
 			opts->last_parsed_opt = ptr;
 			ft_optorder_add(OPT_ORD_OPT, ptr->name);
-			return (TRUE);
+			return (ptr->flag);
 		}
 		ptr = ptr->next;
 	}
-	return (FALSE);
+	opts->err |= ERR_UNK_OPT;
+	opts->err_param_short = arg;
+	return (0);
 }
 
 t_bool	ft_is_optshort(char *arg)
 {
 	int		counter;
+	t_bin	opt_type;
 	t_opts	*opts;
 
 	if (!arg || arg[0] != '-' || (arg[1] && arg[1] == '-'))
@@ -44,14 +47,15 @@ t_bool	ft_is_optshort(char *arg)
 	opts = ft_get_opts(FALSE);
 	while (arg[counter])
 	{
-		if (!isgood_optshort(arg[counter]))
-		{
-			opts->err |= ERR_UNK_OPT;
-			opts->err_param_short = arg[counter];
+		opt_type = isgood_optshort(arg[counter]);
+		if (!opt_type)
 			return (FALSE);
-		}
+		if (!(opt_type & OPT_FLAG))
+			break ;
 		counter++;
 	}
+	if (arg[counter++ + 1])
+		ft_optother_parse(arg + counter);
 	return (TRUE);
 }
 

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:42:07 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/15 16:31:42 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:13:33 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,6 @@ int	ci_test(void)
 	return (0);
 }
 
-/*
--f, --force
--d, --dry-run
--h, --help
--p, --part
-
-
-f ! d
-fdh flag
-p arg
-*/
 int	interactive(int ac, char **av)
 {
 	int	counter;
@@ -86,11 +75,9 @@ int	interactive(int ac, char **av)
 		ft_pdeb("av[%d] %s\n", counter + 1, av[counter + 1]);
 		counter++;
 	}
-	ft_optadd("force", 'f', OPT_FLAG);
-	ft_optadd("dry-run", 0, OPT_FLAG);
-	ft_optadd("help", 'h', OPT_FLAG);
-	ft_optadd("part", 'p', OPT_MULTIPLE);
-	ft_optadd("module", 'm', OPT_MULTIPLE);
+	ft_optadd("verbose", 'v', OPT_FLAG);
+	ft_optadd("count", 'c', OPT_SINGLE);
+	ft_optadd("exclude", 'e', OPT_MULTIPLE);
 	ft_optparse(ac, av);
 	ft_print_opts();
 	ft_free_opts();
