@@ -108,7 +108,9 @@ void		ft_optvalue_append(t_opt_value *dst, t_opt_value *src);
 void		ft_optother_parse(char *arg);
 
 // parsing/ft_opt_other_last_parsed.c
-void		ft_optother_parse_flag(t_opt_value *src, t_opt_value *dst);
+void		ft_optother_parse_flag(t_opt_value *src, t_opt_value **dst);
+void		ft_optother_parse_single(t_opt_value *src, t_opt **dst);
+void		ft_optother_parse_multiple(t_opt_value *src, t_opt_value **dst);
 void		ft_opt_other_last_parsed(t_opt_value *src);
 
 // parsing/ft_opt_short.c

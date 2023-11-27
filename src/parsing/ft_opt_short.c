@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 01:10:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/27 15:40:53 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:14:50 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,23 @@ t_bool	ft_is_optshort(char *arg)
 {
 	int		counter;
 	t_bin	opt_type;
-	t_opts	*opts;
 
 	if (!arg || arg[0] != '-' || (arg[1] && arg[1] == '-'))
 		return (FALSE);
 	counter = 1;
-	opts = ft_get_opts(FALSE);
 	while (arg[counter])
 	{
 		opt_type = isgood_optshort(arg[counter]);
 		if (!opt_type)
 			return (FALSE);
 		if (!(opt_type & OPT_FLAG))
+		{
+			if (arg[counter++ + 1])
+				ft_optother_parse(arg + counter);
 			break ;
+		}
 		counter++;
 	}
-	if (arg[counter++ + 1])
-		ft_optother_parse(arg + counter);
 	return (TRUE);
 }
 
