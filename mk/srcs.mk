@@ -117,6 +117,24 @@ SRC_PRT := print/ft_dprintf.c \
 		   print/ft_pdeb.c \
 		   print/ft_perr.c \
 		   print/ft_printf.c \
+		   print/ft_printf/flag/hash.c \
+		   print/ft_printf/flag/minus.c \
+		   print/ft_printf/flag/plus.c \
+		   print/ft_printf/flag/space.c \
+		   print/ft_printf/flag/zero.c \
+		   print/ft_printf/fmt/addr.c \
+		   print/ft_printf/fmt/begin.c \
+		   print/ft_printf/fmt/char.c \
+		   print/ft_printf/fmt/hexa.c \
+		   print/ft_printf/fmt/integer.c \
+		   print/ft_printf/fmt/string.c \
+		   print/ft_printf/fmt/unsigned.c \
+		   print/ft_printf/ft_printf.c \
+		   print/ft_printf/ft_printf_buffer.c \
+		   print/ft_printf/ft_printf_flags.c \
+		   print/ft_printf/ft_printf_precision.c \
+		   print/ft_printf/ft_printf_type.c \
+		   print/ft_printf/ft_printf_width.c \
 		   print/ft_putchar_fd.c \
 		   print/ft_putendl_fd.c \
 		   print/ft_putnbr_base_fd.c \

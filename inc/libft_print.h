@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/17 08:38:06 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/29 03:14:21 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,26 @@
 /* ########################################################################## */
 /* CONFIG */
 /* ###### */
+
+# define FT_PRINTF_BUFF_SIZE	0x400
+# define FT_PRINTF_FMT_BEGIN	'%'
+
+# define FT_PRINTF_FLAG_MINUS	BIT_01
+# define FT_PRINTF_FLAG_PLUS	BIT_02
+# define FT_PRINTF_FLAG_SPACE	BIT_03
+# define FT_PRINTF_FLAG_HASH	BIT_04
+# define FT_PRINTF_FLAG_ZERO	BIT_05
+
+typedef struct s_fmt_conf
+{
+	t_bin			flags;
+	t_size			width;
+	t_size			precision;
+	char			cur_fmt[0x100];
+	int				*i_fmt;
+	int				*i_buff;
+	const char		*fmt;
+}	t_fmt_conf;
 
 # define FT_PRINTF_PARAMS_LIST	"cspdiuxX%"
 
@@ -129,6 +149,66 @@ int			ft_perr(const char *format, ...);
 // print/ft_printf.c
 int			ft_printf_parse(va_list args, const char *format);
 size_t		ft_printf(const char *format, ...);
+
+// print/ft_printf/flag/hash.c
+void		ft_printf_flag_hash(char type, t_bin *flags);
+
+// print/ft_printf/flag/minus.c
+void		ft_printf_flag_minus(char type, t_bin *flags);
+
+// print/ft_printf/flag/plus.c
+void		ft_printf_flag_plus(char type, t_bin *flags);
+
+// print/ft_printf/flag/space.c
+void		ft_printf_flag_space(char type, t_bin *flags);
+
+// print/ft_printf/flag/zero.c
+void		ft_printf_flag_zero(char type, t_bin *flags);
+
+// print/ft_printf/fmt/addr.c
+void		ft_printf_fmt_addr(t_fmt_conf conf, va_list args);
+
+// print/ft_printf/fmt/begin.c
+void		ft_printf_fmt_begin(t_fmt_conf conf, va_list args);
+
+// print/ft_printf/fmt/char.c
+void		ft_printf_fmt_char(t_fmt_conf conf, va_list args);
+
+// print/ft_printf/fmt/hexa.c
+void		ft_printf_fmt_hex(t_fmt_conf conf, va_list args);
+void		ft_printf_fmt_hexa(t_fmt_conf conf, va_list args);
+
+// print/ft_printf/fmt/integer.c
+void		ft_printf_fmt_integer_sign(t_fmt_conf conf);
+void		ft_printf_fmt_integer(t_fmt_conf conf, va_list args);
+
+// print/ft_printf/fmt/string.c
+void		ft_printf_fmt_string(t_fmt_conf conf, va_list args);
+
+// print/ft_printf/fmt/unsigned.c
+void		ft_printf_fmt_unsigned(t_fmt_conf conf, va_list args);
+
+// print/ft_printf/ft_printf.c
+void		ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
+											const char *format, va_list args);
+void		ft_printf_2_parse(va_list args, const char *format);
+t_size		ft_printf_2(const char *format, ...);
+
+// print/ft_printf/ft_printf_buffer.c
+void		ft_printf_buff_reset(void);
+char		*ft_printf_buff_get(void);
+
+// print/ft_printf/ft_printf_flags.c
+t_bin		ft_printf_fmt_get_flags(int *i, const char *format);
+
+// print/ft_printf/ft_printf_precision.c
+t_size		ft_printf_fmt_get_precision(int *i_fmt, const char *format);
+
+// print/ft_printf/ft_printf_type.c
+void		ft_printf_fmt_get_type(t_fmt_conf conf, va_list args);
+
+// print/ft_printf/ft_printf_width.c
+t_size		ft_printf_fmt_get_width(int *i_fmt, const char *format);
 
 // print/ft_putchar_fd.c
 size_t		ft_putchar_fd(char c, int fd);
