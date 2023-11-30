@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 03:09:08 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/29 01:05:31 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/11/30 03:36:38 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define CI_TEST FALSE
 #endif
 
-void	test_printf_base(void)
+int	test_printf_base(void)
 {
 	t_size	libc;
 	t_size	mine;
@@ -25,143 +25,166 @@ void	test_printf_base(void)
 	libc = printf("LIBC: {Hello World!}\n");
 	mine = ft_printf_2("MINE: {Hello World!}\n");
 	if (libc == mine)
-		printf("PASS\n");
+		printf("PASS [string]\n");
 	else
-		printf("FAIL\n");
-}
-
-void	test_printf_pourcentage(void)
-{
-	t_size	libc;
-	t_size	mine;
-
+	{
+		printf("FAIL [string]\n");
+		return (1);
+	}
 	libc = printf("LIBC: {%%}\n");
 	mine = ft_printf_2("MINE: {%%}\n");
 	if (libc == mine)
-		printf("PASS\n");
+		printf("PASS [pourcentage]\n");
 	else
-		printf("FAIL\n");
+	{
+		printf("FAIL [pourcentage]\n");
+		return (1);
+	}
+	return (0);
 }
 
-void	test_printf_char(char c)
+int	test_print_result(t_size libc, t_size mine, char *fmt)
+{
+	int	retv;
+
+	if (libc == mine)
+	{
+		printf("PASS");
+		retv = 0;
+	}
+	else
+	{
+		printf("FAIL");
+		retv = 1;
+	}
+	printf(" [%s]\n", fmt);
+	return (retv);
+}
+
+int	test_printf_char(char *fmt, char c)
 {
 	t_size	libc;
 	t_size	mine;
+	char	buff[0x100];
 
-	libc = printf("LIBC: {%c}\n", c);
-	mine = ft_printf_2("MINE: {%c}\n", c);
-	if (libc == mine)
-		printf("PASS\n");
-	else
-		printf("FAIL\n");
+	ft_bzero(buff, 0x100);
+	ft_strcpy(buff, "LIBC: {");
+	ft_strcpy(buff + 7, fmt);
+	ft_strcpy(buff + 7 + ft_strlen(fmt), "}\n");
+	libc = printf(buff, c);
+	ft_strncpy(buff, "MINE: {", 7);
+	mine = ft_printf_2(buff, c);
+	return (test_print_result(libc, mine, fmt));
 }
 
-void	test_printf_string(char *s)
+int	test_printf_string(char *fmt, char *s)
 {
 	t_size	libc;
 	t_size	mine;
+	char	buff[0x100];
 
-	libc = printf("LIBC: {%s}\n", s);
-	mine = ft_printf_2("MINE: {%s}\n", s);
-	if (libc == mine)
-		printf("PASS\n");
-	else
-		printf("FAIL\n");
+	ft_bzero(buff, 0x100);
+	ft_strcpy(buff, "LIBC: {");
+	ft_strcpy(buff + 7, fmt);
+	ft_strcpy(buff + 7 + ft_strlen(fmt), "}\n");
+	libc = printf(buff, s);
+	ft_strncpy(buff, "MINE: {", 7);
+	mine = ft_printf_2(buff, s);
+	return (test_print_result(libc, mine, fmt));
 }
 
-void	test_printf_address(void *ptr)
+int	test_printf_address(char *fmt, void *ptr)
 {
 	t_size	libc;
 	t_size	mine;
+	char	buff[0x100];
 
-	libc = printf("LIBC: {%p}\n", ptr);
-	mine = ft_printf_2("MINE: {%p}\n", ptr);
-	if (libc == mine)
-		printf("PASS\n");
-	else
-		printf("FAIL\n");
+	ft_bzero(buff, 0x100);
+	ft_strcpy(buff, "LIBC: {");
+	ft_strcpy(buff + 7, fmt);
+	ft_strcpy(buff + 7 + ft_strlen(fmt), "}\n");
+	libc = printf(buff, ptr);
+	ft_strncpy(buff, "MINE: {", 7);
+	mine = ft_printf_2(buff, ptr);
+	return (test_print_result(libc, mine, fmt));
 }
 
-void	test_printf_integer(int i)
+int	test_printf_integer(char *fmt, int i)
 {
 	t_size	libc;
 	t_size	mine;
+	char	buff[0x100];
 
-	libc = printf("LIBC: {%i}\n", i);
-	mine = ft_printf_2("MINE: {%i}\n", i);
-	if (libc == mine)
-		printf("PASS\n");
-	else
-		printf("FAIL\n");
-	libc = printf("LIBC: {%d}\n", i);
-	mine = ft_printf_2("MINE: {%d}\n", i);
-	if (libc == mine)
-		printf("PASS\n");
-	else
-		printf("FAIL\n");
+	ft_bzero(buff, 0x100);
+	ft_strcpy(buff, "LIBC: {");
+	ft_strcpy(buff + 7, fmt);
+	ft_strcpy(buff + 7 + ft_strlen(fmt), "}\n");
+	libc = printf(buff, i);
+	ft_strncpy(buff, "MINE: {", 7);
+	mine = ft_printf_2(buff, i);
+	return (test_print_result(libc, mine, fmt));
 }
 
-void	test_printf_unsigned(unsigned int i)
+int	test_printf_unsigned(char *fmt, unsigned int i)
 {
 	t_size	libc;
 	t_size	mine;
+	char	buff[0x100];
 
-	libc = printf("LIBC: {%u}\n", i);
-	mine = ft_printf_2("MINE: {%u}\n", i);
-	if (libc == mine)
-		printf("PASS\n");
-	else
-		printf("FAIL\n");
+	ft_bzero(buff, 0x100);
+	ft_strcpy(buff, "LIBC: {");
+	ft_strcpy(buff + 7, fmt);
+	ft_strcpy(buff + 7 + ft_strlen(fmt), "}\n");
+	libc = printf(buff, i);
+	ft_strncpy(buff, "MINE: {", 7);
+	mine = ft_printf_2(buff, i);
+	return (test_print_result(libc, mine, fmt));
 }
 
-void	test_printf_hexa(int i)
+int	ci_base(void)
 {
-	t_size	libc;
-	t_size	mine;
+	int	retv;
 
-	libc = printf("LIBC: {%x}\n", i);
-	mine = ft_printf_2("MINE: {%x}\n", i);
-	if (libc == mine)
-		printf("PASS\n");
-	else
-		printf("FAIL\n");
-	libc = printf("LIBC: {%X}\n", i);
-	mine = ft_printf_2("MINE: {%X}\n", i);
-	if (libc == mine)
-		printf("PASS\n");
-	else
-		printf("FAIL\n");
+	retv = 0;
+	retv |= test_printf_base();
+	retv |= test_printf_char("%c", 'A');
+	retv |= test_printf_string("%s", "This is a string.");
+	retv |= test_printf_address("%p", &retv);
+	retv |= test_printf_address("%p", 0);
+	retv |= test_printf_integer("%i", -1234);
+	retv |= test_printf_integer("%d", -1234);
+	retv |= test_printf_integer("%x", 0xABCD);
+	retv |= test_printf_integer("%X", 0xABCD);
+	retv |= test_printf_unsigned("%u", 1234);
+	return (retv);
+}
+
+int	ci_flags(void)
+{
+	int	retv;
+
+	retv = 0;
+	retv |= test_printf_integer("%+d", 1000);
+	retv |= test_printf_integer("% d", 1000);
+	retv |= test_printf_integer("% 6d", 1000);
+	retv |= test_printf_integer("%+18d", 1000);
+	retv |= test_printf_integer("%+-18d", 1000);
+	// retv |= test_printf_integer("%#x", 0x1234);
+	// retv |= test_printf_integer("%#X", 0x1234);
+	// retv |= test_printf_integer("%04d", 12);
+	// retv |= test_printf_integer("%04d", -12);
+	// retv |= test_printf_integer("%01.3d", 0);
+	return (retv);
 }
 
 int	ci_test(void)
 {
-	char	dummy_var;
+	int	retv;
 
-	dummy_var = 1;
-	// test_printf_base();
-	// test_printf_pourcentage();
-	// test_printf_char('A');
-	// test_printf_string("This is a string.");
-	// test_printf_address(&dummy_var);
-	// test_printf_address(0);
-	// test_printf_integer(-1234);
-	// test_printf_unsigned(1234);
-	// test_printf_hexa(0xABCD);
-	// printf("test: %+d\n", 1000);
-	// ft_printf_2("test: %+d\n", 1000);
-	// printf("test: % d\n", 1000);
-	// ft_printf_2("test: % d\n", 1000);
-	// printf("test: %#x\n", 0x1234);
-	// ft_printf_2("test: %#x\n", 0x1234);
-	// printf("test: %#X\n", 0x1234);
-	// ft_printf_2("test: %#X\n", 0x1234);
-	printf("%03d\n", -1);
-	ft_printf_2("%03d\n", -1);
-	// printf("%03d\n", 12);
-	// ft_printf_2("%03d\n", 12);
-	// printf("%01.3d\n", 0);
-	// ft_printf_2("%01.3d\n", 0);
-	return (0);
+	retv = 0;
+	retv |= ci_base();
+	retv |= ci_flags();
+	return (retv);
 }
 
 int	interactive(void)

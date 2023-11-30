@@ -179,7 +179,8 @@ void		ft_printf_fmt_hex(t_fmt_conf conf, va_list args);
 void		ft_printf_fmt_hexa(t_fmt_conf conf, va_list args);
 
 // print/ft_printf/fmt/integer.c
-void		ft_printf_fmt_integer_sign(t_fmt_conf conf);
+void		ft_printf_fmt_integer_sign(t_fmt_conf *conf);
+void		ft_printf_fmt_integer_padding(t_fmt_conf *conf, t_size str_len);
 void		ft_printf_fmt_integer(t_fmt_conf conf, va_list args);
 
 // print/ft_printf/fmt/string.c

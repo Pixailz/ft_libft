@@ -5,8 +5,8 @@
 ## TODO
 
 1. improve ft_printf
-   1. add a buffer
-   1. add format and other usefull stuff ("%02x", "%#02x")
+   1. flags, implement `-`
+   1. move padding outside of integer to integrate with other format type
 1. error
    1. implement singleton, utils like perror etc ..
 1. doc
