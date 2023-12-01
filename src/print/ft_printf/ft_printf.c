@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:46:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/29 00:48:02 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/01 11:18:07 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
 	conf.precision = ft_printf_fmt_get_precision(i_fmt, format);
 	conf.i_buff = i_buff;
 	conf.fmt = format;
-	ft_printf_fmt_get_type(conf, args);
+	ft_printf_fmt_get_type(&conf, args);
+	if (conf.width)
+		ft_printf_type_padding(&conf);
 }
 
 void	ft_printf_2_parse(va_list args, const char *format)
@@ -36,7 +38,7 @@ void	ft_printf_2_parse(va_list args, const char *format)
 	i_fmt = 0;
 	i_buff = 0;
 	ptr_buffer = ft_printf_buff_get();
-	while (format[i_fmt] && i_buff < FT_PRINTF_BUFF_SIZE)
+	while (format[i_fmt] && i_buff < FT_PRINTF_BUFF_BIG)
 	{
 		if (format[i_fmt] == FT_PRINTF_FMT_BEGIN)
 			ft_printf_fmt_parse(&i_fmt, &i_buff, format, args);

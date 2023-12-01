@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:46:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/29 00:53:53 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:38:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_size	ft_printf_fmt_get_precision(int *i_fmt, const char *format)
 {
-	char	buff[0x100];
+	char	buff[FT_PRINTF_BUFF_SMALL];
 	int		i;
 
-	ft_bzero(buff, 0x100);
+	ft_bzero(buff, FT_PRINTF_BUFF_SMALL);
 	buff[0] = '0';
 	if (format[*i_fmt] && format[*i_fmt] == '.')
 	{

@@ -132,6 +132,7 @@ SRC_PRT := print/ft_dprintf.c \
 		   print/ft_printf/ft_printf.c \
 		   print/ft_printf/ft_printf_buffer.c \
 		   print/ft_printf/ft_printf_flags.c \
+		   print/ft_printf/ft_printf_padding.c \
 		   print/ft_printf/ft_printf_precision.c \
 		   print/ft_printf/ft_printf_type.c \
 		   print/ft_printf/ft_printf_width.c \
