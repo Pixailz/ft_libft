@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 03:09:08 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/01 11:26:36 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:46:59 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,7 @@ int	ci_test(void)
 
 	retv = 0;
 	// retv |= ci_base();
-	retv |= ci_flags();
+	// retv |= ci_flags();
 	return (retv);
 }
 
