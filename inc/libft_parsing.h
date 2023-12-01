@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/17 12:20:27 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:02:04 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct s_opt_order
 typedef struct s_opts
 {
 	t_opt		*opt;
+	char		*prog_name;
 	int			ac;
 	char		**av;
 	t_opt_value	*value;

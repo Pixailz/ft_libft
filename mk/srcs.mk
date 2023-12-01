@@ -149,7 +149,8 @@ SRC_PRT := print/ft_dprintf.c \
 SRC_INP := input/ft_get_next_line.c
 
 ### RANDOM
-SRC_RDM := random/ft_randint.c \
+SRC_RDM := random/ft_randchar.c \
+		   random/ft_randint.c \
 		   random/ft_tmpfile.c
 
 ### LINUX

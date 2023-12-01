@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:30:54 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/17 12:31:50 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:01:54 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_optparse(int ac, char **av)
 	t_opts				*opts;
 
 	opts = ft_get_opts(FALSE);
+	opts->prog_name = av[0];
 	opts->ac = ac - 1;
 	opts->av = av + 1;
 	while (opts->parse_index < opts->ac)

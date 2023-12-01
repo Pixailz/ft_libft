@@ -39,6 +39,9 @@
 /* FILES */
 /* ##### */
 
+// random/ft_randchar.c
+t_int8		ft_randchar(void);
+
 // random/ft_randint.c
 t_int64		ft_randint(int start, int end);
 
