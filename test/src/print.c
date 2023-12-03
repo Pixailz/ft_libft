@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 03:09:08 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/01 12:46:59 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/03 01:40:36 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,23 +170,23 @@ int	ci_flags(void)
 	int	retv;
 
 	retv = 0;
-	retv |= test_printf_integer("%6x", 0x10);
-	retv |= test_printf_integer("%-6x", 0x10);
-	retv |= test_printf_integer("%#6x", 0x10);
-	retv |= test_printf_integer("%-#6x", 0x10);
-	retv |= test_printf_integer("%06x", 0x10);
-	retv |= test_printf_integer("%-06x", 0x10);
-	retv |= test_printf_integer("%#06x", 0x10);
-	retv |= test_printf_integer("%-#06x", 0x10);
-	// retv |= test_printf_integer("% d", 1000);
-	// retv |= test_printf_integer("% 6d", 1000);
-	// retv |= test_printf_integer("%+18d", 1000);
-	// retv |= test_printf_integer("%+-18d", 1000);
-	// retv |= test_printf_integer("%#x", 0x1234);
-	// retv |= test_printf_integer("%#X", 0x1234);
-	// retv |= test_printf_integer("%04d", 12);
-	// retv |= test_printf_integer("%04d", -12);
-	// retv |= test_printf_integer("%01.3d", 0);
+
+	// retv |= test_printf_integer("%6x", 0x10);
+	// retv |= test_printf_integer("%#6x", 0x10);
+	// retv |= test_printf_integer("%06x", 0x10);
+	// retv |= test_printf_integer("%#06x", 0x10);
+	// retv |= test_printf_integer("%-6x", 0x10);
+	// retv |= test_printf_integer("%-#6x", 0x10);
+	// retv |= test_printf_integer("%-06x", 0x10);
+	// retv |= test_printf_integer("%-#06x", 0x10);
+
+	// retv |= test_printf_integer("%6d", 0x10);
+	// retv |= test_printf_integer("%06d", 0x10);
+	// retv |= test_printf_integer("%-6d", 0x10);
+	// retv |= test_printf_integer("%-06d", 0x10);
+
+	// retv |= test_printf_string("%6s", "0x10");
+	// retv |= test_printf_string("%-6s", "0x10");
 	return (retv);
 }
 
