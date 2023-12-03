@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/01 10:38:06 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/03 13:16:05 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@
 
 typedef enum e_fmt_type
 {
-	FMT_UNKN = 0,
+	FMT_UNKN = -1,
 	FMT_PERC,
 	FMT_CHAR,
 	FMT_STRI,
@@ -157,8 +157,7 @@ typedef struct s_fmt_conf
 /* ##### */
 
 // print/ft_dprintf.c
-int			ft_dprintf_parse(int fd, va_list args, const char *format);
-size_t		ft_dprintf(int fd, const char *format, ...);
+t_size		ft_dprintf(int fd, const char *format, ...);
 
 // print/ft_pdeb.c
 t_size		ft_pdeb(const char *format, ...);
@@ -167,8 +166,7 @@ t_size		ft_pdeb(const char *format, ...);
 int			ft_perr(const char *format, ...);
 
 // print/ft_printf.c
-int			ft_printf_parse(va_list args, const char *format);
-size_t		ft_printf(const char *format, ...);
+t_size		ft_printf(const char *format, ...);
 
 // print/ft_printf/flag/hash.c
 void		ft_printf_flag_hash(char type, t_bin *flags);
@@ -207,12 +205,6 @@ void		ft_printf_type_string(t_fmt_conf *conf, va_list args);
 // print/ft_printf/fmt/unsigned.c
 void		ft_printf_type_unsigned(t_fmt_conf *conf, va_list args);
 
-// print/ft_printf/ft_printf.c
-void		ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
-											const char *format, va_list args);
-void		ft_printf_2_parse(va_list args, const char *format);
-t_size		ft_printf_2(const char *format, ...);
-
 // print/ft_printf/ft_printf_buffer.c
 void		ft_printf_buff_reset(void);
 char		*ft_printf_buff_get(void);
@@ -220,8 +212,13 @@ char		*ft_printf_buff_get(void);
 // print/ft_printf/ft_printf_flags.c
 t_bin		ft_printf_fmt_get_flags(int *i, const char *format);
 
+// print/ft_printf/ft_printf_main.c
+void		ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
+											const char *format, va_list args);
+void		ft_printf_parse(va_list args, const char *format);
+
 // print/ft_printf/ft_printf_padding.c
-void		ft_printf_type_padding_hex(t_fmt_conf *conf);
+char		ft_printf_type_padding_remove_sign(char *str);
 void		ft_printf_type_padding(t_fmt_conf *conf);
 
 // print/ft_printf/ft_printf_precision.c
@@ -233,6 +230,24 @@ void		ft_printf_fmt_get_type(t_fmt_conf *conf, va_list args);
 
 // print/ft_printf/ft_printf_width.c
 t_size		ft_printf_fmt_get_width(int *i_fmt, const char *format);
+
+// print/ft_printf/padding/hex.c
+void		ft_printf_type_padding_hex_hashtag(t_fmt_conf *conf, \
+												t_size to_pad, t_size str_len);
+void		ft_printf_type_padding_hex_post(t_fmt_conf *conf, char sign, \
+																t_size str_len);
+void		ft_printf_type_padding_hex_pad(t_fmt_conf *conf, t_size begin, \
+																t_size to_pad);
+void		ft_printf_type_padding_hex(t_fmt_conf *conf);
+
+// print/ft_printf/padding/integer.c
+void		ft_printf_type_padding_integer_post(t_fmt_conf *conf, char sign);
+void		ft_printf_type_padding_integer_pad(t_fmt_conf *conf, t_size begin, \
+																t_size to_pad);
+void		ft_printf_type_padding_integer(t_fmt_conf *conf);
+
+// print/ft_printf/padding/string.c
+void		ft_printf_type_padding_string(t_fmt_conf *conf);
 
 // print/ft_putchar_fd.c
 size_t		ft_putchar_fd(char c, int fd);
@@ -253,10 +268,10 @@ size_t		ft_putstr_fd(char const *s, int fd);
 size_t		ft_putunbr_fd(unsigned long n, int fd);
 
 // print/ft_vdprintf.c
-size_t		ft_vdprintf(int fd, const char *format, va_list args);
+t_size		ft_vdprintf(int fd, const char *format, va_list args);
 
 // print/ft_vprintf.c
-size_t		ft_vprintf(const char *format, va_list args);
+t_size		ft_vprintf(const char *format, va_list args);
 
 /* ########################################################################## */
 

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 03:09:08 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/16 18:51:11 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:09:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 void	test_htons(t_uint64 n)
 {
-	printf("0x%lx|real  : 0x%x\n", n, htons(n));
-	printf("0x%lx|libft : 0x%x\n", n, ft_htons(n));
+	ft_printf("0x%lx|real  : 0x%x\n", n, htons(n));
+	ft_printf("0x%lx|libft : 0x%x\n", n, ft_htons(n));
 }
 
 void	test_htonl(t_uint64 n)

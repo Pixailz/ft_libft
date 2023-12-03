@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 03:09:08 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 01:40:36 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:08:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	test_printf_base(void)
 
 	printf("FORMAT [NO_FORMAT]\n");
 	libc = printf("LIBC: {Hello World!}\n");
-	mine = ft_printf_2("MINE: {Hello World!}\n");
+	mine = ft_printf("MINE: {Hello World!}\n");
 	if (libc == mine)
 		printf("PASS\n\n");
 	else
@@ -34,7 +34,7 @@ int	test_printf_base(void)
 	}
 	printf("FORMAT [\x25\x25]\n");
 	libc = printf("LIBC: {%%}\n");
-	mine = ft_printf_2("MINE: {%%}\n");
+	mine = ft_printf("MINE: {%%}\n");
 	if (libc == mine)
 		printf("PASS\n\n");
 	else
@@ -75,7 +75,7 @@ int	test_printf_char(char *fmt, char c)
 	ft_strcpy(buff + 7 + ft_strlen(fmt), "}\n");
 	libc = printf(buff, c);
 	ft_strncpy(buff, "MINE: {", 7);
-	mine = ft_printf_2(buff, c);
+	mine = ft_printf(buff, c);
 	return (test_print_result(libc, mine));
 }
 
@@ -92,7 +92,7 @@ int	test_printf_string(char *fmt, char *s)
 	ft_strcpy(buff + 7 + ft_strlen(fmt), "}\n");
 	libc = printf(buff, s);
 	ft_strncpy(buff, "MINE: {", 7);
-	mine = ft_printf_2(buff, s);
+	mine = ft_printf(buff, s);
 	return (test_print_result(libc, mine));
 }
 
@@ -109,7 +109,7 @@ int	test_printf_address(char *fmt, void *ptr)
 	ft_strcpy(buff + 7 + ft_strlen(fmt), "}\n");
 	libc = printf(buff, ptr);
 	ft_strncpy(buff, "MINE: {", 7);
-	mine = ft_printf_2(buff, ptr);
+	mine = ft_printf(buff, ptr);
 	return (test_print_result(libc, mine));
 }
 
@@ -126,7 +126,7 @@ int	test_printf_integer(char *fmt, int i)
 	ft_strcpy(buff + 7 + ft_strlen(fmt), "}\n");
 	libc = printf(buff, i);
 	ft_strncpy(buff, "MINE: {", 7);
-	mine = ft_printf_2(buff, i);
+	mine = ft_printf(buff, i);
 	return (test_print_result(libc, mine));
 }
 
@@ -143,7 +143,7 @@ int	test_printf_unsigned(char *fmt, unsigned int i)
 	ft_strcpy(buff + 7 + ft_strlen(fmt), "}\n");
 	libc = printf(buff, i);
 	ft_strncpy(buff, "MINE: {", 7);
-	mine = ft_printf_2(buff, i);
+	mine = ft_printf(buff, i);
 	return (test_print_result(libc, mine));
 }
 
@@ -165,28 +165,41 @@ int	ci_base(void)
 	return (retv);
 }
 
-int	ci_flags(void)
+int	ci_flags_padding(void)
 {
 	int	retv;
 
 	retv = 0;
 
-	// retv |= test_printf_integer("%6x", 0x10);
-	// retv |= test_printf_integer("%#6x", 0x10);
-	// retv |= test_printf_integer("%06x", 0x10);
-	// retv |= test_printf_integer("%#06x", 0x10);
-	// retv |= test_printf_integer("%-6x", 0x10);
-	// retv |= test_printf_integer("%-#6x", 0x10);
-	// retv |= test_printf_integer("%-06x", 0x10);
-	// retv |= test_printf_integer("%-#06x", 0x10);
+	retv |= test_printf_integer("%6x", 0x10);
+	retv |= test_printf_integer("%#6x", 0x10);
+	retv |= test_printf_integer("%06x", 0x10);
+	retv |= test_printf_integer("%#06x", 0x10);
+	retv |= test_printf_integer("%-6x", 0x10);
+	retv |= test_printf_integer("%-#6x", 0x10);
+	retv |= test_printf_integer("%-06x", 0x10);
+	retv |= test_printf_integer("%-#06x", 0x10);
 
-	// retv |= test_printf_integer("%6d", 0x10);
-	// retv |= test_printf_integer("%06d", 0x10);
-	// retv |= test_printf_integer("%-6d", 0x10);
-	// retv |= test_printf_integer("%-06d", 0x10);
+	// retv |= test_printf_integer("%#6x", -0x10);
+	// retv |= test_printf_integer("%06x", -0x10);
+	// retv |= test_printf_integer("%#06x", -0x10);
+	// retv |= test_printf_integer("%-6x", -0x10);
+	// retv |= test_printf_integer("%-#6x", -0x10);
+	// retv |= test_printf_integer("%-06x", -0x10);
+	// retv |= test_printf_integer("%-#06x", -0x10);
 
-	// retv |= test_printf_string("%6s", "0x10");
-	// retv |= test_printf_string("%-6s", "0x10");
+	retv |= test_printf_integer("%6d", 0x10);
+	retv |= test_printf_integer("%06d", 0x10);
+	retv |= test_printf_integer("%-6d", 0x10);
+	retv |= test_printf_integer("%-06d", 0x10);
+
+	retv |= test_printf_integer("%6d", -0x10);
+	retv |= test_printf_integer("%06d", -0x10);
+	retv |= test_printf_integer("%-6d", -0x10);
+	retv |= test_printf_integer("%-06d", -0x10);
+
+	retv |= test_printf_string("%6s", "abcd");
+	retv |= test_printf_string("%-6s", "abcd");
 	return (retv);
 }
 
@@ -195,8 +208,10 @@ int	ci_test(void)
 	int	retv;
 
 	retv = 0;
-	// retv |= ci_base();
-	// retv |= ci_flags();
+	retv |= ci_base();
+	retv |= ci_flags_padding();
+	ft_dprintf(2, "test\n");
+	ft_perr("test [%#06x]\n", 0x10);
 	return (retv);
 }
 

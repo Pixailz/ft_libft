@@ -129,13 +129,16 @@ SRC_PRT := print/ft_dprintf.c \
 		   print/ft_printf/fmt/integer.c \
 		   print/ft_printf/fmt/string.c \
 		   print/ft_printf/fmt/unsigned.c \
-		   print/ft_printf/ft_printf.c \
 		   print/ft_printf/ft_printf_buffer.c \
 		   print/ft_printf/ft_printf_flags.c \
+		   print/ft_printf/ft_printf_main.c \
 		   print/ft_printf/ft_printf_padding.c \
 		   print/ft_printf/ft_printf_precision.c \
 		   print/ft_printf/ft_printf_type.c \
 		   print/ft_printf/ft_printf_width.c \
+		   print/ft_printf/padding/hex.c \
+		   print/ft_printf/padding/integer.c \
+		   print/ft_printf/padding/string.c \
 		   print/ft_putchar_fd.c \
 		   print/ft_putendl_fd.c \
 		   print/ft_putnbr_base_fd.c \

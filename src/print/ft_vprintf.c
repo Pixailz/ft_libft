@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 20:37:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/26 20:40:19 by brda-sil         ###   ########.fr       */
+/*   Created: 2023/11/28 16:46:32 by brda-sil          #+#    #+#             */
+/*   Updated: 2023/12/03 16:03:46 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_print.h"
 
-size_t	ft_vprintf(const char *format, va_list args)
+t_size	ft_vprintf(const char *format, va_list args)
 {
-	size_t	size;
+	char	*ptr_buffer;
 
-	size = 0;
-	size = ft_printf_parse(args, format);
-	return (size);
+	ft_printf_parse(args, format);
+	ptr_buffer = ft_printf_buff_get();
+	return (ft_putstr_fd(ptr_buffer, 1));
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:46:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/01 11:18:07 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:06:01 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
 											const char *format, va_list args)
 {
 	t_fmt_conf	conf;
+	char		*buff;
+	t_size		str_len;
 
 	conf.i_fmt = i_fmt;
 	(*conf.i_fmt)++;
@@ -25,11 +27,18 @@ void	ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
 	conf.i_buff = i_buff;
 	conf.fmt = format;
 	ft_printf_fmt_get_type(&conf, args);
+	buff = ft_printf_buff_get();
 	if (conf.width)
 		ft_printf_type_padding(&conf);
+	else
+	{
+		str_len = ft_strlen(conf.cur_type);
+		ft_strncpy(buff + *conf.i_buff, conf.cur_type, str_len);
+		*conf.i_buff += str_len;
+	}
 }
 
-void	ft_printf_2_parse(va_list args, const char *format)
+void	ft_printf_parse(va_list args, const char *format)
 {
 	char	*ptr_buffer;
 	int		i_fmt;
@@ -45,17 +54,4 @@ void	ft_printf_2_parse(va_list args, const char *format)
 		else
 			ptr_buffer[i_buff++] = format[i_fmt++];
 	}
-}
-
-t_size	ft_printf_2(const char *format, ...)
-{
-	va_list	args;
-	char	*ptr_buffer;
-
-	ft_printf_buff_reset();
-	va_start(args, format);
-	ft_printf_2_parse(args, format);
-	va_end(args);
-	ptr_buffer = ft_printf_buff_get();
-	return (ft_putstr_fd(ptr_buffer, 1));
 }
