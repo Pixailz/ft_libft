@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 13:16:05 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:34:05 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ typedef struct s_fmt_conf
 	int				*i_buff;
 	const char		*fmt;
 }	t_fmt_conf;
-
-# define FT_PRINTF_PARAMS_LIST	"cspdiuxX%"
 
 # define DEBUG_FD				420
 
