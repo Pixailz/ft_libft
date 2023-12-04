@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:29:05 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 15:56:28 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/04 01:38:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ void	ft_printf_type_padding_hex_post(t_fmt_conf *conf, char sign, \
 	else
 		ft_strncpy(buff + *conf->i_buff + conf->width - str_len - (sign != 0), \
 										conf->cur_type + (sign != 0), str_len);
-	if (!(conf->flags & FT_PRINTF_FLAG_MINUS))
-		(*conf->i_buff) += conf->width - (sign != 0);
+	if (str_len >= conf->width)
+		(*conf->i_buff) += str_len + (sign != 0);
 	else
 		(*conf->i_buff) += conf->width;
 }
 
 void	ft_printf_type_padding_hex_pad(t_fmt_conf *conf, t_size begin, \
-																t_size to_pad)
+																int to_pad)
 {
 	char	pad_str;
 	char	*buff;
@@ -86,7 +86,7 @@ void	ft_printf_type_padding_hex_pad(t_fmt_conf *conf, t_size begin, \
 void	ft_printf_type_padding_hex(t_fmt_conf *conf)
 {
 	t_size	begin;
-	t_size	to_pad;
+	int		to_pad;
 	t_size	str_len;
 	char	sign;
 

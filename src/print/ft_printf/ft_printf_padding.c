@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:15:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 15:56:50 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/04 01:31:41 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,10 @@ void	ft_printf_type_padding(t_fmt_conf *conf)
 		ft_printf_type_padding_integer(conf);
 	else if (conf->fmt_type == FMT_STRI)
 		ft_printf_type_padding_string(conf);
+	else if (conf->fmt_type == FMT_CHAR)
+		ft_printf_type_padding_char(conf);
+	else if (conf->fmt_type == FMT_PTR)
+		ft_printf_type_padding_addr(conf);
+	else if (conf->fmt_type == FMT_UNSI)
+		ft_printf_type_padding_integer(conf);
 }

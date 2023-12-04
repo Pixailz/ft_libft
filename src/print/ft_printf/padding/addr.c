@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
+/*   addr.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:28:01 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/04 00:01:54 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/04 00:37:21 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_print.h"
 
-void	ft_printf_type_padding_string(t_fmt_conf *conf)
+void	ft_printf_type_padding_addr(t_fmt_conf *conf)
 {
 	t_size	begin;
 	int		to_pad;
@@ -30,13 +30,21 @@ void	ft_printf_type_padding_string(t_fmt_conf *conf)
 		buff[begin++] = ' ';
 		to_pad--;
 	}
-	if (conf->flags & FT_PRINTF_FLAG_MINUS)
-		ft_strncpy(buff + *conf->i_buff, conf->cur_type, str_len);
-	else
-		ft_strncpy(buff + *conf->i_buff + conf->width - str_len, \
-													conf->cur_type, str_len);
 	if (str_len > conf->width)
+	{
+		if (conf->flags & FT_PRINTF_FLAG_MINUS)
+			ft_strncpy(buff + *conf->i_buff, conf->cur_type, str_len);
+		else
+			ft_strncpy(buff + *conf->i_buff, conf->cur_type, str_len);
 		(*conf->i_buff) += str_len;
+	}
 	else
+	{
+		if (conf->flags & FT_PRINTF_FLAG_MINUS)
+			ft_strncpy(buff + *conf->i_buff, conf->cur_type, str_len);
+		else
+			ft_strncpy(buff + *conf->i_buff + conf->width - str_len, \
+														conf->cur_type, str_len);
 		(*conf->i_buff) += conf->width;
+	}
 }

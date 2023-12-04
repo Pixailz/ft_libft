@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   char.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/03 16:05:41 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 18:37:03 by brda-sil         ###   ########.fr       */
+/*   Created: 2023/12/03 15:29:05 by brda-sil          #+#    #+#             */
+/*   Updated: 2023/12/03 23:22:43 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft_print.h>
+#include "libft_print.h"
 
-t_size	ft_printf(const char *format, ...)
+void	ft_printf_type_padding_char(t_fmt_conf *conf)
 {
-	va_list	args;
-	char	*ptr_buffer;
-	t_size	to_print;
+	char	*buff;
+	t_size	counter;
 
-	ft_printf_buff_reset();
-	va_start(args, format);
-	to_print = ft_printf_parse(args, format);
-	va_end(args);
-	ptr_buffer = ft_printf_buff_get();
-	return (ft_putnstr_fd(ptr_buffer, to_print, 1));
+	buff = ft_printf_buff_get();
+	counter = 0;
+	while (counter++ < conf->width)
+		buff[(*conf->i_buff)++] = ' ';
+	if (conf->flags & FT_PRINTF_FLAG_MINUS)
+		buff[*conf->i_buff - conf->width] = conf->cur_type[0];
+	else
+		buff[*conf->i_buff - 1] = conf->cur_type[0];
 }

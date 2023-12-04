@@ -136,6 +136,8 @@ SRC_PRT := print/ft_dprintf.c \
 		   print/ft_printf/ft_printf_precision.c \
 		   print/ft_printf/ft_printf_type.c \
 		   print/ft_printf/ft_printf_width.c \
+		   print/ft_printf/padding/addr.c \
+		   print/ft_printf/padding/char.c \
 		   print/ft_printf/padding/hex.c \
 		   print/ft_printf/padding/integer.c \
 		   print/ft_printf/padding/string.c \

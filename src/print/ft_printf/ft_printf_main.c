@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:46:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 16:06:01 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/04 00:51:51 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,26 @@ void	ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
 		ft_printf_type_padding(&conf);
 	else
 	{
-		str_len = ft_strlen(conf.cur_type);
-		ft_strncpy(buff + *conf.i_buff, conf.cur_type, str_len);
-		*conf.i_buff += str_len;
+		if (conf.fmt_type == FMT_CHAR)
+		{
+			ft_strncpy(buff + *conf.i_buff, conf.cur_type, 1);
+			*conf.i_buff += 1;
+		}
+		else
+		{
+			str_len = ft_strlen(conf.cur_type);
+			ft_strncpy(buff + *conf.i_buff, conf.cur_type, str_len);
+			*conf.i_buff += str_len;
+		}
 	}
 }
 
-void	ft_printf_parse(va_list args, const char *format)
+t_size	ft_printf_parse(va_list args, const char *format)
 {
 	char	*ptr_buffer;
 	int		i_fmt;
 	int		i_buff;
+	t_size	size;
 
 	i_fmt = 0;
 	i_buff = 0;
@@ -54,4 +63,5 @@ void	ft_printf_parse(va_list args, const char *format)
 		else
 			ptr_buffer[i_buff++] = format[i_fmt++];
 	}
+	return (i_buff);
 }

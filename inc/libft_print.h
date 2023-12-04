@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 17:34:05 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/04 02:17:45 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,7 +213,7 @@ t_bin		ft_printf_fmt_get_flags(int *i, const char *format);
 // print/ft_printf/ft_printf_main.c
 void		ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
 											const char *format, va_list args);
-void		ft_printf_parse(va_list args, const char *format);
+t_size		ft_printf_parse(va_list args, const char *format);
 
 // print/ft_printf/ft_printf_padding.c
 char		ft_printf_type_padding_remove_sign(char *str);
@@ -229,19 +229,25 @@ void		ft_printf_fmt_get_type(t_fmt_conf *conf, va_list args);
 // print/ft_printf/ft_printf_width.c
 t_size		ft_printf_fmt_get_width(int *i_fmt, const char *format);
 
+// print/ft_printf/padding/addr.c
+void		ft_printf_type_padding_addr(t_fmt_conf *conf);
+
+// print/ft_printf/padding/char.c
+void		ft_printf_type_padding_char(t_fmt_conf *conf);
+
 // print/ft_printf/padding/hex.c
 void		ft_printf_type_padding_hex_hashtag(t_fmt_conf *conf, \
 												t_size to_pad, t_size str_len);
 void		ft_printf_type_padding_hex_post(t_fmt_conf *conf, char sign, \
 																t_size str_len);
 void		ft_printf_type_padding_hex_pad(t_fmt_conf *conf, t_size begin, \
-																t_size to_pad);
+																int to_pad);
 void		ft_printf_type_padding_hex(t_fmt_conf *conf);
 
 // print/ft_printf/padding/integer.c
 void		ft_printf_type_padding_integer_post(t_fmt_conf *conf, char sign);
 void		ft_printf_type_padding_integer_pad(t_fmt_conf *conf, t_size begin, \
-																t_size to_pad);
+																	int to_pad);
 void		ft_printf_type_padding_integer(t_fmt_conf *conf);
 
 // print/ft_printf/padding/string.c
@@ -261,6 +267,7 @@ size_t		ft_putnbr_fd(int n, int fd);
 
 // print/ft_putstr_fd.c
 size_t		ft_putstr_fd(char const *s, int fd);
+size_t		ft_putnstr_fd(char const *s, t_size n, int fd);
 
 // print/ft_putunbr_fd.c
 size_t		ft_putunbr_fd(unsigned long n, int fd);

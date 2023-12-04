@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:28:37 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 16:17:33 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/04 02:20:04 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,29 @@ void	ft_printf_type_padding_integer_post(t_fmt_conf *conf, char sign)
 	if (sign && !(conf->flags & FT_PRINTF_FLAG_MINUS))
 	{
 		if (conf->flags & FT_PRINTF_FLAG_ZERO)
-			buff[(*conf->i_buff)++] = sign;
+			buff[*conf->i_buff] = sign;
 		else
-			buff[(*conf->i_buff)++ + conf->width - str_len - 1] = sign;
+			buff[*conf->i_buff + conf->width - str_len - 1] = sign;
 	}
 	if (conf->flags & FT_PRINTF_FLAG_MINUS)
 		ft_strncpy(buff + *conf->i_buff, conf->cur_type, str_len + (sign != 0));
 	else
-		ft_strncpy(buff + *conf->i_buff + conf->width - str_len - (sign != 0), \
+	{
+		if (conf->width >= str_len)
+			ft_strncpy(buff + *conf->i_buff + conf->width - str_len, \
 										conf->cur_type + (sign != 0), str_len);
-	if (!(conf->flags & FT_PRINTF_FLAG_MINUS))
-		(*conf->i_buff) += conf->width - (sign != 0);
+		else
+			ft_strncpy(buff + *conf->i_buff, \
+										conf->cur_type + (sign != 0), str_len);
+	}
+	if (str_len > conf->width)
+		(*conf->i_buff) += str_len + (sign != 0);
 	else
 		(*conf->i_buff) += conf->width;
 }
 
 void	ft_printf_type_padding_integer_pad(t_fmt_conf *conf, t_size begin, \
-																t_size to_pad)
+																	int to_pad)
 {
 	char	pad_str;
 	char	*buff;
@@ -59,7 +65,7 @@ void	ft_printf_type_padding_integer_pad(t_fmt_conf *conf, t_size begin, \
 void	ft_printf_type_padding_integer(t_fmt_conf *conf)
 {
 	t_size	begin;
-	t_size	to_pad;
+	int		to_pad;
 	char	sign;
 	t_size	str_len;
 
