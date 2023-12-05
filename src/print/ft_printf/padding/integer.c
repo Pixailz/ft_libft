@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:28:37 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/04 02:20:04 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/04 22:34:44 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_printf_type_padding_integer_post(t_fmt_conf *conf, char sign)
 			ft_strncpy(buff + *conf->i_buff, \
 										conf->cur_type + (sign != 0), str_len);
 	}
-	if (str_len > conf->width)
+	if (str_len >= conf->width)
 		(*conf->i_buff) += str_len + (sign != 0);
 	else
 		(*conf->i_buff) += conf->width;
@@ -55,7 +55,7 @@ void	ft_printf_type_padding_integer_pad(t_fmt_conf *conf, t_size begin, \
 		pad_str = '0';
 	else
 		pad_str = ' ';
-	while (to_pad > 0)
+	while (to_pad >= 0)
 	{
 		buff[begin++] = pad_str;
 		to_pad--;

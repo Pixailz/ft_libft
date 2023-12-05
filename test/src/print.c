@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 03:09:08 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 16:08:08 by brda-sil         ###   ########.fr       */
+/*   Updated: 2023/12/04 22:22:30 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,10 +208,12 @@ int	ci_test(void)
 	int	retv;
 
 	retv = 0;
-	retv |= ci_base();
-	retv |= ci_flags_padding();
-	ft_dprintf(2, "test\n");
-	ft_perr("test [%#06x]\n", 0x10);
+	// retv |= ci_base();
+	// retv |= ci_flags_padding();
+	// ft_dprintf(2, "test\n");
+	// ft_perr("test [%#06x]\n", 0x10);
+	printf(" {%01d} \n", -9);
+	ft_printf(" {%01d} \n", -9);
 	return (retv);
 }
 
