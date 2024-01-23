@@ -6,18 +6,17 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:28:37 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/04 22:34:44 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/01/23 01:01:14 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_print.h"
 
-void	ft_printf_type_padding_integer_post(t_fmt_conf *conf, char sign)
+void	ft_printf_type_padding_integer_post(t_fmt_conf *conf, char sign, \
+											char *buff)
 {
-	char	*buff;
 	t_size	str_len;
 
-	buff = ft_printf_buff_get();
 	str_len = ft_strlen(conf->cur_type) - (sign != 0);
 	if (sign && !(conf->flags & FT_PRINTF_FLAG_MINUS))
 	{
@@ -68,6 +67,7 @@ void	ft_printf_type_padding_integer(t_fmt_conf *conf)
 	int		to_pad;
 	char	sign;
 	t_size	str_len;
+	char	*buff;
 
 	sign = ft_printf_type_padding_remove_sign(conf->cur_type);
 	str_len = ft_strlen(conf->cur_type) - (sign != 0);
@@ -76,5 +76,6 @@ void	ft_printf_type_padding_integer(t_fmt_conf *conf)
 	if (conf->flags & FT_PRINTF_FLAG_MINUS)
 		begin += str_len;
 	ft_printf_type_padding_integer_pad(conf, begin, to_pad);
-	ft_printf_type_padding_integer_post(conf, sign);
+	buff = ft_printf_buff_get();
+	ft_printf_type_padding_integer_post(conf, sign, buff);
 }

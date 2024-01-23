@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 03:09:08 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/04 22:22:30 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/01/23 01:05:20 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,13 +180,13 @@ int	ci_flags_padding(void)
 	retv |= test_printf_integer("%-06x", 0x10);
 	retv |= test_printf_integer("%-#06x", 0x10);
 
-	// retv |= test_printf_integer("%#6x", -0x10);
-	// retv |= test_printf_integer("%06x", -0x10);
-	// retv |= test_printf_integer("%#06x", -0x10);
-	// retv |= test_printf_integer("%-6x", -0x10);
-	// retv |= test_printf_integer("%-#6x", -0x10);
-	// retv |= test_printf_integer("%-06x", -0x10);
-	// retv |= test_printf_integer("%-#06x", -0x10);
+	retv |= test_printf_integer("%#6x", -0x10);
+	retv |= test_printf_integer("%06x", -0x10);
+	retv |= test_printf_integer("%#06x", -0x10);
+	retv |= test_printf_integer("%-6x", -0x10);
+	retv |= test_printf_integer("%-#6x", -0x10);
+	retv |= test_printf_integer("%-06x", -0x10);
+	retv |= test_printf_integer("%-#06x", -0x10);
 
 	retv |= test_printf_integer("%6d", 0x10);
 	retv |= test_printf_integer("%06d", 0x10);
@@ -208,8 +208,8 @@ int	ci_test(void)
 	int	retv;
 
 	retv = 0;
-	// retv |= ci_base();
-	// retv |= ci_flags_padding();
+	retv |= ci_base();
+	retv |= ci_flags_padding();
 	// ft_dprintf(2, "test\n");
 	// ft_perr("test [%#06x]\n", 0x10);
 	printf(" {%01d} \n", -9);

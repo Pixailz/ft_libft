@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/04 02:17:45 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/01/23 01:02:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,8 @@ char		*ft_printf_buff_get(void);
 t_bin		ft_printf_fmt_get_flags(int *i, const char *format);
 
 // print/ft_printf/ft_printf_main.c
+void		ft_printf_fmt_setup(t_fmt_conf *conf, int *i_fmt, \
+												const char *format);
 void		ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
 											const char *format, va_list args);
 t_size		ft_printf_parse(va_list args, const char *format);
@@ -230,6 +232,8 @@ void		ft_printf_fmt_get_type(t_fmt_conf *conf, va_list args);
 t_size		ft_printf_fmt_get_width(int *i_fmt, const char *format);
 
 // print/ft_printf/padding/addr.c
+void		ft_printf_type_padding_addr_short(t_fmt_conf *conf, char *buff, \
+											t_size str_len);
 void		ft_printf_type_padding_addr(t_fmt_conf *conf);
 
 // print/ft_printf/padding/char.c
@@ -245,7 +249,8 @@ void		ft_printf_type_padding_hex_pad(t_fmt_conf *conf, t_size begin, \
 void		ft_printf_type_padding_hex(t_fmt_conf *conf);
 
 // print/ft_printf/padding/integer.c
-void		ft_printf_type_padding_integer_post(t_fmt_conf *conf, char sign);
+void		ft_printf_type_padding_integer_post(t_fmt_conf *conf, char sign, \
+											char *buff);
 void		ft_printf_type_padding_integer_pad(t_fmt_conf *conf, t_size begin, \
 																	int to_pad);
 void		ft_printf_type_padding_integer(t_fmt_conf *conf);

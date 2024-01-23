@@ -6,11 +6,22 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:46:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/01/18 15:07:33 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/01/23 01:03:02 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_print.h"
+
+void	ft_printf_fmt_setup(t_fmt_conf *conf, int *i_fmt, \
+												const char *format)
+{
+	conf->i_fmt = i_fmt;
+	(*conf->i_fmt)++;
+	conf->flags = ft_printf_fmt_get_flags(i_fmt, format);
+	conf->width = ft_printf_fmt_get_width(i_fmt, format);
+	conf->precision = ft_printf_fmt_get_precision(i_fmt, format);
+	conf->fmt = format;
+}
 
 void	ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
 											const char *format, va_list args)
@@ -19,13 +30,8 @@ void	ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
 	char		*buff;
 	t_size		str_len;
 
-	conf.i_fmt = i_fmt;
-	(*conf.i_fmt)++;
-	conf.flags = ft_printf_fmt_get_flags(i_fmt, format);
-	conf.width = ft_printf_fmt_get_width(i_fmt, format);
-	conf.precision = ft_printf_fmt_get_precision(i_fmt, format);
+	ft_printf_fmt_setup(&conf, i_fmt, format);
 	conf.i_buff = i_buff;
-	conf.fmt = format;
 	ft_printf_fmt_get_type(&conf, args);
 	buff = ft_printf_buff_get();
 	if (conf.width)
