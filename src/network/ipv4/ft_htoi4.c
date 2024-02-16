@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 05:54:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/01/23 00:43:50 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:32:32 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_int4	ft_htoi4(char *hostname, char *service)
 		ft_int4_chg(&ip, 2, result->ai_addr->sa_data[3]);
 		ft_int4_chg(&ip, 3, result->ai_addr->sa_data[2]);
 	}
-	freeaddrinfo(result);
 	freeaddrinfo(config);
 	return (ip);
 }
