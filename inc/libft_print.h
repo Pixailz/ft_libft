@@ -285,4 +285,4 @@ t_size		ft_vprintf(const char *format, va_list args);
 
 /* ########################################################################## */
 
-#endif // LIBFT_PRINT_H
+#endif /* LIBFT_PRINT_H */
