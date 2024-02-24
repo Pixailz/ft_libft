@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/01/23 01:02:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/02/24 01:30:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # include "libft_integer.h"
 # include "libft_memory.h"
 # include "libft_string.h"
+# include "libft_ansi.h"
 
 /* ########################################################################## */
 
@@ -80,73 +81,6 @@ typedef struct s_fmt_conf
 }	t_fmt_conf;
 
 # define DEBUG_FD				420
-
-/* ########################################################################## */
-
-/* ########################################################################## */
-/* ANSI CODE */
-/* ###### */
-
-# ifndef NO_ANSI
-
-// BASE
-#  define ESC			"\x1b"
-#  define END			""
-
-// COLOR
-#  define BLA			ESC "[30m" END			// BLACK
-#  define RED			ESC "[31m" END			// RED
-#  define GRE			ESC "[32m" END			// GREEN
-#  define YEL			ESC "[33m" END			// YELLOW
-#  define BLU			ESC "[34m" END			// BLUE
-#  define PUR			ESC "[35m" END			// PURPLE
-#  define CYA			ESC "[36m" END			// CYAN
-#  define WHI			ESC "[37m" END			// WHITE
-#  define ORA			ESC "[38;5;208m" END	// ORANGE
-#  define PIN			ESC "[38;5;218m" END	// PINK
-
-// MODIFIER
-#  define RST			ESC "[0m" END
-#  define BOL			ESC "[1m" END
-#  define ITA			ESC "[3m" END
-#  define UND			ESC "[4m" END
-#  define BLI			ESC "[5m" END
-
-# else
-
-// BASE
-#  define ESC			""
-#  define END			""
-
-// COLOR
-#  define BLA			""
-#  define RED			""
-#  define GRE			""
-#  define YEL			""
-#  define BLU			""
-#  define PUR			""
-#  define CYA			""
-#  define WHI			""
-#  define ORA			""
-#  define PIN			""
-
-// MODIFIER
-#  define RST			""
-#  define BOL			""
-#  define ITA			""
-#  define UND			""
-#  define BLI			""
-
-# endif // NO_ANSI
-
-// COMPOSITE
-# define SEP			" → "
-
-# define P_ERRO			"[" RED "ERRO" RST "]" SEP
-# define P_FAIL			"[" RED "FAIL" RST "]" SEP
-# define P_PASS			"[" GRE "PASS" RST "]" SEP
-# define P_DEBG			"[" BLU "DEBG" RST "]" SEP
-# define P_INFO			"[" CYA "INFO " RST "]" SEP
 
 /* ########################################################################## */
 
