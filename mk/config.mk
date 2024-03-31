@@ -33,11 +33,10 @@ endif
 .RECIPEPREFIX		= >
 
 ## DEBUG
-CFLAGS				+= -DDEBUG_FD=420
-
 ifeq ($(shell [ -z $(DEBUG) ] && printf 1 || printf 0),1)
 DEBUG				:= 0
 endif
+CFLAGS				+= -DDEBUG=$(DEBUG) -DDEBUG_FD=420
 
 ifeq ($(shell [ -z $(DEBUG_MAKE) ] && printf 1 || printf 0),1)
 DEBUG_MAKE			:= 0
@@ -47,7 +46,7 @@ ifeq ($(DEBUG),0)
 CFLAGS				+= -Werror
 else
 ifeq ($(shell [ $(DEBUG) -ge 1 ] && printf 1 || printf 0),1)
-CFLAGS				+= -g3 -DDEBUG='"$(DEBUG)"'
+CFLAGS				+= -g3
 endif
 ifeq ($(shell [ $(DEBUG) -ge 2 ] && printf 1 || printf 0),1)
 .SHELLFLAGS			+= -x
