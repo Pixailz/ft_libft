@@ -3,8 +3,8 @@ TARGET				:= libft.a
 CC					:= gcc
 AR					:= ar
 PRINTF				:= @printf
-CFLAGS				:= -Wall -Wextra
 VERSION				:= 1.6.0
+CFLAGS				:= -Wall -Wextra -DVERSION='"$(VERSION)"'
 
 # check if the makefile is called from another or directly called
 ifeq ($(MAIN),1)
@@ -19,6 +19,7 @@ export MAIN
 # SPECIFY MAKEFILE FLAGS (not working with re)
 # MAKEFLAGS			:= --jobs=$(shell nproc)	# number of jobs
 # MAKEFLAGS			+= --output-sync=target		# sync output, avoid intermixed result
+MAKEFLAGS			:= --no-print-directory
 
 # BASH
 SHELL				:= /usr/bin/bash			# set bash path
@@ -41,7 +42,7 @@ ifeq ($(DEBUG),0)
 CFLAGS				+= -Werror
 else
 ifeq ($(shell [ $(DEBUG) -ge 1 ] && printf 1 || printf 0),1)
-CFLAGS				+= -g3
+CFLAGS				+= -g3 -DDEBUG='"$(DEBUG)"'
 endif
 ifeq ($(shell [ $(DEBUG) -ge 2 ] && printf 1 || printf 0),1)
 .SHELLFLAGS			+= -x
@@ -158,3 +159,11 @@ CI_SRC_DIR			:= $(CI_DIR)/src
 
 INC_DIR				:= $(addprefix -I,$(INC_DIR))
 CFLAGS				+= $(INC_DIR)
+
+ifeq ($(ANSI_NO_COLOR),1)
+CFLAGS				+= -DANSI_NO_COLOR
+endif
+
+ifeq ($(ANSI_NO_MODIFIER),1)
+CFLAGS				+= -DANSI_NO_MODIFIER
+endif

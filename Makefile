@@ -14,33 +14,31 @@ $(call PB_INIT)
 
 .DEFAULT: all
 
-workflow:		setup $(TARGET) print_usage
+all:			setup $(TARGET) print_usage
 
-all:			workflow
+integer:		all
 
-integer:		workflow
+string:			all
 
-string:			workflow
+memory:			all
 
-memory:			workflow
+parsing:		all
 
-parsing:		workflow
+check:			all
 
-check:			workflow
+list:			all
 
-list:			workflow
+print:			all
 
-print:			workflow
+input:			all
 
-input:			workflow
+random:			all
 
-random:			workflow
+linux:			all
 
-linux:			workflow
+ipv4:			all
 
-ipv4:			workflow
-
-unit_test:		workflow
+unit_test:		all
 
 $(TARGET):	$(OBJ_C)
 > $(call P_INF,Creating $(R)$(TARGET)$(RST))
@@ -72,7 +70,7 @@ ifeq ($(DO_PRINT_USAGE),1)
 endif
 
 print_debug:
-ifeq ($(shell [ $(DEBUG) -ge 1 ] && echo 1 || echo 0),1)
+ifeq ($(shell [ $(DEBUG_MAKE) -ge 1 ] && echo 1 || echo 0),1)
 > $(call P_INF,RUNTIME INFOS)
 > $(PRINTF) "\t%s"
 > $(call P_WAR,DEBUG: $(DEBUG))
@@ -132,7 +130,7 @@ fclean:							clean
 > rm -rf $(TARGET)
 
 ### RE
-re:						fclean workflow
+re:						fclean all
 
 ## CI TEST
 so:
@@ -141,7 +139,7 @@ so:
 $(CI_BIN_DIR):
 > $(call MKDIR,$@)
 
-ci-compile: workflow $(CI_BIN_DIR)
+ci-compile: all $(CI_BIN_DIR)
 > $(call MKDIR,$(CI_BIN_DIR)/$$(dirname $(CI_TARGET)))
 > $(CC) -DCI_TEST=1 $(CFLAGS) $(CI_SRC_DIR)/$(CI_TARGET) $(TARGET) -o $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
 > $(call P_PAS,compilation pass) \
@@ -150,8 +148,7 @@ ci-run: ci-compile
 > $(CI_BIN_DIR)/$(CI_TARGET:%.c=%) 420>exec.log
 > $(call P_PAS,return value $(font_color)$(CI_BIN_DIR)/$(CI_TARGET:%.c=%)$(RST) [$(G)$${?}$(RST)])
 
-
-test-compile: workflow $(CI_BIN_DIR)
+test-compile: all $(CI_BIN_DIR)
 > $(call MKDIR,$(CI_BIN_DIR)/$$(dirname $(CI_TARGET)))
 > $(CC) $(CFLAGS) $(CI_SRC_DIR)/$(CI_TARGET) $(TARGET) -o $(CI_BIN_DIR)/$(CI_TARGET:%.c=%)
 > $(call P_PAS,compilation pass) \
