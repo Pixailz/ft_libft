@@ -74,6 +74,7 @@ jobs:
           "check/is_str.c",
           "get_next_line.c",
           "hton.c",
+          "htoi4.c"
           "int4.c",
           "ipv4.c",
           "isexec.c",

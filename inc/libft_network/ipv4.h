@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/02/24 00:50:19 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/03/31 23:22:25 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 /* ########################################################################## */
 /* CONFIG */
 /* ###### */
+
+# define HTOI4_USE_EPOLL		0
 
 # define CLASS_A_MIN			0b00000000
 # define CLASS_A_MAX			0b01111110
@@ -73,6 +75,7 @@ typedef struct s_ip
 /* ##### */
 
 // network/ipv4/ft_htoi4.c
+void				free_getaddrinfo(struct addrinfo *conf, struct addrinfo **res);
 t_int4				ft_htoi4(char *hostname, char *service);
 
 // network/ipv4/ft_htonl.c
