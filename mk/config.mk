@@ -33,10 +33,14 @@ endif
 .RECIPEPREFIX		= >
 
 ## DEBUG
-ifeq ($(shell [ -z $(DEBUG) ] && printf 1 || printf 0),1)
+ifeq ($(DEBUG),)
 DEBUG				:= 0
 endif
-CFLAGS				+= -DDEBUG=$(DEBUG) -DDEBUG_FD=420
+
+ifeq ($(DEBUG_FD),)
+DEBUG_FD			:= 420
+endif
+CFLAGS				+= -DDEBUG=$(DEBUG) -DDEBUG_FD=$(DEBUG_FD)
 
 ifeq ($(shell [ -z $(DEBUG_MAKE) ] && printf 1 || printf 0),1)
 DEBUG_MAKE			:= 0
