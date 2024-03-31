@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 05:54:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/03/31 23:32:13 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/03/31 23:35:14 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,11 @@ t_int4	ft_htoi4_getaddrinfo(char *hostname, char *service)
 
 t_int4	ft_htoi4(char *hostname, char *service)
 {
+	t_int4	retv;
+
 	if (HTOI4_USE_EPOLL == 0)
-		ft_htoi4_getaddrinfo(hostname, service);
+		retv = ft_htoi4_getaddrinfo(hostname, service);
+	return (retv);
 }
 // else
 // 	ft_hoti4_epoll(hostname, service);
