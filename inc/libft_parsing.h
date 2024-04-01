@@ -162,7 +162,7 @@ t_bool		ft_is_optshort(char *arg);
 t_bool		ft_optshort_parse(char *arg);
 
 // parsing/ft_post_parse.c
-t_bin		ft_opt_post_parse(void);
+t_bin		ft_opt_post_parse(t_bin (*post_func)());
 
 // parsing/ft_post_parse_cmd.c
 t_bin		ft_opt_exec_cmd(void);

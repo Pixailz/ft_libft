@@ -6,15 +6,16 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:01:15 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/04/01 03:54:26 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/01 06:00:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_parsing.h"
 
-t_bin	ft_opt_post_parse(void)
+t_bin	ft_opt_post_parse(t_bin (*post_func)())
 {
 	t_opts		*opts;
+	t_bin		retv;
 
 	if (ft_opt_post_parse_cmd())
 		return (BIT_01);
@@ -24,11 +25,9 @@ t_bin	ft_opt_post_parse(void)
 		ft_unknown_arg();
 		return (BIT_02);
 	}
-	if (!opts->value)
-	{
-		ft_perr("%s", PROG_NAME SEP "Argument needed\n");
-		ft_try_help_usage();
-		return (BIT_03);
-	}
-	return (BIT_00);
+	if (post_func == FT_NULL)
+		retv = 0;
+	else
+		retv = post_func();
+	return (retv);
 }

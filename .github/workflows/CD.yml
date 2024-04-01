@@ -63,7 +63,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git commit -a -m "[ft_libft] submodule update spread"
-          git status && git push
+          git status && git push || true
 
   update_ft_ping:
     runs-on: ubuntu-latest
@@ -87,4 +87,4 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git commit -a -m "[ft_libft] submodule update spread"
-          git status && git push
+          git status && git push || true
