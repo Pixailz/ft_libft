@@ -71,19 +71,24 @@ SRC_MEM := memory/ft_bzero.c \
 		   memory/ft_memset.c
 
 ### PARSING
-SRC_PAR := parsing/ft_is_optpresent.c \
+SRC_PAR := parsing/cmd/ft_try_help_usage.c \
+		   parsing/cmd/ft_unknown_arg.c \
+		   parsing/cmd/ft_version.c \
+		   parsing/ft_is_optpresent.c \
 		   parsing/ft_opt.c \
+		   parsing/ft_opt_add.c \
+		   parsing/ft_opt_free.c \
+		   parsing/ft_opt_get.c \
 		   parsing/ft_opt_long.c \
+		   parsing/ft_opt_order.c \
 		   parsing/ft_opt_other.c \
 		   parsing/ft_opt_other_last_parsed.c \
+		   parsing/ft_opt_parse.c \
+		   parsing/ft_opt_perr.c \
+		   parsing/ft_opt_print.c \
 		   parsing/ft_opt_short.c \
-		   parsing/ft_optadd.c \
-		   parsing/ft_optfree.c \
-		   parsing/ft_optget.c \
-		   parsing/ft_optorder.c \
-		   parsing/ft_optparse.c \
-		   parsing/ft_optperr.c \
-		   parsing/ft_optprint.c
+		   parsing/ft_post_parse.c \
+		   parsing/ft_post_parse_cmd.c
 
 ### ERROR
 SRC_ERR := error/ft_error.c

@@ -3,8 +3,10 @@ TARGET				:= libft.a
 CC					:= gcc
 AR					:= ar
 PRINTF				:= @printf
-VERSION				:= 1.6.0
-CFLAGS				:= -Wall -Wextra -DVERSION='"$(VERSION)"'
+VERSION_LIBFT		:= 1.6.0
+CFLAGS				:= -Wall -Wextra
+VERSION				?= 0.0.0
+AUTHOR				?= Pixailz
 
 # check if the makefile is called from another or directly called
 ifeq ($(MAIN),1)
@@ -33,14 +35,16 @@ endif
 .RECIPEPREFIX		= >
 
 ## DEBUG
-ifeq ($(DEBUG),)
-DEBUG				:= 0
-endif
-
-ifeq ($(DEBUG_FD),)
-DEBUG_FD			:= 420
-endif
-CFLAGS				+= -DDEBUG=$(DEBUG) -DDEBUG_FD=$(DEBUG_FD)
+DEBUG				?= 0
+DEBUG_FD			?= 420
+CFLAGS				+= \
+	-DDEBUG=$(DEBUG) \
+	-DDEBUG_FD=$(DEBUG_FD) \
+	-DPROG_NAME='"$(PROG_NAME)"' \
+	-DPWD='"$(PWD)"' \
+	-DVERSION_LIBFT='"$(VERSION_LIBFT)"' \
+	-DVERSION='"$(VERSION)"' \
+	-DAUTHOR='"$(AUTHOR)"'
 
 ifeq ($(shell [ -z $(DEBUG_MAKE) ] && printf 1 || printf 0),1)
 DEBUG_MAKE			:= 0

@@ -19,7 +19,7 @@ jobs:
           {
             echo "sha7=${GITHUB_SHA::7}"
             printf "ver=%s" \
-            "$(perl -nE 'print if s|VERSION\s+:= (\d\.\d\.\d)|\1|gm' ./mk/config.mk)"
+            "$(perl -nE 'print if s|^VERSION_LIBFT\s+:= (\d\.\d\.\d)|\1|gm' ./mk/config.mk)"
           } >> ${GITHUB_ENV}
 
       - name: 🔧 Build up libft.a and pack release
@@ -35,7 +35,7 @@ jobs:
         with:
           fail_on_unmatched_files: true
           draft: false
-          prerelease: true
+          prerelease: false
           name: build ${{ env.sha7 }}
           tag_name: v${{ env.ver }}-${{ env.sha7 }}
           files: ../ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz

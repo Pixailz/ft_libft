@@ -75,7 +75,7 @@ typedef struct s_ip
 /* ##### */
 
 // network/ipv4/ft_htoi4.c
-void				free_getaddrinfo(struct addrinfo *conf, struct addrinfo **res);
+t_int4				ft_htoi4_getaddrinfo(char *hostname, char *service);
 t_int4				ft_htoi4(char *hostname, char *service);
 
 // network/ipv4/ft_htonl.c
