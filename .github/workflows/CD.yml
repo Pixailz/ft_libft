@@ -41,13 +41,20 @@ jobs:
           files: ../ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz
           token: ${{ secrets.GITHUB_TOKEN }}
 
-  update_SupaBlank:
+  update_other:
+    strategy:
+      max-parallel: 5
+      matrix:
+        repo: [
+          "Pixailz/SupaBlank",
+          "Pixailz/ft_ping",
+        ]
     runs-on: ubuntu-latest
     steps:
-      - name: ☁️ Retrieve SupaBlank repo
+      - name: ☁️ Retrieve ${{ matrix.test_src }} repo
         uses: actions/checkout@v3
         with:
-          repository: "Pixailz/SupaBlank"
+          repository: ${{ matrix.test_src }}
           submodules: recursive
           token: ${{ secrets.PAT_ACTIONS }}
 
@@ -55,32 +62,7 @@ jobs:
         run: |+
           git submodule update --remote --recursive
 
-      - name: 🔧 test SupaBlank
-        run: make
-
-      - name: ☁️ Configure, commit and push
-        run: |+
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add . || true
-          git commit -m "[ft_libft] submodule update spread" || true
-          git status && git push || true
-
-  update_ft_ping:
-    runs-on: ubuntu-latest
-    steps:
-      - name: ☁️ Retrieve ft_ping repo
-        uses: actions/checkout@v3
-        with:
-          repository: "Pixailz/ft_ping"
-          submodules: recursive
-          token: ${{ secrets.PAT_ACTIONS }}
-
-      - name: ☁️ Update submodules
-        run: |+
-          git submodule update --remote --recursive
-
-      - name: 🔧 test ft_ping
+      - name: 🔧 test ${{ matrix.test_src }}
         run: make
 
       - name: ☁️ Configure, commit and push
