@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:56:30 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/04/29 06:35:14 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/29 06:39:25 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	ci_test(void)
 	ht	*test = test_table();
 
 	ft_ht_enumerate(*test);
-	printf("%s\n", ft_ht_get(test, "test_1"));
+	printf("%s\n", (char *)ft_ht_get(test, "test_1"));
 	ft_ht_free(test);
 	return (0);
 }
