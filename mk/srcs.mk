@@ -188,6 +188,15 @@ SRC_NET_IPV4 := network/ipv4/ft_htoi4.c \
 ### ERROR
 SRC_UNI_TEST := unit_test/ft_assert.c
 
+### HASHTABLE
+SRC_HASHTABLE := hashtable/ft_ht_free.c \
+				 hashtable/ft_ht_get.c \
+				 hashtable/ft_ht_hash_key.c \
+				 hashtable/ft_ht_item.c \
+				 hashtable/ft_ht_len.c \
+				 hashtable/ft_ht_new.c \
+				 hashtable/ft_ht_set.c
+
 ## if all, add all base to SRC_C
 ifeq ($(ALL),1)
 SRC_C				+= $(SRC_INT)
@@ -203,6 +212,7 @@ SRC_C				+= $(SRC_RDM)
 SRC_C				+= $(SRC_LNX)
 SRC_C				+= $(SRC_NET_IPV4)
 SRC_C				+= $(SRC_UNI_TEST)
+SRC_C				+= $(SRC_HASHTABLE)
 
 ## add base part to SRC_C
 else
@@ -244,6 +254,9 @@ SRC_C			+= $(SRC_NET_IPV4)
 endif
 ifeq ($(UNIT_TEST),1)
 SRC_C			+= $(SRC_UNI_TEST)
+endif
+ifeq ($(HASHTABLE),1)
+SRC_C			+= $(SRC_HASHTABLE)
 endif
 endif
 

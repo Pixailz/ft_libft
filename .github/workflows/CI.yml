@@ -84,6 +84,7 @@ jobs:
           "print.c",
           "random.c",
           "tmpfile.c",
+          "hashtable.c",
         ]
     runs-on: ubuntu-latest
     steps:
