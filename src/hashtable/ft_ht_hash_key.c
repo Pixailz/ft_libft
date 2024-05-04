@@ -6,11 +6,17 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 06:00:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/04/29 06:01:17 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/04 07:18:20 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_hashtable.h"
+
+static		void	compute(t_uint32 *hash, char *ptr)
+{
+	*hash ^= *((t_uint32 *)ptr);
+	// *hash *= *((t_uint32 *)ptr);
+}
 
 t_uint32	ft_ht_hash_key(const char *k)
 {
@@ -22,20 +28,18 @@ t_uint32	ft_ht_hash_key(const char *k)
 	{
 		if (index + 4 >= k_len)
 			break ;
-
-		hash = (hash * (*((t_uint32 *)(k + index))));
+		compute(&hash, (char *)k + index);
 		index += 4;
 	}
 
 	if (index != k_len)
 	{
-		unsigned char buff[4] = {0};
+		char buff[4] = {0};
 
 		for (int i = 0; i + index < k_len; i++)
 			buff[i] = k[index + i];
 
-		hash = (hash * (*((t_uint32 *)(buff))));
+		compute(&hash, buff);
 	}
-
 	return (hash % HT_SIZE);
 }

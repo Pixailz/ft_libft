@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:56:30 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/04/29 06:39:25 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/04 07:19:12 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,30 @@ int	get_len_hash_table(void)
 	return (counter);
 }
 
-void	test_collision(void)
+t_bool	test_collision(void)
 {
-	t_size			size = 2;
-	char	buff[size];
+	char	buff[2];
 
-	buff[size - 1] = 0;
+	buff[1] = 0;
 
-	for (int i = 0; i <= 0xff; i++)
+	for (int i = 1; i <= HT_SIZE; i++)
 	{	buff[0] = i;
 		test_hash(buff);
 	}
-	printf("len %d\n", get_len_hash_table());
+	t_size	size = get_len_hash_table();
+	printf("HT: uniq len %d\n", size);
+	printf("HT: HT_SIZE  %d\n", HT_SIZE);
+
+	// +- 2
+	if (size != HT_SIZE)
+	{
+		if (size > HT_SIZE - 2)
+		{
+			ft_perr("Some collision can occurs\n");
+			return (FALSE);
+		}
+	}
+	return (FALSE);
 }
 
 void ft_ht_enumerate(ht table)
@@ -77,7 +89,7 @@ void ft_ht_enumerate(ht table)
 
 		while (ptr)
 		{
-			printf("[%03ld]  %-9s  %p\n", i, ptr->key, ptr->value);
+			printf("[%03ld]  %-9s  %s\n", i, ptr->key, (char *)ptr->value);
 			ptr = ptr->next;
 		}
 	}
@@ -96,8 +108,8 @@ ht	*test_table(void)
 		char *tmp = ft_itoa(i);
 		ft_strcat(buff, tmp);
 		free(tmp);
-		// printf("%s -> %d\n", buff, ft_ht_hash_key(buff));
-		ft_ht_set(table, buff, "value");
+		printf("%s -> %d\n", buff, ft_ht_hash_key(buff));
+		ft_ht_set(table, buff, "test_value");
 	}
 	printf("len table %ld\n", ft_ht_len(*table));
 	return (table);
@@ -105,7 +117,11 @@ ht	*test_table(void)
 
 int	ci_test(void)
 {
-	test_collision();
+	if (test_collision())
+	{
+		ft_perr("Too many collisions\n");
+		return (1);
+	}
 
 	ht	*test = test_table();
 
