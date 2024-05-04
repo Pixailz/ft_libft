@@ -6,11 +6,12 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:56:30 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/04 07:19:12 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/04 07:31:50 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_hashtable.h"
+#include "libft_print.h"
 #include <stdio.h>
 
 #ifndef CI_TEST
@@ -59,13 +60,13 @@ t_bool	test_collision(void)
 
 	buff[1] = 0;
 
-	for (int i = 1; i <= HT_SIZE; i++)
+	for (unsigned int i = 1; i <= HT_SIZE; i++)
 	{	buff[0] = i;
 		test_hash(buff);
 	}
 	t_size	size = get_len_hash_table();
-	printf("HT: uniq len %d\n", size);
-	printf("HT: HT_SIZE  %d\n", HT_SIZE);
+	printf("HT: uniq len %ld\n", size);
+	printf("HT: HT_SIZE  %ld\n", HT_SIZE);
 
 	// +- 2
 	if (size != HT_SIZE)
