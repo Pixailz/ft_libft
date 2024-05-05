@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 06:00:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/04 07:18:20 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/05 15:11:24 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static		void	compute(t_uint32 *hash, char *ptr)
 {
-	*hash ^= *((t_uint32 *)ptr);
-	// *hash *= *((t_uint32 *)ptr);
+	// *hash ^= *((t_uint32 *)ptr);
+	*hash *= *((t_uint32 *)ptr);
 }
 
 t_uint32	ft_ht_hash_key(const char *k)

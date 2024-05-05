@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:56:30 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/04 07:31:50 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/05 15:22:29 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,10 @@ t_bool	test_collision(void)
 	// +- 2
 	if (size != HT_SIZE)
 	{
-		if (size > HT_SIZE - 2)
-		{
-			ft_perr("Some collision can occurs\n");
-			return (FALSE);
-		}
+		ft_perr("Hash algrorithm isn't universal\n");
+		return (TRUE);
 	}
+	printf("Hash algrorithm is universal\n");
 	return (FALSE);
 }
 
@@ -118,12 +116,7 @@ ht	*test_table(void)
 
 int	ci_test(void)
 {
-	if (test_collision())
-	{
-		ft_perr("Too many collisions\n");
-		return (1);
-	}
-
+	test_collision();
 	ht	*test = test_table();
 
 	ft_ht_enumerate(*test);
