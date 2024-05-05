@@ -133,7 +133,13 @@ MULTIPLE		:= 1
 RANDOM			:= 1
 CHECK			:= 1
 endif
-ifeq ($(findstring ipv4,$(MAKECMDGOALS)),ipv4)
+ifeq ($(findstring net,$(MAKECMDGOALS)),net)
+MULTIPLE		:= 1
+# dependecies
+NET_IPV4		:= 1
+NET_PACK		:= 1
+endif
+ifeq ($(findstring net_ipv4,$(MAKECMDGOALS)),net_ipv4)
 NET_IPV4		:= 1
 MULTIPLE		:= 1
 # dependecies
@@ -142,6 +148,12 @@ INTEGER			:= 1
 CHECK			:= 1
 STRING			:= 1
 MEMORY			:= 1
+endif
+ifeq ($(findstring net_pack,$(MAKECMDGOALS)),net_pack)
+NET_PACK		:= 1
+MULTIPLE		:= 1
+# dependecies
+# PRINT			:= 1
 endif
 ifeq ($(findstring error,$(MAKECMDGOALS)),error)
 ERROR			:= 1

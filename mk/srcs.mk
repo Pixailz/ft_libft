@@ -185,6 +185,14 @@ SRC_NET_IPV4 := network/ipv4/ft_htoi4.c \
 				network/ipv4/ft_ntop.c \
 				network/ipv4/ft_putip_fd.c
 
+#### PACK
+SRC_NET_PACK := network/packet/checksum.c \
+				network/packet/ft_packet_get.c \
+				network/packet/ip/default.c \
+				network/packet/ip/fragment_offset.c
+
+SRC_NET := $(SRC_NET_IPV4) $(SRC_NET_PACK)
+
 ### ERROR
 SRC_UNI_TEST := unit_test/ft_assert.c
 
@@ -210,7 +218,7 @@ SRC_C				+= $(SRC_PRT)
 SRC_C				+= $(SRC_INP)
 SRC_C				+= $(SRC_RDM)
 SRC_C				+= $(SRC_LNX)
-SRC_C				+= $(SRC_NET_IPV4)
+SRC_C				+= $(SRC_NET)
 SRC_C				+= $(SRC_UNI_TEST)
 SRC_C				+= $(SRC_HASHTABLE)
 
@@ -249,8 +257,14 @@ endif
 ifeq ($(LINUX),1)
 SRC_C			+= $(SRC_LNX)
 endif
+ifeq ($(NET),1)
+SRC_C			+= $(SRC_NET)
+endif
 ifeq ($(NET_IPV4),1)
 SRC_C			+= $(SRC_NET_IPV4)
+endif
+ifeq ($(NET_PACK),1)
+SRC_C			+= $(SRC_NET_PACK)
 endif
 ifeq ($(UNIT_TEST),1)
 SRC_C			+= $(SRC_UNI_TEST)

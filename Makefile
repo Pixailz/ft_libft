@@ -36,7 +36,9 @@ random:			all
 
 linux:			all
 
-ipv4:			all
+net:			all
+net_ipv4:		all
+net_pack:		all
 
 unit_test:		all
 
@@ -96,7 +98,9 @@ ifeq ($(shell [ $(DEBUG_MAKE) -ge 1 ] && echo 1 || echo 0),1)
 > $(PRINTF) "       $(font_color)INPUT $(bold)%d$(reset)\n" $(INPUT)
 > $(PRINTF) "       $(font_color)RANDOM $(bold)%d$(reset)\n" $(RANDOM)
 > $(PRINTF) "       $(font_color)LINUX $(bold)%d$(reset)\n" $(LINUX)
+> $(PRINTF) "       $(font_color)NET $(bold)%d$(reset)\n" $(NET)
 > $(PRINTF) "       $(font_color)NET_IPV4 $(bold)%d$(reset)\n" $(NET_IPV4)
+> $(PRINTF) "       $(font_color)NET_PACK $(bold)%d$(reset)\n" $(NET_PACK)
 > $(PRINTF) "\n"
 > $(PRINTF) "      $(orange_star) $(font_color)ALL $(bold)%d$(reset)\n" $(ALL)
 > $(PRINTF) "   $(orange_star) $(font_color)TARGET $(bold)%s$(reset)\n" $(TARGET)
