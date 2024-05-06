@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checksum.c                                         :+:      :+:    :+:   */
+/*   print_raw.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 00:02:51 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/06 22:40:21 by brda-sil         ###   ########.fr       */
+/*   Created: 2024/05/06 23:26:44 by brda-sil          #+#    #+#             */
+/*   Updated: 2024/05/06 23:47:20 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_network/packet.h"
 
-t_uint16	ft_pkt_checksum(char *data, t_size size)
+void	ft_pkt_print_raw(char *pkt, t_size size)
 {
-	t_uint32	sum;
-	t_size		i;
+	t_size	i;
 
-	sum = 0;
 	i = 0;
 	while (i < size)
 	{
-		sum += ft_ntohs(*((t_uint16 *)(data + i)));
-		if (sum >> 16)
-			sum -= 0xffff;
-		i += 2;
+		ft_printf("%02x", (unsigned char)pkt[i]);
+		i++;
+		if (i % 16 == 0)
+			ft_printf("\n");
+		else if (i % 4 == 0)
+			ft_printf("   ");
+		else if (i % 2 == 0)
+			ft_printf(" ");
 	}
-	if (size & 1)
-	{
-		sum += ft_ntohs(*((t_uint16 *)(data + size - 1)));
-		if (sum > 0xffff)
-			sum -= 0xffff;
-	}
-	return (ft_htons(~sum));
+	ft_printf("\n");
 }

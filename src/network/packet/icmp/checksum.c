@@ -5,32 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 00:02:51 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/06 22:40:21 by brda-sil         ###   ########.fr       */
+/*   Created: 2024/05/05 22:54:17 by brda-sil          #+#    #+#             */
+/*   Updated: 2024/05/06 22:51:20 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_network/packet.h"
 
-t_uint16	ft_pkt_checksum(char *data, t_size size)
+void	ft_pkt_icmp_checksum(t_icmphdr_echo *packet, t_size size)
 {
-	t_uint32	sum;
-	t_size		i;
-
-	sum = 0;
-	i = 0;
-	while (i < size)
-	{
-		sum += ft_ntohs(*((t_uint16 *)(data + i)));
-		if (sum >> 16)
-			sum -= 0xffff;
-		i += 2;
-	}
-	if (size & 1)
-	{
-		sum += ft_ntohs(*((t_uint16 *)(data + size - 1)));
-		if (sum > 0xffff)
-			sum -= 0xffff;
-	}
-	return (ft_htons(~sum));
+	packet->checksum = 0;
+	packet->checksum = ft_pkt_checksum((void *)packet, size);
 }

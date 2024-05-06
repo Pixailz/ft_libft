@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_packet_get.c                                    :+:      :+:    :+:   */
+/*   ft_pkt_get.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft_network/packet.h"
 
-t_packet	ft_packet_get(void)
+t_packet	ft_pkt_get(void)
 {
 	t_packet	packet;
 
@@ -20,12 +20,12 @@ t_packet	ft_packet_get(void)
 	return (packet);
 }
 
-t_iphdr	*ft_packet_get_ip(t_packet *packet)
+t_iphdr	*ft_pkt_get_ip(t_packet *packet)
 {
 	return ((t_iphdr *)packet->data);
 }
 
-t_icmphdr_echo	*ft_packet_get_icmp_echo(t_packet *packet)
+t_icmphdr_echo	*ft_pkt_get_icmp_echo(t_packet *packet)
 {
 	return ((t_icmphdr_echo *)(packet->data + PACK_LEN_IP));
 }

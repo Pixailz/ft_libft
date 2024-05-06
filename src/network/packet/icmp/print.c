@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checksum.c                                         :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 00:02:51 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/06 22:40:21 by brda-sil         ###   ########.fr       */
+/*   Created: 2024/05/06 23:20:12 by brda-sil          #+#    #+#             */
+/*   Updated: 2024/05/06 23:48:10 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_network/packet.h"
 
-t_uint16	ft_pkt_checksum(char *data, t_size size)
+void	ft_pkt_print_icmp(t_icmphdr_echo *pkt)
 {
-	t_uint32	sum;
-	t_size		i;
-
-	sum = 0;
-	i = 0;
-	while (i < size)
-	{
-		sum += ft_ntohs(*((t_uint16 *)(data + i)));
-		if (sum >> 16)
-			sum -= 0xffff;
-		i += 2;
-	}
-	if (size & 1)
-	{
-		sum += ft_ntohs(*((t_uint16 *)(data + size - 1)));
-		if (sum > 0xffff)
-			sum -= 0xffff;
-	}
-	return (ft_htons(~sum));
+	ft_printf(FMT_ICMPHDR_ECHO, pkt->type, pkt->code, pkt->checksum,
+		pkt->identifier, pkt->sequence);
 }

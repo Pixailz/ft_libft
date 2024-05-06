@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/06 00:07:47 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:54:56 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "libft_define.h"
 # include "libft_memory.h"
 # include "libft_network/ipv4.h"
+# include "libft_fmt/packet.h"
 
 /* ########################################################################## */
 
@@ -123,18 +124,35 @@ typedef struct __attribute__((__packed__)) s_icmphdr_echo
 /* ##### */
 
 // network/packet/checksum.c
-t_uint16			ft_packet_checksum(char *data, t_size size);
+t_uint16			ft_pkt_checksum(char *data, t_size size);
 
 // network/packet/ft_packet_get.c
-t_packet			ft_packet_get(void);
-t_iphdr				*ft_packet_get_ip(t_packet *packet);
-t_icmphdr_echo		*ft_packet_get_icmp_echo(t_packet *packet);
+t_packet			ft_pkt_get(void);
+t_iphdr				*ft_pkt_get_ip(t_packet *packet);
+t_icmphdr_echo		*ft_pkt_get_icmp_echo(t_packet *packet);
+
+// network/packet/icmp/checksum.c
+void				ft_pkt_icmp_checksum(t_icmphdr_echo *packet, t_size size);
+
+// network/packet/icmp/print.c
+void				ft_pkt_print_icmp(t_icmphdr_echo *pkt);
+
+// network/packet/icmp/set_seq.c
+void				ft_pkt_icmp_set_seq(t_icmphdr_echo *packet, t_int32 seq);
 
 // network/packet/ip/default.c
-void				ft_packet_fill_ip_default(t_iphdr *packet);
+void				ft_pkt_fill_ip_default(t_iphdr *packet);
 
 // network/packet/ip/fragment_offset.c
-t_uint16			ft_packet_fragment_offset(t_uint8 flags, t_uint16 get_fragment_off);
+t_uint16			ft_pkt_fragment_offset(t_uint8 flags,
+	t_uint16 get_fragment_off);
+
+// network/packet/ip/print.c
+void				ft_pkt_print_ip(t_iphdr *pkt);
+void				ft_pkt_print_ip(t_iphdr *pkt);
+
+// network/packet/print_raw.c
+void				ft_pkt_print_raw(char *pkt, t_size size);
 
 /* ########################################################################## */
 

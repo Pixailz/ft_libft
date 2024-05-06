@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 18:45:14 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/05 22:43:45 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/06 22:40:21 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	test_get_packet()
 	t_icmphdr_echo	*pack_icmp_echo_1;
 	t_icmphdr_echo	*pack_icmp_echo_2;
 
-	pack = ft_packet_get();
-	pack_ip_1 = ft_packet_get_ip(&pack);
+	pack = ft_pkt_get();
+	pack_ip_1 = ft_pkt_get_ip(&pack);
 	pack_ip_2 = (t_iphdr *)pack.data;
-	pack_icmp_echo_1 = ft_packet_get_icmp_echo(&pack);
+	pack_icmp_echo_1 = ft_pkt_get_icmp_echo(&pack);
 	pack_icmp_echo_2 = (t_icmphdr_echo *)pack.data + PACK_LEN_IP;
 
 	ft_printf("ip 1:   %p\n", &pack_ip_1);
@@ -56,9 +56,9 @@ int main(void)
 	t_iphdr			*pack_ip;
 	t_icmphdr_echo	*pack_icmp_echo;
 
-	pack = ft_packet_get();
-	pack_ip = ft_packet_get_ip(&pack);
-	pack_icmp_echo = ft_packet_get_icmp_echo(&pack);
+	pack = ft_pkt_get();
+	pack_ip = ft_pkt_get_ip(&pack);
+	pack_icmp_echo = ft_pkt_get_icmp_echo(&pack);
 
 	pack_ip->version = 4;
 	pack_icmp_echo->type = 8;
