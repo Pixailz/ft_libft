@@ -12,8 +12,8 @@
 
 #include "libft_network/packet.h"
 
-void	ft_pkt_print_icmp(t_icmphdr_echo *pkt)
+void	ft_pkt_print_icmp(int fd, t_icmphdr_echo *pkt)
 {
-	ft_printf(FMT_ICMPHDR_ECHO, pkt->type, pkt->code, pkt->checksum,
+	ft_dprintf(fd, FMT_ICMPHDR_ECHO, pkt->type, pkt->code, pkt->checksum,
 		pkt->identifier, pkt->sequence);
 }

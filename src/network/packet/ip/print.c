@@ -13,9 +13,9 @@
 #include "libft_network/packet.h"
 
 # if FT_PING_USE_IP_OPTS == 1
-void	ft_pkt_print_ip(t_iphdr *pkt)
+void	ft_pkt_print_ip(int fd, t_iphdr *pkt)
 {
-	ft_printf(FMT_IPHDR, \
+	ft_dprintf(fd, FMT_IPHDR, \
 		pkt->version, pkt->ihl, pkt->tos, pkt->total_len, \
 		pkt->identification, \
 		(pkt->fragment_off & IPHDR_M_FLAGS) >> 13, \
@@ -26,9 +26,9 @@ void	ft_pkt_print_ip(t_iphdr *pkt)
 		pkt->options, pkt->padding);
 }
 # else
-void	ft_pkt_print_ip(t_iphdr *pkt)
+void	ft_pkt_print_ip(int fd, t_iphdr *pkt)
 {
-	ft_printf(FMT_IPHDR, \
+	ft_dprintf(fd, FMT_IPHDR, \
 		pkt->version, pkt->ihl, pkt->tos, pkt->total_len, \
 		pkt->identification, \
 		(pkt->fragment_off & IPHDR_M_FLAGS) >> 13, \

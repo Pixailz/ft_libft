@@ -135,7 +135,7 @@ t_icmphdr_echo		*ft_pkt_get_icmp_echo(t_packet *packet);
 void				ft_pkt_icmp_checksum(t_icmphdr_echo *packet, t_size size);
 
 // network/packet/icmp/print.c
-void				ft_pkt_print_icmp(t_icmphdr_echo *pkt);
+void				ft_pkt_print_icmp(int fd, t_icmphdr_echo *pkt);
 
 // network/packet/icmp/set_seq.c
 void				ft_pkt_icmp_set_seq(t_icmphdr_echo *packet, t_int32 seq);
@@ -148,11 +148,11 @@ t_uint16			ft_pkt_fragment_offset(t_uint8 flags,
 	t_uint16 get_fragment_off);
 
 // network/packet/ip/print.c
-void				ft_pkt_print_ip(t_iphdr *pkt);
-void				ft_pkt_print_ip(t_iphdr *pkt);
+void				ft_pkt_print_ip(int fd, t_iphdr *pkt);
+void				ft_pkt_print_ip(int fd, t_iphdr *pkt);
 
 // network/packet/print_raw.c
-void				ft_pkt_print_raw(char *pkt, t_size size);
+void				ft_pkt_print_raw(int fd, char *pkt, t_size size);
 
 /* ########################################################################## */
 
