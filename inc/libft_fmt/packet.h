@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 06:49:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/06 23:39:13 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/11 22:44:37 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@
 
 # include "libft_fmt/packet_ip.h"
 # include "libft_fmt/packet_icmp.h"
+# include "libft_fmt/packet_udp.h"
 
 #endif // FMT_PACKET_H

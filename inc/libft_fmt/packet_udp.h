@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pkt_get.c                                    :+:      :+:    :+:   */
+/*   packet_udp.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/05 18:26:53 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/05 22:54:50 by brda-sil         ###   ########.fr       */
+/*   Created: 2023/11/17 06:49:35 by brda-sil          #+#    #+#             */
+/*   Updated: 2024/05/11 22:45:29 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network/packet.h"
+#ifndef FMT_PACKET_UDP_H
+# define FMT_PACKET_UDP_H
 
-t_packet	ft_pkt_get(void)
-{
-	t_packet	packet;
+# define FMT_UDPHDR \
+"User Datagram Protocol\n" \
+FMT_PKT_LINE \
+"|" PKT_16 "|" PKT_16 "|\n" \
+FMT_PKT_LINE \
+"|" PKT_16 "|" PKT_16 "|\n" \
+FMT_PKT_LINE
 
-	ft_bzero(&packet, sizeof(t_packet));
-	return (packet);
-}
+#endif // FMT_PACKET_UDP_H
+

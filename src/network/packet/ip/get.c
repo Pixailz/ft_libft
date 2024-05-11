@@ -12,10 +12,7 @@
 
 #include "libft_network/packet.h"
 
-t_packet	ft_pkt_get(void)
+t_iphdr	*ft_pkt_get_ip(t_packet *packet)
 {
-	t_packet	packet;
-
-	ft_bzero(&packet, sizeof(t_packet));
-	return (packet);
+	return ((t_iphdr *)packet->data);
 }

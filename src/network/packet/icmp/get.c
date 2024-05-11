@@ -12,10 +12,7 @@
 
 #include "libft_network/packet.h"
 
-t_packet	ft_pkt_get(void)
+t_icmphdr_echo	*ft_pkt_get_icmp_echo(t_packet *packet)
 {
-	t_packet	packet;
-
-	ft_bzero(&packet, sizeof(t_packet));
-	return (packet);
+	return ((t_icmphdr_echo *)(packet->data + PACK_LEN_IP));
 }

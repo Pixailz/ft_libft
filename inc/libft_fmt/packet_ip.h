@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 06:49:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/06 23:15:55 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/11 22:43:30 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # if FT_PING_USE_IP_OPTS == 1
 #  define FMT_IPHDR \
-"Internet Header Format\n" \
+"Internet Protocol Header Format\n" \
 FMT_PKT_LINE \
 "|" PKT_4 "|" PKT_4 "|" PKT_8 "|" PKT_16 "|\n" \
 FMT_PKT_LINE \

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pkt_get.c                                    :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/05 18:26:53 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/05 22:54:50 by brda-sil         ###   ########.fr       */
+/*   Created: 2024/05/06 23:20:12 by brda-sil          #+#    #+#             */
+/*   Updated: 2024/05/11 22:46:25 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_network/packet.h"
 
-t_packet	ft_pkt_get(void)
+void	ft_pkt_print_udp(int fd, t_udphdr *pkt)
 {
-	t_packet	packet;
-
-	ft_bzero(&packet, sizeof(t_packet));
-	return (packet);
+	ft_dprintf(fd, FMT_UDPHDR,
+		pkt->src_port, pkt->dst_port,
+		pkt->length, pkt->checksum
+	);
 }

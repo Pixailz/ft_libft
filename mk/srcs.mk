@@ -189,12 +189,16 @@ SRC_NET_IPV4 := network/ipv4/ft_htoi4.c \
 SRC_NET_PACK := network/packet/checksum.c \
 				network/packet/ft_packet_get.c \
 				network/packet/icmp/checksum.c \
+				network/packet/icmp/get.c \
 				network/packet/icmp/print.c \
 				network/packet/icmp/set_seq.c \
 				network/packet/ip/default.c \
 				network/packet/ip/fragment_offset.c \
+				network/packet/ip/get.c \
 				network/packet/ip/print.c \
-				network/packet/print_raw.c
+				network/packet/print_raw.c \
+				network/packet/udp/get.c \
+				network/packet/udp/print.c
 
 SRC_NET := $(SRC_NET_IPV4) $(SRC_NET_PACK)
 

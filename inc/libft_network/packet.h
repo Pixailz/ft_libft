@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/06 23:54:56 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/11 22:32:16 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,19 @@
 
 # define PACK_LEN_ICMP_ECHO				8
 
+# define PACK_LEN_UDP					8
+
 # ifndef IPPROTO_ICMP
 #  define IPPROTO_ICMP					1
 # endif // IPPROTO_ICMP
+
+# ifndef IPPROTO_UDP
+#  define IPPROTO_UDP					17
+# endif // IPPROTO_UDP
+
+# ifndef ICMP_ECHO
+#  define ICMP_ECHO						8
+# endif // ICMP_ECHO
 
 // MASK
 # define IPHDR_M_IHL					0x0F
@@ -52,6 +62,8 @@
 // IPHDR OPTIONS
 # define IPHDR_F_DONT_FRAG				0x2
 # define IPHDR_F_MORE_FRAG				0x1
+
+# define ICMP_HDR_PADDING				8
 
 /* ########################################################################## */
 
@@ -103,6 +115,16 @@ typedef struct __attribute__((__packed__)) s_iphdr
 
 }	t_iphdr;
 
+// UDP
+typedef struct __attribute__((__packed__)) s_udphdr
+{
+	t_uint16	src_port;
+	t_uint16	dst_port;
+
+	t_uint16	length;
+	t_uint16	checksum;
+}	t_udphdr;
+
 // ICMP
 	// ICMP ECHO
 typedef struct __attribute__((__packed__)) s_icmphdr_echo
@@ -113,8 +135,17 @@ typedef struct __attribute__((__packed__)) s_icmphdr_echo
 
 	t_uint16	identifier;
 	t_uint16	sequence;
-
 }	t_icmphdr_echo;
+
+	// ICMP TIME EXCEED
+typedef struct __attribute__((__packed__)) s_icmphdr_time_exceed
+{
+	t_uint8		type;
+	t_uint8		code;
+	t_uint16	checksum;
+
+	t_iphdr		ori_iphdr;
+}	t_icmphdr_time_exceed;
 
 /* ########################################################################## */
 
@@ -128,11 +159,12 @@ t_uint16			ft_pkt_checksum(char *data, t_size size);
 
 // network/packet/ft_packet_get.c
 t_packet			ft_pkt_get(void);
-t_iphdr				*ft_pkt_get_ip(t_packet *packet);
-t_icmphdr_echo		*ft_pkt_get_icmp_echo(t_packet *packet);
 
 // network/packet/icmp/checksum.c
 void				ft_pkt_icmp_checksum(t_icmphdr_echo *packet, t_size size);
+
+// network/packet/icmp/get.c
+t_icmphdr_echo		*ft_pkt_get_icmp_echo(t_packet *packet);
 
 // network/packet/icmp/print.c
 void				ft_pkt_print_icmp(int fd, t_icmphdr_echo *pkt);
@@ -147,12 +179,21 @@ void				ft_pkt_fill_ip_default(t_iphdr *packet);
 t_uint16			ft_pkt_fragment_offset(t_uint8 flags,
 	t_uint16 get_fragment_off);
 
+// network/packet/ip/get.c
+t_iphdr				*ft_pkt_get_ip(t_packet *packet);
+
 // network/packet/ip/print.c
 void				ft_pkt_print_ip(int fd, t_iphdr *pkt);
 void				ft_pkt_print_ip(int fd, t_iphdr *pkt);
 
 // network/packet/print_raw.c
 void				ft_pkt_print_raw(int fd, char *pkt, t_size size);
+
+// network/packet/udp/get.c
+t_udphdr			*ft_pkt_get_udp(t_packet *packet);
+
+// network/packet/udp/print.c
+void				ft_pkt_print_udp(int fd, t_udphdr *pkt);
 
 /* ########################################################################## */
 
