@@ -16,3 +16,8 @@ t_icmphdr_echo	*ft_pkt_get_icmp_echo(t_packet *packet)
 {
 	return ((t_icmphdr_echo *)(packet->data + PACK_LEN_IP));
 }
+
+t_icmphdr_time_exceed	*ft_pkt_get_icmp_time_exceed(t_packet *packet)
+{
+	return ((t_icmphdr_time_exceed *)(packet->data + PACK_LEN_IP));
+}

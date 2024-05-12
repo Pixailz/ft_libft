@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/11 22:32:16 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:57:11 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,40 @@
 
 # define PACK_LEN_UDP					8
 
+// PROTO
 # ifndef IPPROTO_ICMP
 #  define IPPROTO_ICMP					1
 # endif // IPPROTO_ICMP
-
 # ifndef IPPROTO_UDP
 #  define IPPROTO_UDP					17
 # endif // IPPROTO_UDP
-
+// TYPE
+# ifndef ICMP_ECHOREPLY
+#  define ICMP_ECHOREPLY				0	/* Echo Reply				*/
+# endif // ICMP_ECHOREPLY
+# ifndef ICMP_DEST_UNREACH
+#  define ICMP_DEST_UNREACH				3	/* Destination Unreachable	*/
+# endif // ICMP_DEST_UNREACH
 # ifndef ICMP_ECHO
-#  define ICMP_ECHO						8
+#  define ICMP_ECHO						8	/* Echo Request				*/
 # endif // ICMP_ECHO
+# ifndef ICMP_TIME_EXCEEDED
+#  define ICMP_TIME_EXCEEDED			11	/* Time Exceeded			*/
+# endif // ICMP_TIME_EXCEEDED
+// CODE
+	/* Codes for UNREACH. */
+# ifndef ICMP_NET_UNREACH
+#  define ICMP_NET_UNREACH				0	/* Network Unreachable		*/
+# endif // ICMP_NET_UNREACH
+# ifndef ICMP_HOST_UNREACH
+#  define ICMP_HOST_UNREACH				1	/* Host Unreachable			*/
+# endif // ICMP_HOST_UNREACH
+# ifndef ICMP_PROT_UNREACH
+#  define ICMP_PROT_UNREACH				2	/* Protocol Unreachable		*/
+# endif // ICMP_PROT_UNREACH
+# ifndef ICMP_PORT_UNREACH
+#  define ICMP_PORT_UNREACH				3	/* Port Unreachable			*/
+# endif // ICMP_PORT_UNREACH
 
 // MASK
 # define IPHDR_M_IHL					0x0F
@@ -144,6 +167,8 @@ typedef struct __attribute__((__packed__)) s_icmphdr_time_exceed
 	t_uint8		code;
 	t_uint16	checksum;
 
+	t_uint32	unused;
+
 	t_iphdr		ori_iphdr;
 }	t_icmphdr_time_exceed;
 
@@ -155,45 +180,46 @@ typedef struct __attribute__((__packed__)) s_icmphdr_time_exceed
 /* ##### */
 
 // network/packet/checksum.c
-t_uint16			ft_pkt_checksum(char *data, t_size size);
+t_uint16					ft_pkt_checksum(char *data, t_size size);
 
 // network/packet/ft_packet_get.c
-t_packet			ft_pkt_get(void);
+t_packet					ft_pkt_get(void);
 
 // network/packet/icmp/checksum.c
-void				ft_pkt_icmp_checksum(t_icmphdr_echo *packet, t_size size);
+void						ft_pkt_icmp_checksum(t_icmphdr_echo *packet, t_size size);
 
 // network/packet/icmp/get.c
-t_icmphdr_echo		*ft_pkt_get_icmp_echo(t_packet *packet);
+t_icmphdr_echo				*ft_pkt_get_icmp_echo(t_packet *packet);
+t_icmphdr_time_exceed		*ft_pkt_get_icmp_time_exceed(t_packet *packet);
 
 // network/packet/icmp/print.c
-void				ft_pkt_print_icmp(int fd, t_icmphdr_echo *pkt);
+void						ft_pkt_print_icmp(int fd, t_icmphdr_echo *pkt);
 
 // network/packet/icmp/set_seq.c
-void				ft_pkt_icmp_set_seq(t_icmphdr_echo *packet, t_int32 seq);
+void						ft_pkt_icmp_set_seq(t_icmphdr_echo *packet, t_int32 seq);
 
 // network/packet/ip/default.c
-void				ft_pkt_fill_ip_default(t_iphdr *packet);
+void						ft_pkt_fill_ip_default(t_iphdr *packet);
 
 // network/packet/ip/fragment_offset.c
-t_uint16			ft_pkt_fragment_offset(t_uint8 flags,
+t_uint16					ft_pkt_fragment_offset(t_uint8 flags,
 	t_uint16 get_fragment_off);
 
 // network/packet/ip/get.c
-t_iphdr				*ft_pkt_get_ip(t_packet *packet);
+t_iphdr						*ft_pkt_get_ip(t_packet *packet);
 
 // network/packet/ip/print.c
-void				ft_pkt_print_ip(int fd, t_iphdr *pkt);
-void				ft_pkt_print_ip(int fd, t_iphdr *pkt);
+void						ft_pkt_print_ip(int fd, t_iphdr *pkt);
+void						ft_pkt_print_ip(int fd, t_iphdr *pkt);
 
 // network/packet/print_raw.c
-void				ft_pkt_print_raw(int fd, char *pkt, t_size size);
+void						ft_pkt_print_raw(int fd, char *pkt, t_size size);
 
 // network/packet/udp/get.c
-t_udphdr			*ft_pkt_get_udp(t_packet *packet);
+t_udphdr					*ft_pkt_get_udp(t_packet *packet);
 
 // network/packet/udp/print.c
-void				ft_pkt_print_udp(int fd, t_udphdr *pkt);
+void						ft_pkt_print_udp(int fd, t_udphdr *pkt);
 
 /* ########################################################################## */
 
