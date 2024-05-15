@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:29:05 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/04 01:38:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/15 10:47:42 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,15 @@ void	ft_printf_type_padding_hex_hashtag(t_fmt_conf *conf, \
 		}
 		else
 		{
-			ft_strncpy(conf->cur_type + 2, conf->cur_type, str_len);
+			char	*tmp;
+
+			tmp = ft_strdup(conf->cur_type);
+			ft_memcpy(conf->cur_type + 2, tmp, str_len);
+			free(tmp);
 			if (conf->fmt_type == FMT_HEX)
-				ft_strncpy(conf->cur_type + to_pad - 2 - str_len, "0x", 2);
+				ft_memcpy(conf->cur_type, "0x", 2);
 			else
-				ft_strncpy(conf->cur_type + to_pad - 2 - str_len, "0X", 2);
+				ft_memcpy(conf->cur_type, "0X", 2);
 		}
 	}
 }
@@ -53,6 +57,8 @@ void	ft_printf_type_padding_hex_post(t_fmt_conf *conf, char sign, \
 		else
 			buff[(*conf->i_buff)++ + conf->width - str_len - 1] = sign;
 	}
+	if (conf->width < str_len)
+		conf->width = str_len;
 	if (conf->flags & FT_PRINTF_FLAG_MINUS)
 		ft_strncpy(buff + *conf->i_buff, conf->cur_type, str_len + (sign != 0));
 	else

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:28:37 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/01/23 01:01:14 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/15 10:56:28 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,20 @@ void	ft_printf_type_padding_integer_post(t_fmt_conf *conf, char sign, \
 		else
 			buff[*conf->i_buff + conf->width - str_len - 1] = sign;
 	}
+	if (conf->width < str_len)
+		conf->width = str_len;
 	if (conf->flags & FT_PRINTF_FLAG_MINUS)
 		ft_strncpy(buff + *conf->i_buff, conf->cur_type, str_len + (sign != 0));
 	else
 	{
+		int	pos;
+
+		pos = *conf->i_buff + conf->width - str_len;
+		if (conf->width == str_len && sign != 0)
+			pos++;
+
 		if (conf->width >= str_len)
-			ft_strncpy(buff + *conf->i_buff + conf->width - str_len, \
-										conf->cur_type + (sign != 0), str_len);
+			ft_strncpy(buff + pos, conf->cur_type + (sign != 0), str_len);
 		else
 			ft_strncpy(buff + *conf->i_buff, \
 										conf->cur_type + (sign != 0), str_len);
