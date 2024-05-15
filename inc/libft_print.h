@@ -172,8 +172,7 @@ void		ft_printf_type_padding_addr(t_fmt_conf *conf);
 void		ft_printf_type_padding_char(t_fmt_conf *conf);
 
 // print/ft_printf/padding/hex.c
-void		ft_printf_type_padding_hex_hashtag(t_fmt_conf *conf, \
-												t_size to_pad, t_size str_len);
+void		ft_printf_type_padding_hex_hashtag(t_fmt_conf *conf, t_size str_len);
 void		ft_printf_type_padding_hex_post(t_fmt_conf *conf, char sign, \
 																t_size str_len);
 void		ft_printf_type_padding_hex_pad(t_fmt_conf *conf, t_size begin, \

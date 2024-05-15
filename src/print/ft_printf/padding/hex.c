@@ -6,14 +6,14 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:29:05 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/15 10:47:42 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:15:28 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_print.h"
 
 void	ft_printf_type_padding_hex_hashtag(t_fmt_conf *conf, \
-												t_size to_pad, t_size str_len)
+													t_size str_len)
 {
 	char	*buff;
 
@@ -99,7 +99,7 @@ void	ft_printf_type_padding_hex(t_fmt_conf *conf)
 	sign = ft_printf_type_padding_remove_sign(conf->cur_type);
 	str_len = ft_strlen(conf->cur_type) - (sign != 0);
 	to_pad = conf->width - str_len;
-	ft_printf_type_padding_hex_hashtag(conf, to_pad, str_len);
+	ft_printf_type_padding_hex_hashtag(conf, str_len);
 	str_len = ft_strlen(conf->cur_type) - (sign != 0);
 	to_pad = conf->width - str_len;
 	begin = *conf->i_buff;
