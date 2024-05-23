@@ -152,6 +152,7 @@ SRC_PRT := print/ft_dprintf.c \
 		   print/ft_putnbr_fd.c \
 		   print/ft_putstr_fd.c \
 		   print/ft_putunbr_fd.c \
+		   print/ft_rainbow_c.c \
 		   print/ft_vdprintf.c \
 		   print/ft_vprintf.c
 

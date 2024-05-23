@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/12 17:57:11 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/24 00:27:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ typedef struct __attribute__((__packed__)) s_icmphdr_time_exceed
 	t_uint32	unused;
 
 	t_iphdr		ori_iphdr;
+	t_uint8		ori_data[8];
 }	t_icmphdr_time_exceed;
 
 /* ########################################################################## */

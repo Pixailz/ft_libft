@@ -108,6 +108,7 @@ void				ft_ntop(t_bin pf, t_int4 ip, char *ip_str);
 
 // network/ipv4/ft_putip_fd.c
 t_size				ft_putip_fd(t_int4 n, int fd);
+char				*ft_getip_str(t_int4 n);
 
 /* ########################################################################## */
 

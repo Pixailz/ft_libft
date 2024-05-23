@@ -172,7 +172,8 @@ void		ft_printf_type_padding_addr(t_fmt_conf *conf);
 void		ft_printf_type_padding_char(t_fmt_conf *conf);
 
 // print/ft_printf/padding/hex.c
-void		ft_printf_type_padding_hex_hashtag(t_fmt_conf *conf, t_size str_len);
+void		ft_printf_type_padding_hex_hashtag(t_fmt_conf *conf, \
+													t_size str_len);
 void		ft_printf_type_padding_hex_post(t_fmt_conf *conf, char sign, \
 																t_size str_len);
 void		ft_printf_type_padding_hex_pad(t_fmt_conf *conf, t_size begin, \
@@ -207,6 +208,9 @@ size_t		ft_putnstr_fd(char const *s, t_size n, int fd);
 
 // print/ft_putunbr_fd.c
 size_t		ft_putunbr_fd(unsigned long n, int fd);
+
+// print/ft_rainbow_c.c
+char		*RAINBOW_C(int i);
 
 // print/ft_vdprintf.c
 t_size		ft_vdprintf(int fd, const char *format, va_list args);

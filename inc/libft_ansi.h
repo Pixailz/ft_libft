@@ -56,9 +56,24 @@
 /* MODIFIER */
 # define RST			_ANSI_M("0")			// RESET
 # define BOL			_ANSI_M("1")			// BOLD
+# define DIM			_ANSI_M("2")			// DIMMED
 # define ITA			_ANSI_M("3")			// ITALIC
 # define UND			_ANSI_M("4")			// UNDERLINE
 # define BLI			_ANSI_M("5")			// BLINKING
+
+/* MODIFIER RESET */
+# define RBOL			_ANSI_M("21")			// RESET BOLD
+# define RDIM			_ANSI_M("22")			// RESET DIMMED
+# define RITA			_ANSI_M("23")			// RESET ITALIC
+# define RUND			_ANSI_M("24")			// RESET UNDERLINE
+# define RBLI			_ANSI_M("25")			// RESET BLINKING
+
+/* RESET AND MODIFIER RESET */
+# define RSTBOL			_ANSI_M("0;21")			// RESET AND RESET BOLD
+# define RSTDIM			_ANSI_M("0;22")			// RESET AND RESET DIMMED
+# define RSTITA			_ANSI_M("0;23")			// RESET AND RESET ITALIC
+# define RSTUND			_ANSI_M("0;24")			// RESET AND RESET UNDERLINE
+# define RSTBLI			_ANSI_M("0;25")			// RESET AND RESET BLINKING
 
 /* CURSOR */
 # define CUR_COL(C)		CSI C "G"
