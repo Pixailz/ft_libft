@@ -1,4 +1,5 @@
 # include
+CWD_DIR				:= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 include mk/config.mk			# base config
 include mk/utils.mk				# utils function / var
 include mk/srcs.mk				# srcs.mk
@@ -149,7 +150,7 @@ ci-compile: all $(CI_BIN_DIR)
 > $(call P_PAS,compilation pass) \
 
 ci-run: ci-compile
-> $(CI_BIN_DIR)/$(CI_TARGET:%.c=%) 420>exec.log
+> $(CWD_DIR)/$(CI_BIN_DIR)/$(CI_TARGET:%.c=%) 420>exec.log
 > $(call P_PAS,return value $(font_color)$(CI_BIN_DIR)/$(CI_TARGET:%.c=%)$(RST) [$(G)$${?}$(RST)])
 
 test-compile: all $(CI_BIN_DIR)
@@ -158,5 +159,5 @@ test-compile: all $(CI_BIN_DIR)
 > $(call P_PAS,compilation pass) \
 
 test-run: test-compile
-> $(CI_BIN_DIR)/$(CI_TARGET:%.c=%) 420>exec.log
+> $(CWD_DIR)/$(CI_BIN_DIR)/$(CI_TARGET:%.c=%) 420>exec.log
 > $(call P_PAS,return value $(font_color)$(CI_BIN_DIR)/$(CI_TARGET:%.c=%)$(RST) [$(G)$${?}$(RST)])
