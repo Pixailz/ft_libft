@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pkt_get.c                                    :+:      :+:    :+:   */
+/*   libft_network.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/05 18:26:53 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/05 22:54:50 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
+/*   Updated: 2024/05/26 01:22:11 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network.h"
+#ifndef LIBFT_NETWORK_H
+# define LIBFT_NETWORK_H
 
-t_udphdr	*ft_pkt_get_udp(t_packet *packet)
-{
-	return ((t_udphdr *)(packet->data + PACK_LEN_IP));
-}
+# include "libft_network/ipv4.h"
+# include "libft_network/packet.h"
+
+#endif // LIBFT_NETWORK_H

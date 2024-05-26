@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network/packet.h"
+#include "libft_network.h"
 
 t_icmphdr_echo	*ft_pkt_get_icmp_echo(t_packet *packet)
 {

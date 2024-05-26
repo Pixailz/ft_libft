@@ -6,11 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 04:02:43 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/21 05:34:20 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/26 01:21:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network/ipv4.h"
+#include "libft_network.h"
 
 struct sockaddr	ft_ltoaddr(t_int4 ip)
 {

@@ -6,11 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 18:45:14 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/06 22:40:21 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/26 01:21:19 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network/packet.h"
+#include "libft_network.h"
 
 #include "libft_print.h"
 

@@ -6,11 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 03:09:08 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 16:09:49 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/26 01:21:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network/ipv4.h"
+#include "libft_network.h"
 
 #include <arpa/inet.h>
 #include <stdio.h>

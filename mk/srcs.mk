@@ -184,10 +184,24 @@ SRC_NET_IPV4 := network/ipv4/ft_htoi4.c \
 				network/ipv4/ft_ntohl.c \
 				network/ipv4/ft_ntohs.c \
 				network/ipv4/ft_ntop.c \
-				network/ipv4/ft_putip_fd.c
+				network/ipv4/ft_putip_fd.c \
+				network/ipv4/htoi4_socket/get_a_record.c \
+				network/ipv4/htoi4_socket/init_packet.c \
+				network/ipv4/htoi4_socket/init_socket.c \
+				network/ipv4/htoi4_socket/main.c \
+				network/ipv4/htoi4_socket/recv_packet.c \
+				network/ipv4/htoi4_socket/send_packet.c
 
 #### PACK
 SRC_NET_PACK := network/packet/checksum.c \
+				network/packet/dns/dnsq_fill.c \
+				network/packet/dns/dnsq_get.c \
+				network/packet/dns/dnsq_len.c \
+				network/packet/dns/dnsr_get.c \
+				network/packet/dns/get.c \
+				network/packet/dns/get_domain_fmt.c \
+				network/packet/dns/name_get.c \
+				network/packet/dns/print.c \
 				network/packet/ft_packet_get.c \
 				network/packet/icmp/checksum.c \
 				network/packet/icmp/get.c \

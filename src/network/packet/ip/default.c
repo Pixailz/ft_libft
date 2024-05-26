@@ -6,11 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 22:54:17 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/06 22:40:21 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/26 01:21:19 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network/packet.h"
+#include "libft_network.h"
 
 void	ft_pkt_fill_ip_default(t_iphdr *packet)
 {

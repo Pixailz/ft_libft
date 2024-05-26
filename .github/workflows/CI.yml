@@ -98,8 +98,13 @@ jobs:
         if: ${{ inputs.is_called }}
         run: git submodule update --remote --recursive
 
-      - name: 🔧 launch ${{ matrix.test_src }}
-        run: CI_TARGET=${{ matrix.test_src }} make ci-run
+      - name: 🔧 Launch, with sudo, ${{ matrix.test_src }}
+        if: contains(fromJson('["dns.c"]'), matrix.test_src)
+        run: sudo make CI_TARGET=${{ matrix.test_src }} ci-run
+
+      - name: 🔧 Launch ${{ matrix.test_src }}
+        if: ${{ !contains(fromJson('["dns.c"]'), matrix.test_src) }}
+        run: make CI_TARGET=${{ matrix.test_src }} ci-run
 
   norminette:
     runs-on: ubuntu-latest

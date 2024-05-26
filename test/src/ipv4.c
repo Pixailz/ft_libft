@@ -6,14 +6,14 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 04:10:51 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/12 20:02:31 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/26 01:21:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_print.h"
 #include "libft_string.h"
 #include "libft_integer.h"
-#include "libft_network/ipv4.h"
+#include "libft_network.h"
 
 #ifndef CI_TEST
 # define CI_TEST FALSE

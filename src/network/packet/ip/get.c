@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network/packet.h"
+#include "libft_network.h"
 
 t_iphdr	*ft_pkt_get_ip(t_packet *packet)
 {

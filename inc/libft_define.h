@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:13:22 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/02/24 00:50:43 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/26 02:08:05 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 /* CONFIG */
 /* ###### */
 
-# define FT_NULL ((void *)0)
+# define FT_NULL	((void *)0)
+
+# define A_SEC		1000000
 
 /* ########################################################################## */
 
@@ -118,6 +120,13 @@ typedef enum e_bit
 	BIT_3F = 1ULL << 62,
 	BIT_40 = 1ULL << 63,
 }	t_bit;
+
+// A PACKET
+typedef struct __attribute__((__packed__)) s_packet
+{
+	unsigned char	data[0xffff];
+
+}	t_packet;
 
 /* ########################################################################## */
 

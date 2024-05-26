@@ -6,12 +6,12 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/03/31 23:22:25 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/26 02:02:31 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IPV4_H
-# define IPV4_H
+#ifndef LIBFT_NETWORK_IPV4_H
+# define LIBFT_NETWORK_IPV4_H
 
 /* ########################################################################## */
 /* REQUIREMENTS */
@@ -19,8 +19,8 @@
 
 # include <netdb.h>
 /*
- getaddrinfo()
- freeaddrinfo()
+ * getaddrinfo()
+ * freeaddrinfo()
  */
 
 # include "libft_define.h"
@@ -29,6 +29,7 @@
 # include "libft_check.h"
 # include "libft_string.h"
 # include "libft_memory.h"
+# include "libft_network.h"
 
 /* ########################################################################## */
 
@@ -36,7 +37,29 @@
 /* CONFIG */
 /* ###### */
 
-# define HTOI4_USE_EPOLL		0
+# define HTOI4_USE_SOCKET		1
+
+# define		DNS_TYPE_A		1
+// # define		DNS_TYPE_NS		2
+# define		DNS_TYPE_CNAME	5
+// # define		DNS_TYPE_SOA	6
+// # define		DNS_TYPE_PTR	12
+// # define		DNS_TYPE_MX		15
+// # define		DNS_TYPE_TXT	16
+// # define		DNS_TYPE_AAAA	28
+// # define		DNS_TYPE_SRV	33
+// # define		DNS_TYPE_ANY	255
+
+# define		DNS_CLASS_IN	1
+// # define		DNS_CLASS_CS	2
+// # define		DNS_CLASS_CH	3
+// # define		DNS_CLASS_HS	4
+
+# define DNS_ADDR				0x08080808
+# define DNS_DST_PORT			53
+# define DNS_SRC_PORT			0x1234
+# define DNS_TTL				64
+# define DNS_TIMEOUT			500000
 
 # define CLASS_A_MIN			0b00000000
 # define CLASS_A_MAX			0b01111110
@@ -110,6 +133,24 @@ void				ft_ntop(t_bin pf, t_int4 ip, char *ip_str);
 t_size				ft_putip_fd(t_int4 n, int fd);
 char				*ft_getip_str(t_int4 n);
 
+// network/ipv4/htoi4_socket/get_a_record.c
+t_int4				ft_htoi4_get_a_record(t_packet *pkt);
+
+// network/ipv4/htoi4_socket/init_packet.c
+t_packet			ft_htoi4_init_packet(char *domain);
+
+// network/ipv4/htoi4_socket/init_socket.c
+int					ft_htoi4_init_socket(void);
+
+// network/ipv4/htoi4_socket/main.c
+t_int4				ft_htoi4_socket(char *domain);
+
+// network/ipv4/htoi4_socket/recv_packet.c
+t_int4				ft_htoi4_recv_packet(int sock);
+
+// network/ipv4/htoi4_socket/send_packet.c
+int					ft_htoi4_send_packet(int socket, t_packet pkt);
+
 /* ########################################################################## */
 
-#endif /* IPV4_H */
+#endif /* LIBFT_NETWORK_IPV4_H */

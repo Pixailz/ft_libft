@@ -6,11 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 06:11:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/11/17 06:36:45 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/26 01:21:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network/ipv4.h"
+#include "libft_network.h"
 
 static void	ntop_part(t_int1 n, t_size *i, char *ip_str)
 {

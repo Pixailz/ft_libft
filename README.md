@@ -6,13 +6,24 @@
 
 1. improve ft_printf
    1. finish flags and padding for all types
-   1. implement size ...
 1. error
-   1. implement singleton, utils like perror etc ..
+   1. implement errno
 1. doc
    1. update usage / help
 
-## USAGE
+## Implemented RFC
+
+1. Internet Protocol ([RFC791](https://datatracker.ietf.org/doc/html/rfc791))
+   - t_iphdr
+1. Internet Control Message Protocol ([RFC792](https://datatracker.ietf.org/doc/html/rfc792))
+   - t_icmphdr_echo
+   - t_icmphdr_time_exceed
+1. User Datagram Protocol ([RFC768](https://datatracker.ietf.org/doc/html/rfc768))
+   - t_udphdr
+1. Domain Names ([RFC1035](https://datatracker.ietf.org/doc/html/rfc1035))
+   - t_dnshdr
+
+## Usage
 
 ```bash
 make clean
@@ -36,7 +47,6 @@ make <part1|part2 ... partN>
 	- random
 	- linux
 	- parsing
-	- *error
-	- *unit_test
-	-
-> part marked with a `*` are WIP
+	- network
+    	- ipv4
+    	- packet

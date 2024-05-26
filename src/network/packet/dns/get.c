@@ -12,7 +12,12 @@
 
 #include "libft_network.h"
 
-t_udphdr	*ft_pkt_get_udp(t_packet *packet)
+t_dnshdr	*ft_pkt_get_dns(t_packet *packet)
 {
-	return ((t_udphdr *)(packet->data + PACK_LEN_IP));
+	return ((t_dnshdr *)(packet->data + PACK_LEN_IP + PACK_LEN_UDP));
+}
+
+unsigned char	*ft_pkt_get_dns_data(t_packet *pack)
+{
+	return ((unsigned char *)(pack->data + PACK_LEN_IP + PACK_LEN_UDP + PACK_LEN_DNS));
 }

@@ -6,11 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 05:54:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/03/31 23:35:14 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/26 01:21:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network/ipv4.h"
+#include "libft_network.h"
 
 t_int4	ft_htoi4_getaddrinfo(char *hostname, char *service)
 {
@@ -36,9 +36,9 @@ t_int4	ft_htoi4(char *hostname, char *service)
 {
 	t_int4	retv;
 
-	if (HTOI4_USE_EPOLL == 0)
+	if (HTOI4_USE_SOCKET)
+		retv = ft_htoi4_socket(hostname);
+	else
 		retv = ft_htoi4_getaddrinfo(hostname, service);
 	return (retv);
 }
-// else
-// 	ft_hoti4_epoll(hostname, service);

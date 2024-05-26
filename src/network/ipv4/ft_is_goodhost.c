@@ -6,11 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 04:42:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/10/28 05:44:07 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/26 01:21:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_network/ipv4.h"
+#include "libft_network.h"
 
 t_bool	ft_is_goodchar_host(char c)
 {
