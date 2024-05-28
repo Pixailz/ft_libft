@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/26 16:59:00 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/28 23:39:37 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,18 @@
 /* CONFIG */
 /* ###### */
 
+# ifndef NI_MAXHOST
+#  define NI_MAXHOST			0x401
+# endif // NI_MAXHOST
+
 # define HTOI4_USE_SOCKET		1
+# define I4TOH_USE_SOCKET		0
 
 # define		DNS_TYPE_A		1
 // # define		DNS_TYPE_NS		2
 # define		DNS_TYPE_CNAME	5
 // # define		DNS_TYPE_SOA	6
-// # define		DNS_TYPE_PTR	12
+# define		DNS_TYPE_PTR	12
 // # define		DNS_TYPE_MX		15
 // # define		DNS_TYPE_TXT	16
 // # define		DNS_TYPE_AAAA	28
@@ -101,6 +106,9 @@ typedef struct s_ip
 /* FILES */
 /* ##### */
 
+// network/ipv4/ft_getip_str.c
+char				*ft_getip_str(t_int4 n);
+
 // network/ipv4/ft_htoi4.c
 t_int4				ft_htoi4_getaddrinfo(char *hostname, char *service);
 t_int4				ft_htoi4(char *hostname, char *service);
@@ -110,6 +118,10 @@ t_uint32			ft_htonl(t_uint32 h);
 
 // network/ipv4/ft_htons.c
 t_uint16			ft_htons(t_uint16 h);
+
+// network/ipv4/ft_i4toh.c
+char				*ft_i4toh_getnameinfo(t_int4 ip);
+char				*ft_i4toh(t_int4 ip);
 
 // network/ipv4/ft_ipstr.c
 int					ft_ip_check_part(char *splitted);
@@ -135,10 +147,6 @@ void				ft_ntop(t_bin pf, t_int4 ip, char *ip_str);
 
 // network/ipv4/ft_putip_fd.c
 t_size				ft_putip_fd(t_int4 n, int fd);
-char				*ft_getip_str(t_int4 n);
-
-// network/ipv4/htoi4_socket/get_a_record.c
-t_int4				ft_htoi4_get_a_record(t_packet *pkt);
 
 // network/ipv4/htoi4_socket/init_packet.c
 t_packet			ft_htoi4_init_packet(char *domain);
@@ -154,6 +162,21 @@ t_int4				ft_htoi4_recv_packet(int sock);
 
 // network/ipv4/htoi4_socket/send_packet.c
 int					ft_htoi4_send_packet(int socket, t_packet pkt);
+
+// network/ipv4/i4toh_socket/init_packet.c
+t_packet			ft_i4toh_init_packet(t_int4 ip);
+
+// network/ipv4/i4toh_socket/init_socket.c
+int					ft_i4toh_init_socket(void);
+
+// network/ipv4/i4toh_socket/main.c
+char				*ft_i4toh_socket(t_int4 ip);
+
+// network/ipv4/i4toh_socket/recv_packet.c
+char				*ft_i4toh_recv_packet(int sock);
+
+// network/ipv4/i4toh_socket/send_packet.c
+int					ft_i4toh_send_packet(int socket, t_packet pkt);
 
 /* ########################################################################## */
 

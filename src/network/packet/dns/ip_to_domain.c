@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putip_fd.c                                      :+:      :+:    :+:   */
+/*   ip_to_domain.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 03:36:06 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/28 14:53:30 by brda-sil         ###   ########.fr       */
+/*   Created: 2024/05/27 11:55:14 by brda-sil          #+#    #+#             */
+/*   Updated: 2024/05/27 12:26:13 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_print.h"
+# include "libft_network.h"
 
-t_size	ft_putip_fd(t_int4 n, int fd)
+
+char	*ft_dns_ip_to_domain(t_int4 ip)
 {
-	t_size	printed;
+	char	*ip_str;
+	char	*ret;
 
-	printed = ft_putunbr_fd(ft_int4_dcomp(n, 3), fd);
-	printed = ft_putchar_fd('.', fd);
-	printed = ft_putunbr_fd(ft_int4_dcomp(n, 2), fd);
-	printed = ft_putchar_fd('.', fd);
-	printed = ft_putunbr_fd(ft_int4_dcomp(n, 1), fd);
-	printed = ft_putchar_fd('.', fd);
-	printed = ft_putunbr_fd(ft_int4_dcomp(n, 0), fd);
-	return (printed);
+	ip_str = ft_getip_str(ft_htonl(ip));
+	ret = ft_strjoin(ip_str, ".in-addr.arpa");
+	free(ip_str);
+	return (ret);
 }

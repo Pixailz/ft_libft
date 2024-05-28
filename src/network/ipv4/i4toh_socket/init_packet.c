@@ -6,13 +6,13 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 00:03:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/27 11:35:29 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:47:26 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_network.h"
 
-t_packet	ft_htoi4_init_packet(char *domain)
+t_packet	ft_i4toh_init_packet(t_int4 ip)
 {
 	t_packet	pkt;
 	t_iphdr		*pkt_ip;
@@ -35,7 +35,7 @@ t_packet	ft_htoi4_init_packet(char *domain)
 	pkt_dns->identification = ft_htons(421);
 	pkt_dns->recursion_desired = 1;
 	pkt_dns->question_count = ft_htons(1);
-	ft_pkt_dnsq_fill_a(&pkt, domain, DNS_CLASS_IN);
+	ft_pkt_dnsq_fill_ptr(&pkt, ip, DNS_CLASS_IN);
 	pkt_ip->total_len = ft_htons(PACK_LEN_IP + PACK_LEN_UDP + PACK_LEN_DNS + ft_pkt_dnsq_len(pkt));
 	pkt_udp->length = ft_htons(PACK_LEN_UDP + PACK_LEN_DNS + ft_pkt_dnsq_len(pkt));
 	return (pkt);

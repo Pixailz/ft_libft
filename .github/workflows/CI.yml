@@ -72,7 +72,6 @@ jobs:
         test_src: [
           "ato.c",
           "check/is_str.c",
-          "dns.c",
           "get_next_line.c",
           "hton.c",
           "htoi4.c",
@@ -100,11 +99,11 @@ jobs:
         run: git submodule update --remote --recursive
 
       - name: 🔧 Launch, with sudo, ${{ matrix.test_src }}
-        if: contains(fromJson('["dns.c"]'), matrix.test_src)
+        if: contains(fromJson('["htoi4.c", "i4toh.c"]'), matrix.test_src)
         run: sudo make CI_TARGET=${{ matrix.test_src }} ci-run
 
       - name: 🔧 Launch ${{ matrix.test_src }}
-        if: ${{ !contains(fromJson('["dns.c"]'), matrix.test_src) }}
+        if: ${{ !contains(fromJson('["htoi4.c", "i4toh.c"]'), matrix.test_src) }}
         run: make CI_TARGET=${{ matrix.test_src }} ci-run
 
   norminette:

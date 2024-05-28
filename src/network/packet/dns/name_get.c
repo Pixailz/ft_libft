@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 00:40:30 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/26 01:52:33 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/28 21:16:03 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,10 @@ int	ft_pkt_get_dnsr_name(
 			*name = tmp;
 	}
 	if (*name)
-	{
 		*name = join_domain(name, tmp);
-		free(tmp);
-	}
 	else
 		*name = tmp;
+	if (tmp)
+		free(tmp);
 	return (i);
 }

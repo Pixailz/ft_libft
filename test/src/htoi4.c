@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 22:56:30 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/26 01:21:08 by brda-sil         ###   ########.fr       */
+/*   Created: 2024/05/25 13:22:28 by brda-sil          #+#    #+#             */
+/*   Updated: 2024/05/28 21:24:40 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,42 @@
 # define CI_TEST FALSE
 #endif
 
-void	test_htoi4(char *fqdn, char *service)
+int	test_domain(char *domain)
 {
-	t_int4	retv;
+	t_int4	ip;
 
-	retv = ft_htoi4(fqdn, service);
-	ft_printf("%s:%s -> ", fqdn, service);
-	ft_putip_fd(retv, 1);
+	ip = ft_htoi4_socket(domain);
+	if (!ip)
+		return (1);
+	ft_printf("%-30s -> ", domain);
+	ft_putip_fd(ip, 1);
 	ft_putchar_fd('\n', 1);
+	return (0);
+}
+
+int	test_not_working_domain(char *domain)
+{
+	t_int4	ip;
+
+	ip = ft_htoi4_socket(domain);
+	if (ip)
+		return (1);
+	ft_printf("%-30s -> NOT WORKING\n", domain);
+	return (0);
 }
 
 int	ci_test(void)
 {
-	test_htoi4("kernel.org", FT_NULL);
-	return (0);
+	int		ret;
+
+	ret = 0;
+	ret += test_domain("www.google.com");
+	ret += test_domain("google.com");
+	ret += test_not_working_domain("google");		// SOA response
+	ret += test_not_working_domain("google.");		// SOA response
+	ret += test_not_working_domain("google..");		// SOA response
+	ret += test_not_working_domain("an.unknown.domain.name");
+	return (ret);
 }
 
 int	interactive(void)
@@ -46,4 +68,3 @@ int	main(void)
 		return (interactive());
 	return (0);
 }
-

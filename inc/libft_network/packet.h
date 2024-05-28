@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/26 02:08:11 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/28 22:04:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,10 +237,14 @@ typedef struct s_dnsr
 t_uint16					ft_pkt_checksum(char *data, t_size size);
 
 // network/packet/dns/dnsq_fill.c
-void						ft_pkt_dnsq_fill(
+void						ft_pkt_dnsq_fill_a(
 		t_packet *pack,
 		char *domain,
-		t_uint16 type,
+		t_uint16 class
+	);
+void						ft_pkt_dnsq_fill_ptr(
+		t_packet *pack,
+		t_int4 ip,
 		t_uint16 class
 	);
 
@@ -261,6 +265,9 @@ int							ft_pkt_dnsr_get(
 t_dnshdr					*ft_pkt_get_dns(t_packet *packet);
 unsigned char				*ft_pkt_get_dns_data(t_packet *pack);
 
+// network/packet/dns/get_a_record.c
+t_int4						ft_dns_get_a_record(t_packet *pkt);
+
 // network/packet/dns/get_domain_fmt.c
 void						ft_dns_get_domain_fmt_loop(
 		char *ret,
@@ -268,6 +275,12 @@ void						ft_dns_get_domain_fmt_loop(
 		char **splitted_dom
 	);
 char						*ft_dns_get_domain_fmt(char *domain);
+
+// network/packet/dns/get_ptr_record.c
+char						*ft_dns_get_ptr_record(t_packet *pkt);
+
+// network/packet/dns/ip_to_domain.c
+char						*ft_dns_ip_to_domain(t_int4 ip);
 
 // network/packet/dns/name_get.c
 int							ft_pkt_get_dnsr_name(

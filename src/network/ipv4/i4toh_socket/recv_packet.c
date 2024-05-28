@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 00:22:20 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/28 23:50:07 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/28 16:03:34 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static t_bool	recv_reply(int sock, t_packet *pong_pkt)
 	return (ret == -1);
 }
 
-t_int4	ft_htoi4_recv_packet(int sock)
+char	*ft_i4toh_recv_packet(int sock)
 {
 	t_packet	pkt;
 
@@ -51,9 +51,11 @@ t_int4	ft_htoi4_recv_packet(int sock)
 	{
 		pkt = ft_pkt_get();
 		if (recv_reply(sock, &pkt))
+		{
 			return 0;
+		}
 		if (check_reply(&pkt))
 			break;
 	}
-	return (ft_dns_get_a_record(&pkt));
+	return (ft_dns_get_ptr_record(&pkt));
 }

@@ -175,9 +175,11 @@ SRC_LNX := linux/ft_getgid.c \
 ### NETWORK
 
 #### IPV4
-SRC_NET_IPV4 := network/ipv4/ft_htoi4.c \
+SRC_NET_IPV4 := network/ipv4/ft_getip_str.c \
+				network/ipv4/ft_htoi4.c \
 				network/ipv4/ft_htonl.c \
 				network/ipv4/ft_htons.c \
+				network/ipv4/ft_i4toh.c \
 				network/ipv4/ft_ipstr.c \
 				network/ipv4/ft_is_goodhost.c \
 				network/ipv4/ft_ltoaddr.c \
@@ -185,12 +187,16 @@ SRC_NET_IPV4 := network/ipv4/ft_htoi4.c \
 				network/ipv4/ft_ntohs.c \
 				network/ipv4/ft_ntop.c \
 				network/ipv4/ft_putip_fd.c \
-				network/ipv4/htoi4_socket/get_a_record.c \
 				network/ipv4/htoi4_socket/init_packet.c \
 				network/ipv4/htoi4_socket/init_socket.c \
 				network/ipv4/htoi4_socket/main.c \
 				network/ipv4/htoi4_socket/recv_packet.c \
-				network/ipv4/htoi4_socket/send_packet.c
+				network/ipv4/htoi4_socket/send_packet.c \
+				network/ipv4/i4toh_socket/init_packet.c \
+				network/ipv4/i4toh_socket/init_socket.c \
+				network/ipv4/i4toh_socket/main.c \
+				network/ipv4/i4toh_socket/recv_packet.c \
+				network/ipv4/i4toh_socket/send_packet.c
 
 #### PACK
 SRC_NET_PACK := network/packet/checksum.c \
@@ -199,7 +205,10 @@ SRC_NET_PACK := network/packet/checksum.c \
 				network/packet/dns/dnsq_len.c \
 				network/packet/dns/dnsr_get.c \
 				network/packet/dns/get.c \
+				network/packet/dns/get_a_record.c \
 				network/packet/dns/get_domain_fmt.c \
+				network/packet/dns/get_ptr_record.c \
+				network/packet/dns/ip_to_domain.c \
 				network/packet/dns/name_get.c \
 				network/packet/dns/print.c \
 				network/packet/ft_packet_get.c \
