@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/28 23:39:37 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/06/03 12:51:10 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # endif // NI_MAXHOST
 
 # define HTOI4_USE_SOCKET		1
-# define I4TOH_USE_SOCKET		0
+# define I4TOH_USE_SOCKET		1
 
 # define		DNS_TYPE_A		1
 // # define		DNS_TYPE_NS		2
