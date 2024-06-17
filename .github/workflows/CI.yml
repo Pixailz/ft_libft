@@ -153,5 +153,5 @@ jobs:
   do_release:
     needs: [do_other]
     if: ${{ ! inputs.is_called }}
-    uses: ./.github/workflows/CD.yml
+    uses: ./.github/workflows/CD-release.yml
     secrets: inherit
