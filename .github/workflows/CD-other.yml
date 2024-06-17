@@ -29,6 +29,20 @@ jobs:
         run: |+
           git submodule update --remote --recursive
 
+      - name: ☁️ Check if mlx needed
+        id: mlx
+        run: |+
+          if grep 'USE_MINI_LIBX\s*:=\s*1' mk/config.mk >& 2>/dev/null; then
+            echo "is_mlx_needed=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_mlx_needed=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 🔧 Install mlx dependencies
+        if: ${{ steps.mlx.outputs.is_mlx_needed }} == '1'
+        run: sudo apt-get install xorg libxext-dev libbsd-dev
+
+
       - name: 🔧 test ${{ matrix.repo }}
         run: make
 
