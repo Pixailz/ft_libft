@@ -87,6 +87,7 @@ SRC_PAR := parsing/cmd/ft_try_help_usage.c \
 		   parsing/ft_opt_perr.c \
 		   parsing/ft_opt_print.c \
 		   parsing/ft_opt_short.c \
+		   parsing/ft_opts_len.c \
 		   parsing/ft_post_parse.c \
 		   parsing/ft_post_parse_cmd.c
 

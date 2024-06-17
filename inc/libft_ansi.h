@@ -62,7 +62,7 @@
 # define BLI			_ANSI_M("5")			// BLINKING
 
 /* MODIFIER RESET */
-# define RBOL			_ANSI_M("21")			// RESET BOLD
+# define RBOL			_ANSI_M("22")			// RESET BOLD
 # define RDIM			_ANSI_M("22")			// RESET DIMMED
 # define RITA			_ANSI_M("23")			// RESET ITALIC
 # define RUND			_ANSI_M("24")			// RESET UNDERLINE
