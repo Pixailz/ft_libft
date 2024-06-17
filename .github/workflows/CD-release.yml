@@ -1,6 +1,6 @@
-name: CD
+name: CD Release
 
-run-name: ft_libft CD deployment
+run-name: ft_libft CD release deployment
 
 on:
   workflow_call:
@@ -40,37 +40,3 @@ jobs:
           tag_name: v${{ env.ver }}-${{ env.sha7 }}
           files: ../ft_libft-${{ env.ver }}-${{ env.sha7 }}.tar.gz
           token: ${{ secrets.GITHUB_TOKEN }}
-
-  update_other:
-    strategy:
-      max-parallel: 5
-      matrix:
-        repo: [
-          "Pixailz/SupaBlank",
-          "Pixailz/ft_ping",
-          "Pixailz/ft_traceroute",
-          "Pixailz/ft_lemipc"
-        ]
-    runs-on: ubuntu-latest
-    steps:
-      - name: ☁️ Retrieve ${{ matrix.repo }} repo
-        uses: actions/checkout@v3
-        with:
-          repository: ${{ matrix.repo }}
-          submodules: recursive
-          token: ${{ secrets.PAT_ACTIONS }}
-
-      - name: ☁️ Update submodules
-        run: |+
-          git submodule update --remote --recursive
-
-      - name: 🔧 test ${{ matrix.repo }}
-        run: make
-
-      - name: ☁️ Configure, commit and push
-        run: |+
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add . || true
-          git commit -m "[ft_libft] submodule update spread" || true
-          git status && git push || true
