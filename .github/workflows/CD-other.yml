@@ -39,7 +39,7 @@ jobs:
           fi
 
       - name: 🔧 Install mlx dependencies
-        if: ${{ steps.mlx.outputs.is_mlx_needed }} == 1
+        if: ${{ steps.mlx.outputs.is_mlx_needed == 1 }}
         run: sudo apt-get install xorg libxext-dev libbsd-dev zlib1g-dev
 
       - name: 🔧 test ${{ matrix.repo }}
