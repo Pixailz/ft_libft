@@ -7,7 +7,6 @@ on:
 
 jobs:
   update-ft_libft:
-    needs: test-ft_libft
     runs-on: ubuntu-latest
     steps:
       - name: ☁️ Retrieve ft_libft repo
