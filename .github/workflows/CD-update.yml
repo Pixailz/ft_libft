@@ -4,6 +4,9 @@ run-name: ft_libft CD Update deployment
 
 on:
   workflow_call:
+    secrets:
+      PAT_ACTIONS:
+        required: true
 
 jobs:
   update-ft_libft:
