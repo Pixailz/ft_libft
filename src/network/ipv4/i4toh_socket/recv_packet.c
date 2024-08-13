@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 00:22:20 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/28 16:03:34 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/06/03 13:40:25 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ char	*ft_i4toh_recv_packet(int sock)
 		if (check_reply(&pkt))
 			break;
 	}
-	return (ft_dns_get_ptr_record(&pkt));
+	return (ft_dns_get_record(&pkt, DNS_TYPE_PTR));
 }

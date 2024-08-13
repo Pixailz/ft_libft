@@ -210,6 +210,7 @@ SRC_NET_PACK := network/packet/checksum.c \
 				network/packet/dns/get_a_record.c \
 				network/packet/dns/get_domain_fmt.c \
 				network/packet/dns/get_ptr_record.c \
+				network/packet/dns/get_record/main.c \
 				network/packet/dns/ip_to_domain.c \
 				network/packet/dns/name_get.c \
 				network/packet/dns/print.c \

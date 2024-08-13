@@ -46,7 +46,7 @@
 # endif // NI_MAXHOST
 
 # define HTOI4_USE_SOCKET		1
-# define I4TOH_USE_SOCKET		0
+# define I4TOH_USE_SOCKET		1
 
 # define		DNS_TYPE_A		1
 // # define		DNS_TYPE_NS		2
