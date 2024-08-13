@@ -188,6 +188,7 @@ SRC_NET_IPV4 := network/ipv4/ft_getip_str.c \
 				network/ipv4/ft_ntohs.c \
 				network/ipv4/ft_ntop.c \
 				network/ipv4/ft_putip_fd.c \
+				network/ipv4/get_nameserver.c \
 				network/ipv4/htoi4_socket/init_packet.c \
 				network/ipv4/htoi4_socket/init_socket.c \
 				network/ipv4/htoi4_socket/main.c \
@@ -225,7 +226,15 @@ SRC_NET_PACK := network/packet/checksum.c \
 				network/packet/udp/get.c \
 				network/packet/udp/print.c
 
-SRC_NET := $(SRC_NET_IPV4) $(SRC_NET_PACK)
+#### SOCKET
+SRC_NET_SOCK := network/socket/ft_socket.c \
+				network/socket/ft_socket_get.c \
+				network/socket/ft_socket_singletone.c \
+				network/socket/setsockopt/bind_interface.c \
+				network/socket/setsockopt/ipheader.c \
+				network/socket/setsockopt/timeout.c
+
+SRC_NET := $(SRC_NET_IPV4) $(SRC_NET_PACK) $(SRC_NET_SOCK)
 
 ### ERROR
 SRC_UNI_TEST := unit_test/ft_assert.c
@@ -299,6 +308,9 @@ SRC_C			+= $(SRC_NET_IPV4)
 endif
 ifeq ($(NET_PACK),1)
 SRC_C			+= $(SRC_NET_PACK)
+endif
+ifeq ($(NET_SOCK),1)
+SRC_C			+= $(SRC_NET_SOCK)
 endif
 ifeq ($(UNIT_TEST),1)
 SRC_C			+= $(SRC_UNI_TEST)

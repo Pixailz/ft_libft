@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 23:56:34 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/27 12:33:41 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/13 20:52:45 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 char	*ft_i4toh_socket(t_int4 ip)
 {
-	int			sock;
+	static int	sock = -2;
 	t_packet	pkt;
 	char		*name;
 
-	sock = ft_i4toh_init_socket();
+	if (sock == -2)
+		sock = ft_i4toh_init_socket();
 	if (sock == -1)
 		return (0);
 
@@ -28,8 +29,5 @@ char	*ft_i4toh_socket(t_int4 ip)
 	if (ft_i4toh_send_packet(sock, pkt))
 		return (0);
 	name = ft_i4toh_recv_packet(sock);
-
-	if (sock != -1)
-		close(sock);
 	return (name);
 }

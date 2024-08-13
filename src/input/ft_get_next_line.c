@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 01:18:23 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/12/28 12:47:38 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/12 16:03:20 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,33 @@ static void	get_line(char **line, char **buff)
 	push_buff(buff, len_line);
 }
 
+static void	flush_buffer(char **buff)
+{
+	int	counter;
+
+	counter = 0;
+	while (counter < MAX_FD)
+	{
+		if (buff[counter])
+		{
+			free(buff[counter]);
+			buff[counter] = FT_NULL;
+		}
+		counter++;
+	}
+}
+
 char	*ft_get_next_line(int fd)
 {
 	static char	*buff[MAX_FD] = {FT_NULL};
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd == -2)
+	{
+		flush_buffer(buff);
+		return (FT_NULL);
+	}
+	else if (fd < 0 || BUFFER_SIZE < 1)
 		return (FT_NULL);
 	if (buff[fd] == FT_NULL)
 		buff[fd] = (char *)ft_calloc(sizeof(char), BUFFER_SIZE + 1);
