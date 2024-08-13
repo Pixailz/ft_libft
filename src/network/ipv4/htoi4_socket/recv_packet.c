@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 00:22:20 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/28 23:50:07 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/13 09:40:12 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static t_bool	recv_reply(int sock, t_packet *pong_pkt)
 		PACK_MAX_LEN,			// LEN
 		0,						// FLAG
 		FT_NULL,				// SOCK ADDR FROM
-		0						// SOCK ADDR FROM LEN
+		FT_NULL					// SOCK ADDR FROM LEN
 	);
 	return (ret == -1);
 }

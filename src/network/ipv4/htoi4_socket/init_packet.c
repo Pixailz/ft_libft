@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 00:03:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/27 11:35:29 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/12 16:39:59 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_packet	ft_htoi4_init_packet(char *domain)
 	pkt_ip->fragment_off = ft_htons(ft_pkt_fragment_offset(IPHDR_F_DONT_FRAG, 0));
 	pkt_ip->ttl = DNS_TTL;
 	pkt_ip->protocol = IPPROTO_UDP;
-	pkt_ip->dst_addr = ft_htonl(DNS_ADDR);
+	pkt_ip->dst_addr = get_dns_nameserver();
 	pkt_udp = ft_pkt_get_udp(&pkt);
 	pkt_udp->src_port = ft_htons(DNS_SRC_PORT);
 	pkt_udp->dst_port = ft_htons(DNS_DST_PORT);

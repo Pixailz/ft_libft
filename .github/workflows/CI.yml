@@ -16,7 +16,7 @@ on:
   workflow_call:
     inputs:
       is_called:
-        description: " is called by another actions"
+        description: "Is called by another actions"
         default: false
         type: boolean
 
@@ -131,8 +131,14 @@ jobs:
       - name: 💬 Run
         run: python3 -m norminette || true
 
-  do_release:
+  do_other:
     needs: [build, test, norminette]
     if: ${{ ! inputs.is_called }}
-    uses: ./.github/workflows/CD.yml
+    uses: ./.github/workflows/CD-other.yml
+    secrets: inherit
+
+  do_release:
+    needs: [do_other]
+    if: ${{ ! inputs.is_called }}
+    uses: ./.github/workflows/CD-release.yml
     secrets: inherit

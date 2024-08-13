@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 13:22:28 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/28 21:24:40 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/13 21:16:09 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	ci_test(void)
 	ret = 0;
 	ret += test_domain("www.google.com");
 	ret += test_domain("google.com");
+	ret += test_domain("localhost");
+	ret += test_not_working_domain("255.255.255.255");
 	ret += test_not_working_domain("google");		// SOA response
 	ret += test_not_working_domain("google.");		// SOA response
 	ret += test_not_working_domain("google..");		// SOA response

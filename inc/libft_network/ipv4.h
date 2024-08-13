@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/06/03 12:51:10 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/12 16:50:48 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # endif // NI_MAXHOST
 
 # define HTOI4_USE_SOCKET		1
-# define I4TOH_USE_SOCKET		1
+# define I4TOH_USE_SOCKET		0
 
 # define		DNS_TYPE_A		1
 // # define		DNS_TYPE_NS		2
@@ -64,7 +64,7 @@
 // # define		DNS_CLASS_CH	3
 // # define		DNS_CLASS_HS	4
 
-# define DNS_ADDR				0x08080808
+# define DNS_DEFAULT_ADDR		0x08080808
 # define DNS_DST_PORT			53
 # define DNS_SRC_PORT			0x1234
 # define DNS_TTL				64
@@ -147,6 +147,9 @@ void				ft_ntop(t_bin pf, t_int4 ip, char *ip_str);
 
 // network/ipv4/ft_putip_fd.c
 t_size				ft_putip_fd(t_int4 n, int fd);
+
+// network/ipv4/get_nameserver.c
+t_int4				get_dns_nameserver(void);
 
 // network/ipv4/htoi4_socket/init_packet.c
 t_packet			ft_htoi4_init_packet(char *domain);

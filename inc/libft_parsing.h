@@ -161,6 +161,9 @@ void		ft_print_opts(void);
 t_bool		ft_is_optshort(char *arg);
 t_bool		ft_optshort_parse(char *arg);
 
+// parsing/ft_opts_len.c
+t_size		ft_opts_len(t_opts *opts);
+
 // parsing/ft_post_parse.c
 t_bin		ft_opt_post_parse(t_bin (*post_func)());
 

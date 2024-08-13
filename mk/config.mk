@@ -155,6 +155,12 @@ MULTIPLE		:= 1
 # dependecies
 # PRINT			:= 1
 endif
+ifeq ($(findstring net_pack,$(MAKECMDGOALS)),net_sock)
+NET_SOCK		:= 1
+MULTIPLE		:= 1
+# dependecies
+# PRINT			:= 1
+endif
 ifeq ($(findstring error,$(MAKECMDGOALS)),error)
 ERROR			:= 1
 MULTIPLE		:= 1

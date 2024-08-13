@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_socket.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 23:56:34 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/08/13 20:50:26 by brda-sil         ###   ########.fr       */
+/*   Created: 2024/08/13 19:29:43 by brda-sil          #+#    #+#             */
+/*   Updated: 2024/08/13 22:04:13 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_network.h"
 
-t_int4	ft_htoi4_socket(char *domain)
+int	ft_socket(int domain, int type, int protocol)
 {
-	t_int4				ip;
-	static int			sock = -2;
-	t_packet			pkt;
+	int			*sock;
 
-	if (sock == -2)
-		sock = ft_htoi4_init_socket();
-	if (sock == -1)
-		return (0);
-	pkt = ft_htoi4_init_packet(domain);
-	if (ft_htoi4_send_packet(sock, pkt))
-		return (0);
-	ip = ft_htoi4_recv_packet(sock);
-	return (ip);
+	sock = ft_socket_get_new();
+	if (sock == (void *)-1)
+		return (-1);
+	*sock = socket(domain, type, protocol);
+	if (*sock == -1)
+		return (-1);
+	return (*sock);
 }

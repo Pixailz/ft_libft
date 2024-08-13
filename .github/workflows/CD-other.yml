@@ -1,0 +1,58 @@
+name: CD Other
+
+run-name: ft_libft CD spread deployment
+
+on:
+  workflow_call:
+    secrets:
+      PAT_ACTIONS:
+        required: true
+
+jobs:
+  update_other:
+    strategy:
+      max-parallel: 5
+      matrix:
+        repo: [
+          "Pixailz/SupaBlank",
+          "Pixailz/ft_ping",
+          "Pixailz/ft_traceroute",
+          "Pixailz/ft_lemipc",
+          "Pixailz/ft_nm"
+        ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: ☁️ Retrieve ${{ matrix.repo }} repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ matrix.repo }}
+          submodules: recursive
+          token: ${{ secrets.PAT_ACTIONS }}
+
+      - name: ☁️ Update submodules
+        run: |+
+          git submodule update --remote --recursive
+
+      - name: ☁️ Check if mlx needed
+        id: mlx
+        run: |+
+          if grep 'USE_MINI_LIBX\s*:=\s*1' mk/config.mk >& 2>/dev/null; then
+            echo "is_mlx_needed=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_mlx_needed=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 🔧 Install mlx dependencies
+        if: ${{ steps.mlx.outputs.is_mlx_needed == 1 }}
+        run: sudo apt-get install xorg libxext-dev libbsd-dev zlib1g-dev
+
+      - name: 🔧 test ${{ matrix.repo }}
+        run: make
+
+      - name: ☁️ Configure, commit and push
+        run: |+
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add . || true
+          git commit -m "[ft_libft] submodule update spread" || true
+          git status && git push || true
