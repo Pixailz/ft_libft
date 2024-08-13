@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/06/03 13:12:21 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/05/28 22:04:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,22 +217,6 @@ typedef struct s_dnsq
 	t_uint16	class;
 }	t_dnsq;
 
-	// DNS RECORD
-
-typedef	struct	s_dnsr_name
-{
-	t_uint16			offset;
-	char				*name;
-	struct s_dnsr_name	*next;
-}	t_dnsr_name;
-
-typedef	struct	s_dnsr_struct
-{
-	unsigned char	*data;
-	t_dnsr_name		*names;
-	t_uint16		offset;
-}	t_dnsr_struct;
-
 typedef struct s_dnsr
 {
 	t_uint16	type;
@@ -294,16 +278,6 @@ char						*ft_dns_get_domain_fmt(char *domain);
 
 // network/packet/dns/get_ptr_record.c
 char						*ft_dns_get_ptr_record(t_packet *pkt);
-
-// network/packet/dns/get_record/main.c
-void						append_name(t_dnsr_name *name, t_dnsr_struct **dnsr);
-char						*get_name_by_offset(t_uint16 offset, t_dnsr_struct *dnsr);
-t_uint32					get_dnsr_name(t_dnsr_struct *dnsr);
-t_uint16					get_dnsr_type(t_dnsr_struct *dnsr, t_uint16 name_len);
-t_uint16					get_dnsr_class(t_dnsr_struct *dnsr, t_uint16 name_len);
-char						*get_last_name(t_dnsr_struct *dnsr);
-t_bool						get_dnsr_record(t_dnsr_struct *dnsr, t_uint16 type);
-char						*ft_dns_get_record(t_packet *pkt, t_uint16 type);
 
 // network/packet/dns/ip_to_domain.c
 char						*ft_dns_ip_to_domain(t_int4 ip);
