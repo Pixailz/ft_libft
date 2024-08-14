@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/28 22:04:49 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/14 11:51:31 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,23 @@ typedef struct __attribute__((__packed__)) s_icmphdr_time_exceed
 }	t_icmphdr_time_exceed;
 
 // DNS
+
+typedef enum e_dns_rcode {
+	DNS_RCODE_NO_ERROR = 0,
+	DNS_RCODE_FORMAT_ERROR = 1,
+	DNS_RCODE_SERVER_FAILURE = 2,
+	DNS_RCODE_NAME_ERROR = 3,
+	DNS_RCODE_NOT_IMPLEMENTED = 4,
+	DNS_RCODE_REFUSED = 5,
+}	t_dns_rcode;
+
+typedef enum e_dns_rtype {
+	DNS_RTYPE_QUESTION = 0,
+	DNS_RTYPE_ANSWER = 1,
+	DNS_RTYPE_AUTHORITY = 2,
+	DNS_RTYPE_ADDITIONAL = 3,
+}	t_dns_rtype;
+
 	//HEADER
 typedef struct __attribute__((__packed__)) s_dnshdr
 {
@@ -185,7 +202,7 @@ typedef struct __attribute__((__packed__)) s_dnshdr
 	t_uint8		opcode:4;
 	t_uint8		is_response:1;
 
-	t_uint8		response_code:4;
+	t_dns_rcode	response_code:4;
 	t_uint8		reserved:3;
 	t_uint8		recursion_available:1;
 
@@ -203,7 +220,7 @@ typedef struct __attribute__((__packed__)) s_dnshdr
 # endif // __BYTE_ORDER == __LITTLE_ENDIAN
 
 	t_uint16	question_count;
-	t_uint16	response_count;
+	t_uint16	answer_count;
 	t_uint16	authority_count;
 	t_uint16	additional_count;
 
@@ -217,6 +234,28 @@ typedef struct s_dnsq
 	t_uint16	class;
 }	t_dnsq;
 
+	// DNS RECORD
+typedef	struct	s_dnsr_name
+{
+	t_uint16			offset;
+	t_dns_rtype			rsc_type;
+	t_uint16			type;
+	t_uint16			class;
+	t_uint16			ttl;
+	t_uint16			rlength;
+	char				*name;
+	char				*rdata;
+	struct s_dnsr_name	*next;
+}	t_dnsr_name;
+
+typedef	struct	s_dnsr_struct
+{
+	unsigned char	*data;
+	t_dnshdr		*header;
+	t_dnsr_name		*names;
+	t_uint16		offset;
+}	t_dnsr_struct;
+
 typedef struct s_dnsr
 {
 	t_uint16	type;
@@ -227,7 +266,6 @@ typedef struct s_dnsr
 }	t_dnsr;
 
 /* ########################################################################## */
-
 
 /* ########################################################################## */
 /* FILES */
@@ -248,25 +286,12 @@ void						ft_pkt_dnsq_fill_ptr(
 		t_uint16 class
 	);
 
-// network/packet/dns/dnsq_get.c
-int							ft_pkt_dnsq_get(unsigned char *data, t_dnsq *dnsq);
-
 // network/packet/dns/dnsq_len.c
 t_size						ft_pkt_dnsq_len(t_packet pack);
-
-// network/packet/dns/dnsr_get.c
-int							ft_pkt_dnsr_get(
-		unsigned char *data,
-		t_uint16 rc,
-		t_dnsr *dnsr
-	);
 
 // network/packet/dns/get.c
 t_dnshdr					*ft_pkt_get_dns(t_packet *packet);
 unsigned char				*ft_pkt_get_dns_data(t_packet *pack);
-
-// network/packet/dns/get_a_record.c
-t_int4						ft_dns_get_a_record(t_packet *pkt);
 
 // network/packet/dns/get_domain_fmt.c
 void						ft_dns_get_domain_fmt_loop(
@@ -276,19 +301,49 @@ void						ft_dns_get_domain_fmt_loop(
 	);
 char						*ft_dns_get_domain_fmt(char *domain);
 
-// network/packet/dns/get_ptr_record.c
-char						*ft_dns_get_ptr_record(t_packet *pkt);
+// network/packet/dns/get_record/extract_answer.c
+t_uint16					get_answer_nb(t_dnsr_name *name, t_uint16 type);
+char						**ft_dns_extract_answer_ptr(t_dnsr_name *name);
+t_int4						ft_dns_extract_answer_a(t_dnsr_name *name);
 
-// network/packet/dns/ip_to_domain.c
-char						*ft_dns_ip_to_domain(t_int4 ip);
+// network/packet/dns/get_record/get_answer.c
+void						get_dns_answer_name(t_dnsr_struct *dnsr);
+void						print_dns_answer_name(t_dnsr_name *name);
+t_bool						get_dns_anrecord(t_dnsr_struct *dnsr, t_uint16 count);
 
-// network/packet/dns/name_get.c
-int							ft_pkt_get_dnsr_name(
+// network/packet/dns/get_record/get_label.c
+int							ft_dns_getlabel_ptr(
 		unsigned char *data,
+		t_uint32 offset,
+		char **name,
+		t_uint32 max_len
+	);
+int							ft_dns_getlabel_a(
+		unsigned char *data,
+		t_uint32 offset,
 		char **name
 	);
 
-// network/packet/dns/print.c
+// network/packet/dns/get_record/get_question.c
+void						get_dns_question_name(t_dnsr_struct *dnsr);
+void						print_dns_question_name(t_dnsr_name *name);
+t_bool						get_dns_qdrecord(t_dnsr_struct *dnsr, t_uint16 count);
+
+// network/packet/dns/get_record/main.c
+void						append_name(t_dnsr_name *name, t_dnsr_struct **dnsr);
+t_uint16					get_dns_offset(t_dnsr_struct *dnsr);
+char						*get_name_by_offset(t_dnsr_struct *dnsr);
+t_uint16					get_dnsr_type(t_dnsr_struct *dnsr);
+t_uint16					get_dnsr_class(t_dnsr_struct *dnsr);
+t_uint16					get_dnsr_ttl(t_dnsr_struct *dnsr);
+t_uint16					get_dnsr_rlength(t_dnsr_struct *dnsr);
+t_dnsr_name					*get_last_name(t_dnsr_struct *dnsr);
+void						ft_free_dnsr(t_dnsr_struct *dnsr);
+char						**ft_dns_get_record_ptr(t_packet *pkt);
+t_int4						ft_dns_get_record_a(t_packet *pkt);
+
+// network/packet/dns/ip_to_domain.c
+char						*ft_dns_ip_to_domain(t_int4 ip);
 
 // network/packet/ft_packet_get.c
 t_packet					ft_pkt_get(void);
