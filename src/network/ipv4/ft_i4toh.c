@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 05:54:10 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/28 21:12:27 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/14 15:59:01 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,13 @@ char	*ft_i4toh(t_int4 ip)
 		retv = ft_i4toh_socket(ip);
 	else
 		retv = ft_i4toh_getnameinfo(ip);
+	return (retv);
+}
+
+char	**ft_i4tohs(t_int4 ip)
+{
+	char	**retv;
+
+	retv = ft_i4tohs_socket(ip);
 	return (retv);
 }

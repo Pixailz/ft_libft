@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   name_get.c                                         :+:      :+:    :+:   */
+/*   get_label.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 00:40:30 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/28 23:58:41 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/14 15:52:08 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,35 @@ static	char	*join_domain(char **src, char *dst)
 	return (ret);
 }
 
-int	ft_pkt_get_dnsr_name(
+int	ft_dns_getlabel_ptr(
 		unsigned char *data,
-		char **name
+		t_uint32 offset,
+		char **name,
+		t_uint32 max_len
 	)
 {
-	int		i;
-	char	*tmp;
+	t_uint32	i;
+	char		*tmp;
+	t_uint32	lab_len;
 
 	i = 0;
 	tmp = FT_NULL;
 	*name = FT_NULL;
 	while (TRUE)
 	{
-		tmp = (char *)ft_calloc(data[i] + 2, sizeof(char));
-		ft_memcpy(tmp, data + 1 + i, data[i]);
-		i += data[i] + 1;
-		if (data[i] == 0)
+		lab_len = data[i + offset];
+		if (lab_len & 0xc0)
+		{
+			ft_dns_getlabel_ptr(data, data[i + offset + 1], &tmp, max_len);
+			i += 2;
+		}
+		else
+		{
+			tmp = (char *)ft_calloc(lab_len + 2, sizeof(char));
+			ft_memcpy(tmp, data + 1 + i + offset, lab_len);
+			i += lab_len + 1;
+		}
+		if (data[i + offset] == 0 || (max_len && i >= max_len))
 			break ;
 		if (*name)
 		{
@@ -63,4 +75,22 @@ int	ft_pkt_get_dnsr_name(
 	else
 		*name = tmp;
 	return (i);
+}
+
+int	ft_dns_getlabel_a(
+		unsigned char *data,
+		t_uint32 offset,
+		char **name
+	)
+{
+	t_int4	ip;
+
+	ip = ft_int4_comp(
+		data[offset],
+		data[offset + 1],
+		data[offset + 2],
+		data[offset + 3]
+	);
+	*name = ft_utoa(ip);
+	return (4);
 }

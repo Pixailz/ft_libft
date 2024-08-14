@@ -203,16 +203,15 @@ SRC_NET_IPV4 := network/ipv4/ft_getip_str.c \
 #### PACK
 SRC_NET_PACK := network/packet/checksum.c \
 				network/packet/dns/dnsq_fill.c \
-				network/packet/dns/dnsq_get.c \
 				network/packet/dns/dnsq_len.c \
-				network/packet/dns/dnsr_get.c \
 				network/packet/dns/get.c \
-				network/packet/dns/get_a_record.c \
 				network/packet/dns/get_domain_fmt.c \
-				network/packet/dns/get_ptr_record.c \
+				network/packet/dns/get_record/extract_answer.c \
+				network/packet/dns/get_record/get_answer.c \
+				network/packet/dns/get_record/get_label.c \
+				network/packet/dns/get_record/get_question.c \
+				network/packet/dns/get_record/main.c \
 				network/packet/dns/ip_to_domain.c \
-				network/packet/dns/name_get.c \
-				network/packet/dns/print.c \
 				network/packet/ft_packet_get.c \
 				network/packet/icmp/checksum.c \
 				network/packet/icmp/get.c \

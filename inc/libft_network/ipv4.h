@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/08/12 16:50:48 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/14 16:35:13 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # endif // NI_MAXHOST
 
 # define HTOI4_USE_SOCKET		1
-# define I4TOH_USE_SOCKET		0
+# define I4TOH_USE_SOCKET		1
 
 # define		DNS_TYPE_A		1
 // # define		DNS_TYPE_NS		2
@@ -122,6 +122,7 @@ t_uint16			ft_htons(t_uint16 h);
 // network/ipv4/ft_i4toh.c
 char				*ft_i4toh_getnameinfo(t_int4 ip);
 char				*ft_i4toh(t_int4 ip);
+char				**ft_i4tohs(t_int4 ip);
 
 // network/ipv4/ft_ipstr.c
 int					ft_ip_check_part(char *splitted);
@@ -174,9 +175,10 @@ int					ft_i4toh_init_socket(void);
 
 // network/ipv4/i4toh_socket/main.c
 char				*ft_i4toh_socket(t_int4 ip);
+char				**ft_i4tohs_socket(t_int4 ip);
 
 // network/ipv4/i4toh_socket/recv_packet.c
-char				*ft_i4toh_recv_packet(int sock);
+char				**ft_i4toh_recv_packet(int sock);
 
 // network/ipv4/i4toh_socket/send_packet.c
 int					ft_i4toh_send_packet(int socket, t_packet pkt);
