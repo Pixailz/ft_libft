@@ -40,13 +40,16 @@
 /* ##### */
 
 // random/ft_randchar.c
-t_int8		ft_randchar(void);
+
+t_int8	ft_randchar(void);
 
 // random/ft_randint.c
-t_int64		ft_randint(int start, int end);
+
+t_int64	ft_randint(int start, int end);
 
 // random/ft_tmpfile.c
-char		*ft_tmpfile(int in_tmp);
+
+char	*ft_tmpfile(int in_tmp);
 
 /* ########################################################################## */
 

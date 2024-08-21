@@ -107,81 +107,104 @@ typedef struct s_ip
 /* ##### */
 
 // network/ipv4/ft_getip_str.c
-char				*ft_getip_str(t_int4 n);
+
+char			*ft_getip_str(t_int4 n);
 
 // network/ipv4/ft_htoi4.c
-t_int4				ft_htoi4_getaddrinfo(char *hostname, char *service);
-t_int4				ft_htoi4(char *hostname, char *service);
+
+t_int4			ft_htoi4_getaddrinfo(char *hostname, char *service);
+t_int4			ft_htoi4(char *hostname, char *service);
 
 // network/ipv4/ft_htonl.c
-t_uint32			ft_htonl(t_uint32 h);
+
+t_uint32		ft_htonl(t_uint32 h);
 
 // network/ipv4/ft_htons.c
-t_uint16			ft_htons(t_uint16 h);
+
+t_uint16		ft_htons(t_uint16 h);
 
 // network/ipv4/ft_i4toh.c
-char				*ft_i4toh_getnameinfo(t_int4 ip);
-char				*ft_i4toh(t_int4 ip);
-char				**ft_i4tohs(t_int4 ip);
+
+char			*ft_i4toh_getnameinfo(t_int4 ip);
+char			*ft_i4toh(t_int4 ip);
+char			**ft_i4tohs(t_int4 ip);
 
 // network/ipv4/ft_ipstr.c
-int					ft_ip_check_part(char *splitted);
-char				**ft_ip_check(char *str);
-t_int4				ft_ipstr(char *str);
+
+int				ft_ip_check_part(char *splitted);
+char			**ft_ip_check(char *str);
+t_int4			ft_ipstr(char *str);
 
 // network/ipv4/ft_is_goodhost.c
-t_bool				ft_is_goodchar_host(char c);
-t_bool				ft_host_check(char *fqnd);
-t_bool				ft_is_goodhost(char *fqnd);
+
+t_bool			ft_is_goodchar_host(char c);
+t_bool			ft_host_check(char *fqnd);
+t_bool			ft_is_goodhost(char *fqnd);
 
 // network/ipv4/ft_ltoaddr.c
-struct sockaddr		ft_ltoaddr(t_int4 ip);
+
+struct sockaddr	ft_ltoaddr(t_int4 ip);
 
 // network/ipv4/ft_ntohl.c
-t_uint32			ft_ntohl(t_uint32 h);
+
+t_uint32		ft_ntohl(t_uint32 h);
 
 // network/ipv4/ft_ntohs.c
-t_uint16			ft_ntohs(t_uint16 n);
+
+t_uint16		ft_ntohs(t_uint16 n);
 
 // network/ipv4/ft_ntop.c
-void				ft_ntop(t_bin pf, t_int4 ip, char *ip_str);
+
+void			ft_ntop(t_bin pf, t_int4 ip, char *ip_str);
 
 // network/ipv4/ft_putip_fd.c
-t_size				ft_putip_fd(t_int4 n, int fd);
+
+t_size			ft_putip_fd(t_int4 n, int fd);
 
 // network/ipv4/get_nameserver.c
-t_int4				get_dns_nameserver(void);
+
+t_int4			get_dns_nameserver(void);
 
 // network/ipv4/htoi4_socket/init_packet.c
-t_packet			ft_htoi4_init_packet(char *domain);
+
+t_packet		ft_htoi4_init_packet(char *domain);
 
 // network/ipv4/htoi4_socket/init_socket.c
-int					ft_htoi4_init_socket(void);
+
+int				ft_htoi4_init_socket(void);
 
 // network/ipv4/htoi4_socket/main.c
-t_int4				ft_htoi4_socket(char *domain);
+
+t_int4			ft_htoi4_socket(char *domain);
 
 // network/ipv4/htoi4_socket/recv_packet.c
-t_int4				ft_htoi4_recv_packet(int sock);
+
+t_int4			ft_htoi4_recv_packet(int sock);
 
 // network/ipv4/htoi4_socket/send_packet.c
-int					ft_htoi4_send_packet(int socket, t_packet pkt);
+
+int				ft_htoi4_send_packet(int socket, t_packet pkt);
 
 // network/ipv4/i4toh_socket/init_packet.c
-t_packet			ft_i4toh_init_packet(t_int4 ip);
+
+t_packet		ft_i4toh_init_packet(t_int4 ip);
 
 // network/ipv4/i4toh_socket/init_socket.c
-int					ft_i4toh_init_socket(void);
+
+int				ft_i4toh_init_socket(void);
 
 // network/ipv4/i4toh_socket/main.c
-char				*ft_i4toh_socket(t_int4 ip);
-char				**ft_i4tohs_socket(t_int4 ip);
+
+char			*ft_i4toh_socket(t_int4 ip);
+char			**ft_i4tohs_socket(t_int4 ip);
 
 // network/ipv4/i4toh_socket/recv_packet.c
-char				**ft_i4toh_recv_packet(int sock);
+
+char			**ft_i4toh_recv_packet(int sock);
 
 // network/ipv4/i4toh_socket/send_packet.c
-int					ft_i4toh_send_packet(int socket, t_packet pkt);
+
+int				ft_i4toh_send_packet(int socket, t_packet pkt);
 
 /* ########################################################################## */
 

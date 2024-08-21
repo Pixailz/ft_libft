@@ -42,25 +42,31 @@ typedef t_int32 t_socket_id;
 /* ##### */
 
 // network/socket/ft_socket.c
-int				ft_socket(int domain, int type, int protocol);
+
+int			ft_socket(int domain, int type, int protocol);
 
 // network/socket/ft_socket_get.c
-int				ft_socket_get(t_socket_id index);
-int				*ft_socket_get_new();
-t_socket_id		ft_socket_get_index(int sock);
+
+int			ft_socket_get(t_socket_id index);
+int			*ft_socket_get_new();
+t_socket_id	ft_socket_get_index(int sock);
 
 // network/socket/ft_socket_singletone.c
-int				*ft_socket_sing_get();
-void			ft_socket_sing_free();
+
+int			*ft_socket_sing_get();
+void		ft_socket_sing_free();
 
 // network/socket/setsockopt/bind_interface.c
-t_bool			ft_setsockopt_bind_interface(int sock, char *interface);
+
+t_bool		ft_setsockopt_bind_interface(int sock, char *interface);
 
 // network/socket/setsockopt/ipheader.c
-t_bool			ft_setsockopt_ipheader(int sock);
+
+t_bool		ft_setsockopt_ipheader(int sock);
 
 // network/socket/setsockopt/timeout.c
-t_bool			ft_setsockopt_timeout(int sock, int timeout);
+
+t_bool		ft_setsockopt_timeout(int sock, int timeout);
 
 /* ########################################################################## */
 

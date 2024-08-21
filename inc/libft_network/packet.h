@@ -272,123 +272,146 @@ typedef struct s_dnsr
 /* ##### */
 
 // network/packet/checksum.c
-t_uint16					ft_pkt_checksum(char *data, t_size size);
+
+t_uint16				ft_pkt_checksum(char *data, t_size size);
 
 // network/packet/dns/dnsq_fill.c
-void						ft_pkt_dnsq_fill_a(
+
+void					ft_pkt_dnsq_fill_a(
 		t_packet *pack,
 		char *domain,
 		t_uint16 class
 	);
-void						ft_pkt_dnsq_fill_ptr(
+void					ft_pkt_dnsq_fill_ptr(
 		t_packet *pack,
 		t_int4 ip,
 		t_uint16 class
 	);
 
 // network/packet/dns/dnsq_len.c
-t_size						ft_pkt_dnsq_len(t_packet pack);
+
+t_size					ft_pkt_dnsq_len(t_packet pack);
 
 // network/packet/dns/get.c
-t_dnshdr					*ft_pkt_get_dns(t_packet *packet);
-unsigned char				*ft_pkt_get_dns_data(t_packet *pack);
+
+t_dnshdr				*ft_pkt_get_dns(t_packet *packet);
+unsigned char			*ft_pkt_get_dns_data(t_packet *pack);
 
 // network/packet/dns/get_domain_fmt.c
-void						ft_dns_get_domain_fmt_loop(
+
+void					ft_dns_get_domain_fmt_loop(
 		char *ret,
 		t_size len_splitted_dom,
 		char **splitted_dom
 	);
-char						*ft_dns_get_domain_fmt(char *domain);
+char					*ft_dns_get_domain_fmt(char *domain);
 
 // network/packet/dns/get_record/extract_answer.c
-t_uint16					get_answer_nb(t_dnsr_name *name, t_uint16 type);
-char						**ft_dns_extract_answer_ptr(t_dnsr_name *name);
-t_int4						ft_dns_extract_answer_a(t_dnsr_name *name);
+
+t_uint16				get_answer_nb(t_dnsr_name *name, t_uint16 type);
+char					**ft_dns_extract_answer_ptr(t_dnsr_name *name);
+t_int4					ft_dns_extract_answer_a(t_dnsr_name *name);
 
 // network/packet/dns/get_record/get_answer.c
-void						get_dns_answer_name(t_dnsr_struct *dnsr);
-void						print_dns_answer_name(t_dnsr_name *name);
-t_bool						get_dns_anrecord(t_dnsr_struct *dnsr, t_uint16 count);
+
+void					get_dns_answer_name(t_dnsr_struct *dnsr);
+void					print_dns_answer_name(t_dnsr_name *name);
+t_bool					get_dns_anrecord(t_dnsr_struct *dnsr, t_uint16 count);
 
 // network/packet/dns/get_record/get_label.c
-int							ft_dns_getlabel_ptr(
+
+int						ft_dns_getlabel_ptr(
 		unsigned char *data,
 		t_uint32 offset,
 		char **name,
 		t_uint32 max_len
 	);
-int							ft_dns_getlabel_a(
+int						ft_dns_getlabel_a(
 		unsigned char *data,
 		t_uint32 offset,
 		char **name
 	);
 
 // network/packet/dns/get_record/get_question.c
-void						get_dns_question_name(t_dnsr_struct *dnsr);
-void						print_dns_question_name(t_dnsr_name *name);
-t_bool						get_dns_qdrecord(t_dnsr_struct *dnsr, t_uint16 count);
+
+void					get_dns_question_name(t_dnsr_struct *dnsr);
+void					print_dns_question_name(t_dnsr_name *name);
+t_bool					get_dns_qdrecord(t_dnsr_struct *dnsr, t_uint16 count);
 
 // network/packet/dns/get_record/main.c
-void						append_name(t_dnsr_name *name, t_dnsr_struct **dnsr);
-t_uint16					get_dns_offset(t_dnsr_struct *dnsr);
-char						*get_name_by_offset(t_dnsr_struct *dnsr);
-t_uint16					get_dnsr_type(t_dnsr_struct *dnsr);
-t_uint16					get_dnsr_class(t_dnsr_struct *dnsr);
-t_uint16					get_dnsr_ttl(t_dnsr_struct *dnsr);
-t_uint16					get_dnsr_rlength(t_dnsr_struct *dnsr);
-t_dnsr_name					*get_last_name(t_dnsr_struct *dnsr);
-void						ft_free_dnsr(t_dnsr_struct *dnsr);
-char						**ft_dns_get_record_ptr(t_packet *pkt);
-t_int4						ft_dns_get_record_a(t_packet *pkt);
+
+void					append_name(t_dnsr_name *name, t_dnsr_struct **dnsr);
+t_uint16				get_dns_offset(t_dnsr_struct *dnsr);
+char					*get_name_by_offset(t_dnsr_struct *dnsr);
+t_uint16				get_dnsr_type(t_dnsr_struct *dnsr);
+t_uint16				get_dnsr_class(t_dnsr_struct *dnsr);
+t_uint16				get_dnsr_ttl(t_dnsr_struct *dnsr);
+t_uint16				get_dnsr_rlength(t_dnsr_struct *dnsr);
+t_dnsr_name				*get_last_name(t_dnsr_struct *dnsr);
+void					ft_free_dnsr(t_dnsr_struct *dnsr);
+char					**ft_dns_get_record_ptr(t_packet *pkt);
+t_int4					ft_dns_get_record_a(t_packet *pkt);
 
 // network/packet/dns/ip_to_domain.c
-char						*ft_dns_ip_to_domain(t_int4 ip);
+
+char					*ft_dns_ip_to_domain(t_int4 ip);
 
 // network/packet/ft_packet_get.c
-t_packet					ft_pkt_get(void);
+
+t_packet				ft_pkt_get(void);
 
 // network/packet/icmp/checksum.c
-void						ft_pkt_icmp_checksum(
+
+void					ft_pkt_icmp_checksum(
 		t_icmphdr_echo *packet,
 		t_size size
 	);
 
 // network/packet/icmp/get.c
-t_icmphdr_echo				*ft_pkt_get_icmp_echo(t_packet *packet);
-t_icmphdr_time_exceed		*ft_pkt_get_icmp_time_exceed(t_packet *packet);
+
+t_icmphdr_echo			*ft_pkt_get_icmp_echo(t_packet *packet);
+t_icmphdr_time_exceed	*ft_pkt_get_icmp_time_exceed(t_packet *packet);
 
 // network/packet/icmp/print.c
-void						ft_pkt_print_icmp(int fd, t_icmphdr_echo *pkt);
+
+void					ft_pkt_print_icmp(int fd, t_icmphdr_echo *pkt);
 
 // network/packet/icmp/set_seq.c
-void						ft_pkt_icmp_set_seq(
+
+void					ft_pkt_icmp_set_seq(
 		t_icmphdr_echo *packet,
 		t_int32 seq
 	);
 
 // network/packet/ip/default.c
-void						ft_pkt_fill_ip_default(t_iphdr *packet);
+
+void					ft_pkt_fill_ip_default(t_iphdr *packet);
 
 // network/packet/ip/fragment_offset.c
-t_uint16					ft_pkt_fragment_offset(t_uint8 flags,
+
+t_uint16				ft_pkt_fragment_offset(t_uint8 flags,
 	t_uint16 get_fragment_off);
 
 // network/packet/ip/get.c
-t_iphdr						*ft_pkt_get_ip(t_packet *packet);
+
+t_iphdr					*ft_pkt_get_ip(t_packet *packet);
 
 // network/packet/ip/print.c
-void						ft_pkt_print_ip(int fd, t_iphdr *pkt);
-void						ft_pkt_print_ip(int fd, t_iphdr *pkt);
+
+void					ft_pkt_print_ip(int fd, t_iphdr *pkt);
+void					ft_pkt_print_ip(int fd, t_iphdr *pkt);
 
 // network/packet/print_raw.c
-void						ft_pkt_print_raw(int fd, char *pkt, t_size size);
+
+void					ft_pkt_print_raw(int fd, char *pkt, t_size size);
 
 // network/packet/udp/get.c
-t_udphdr					*ft_pkt_get_udp(t_packet *packet);
+
+t_udphdr				*ft_pkt_get_udp(t_packet *packet);
 
 // network/packet/udp/print.c
-void						ft_pkt_print_udp(int fd, t_udphdr *pkt);
+
+void					ft_pkt_print_udp(int fd, t_udphdr *pkt);
 
 /* ########################################################################## */
 
