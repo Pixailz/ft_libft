@@ -6,18 +6,18 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:43:03 by pix               #+#    #+#             */
-/*   Updated: 2022/10/14 05:08:31 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/18 16:25:54 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_check.h"
 
 /**
- * @brief			Checks if c fit in the ascii table.
+ * @brief Checks if c fit in the ascii table.
  *
- * @param c			Character value to check
+ * @param c Character value to check
  *
- * @return (t_bool)	TRUE if character is in the ascii table and FALSE if not
+ * @return t_bool TRUE if character is in the ascii table and FALSE if not
  */
 t_bool	ft_isascii(const char c)
 {

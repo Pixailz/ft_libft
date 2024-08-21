@@ -6,18 +6,18 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:47:57 by pix               #+#    #+#             */
-/*   Updated: 2022/10/14 05:27:02 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/18 16:28:22 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_check.h"
 
 /**
- * @brief			Checks if c is any printable character including space.
+ * @brief Checks if c is any printable character including space.
  *
- * @param c			Character value to check
+ * @param c Character value to check
  *
- * @return (t_bool)	TRUE if character is printable and FALSE if not
+ * @return t_bool TRUE if character is printable and FALSE if not
  */
 t_bool	ft_isprint(const char c)
 {

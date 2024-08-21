@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:26:34 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/26 01:21:08 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:56:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_uint32	ft_htonl(t_uint32 h)
 {
 	t_uint32	n;
 
+	if (ft_get_endianness())
+		return (h);
 	n = (h & 0xff000000) >> 24;
 	n |= (h & 0x00ff0000) >> 8;
 	n |= (h & 0x0000ff00) << 8;

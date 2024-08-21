@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/04/29 06:00:10 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:17:03 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@
 /* STRUCT */
 /* ###### */
 
-typedef struct _ht_item
+typedef struct s_ht_item
 {
-	void			*value;
-	char			*key;
-	t_bool			is_deleted;
-	struct _ht_item	*next;
-}	ht_item;
+	void				*value;
+	char				*key;
+	t_bool				is_deleted;
+	struct s_ht_item	*next;
+}	t_ht_item;
 
-typedef struct _ht
+typedef struct s_ht
 {
-	ht_item	**item;
-}	ht;
+	t_ht_item	**item;
+}	t_ht;
 
 /* ########################################################################## */
 
@@ -54,11 +54,11 @@ typedef struct _ht
 
 // hashtable/ft_ht_free.c
 
-void		ft_ht_free(ht *table);
+void		ft_ht_free(t_ht *table);
 
 // hashtable/ft_ht_get.c
 
-void		*ft_ht_get(ht *table, char *key);
+void		*ft_ht_get(t_ht *table, char *key);
 
 // hashtable/ft_ht_hash_key.c
 
@@ -66,20 +66,20 @@ t_uint32	ft_ht_hash_key(const char *k);
 
 // hashtable/ft_ht_item.c
 
-ht_item		*ft_ht_new_item(char *key, void *value);
-ht_item		*ft_ht_add_item(ht_item **item, char *key, void *value);
+t_ht_item	*ft_ht_new_item(char *key, void *value);
+t_ht_item	*ft_ht_add_item(t_ht_item **item, char *key, void *value);
 
 // hashtable/ft_ht_len.c
 
-t_size		ft_ht_len(ht table);
+t_size		ft_ht_len(t_ht table);
 
 // hashtable/ft_ht_new.c
 
-ht			*ft_ht_new();
+t_ht		*ft_ht_new();
 
 // hashtable/ft_ht_set.c
 
-t_bool		ft_ht_set(ht *table, char *key, void *value);
+t_bool		ft_ht_set(t_ht *table, char *key, void *value);
 
 /* ########################################################################## */
 

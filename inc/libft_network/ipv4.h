@@ -106,6 +106,10 @@ typedef struct s_ip
 /* FILES */
 /* ##### */
 
+// network/ipv4/ft_get_endianness.c
+
+t_bool			ft_get_endianness(void);
+
 // network/ipv4/ft_getip_str.c
 
 char			*ft_getip_str(t_int4 n);

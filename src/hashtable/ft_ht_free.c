@@ -6,16 +6,16 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 06:00:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/04/29 06:10:40 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/14 22:56:16 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_hashtable.h"
 
-void	ft_ht_free(ht *table)
+void	ft_ht_free(t_ht *table)
 {
-	ht_item		*ptr;
-	ht_item		*tmp;
+	t_ht_item		*ptr;
+	t_ht_item		*tmp;
 
 	for (unsigned long int i = 0; i < HT_SIZE; i++)
 	{

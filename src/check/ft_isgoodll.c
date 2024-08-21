@@ -6,20 +6,19 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 01:08:36 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/17 08:52:26 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/18 16:27:34 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_check.h"
 
 /**
- * @brief			Checks if n is a good number according to climits.h
+ * @brief Checks if n is a good number according to climits.h
  *
- * @param n			number to check
- * @param neg		is negative
+ * @param n number to check
+ * @param neg is negative
  *
- * @return (int)	zero if n is a good number and, 1 if overflow,
- * 					2 if underflow
+ * @return int zero if n is a good number and, 1 if overflow, 2 if underflow
  */
 int	ft_isgoodll(t_int64 n, int neg)
 {

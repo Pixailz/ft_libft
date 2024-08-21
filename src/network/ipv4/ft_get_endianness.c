@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_get_endianness.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 18:31:21 by pix               #+#    #+#             */
-/*   Updated: 2024/08/18 16:26:25 by brda-sil         ###   ########.fr       */
+/*   Created: 2024/08/21 13:53:42 by brda-sil          #+#    #+#             */
+/*   Updated: 2024/08/21 13:57:23 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_check.h"
+#include "libft_network.h"
 
 /**
- * @brief checks if c is a digit (0 through 9).
+ * @brief Get the endianness of the system
  *
- * @param c character value to check
- *
- * @return t_bool TRUE if character is a digit and FALSE if not
+ * @return t_bool TRUE if the system is big endian, FALSE if the system is little endian
  */
-t_bool	ft_isdigit(const char c)
+t_bool	ft_get_endianness(void)
 {
-	return (c >= '0' && c <= '9');
+	int	a;
+
+	a = 1;
+	return (((char *)&a)[0] != 1);
 }

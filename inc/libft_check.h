@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/02/24 00:50:28 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:16:28 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_bool	ft_isdigit(const char c);
 
 // check/ft_isgoodi.c
 
-t_bool	ft_isgoodi(int n, int neg);
+int		ft_isgoodi(int n, int neg);
 
 // check/ft_isgoodll.c
 

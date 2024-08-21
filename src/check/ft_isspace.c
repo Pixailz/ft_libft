@@ -6,21 +6,24 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 23:48:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/10/14 05:15:51 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/18 16:30:33 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_check.h"
 
 /**
- * @brief			Checks if c is a white-space characters. these are:
- * 					space, form-feed ('\f'), newline ('\n'),
- * 					carriage return ('\r'), horizontal-tab ('\t') or vertical
- * 					tab ('\v')
+ * @brief Checks if c is a white-space characters. these are:
+ * - space
+ * - form-feed ('\f')
+ * - newline ('\\n')
+ * - carriage return ('\r')
+ * - horizontal-tab ('\t')
+ * - vertical tab ('\v')
  *
- * @param c			Character value to check
+ * @param c Character value to check
  *
- * @return (t_bool)	TRUE if character is a space character and FALSE if not
+ * @return t_bool TRUE if character is a space character and FALSE if not
  */
 t_bool	ft_isspace(const char c)
 {

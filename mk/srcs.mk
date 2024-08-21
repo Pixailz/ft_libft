@@ -176,7 +176,8 @@ SRC_LNX := linux/ft_getgid.c \
 ### NETWORK
 
 #### IPV4
-SRC_NET_IPV4 := network/ipv4/ft_getip_str.c \
+SRC_NET_IPV4 := network/ipv4/ft_get_endianness.c \
+				network/ipv4/ft_getip_str.c \
 				network/ipv4/ft_htoi4.c \
 				network/ipv4/ft_htonl.c \
 				network/ipv4/ft_htons.c \
