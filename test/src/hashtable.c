@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:56:30 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/05 15:22:29 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/08/23 13:54:07 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ t_bool	test_collision(void)
 	return (FALSE);
 }
 
-void ft_ht_enumerate(ht table)
+void ft_ht_enumerate(t_ht table)
 {
-	ht_item	*ptr;
+	t_ht_item	*ptr;
 
 	for (unsigned long int i = 0; i < HT_SIZE; i++)
 	{
@@ -94,9 +94,9 @@ void ft_ht_enumerate(ht table)
 	}
 }
 
-ht	*test_table(void)
+t_ht	*test_table(void)
 {
-	ht		*table = ft_ht_new();
+	t_ht		*table = ft_ht_new();
 	char	buff[10];
 	int		i;
 
@@ -117,7 +117,7 @@ ht	*test_table(void)
 int	ci_test(void)
 {
 	test_collision();
-	ht	*test = test_table();
+	t_ht	*test = test_table();
 
 	ft_ht_enumerate(*test);
 	printf("%s\n", (char *)ft_ht_get(test, "test_1"));
