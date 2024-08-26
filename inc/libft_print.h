@@ -247,6 +247,10 @@ size_t	ft_putunbr_fd(unsigned long n, int fd);
 
 char	*RAINBOW_C(int i);
 
+// print/ft_sprintf.c
+
+t_size	ft_sprintf(char *buff, const char *format, ...);
+
 // print/ft_vdprintf.c
 
 t_size	ft_vdprintf(int fd, const char *format, va_list args);
@@ -254,6 +258,10 @@ t_size	ft_vdprintf(int fd, const char *format, va_list args);
 // print/ft_vprintf.c
 
 t_size	ft_vprintf(const char *format, va_list args);
+
+// print/ft_vsprintf.c
+
+t_size	ft_vsprintf(char *buff, const char *format, va_list args);
 
 /* ########################################################################## */
 

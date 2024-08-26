@@ -154,8 +154,10 @@ SRC_PRT := print/ft_dprintf.c \
 		   print/ft_putstr_fd.c \
 		   print/ft_putunbr_fd.c \
 		   print/ft_rainbow_c.c \
+		   print/ft_sprintf.c \
 		   print/ft_vdprintf.c \
-		   print/ft_vprintf.c
+		   print/ft_vprintf.c \
+		   print/ft_vsprintf.c
 
 ### INPUT
 SRC_INP := input/ft_get_next_line.c
