@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 03:09:08 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/15 13:12:36 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/09/07 13:42:23 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -326,6 +326,7 @@ int	ci_flags_padding(void)
 
 	retv = 0;
 
+	retv |= test_printf_integer("%#x", 0x30a0);
 	retv |= test_printf_integer("%6x", 0x10);
 	retv |= test_printf_integer("%#6x", 0x10);
 	retv |= test_printf_integer("%06x", 0x10);
@@ -342,6 +343,7 @@ int	ci_flags_padding(void)
 	retv |= test_printf_integer("%-#6x", -0x10);
 	retv |= test_printf_integer("%-06x", -0x10);
 	retv |= test_printf_integer("%-#06x", -0x10);
+	retv |= test_printf_integer("%#x", 4192);
 
 	retv |= test_printf_integer("%6d", 0x10);
 	retv |= test_printf_integer("%06d", 0x10);

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:46:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/01/23 01:03:02 by brda-sil         ###   ########.fr       */
+/*   Updated: 2024/09/06 14:05:53 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
 	conf.i_buff = i_buff;
 	ft_printf_fmt_get_type(&conf, args);
 	buff = ft_printf_buff_get();
-	if (conf.width)
+	if (conf.width || conf.flags & FT_PRINTF_FLAG_HASH)
 		ft_printf_type_padding(&conf);
 	else
 	{
