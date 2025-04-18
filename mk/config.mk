@@ -173,6 +173,12 @@ MULTIPLE		:= 1
 # dependecies
 PRINT			:= 1
 endif
+ifeq ($(findstring sort,$(MAKECMDGOALS)),sort)
+SORT			:= 1
+MULTIPLE		:= 1
+# dependecies
+RANDOM			:= 1
+endif
 ifeq ($(MULTIPLE), 0)
 ALL				:= 1
 endif

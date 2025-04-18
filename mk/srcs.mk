@@ -250,6 +250,10 @@ SRC_HASHTABLE := hashtable/ft_ht_free.c \
 				 hashtable/ft_ht_new.c \
 				 hashtable/ft_ht_set.c
 
+### SORT
+SRC_SORT := sort/ft_qsort.c \
+			sort/ft_sort_swap.c
+
 ## if all, add all base to SRC_C
 ifeq ($(ALL),1)
 SRC_C				+= $(SRC_INT)
@@ -266,6 +270,7 @@ SRC_C				+= $(SRC_LNX)
 SRC_C				+= $(SRC_NET)
 SRC_C				+= $(SRC_UNI_TEST)
 SRC_C				+= $(SRC_HASHTABLE)
+SRC_C				+= $(SRC_SORT)
 
 ## add base part to SRC_C
 else
@@ -319,6 +324,9 @@ SRC_C			+= $(SRC_UNI_TEST)
 endif
 ifeq ($(HASHTABLE),1)
 SRC_C			+= $(SRC_HASHTABLE)
+endif
+ifeq ($(SORT),1)
+SRC_C			+= $(SRC_SORT)
 endif
 endif
 

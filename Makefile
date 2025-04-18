@@ -43,6 +43,8 @@ net_pack:		all
 
 unit_test:		all
 
+sort:			all
+
 $(TARGET):	$(OBJ_C)
 > $(call P_INF,Creating $(R)$(TARGET)$(RST))
 > $(PRINTF) "\n\n"

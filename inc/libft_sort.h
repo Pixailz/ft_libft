@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_unit_test.h                                  :+:      :+:    :+:   */
+/*   libft_sort.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2025/04/18 12:05:42 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/18 12:17:59 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_UNIT_TEST_H
-# define LIBFT_UNIT_TEST_H
+#ifndef LIBFT_SORT_H
+# define LIBFT_SORT_H
 
 /* ########################################################################## */
 /* REQUIREMENTS */
 /* ############ */
 
-# include "libft_print.h"
+# include "libft_random.h"
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* TYPEDEF */
+/* ####### */
+
+typedef int	(t_sort_comp)(const void *a, const void *b);
 
 /* ########################################################################## */
 
@@ -25,10 +33,14 @@
 /* FILES */
 /* ##### */
 
-// unit_test/ft_assert.c
+// sort/ft_qsort.c
 
-void	ft_assert(void);
+void	ft_qsort(void *arr, t_size count, t_size size, t_sort_comp comp);
+
+// sort/ft_sort_swap.c
+
+void	ft_sort_swap(void *arr, t_size ia, t_size ib, t_size size);
 
 /* ########################################################################## */
 
-#endif /* LIBFT_UNIT_TEST */
+#endif /* LIBFT_SORT_H */

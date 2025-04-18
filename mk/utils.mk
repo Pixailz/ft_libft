@@ -121,6 +121,9 @@ as expected
 			$(bold)ft_optadd$(font_color), $(bold)ft_optparse$(font_color), \
 $(bold)ft_optget
 
+		sort$(font_color)\t\tfunction to sort all sort of thing
+			$(bold)ft_qsort$(font_color)
+
 $(font_color)Version: $(bold)$(VERSION)$(RST)
 
 endef

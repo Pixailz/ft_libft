@@ -85,6 +85,7 @@ jobs:
           "random.c",
           "tmpfile.c",
           "hashtable.c",
+          "qsort.c"
         ]
     runs-on: ubuntu-latest
     steps:
