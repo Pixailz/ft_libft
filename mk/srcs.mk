@@ -104,8 +104,10 @@ SRC_CHK := check/ft_is_str.c \
 		   check/ft_isgoodi.c \
 		   check/ft_isgoodll.c \
 		   check/ft_isgoodu.c \
+		   check/ft_islower.c \
 		   check/ft_isprint.c \
-		   check/ft_isspace.c
+		   check/ft_isspace.c \
+		   check/ft_isupper.c
 
 ### LIST
 SRC_LST := list/ft_lstadd_back.c \

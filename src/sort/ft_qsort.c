@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 10:39:14 by brda-sil          #+#    #+#             */
-/*   Updated: 2025/04/18 12:16:34 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/20 22:34:55 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_qsort_partition(
 	int i;
 	int j;
 
-	pivot_index = ft_randint(low, high);
+	pivot_index = low + (high - low) / 2;
 	if (pivot_index != high)
 		ft_sort_swap(arr, pivot_index, high, size);
 	pivot_index = high * size;
@@ -32,7 +32,7 @@ static int	ft_qsort_partition(
 	j = low;
 	while (j < high)
 	{
-		if (comp(arr + (j * size), arr + pivot_index) <= 0)
+		if (comp(arr + (j * size), arr + (high * size)) < 0)
 		{
 			ft_sort_swap(arr, i, j, size);
 			i++;

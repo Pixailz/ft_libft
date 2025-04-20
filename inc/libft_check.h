@@ -64,6 +64,10 @@ int		ft_isgoodll(t_int64 n, int neg);
 
 t_bool	ft_isgoodu(t_uint32 n, int is_last);
 
+// check/ft_islower.c
+
+t_bool	ft_islower(char c);
+
 // check/ft_isprint.c
 
 t_bool	ft_isprint(const char c);
@@ -71,6 +75,10 @@ t_bool	ft_isprint(const char c);
 // check/ft_isspace.c
 
 t_bool	ft_isspace(const char c);
+
+// check/ft_isupper.c
+
+t_bool	ft_isupper(char c);
 
 /* ########################################################################## */
 
