@@ -22,6 +22,11 @@
    - t_udphdr
 1. Domain Names ([RFC1035](https://datatracker.ietf.org/doc/html/rfc1035))
    - t_dnshdr
+1. ELF binary format (https://refspecs.linuxfoundation.org/elf/gabi4+/ch4.eheader.html)
+   - t_elfbin
+   - t_e_hdr
+   - t_h_hdr
+   - t_sym
 
 ## Usage
 
@@ -50,3 +55,6 @@ make <part1|part2 ... partN>
 	- network
     	- ipv4
     	- packet
+  	- sort
+  	- binary
+    	- elf
