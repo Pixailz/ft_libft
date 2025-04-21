@@ -45,6 +45,8 @@ unit_test:		all
 
 sort:			all
 
+bin_elf:		all
+
 $(TARGET):	$(OBJ_C)
 > $(call P_INF,Creating $(R)$(TARGET)$(RST))
 > $(PRINTF) "\n\n"

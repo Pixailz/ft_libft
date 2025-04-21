@@ -179,6 +179,13 @@ MULTIPLE		:= 1
 # dependecies
 RANDOM			:= 1
 endif
+ifeq ($(findstring bin_elf,$(MAKECMDGOALS)),bin_elf)
+BIN_ELF			:= 1
+MULTIPLE		:= 1
+# dependecies
+PRINT			:= 1
+NET_IPV4		:= 1
+endif
 ifeq ($(MULTIPLE), 0)
 ALL				:= 1
 endif

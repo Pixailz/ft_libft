@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:16:35 by brda-sil          #+#    #+#             */
-/*   Updated: 2025/04/18 12:39:59 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/21 13:53:50 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # include "libft_network.h"
 # include "libft_unit_test.h"
 # include "libft_hashtable.h"
+# include "libft_binary/elf.h"
 # include "libft_sort.h"
 
 /* ########################################################################## */

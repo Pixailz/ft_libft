@@ -256,6 +256,58 @@ SRC_HASHTABLE := hashtable/ft_ht_free.c \
 SRC_SORT := sort/ft_qsort.c \
 			sort/ft_sort_swap.c
 
+### BINARY
+SRC_BIN_ELF := binary/elf/e_hdr/attr/entry.c \
+			   binary/elf/e_hdr/attr/flags.c \
+			   binary/elf/e_hdr/attr/header_size.c \
+			   binary/elf/e_hdr/attr/machine.c \
+			   binary/elf/e_hdr/attr/phoff.c \
+			   binary/elf/e_hdr/attr/prog_header_num.c \
+			   binary/elf/e_hdr/attr/prog_header_size.c \
+			   binary/elf/e_hdr/attr/sect_header_num.c \
+			   binary/elf/e_hdr/attr/sect_header_size.c \
+			   binary/elf/e_hdr/attr/sect_header_txt_index.c \
+			   binary/elf/e_hdr/attr/shoff.c \
+			   binary/elf/e_hdr/attr/type.c \
+			   binary/elf/e_hdr/attr/version.c \
+			   binary/elf/e_hdr/cast.c \
+			   binary/elf/e_hdr/check.c \
+			   binary/elf/e_hdr/read.c \
+			   binary/elf/e_ident/check_padding.c \
+			   binary/elf/e_ident/read.c \
+			   binary/elf/e_ident/read_abi.c \
+			   binary/elf/e_ident/read_abi_version.c \
+			   binary/elf/e_ident/read_class.c \
+			   binary/elf/e_ident/read_endianess.c \
+			   binary/elf/e_ident/read_mag.c \
+			   binary/elf/e_ident/read_version.c \
+			   binary/elf/error.c \
+			   binary/elf/open.c \
+			   binary/elf/s_hdr/attr/addr.c \
+			   binary/elf/s_hdr/attr/align.c \
+			   binary/elf/s_hdr/attr/entsize.c \
+			   binary/elf/s_hdr/attr/flags.c \
+			   binary/elf/s_hdr/attr/info.c \
+			   binary/elf/s_hdr/attr/link.c \
+			   binary/elf/s_hdr/attr/name.c \
+			   binary/elf/s_hdr/attr/offset.c \
+			   binary/elf/s_hdr/attr/size.c \
+			   binary/elf/s_hdr/attr/type.c \
+			   binary/elf/s_hdr/cast.c \
+			   binary/elf/s_hdr/check.c \
+			   binary/elf/s_hdr/get_section.c \
+			   binary/elf/s_hdr/reads.c \
+			   binary/elf/sym/attr/info.c \
+			   binary/elf/sym/attr/name.c \
+			   binary/elf/sym/attr/other.c \
+			   binary/elf/sym/attr/shndx.c \
+			   binary/elf/sym/attr/size.c \
+			   binary/elf/sym/attr/value.c \
+			   binary/elf/sym/cast.c \
+			   binary/elf/sym/check.c \
+			   binary/elf/sym/read.c \
+			   binary/elf/sym/type.c
+
 ## if all, add all base to SRC_C
 ifeq ($(ALL),1)
 SRC_C				+= $(SRC_INT)
@@ -273,6 +325,7 @@ SRC_C				+= $(SRC_NET)
 SRC_C				+= $(SRC_UNI_TEST)
 SRC_C				+= $(SRC_HASHTABLE)
 SRC_C				+= $(SRC_SORT)
+SRC_C				+= $(SRC_BIN_ELF)
 
 ## add base part to SRC_C
 else
@@ -329,6 +382,9 @@ SRC_C			+= $(SRC_HASHTABLE)
 endif
 ifeq ($(SORT),1)
 SRC_C			+= $(SRC_SORT)
+endif
+ifeq ($(BIN_ELF),1)
+SRC_C			+= $(SRC_BIN_ELF)
 endif
 endif
 

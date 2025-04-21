@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:13:22 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/05/26 02:08:05 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:16:27 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,16 @@ typedef enum e_bit
 	BIT_3F = 1ULL << 62,
 	BIT_40 = 1ULL << 63,
 }	t_bit;
+
+typedef struct	s_id_str
+{
+	t_int32		id;
+	char		*str;
+}	t_id_str;
+
+# define CHECK_RET(var, func, ...) \
+	if ((var = func(__VA_ARGS__))) \
+		return (var);
 
 // A PACKET
 typedef struct __attribute__((__packed__)) s_packet
