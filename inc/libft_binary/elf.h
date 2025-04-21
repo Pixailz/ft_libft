@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:48:48 by brda-sil          #+#    #+#             */
-/*   Updated: 2025/04/21 14:48:37 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:14:06 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include "libft_define.h"
 # include "libft_print.h"
+# include "libft_error.h"
 # include "libft_network/ipv4.h"
 
 # include <elf.h>
@@ -54,9 +55,8 @@
 
 typedef enum	e_elf_error
 {
-	SUCCESS,
 	/** Init target */
-	ERR_TARGET_OPEN,
+	ERR_TARGET_OPEN = 1,
 	ERR_TARGET_MAP,
 	ERR_TARGET_STAT,
 	ERR_TARGET_SIZE,
