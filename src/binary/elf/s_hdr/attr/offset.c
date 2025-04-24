@@ -6,34 +6,33 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:51:16 by brda-sil          #+#    #+#             */
-/*   Updated: 2025/04/21 14:26:28 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/24 23:14:10 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_binary/elf.h"
 
-extern t_uint8	NM_CLASS;
-
-t_sh_offset	ft_get_s_hdr_offset(t_elf_shdr *s_hdr)
+t_sh_offset	ft_s_hdr_get_offset_32(t_s_hdr_view *s_hdr)
 {
-	t_sh_offset	offset;
-
-	if (ft_is_good_s_hdr(s_hdr))
-		return (0);
-	if (NM_CLASS == ELFCLASS64)
-		offset = s_hdr->_64->sh_offset;
-	else if (NM_CLASS == ELFCLASS32)
-		offset = (t_sh_offset)s_hdr->_32->sh_offset;
-	return (offset);
+	return (t_sh_offset)s_hdr->raw._32->sh_offset;
 }
 
-t_elf_error	ft_check_s_hdr_offset(t_elf_shdr *s_hdr)
+t_sh_offset	ft_s_hdr_get_offset_64(t_s_hdr_view *s_hdr)
 {
-	t_sh_offset	offset;
-	char		*fmt;
+	return (t_sh_offset)s_hdr->raw._64->sh_offset;
+}
 
-	offset = ft_get_s_hdr_offset(s_hdr);
-	fmt = ELF_STR_SHDR_OFFSET SEP ELF_FMT_NB "\n";
-	ft_pdeb(fmt, offset);
-	return (SUCCESS);
+void	ft_s_hdr_set_offset_32(t_s_hdr_view *s_hdr, t_sh_offset value)
+{
+	s_hdr->raw._32->sh_offset = value;
+}
+
+void	ft_s_hdr_set_offset_64(t_s_hdr_view *s_hdr, t_sh_offset value)
+{
+	s_hdr->raw._64->sh_offset = value;
+}
+
+void	ft_check_s_hdr_offset(t_sh_offset value)
+{
+	ft_pdeb(ELF_STR_SHDR_OFFSET SEP ELF_FMT_NB "\n", value);
 }

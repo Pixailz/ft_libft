@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 16:05:41 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/03 18:37:03 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/25 00:39:23 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_size	ft_printf(const char *format, ...)
 	char	*ptr_buffer;
 	t_size	to_print;
 
-	ft_printf_buff_reset();
+	// ft_printf_buff_reset();
 	va_start(args, format);
 	to_print = ft_printf_parse(args, format);
 	va_end(args);

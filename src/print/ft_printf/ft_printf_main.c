@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:46:32 by brda-sil          #+#    #+#             */
-/*   Updated: 2024/09/06 14:05:53 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/25 00:43:30 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_printf_fmt_setup(t_fmt_conf *conf, int *i_fmt, \
 void	ft_printf_fmt_parse(int *i_fmt, int *i_buff, \
 											const char *format, va_list args)
 {
-	t_fmt_conf	conf;
+	t_fmt_conf	conf = {0};
 	char		*buff;
 	t_size		str_len;
 
@@ -60,7 +60,7 @@ t_size	ft_printf_parse(va_list args, const char *format)
 
 	i_fmt = 0;
 	i_buff = 0;
-	ft_printf_buff_reset();
+	// ft_printf_buff_reset();
 	ptr_buffer = ft_printf_buff_get();
 	while (format[i_fmt] && i_buff < FT_PRINTF_BUFF_BIG)
 	{

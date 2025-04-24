@@ -6,34 +6,33 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:51:16 by brda-sil          #+#    #+#             */
-/*   Updated: 2025/04/21 14:33:02 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/24 23:14:22 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_binary/elf.h"
 
-extern t_uint8	NM_CLASS;
-
-t_sym_other	ft_get_sym_other(t_elf_sym *sym)
+t_sym_other	ft_sym_get_other_32(t_sym_view *sym)
 {
-	t_sym_other	other;
-
-	if (is_good_sym(sym))
-		return (0);
-	if (NM_CLASS == ELFCLASS64)
-		other = sym->_64->st_other;
-	else if (NM_CLASS == ELFCLASS32)
-		other = sym->_32->st_other;
-	return (other);
+	return (t_sym_other)sym->raw._32->st_other;
 }
 
-t_elf_error	ft_check_sym_other(t_elf_sym *sym)
+t_sym_other	ft_sym_get_other_64(t_sym_view *sym)
 {
-	t_sym_other	other;
-	char		*fmt;
+	return (t_sym_other)sym->raw._64->st_other;
+}
 
-	other = ft_get_sym_other(sym);
-	fmt = ELF_STR_SYM_OTHER SEP ELF_FMT_NB "\n";
-	ft_pdeb(fmt, other);
-	return (SUCCESS);
+void	ft_sym_set_other_32(t_sym_view *sym, t_sym_other value)
+{
+	sym->raw._32->st_other = value;
+}
+
+void	ft_sym_set_other_64(t_sym_view *sym, t_sym_other value)
+{
+	sym->raw._64->st_other = value;
+}
+
+void	ft_check_sym_other(t_sym_other value)
+{
+	ft_pdeb(ELF_STR_SYM_OTHER SEP ELF_FMT_NB "\n", value);
 }

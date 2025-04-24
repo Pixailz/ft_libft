@@ -6,28 +6,13 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:51:16 by brda-sil          #+#    #+#             */
-/*   Updated: 2025/04/21 14:14:43 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/24 23:12:54 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_binary/elf.h"
 
 # define ELF_EHDR_NB_MACHINE	247
-
-extern t_uint8	NM_CLASS;
-
-t_eh_machine	ft_get_e_hdr_machine(t_elf_ehdr *e_hdr)
-{
-	t_eh_machine	machine;
-
-	if (ft_is_good_e_hdr(e_hdr))
-		return (0);
-	if (NM_CLASS == ELFCLASS64)
-		machine = e_hdr->_64->e_machine;
-	else if (NM_CLASS == ELFCLASS32)
-		machine = e_hdr->_32->e_machine;
-	return (machine);
-}
 
 t_id_str EHDR_MACHINE[ELF_EHDR_NB_MACHINE] = {
 	{EM_NONE,			"No machine"},
@@ -279,16 +264,34 @@ t_id_str EHDR_MACHINE[ELF_EHDR_NB_MACHINE] = {
     {EM_LOONGARCH,		"LoongArch"}
 };
 
-t_elf_error	ft_check_e_hdr_machine(t_elf_ehdr *e_hdr)
+t_eh_machine	ft_e_hdr_get_machine_32(t_e_hdr_view *e_hdr)
+{
+	return (t_eh_machine)e_hdr->raw._32->e_machine;
+}
+
+t_eh_machine	ft_e_hdr_get_machine_64(t_e_hdr_view *e_hdr)
+{
+	return (t_eh_machine)e_hdr->raw._64->e_machine;
+}
+
+void	ft_e_hdr_set_machine_32(t_e_hdr_view *e_hdr, t_eh_machine value)
+{
+	e_hdr->raw._32->e_machine = value;
+}
+
+void	ft_e_hdr_set_machine_64(t_e_hdr_view *e_hdr, t_eh_machine value)
+{
+	e_hdr->raw._64->e_machine = value;
+}
+
+t_elf_error	ft_check_e_hdr_machine(t_eh_machine value)
 {
 	int				counter;
-	t_eh_machine	machine;
 
 	counter = 0;
-	machine = ft_get_e_hdr_machine(e_hdr);
 	while(counter < ELF_EHDR_NB_MACHINE)
 	{
-		if (machine == EHDR_MACHINE[counter].id)
+		if (value == EHDR_MACHINE[counter].id)
 		{
 			ft_pdeb(ELF_STR_EHDR_MACHINE SEP "%s\n", EHDR_MACHINE[counter].str);
 			return (SUCCESS);

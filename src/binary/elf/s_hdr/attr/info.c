@@ -12,28 +12,27 @@
 
 #include "libft_binary/elf.h"
 
-extern t_uint8	NM_CLASS;
-
-t_sh_info	ft_get_s_hdr_info(t_elf_shdr *s_hdr)
+t_sh_info	ft_s_hdr_get_info_32(t_s_hdr_view *s_hdr)
 {
-	t_sh_info	info;
-
-	if (ft_is_good_s_hdr(s_hdr))
-		return (0);
-	if (NM_CLASS == ELFCLASS64)
-		info = s_hdr->_64->sh_info;
-	else if (NM_CLASS == ELFCLASS32)
-		info = (t_sh_info)s_hdr->_32->sh_info;
-	return (info);
+	return (t_sh_info)s_hdr->raw._32->sh_info;
 }
 
-t_elf_error	ft_check_s_hdr_info(t_elf_shdr *s_hdr)
+t_sh_info	ft_s_hdr_get_info_64(t_s_hdr_view *s_hdr)
 {
-	t_sh_info	info;
-	char		*fmt;
+	return (t_sh_info)s_hdr->raw._64->sh_info;
+}
 
-	info = ft_get_s_hdr_info(s_hdr);
-	fmt = ELF_STR_SHDR_INFO SEP ELF_FMT_NB "\n";
-	ft_pdeb(fmt, info);
-	return (SUCCESS);
+void	ft_s_hdr_set_info_32(t_s_hdr_view *s_hdr, t_sh_info value)
+{
+	s_hdr->raw._32->sh_info = value;
+}
+
+void	ft_s_hdr_set_info_64(t_s_hdr_view *s_hdr, t_sh_info value)
+{
+	s_hdr->raw._64->sh_info = value;
+}
+
+void	ft_check_s_hdr_info(t_sh_info value)
+{
+	ft_pdeb(ELF_STR_SHDR_INFO SEP ELF_FMT_NB "\n", value);
 }

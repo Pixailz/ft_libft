@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:49:27 by brda-sil          #+#    #+#             */
-/*   Updated: 2023/12/01 11:15:41 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/25 00:42:34 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ft_printf_fmt_get_type(t_fmt_conf *conf, va_list args)
 	ptr = ft_strchr(FT_PRINTF_FMT_TYPE, type);
 	if (!ptr)
 		return ;
-	ft_bzero(conf->cur_type, FT_PRINTF_BUFF_SMALL);
 	func_lvl = ptr - FT_PRINTF_FMT_TYPE;
 	g_printf_type_func[func_lvl](conf, args);
 	conf->fmt_type = func_lvl;

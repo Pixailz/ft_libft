@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 21:14:17 by brda-sil          #+#    #+#             */
-/*   Updated: 2025/04/21 13:57:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/24 20:14:11 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define	ELF_STR_PAD						"   "
 # define	ELF_STR_LIST					"- "
 # define	ELF_STR_NLIST_SEP				". "
-# define	ELF_FMT_NB						"%-8d (%#x)"
+# define	ELF_FMT_NB						"%-10d (%#x)"
 
 
 # define	ELF_STR_EHDR_IDENT				ELF_STR_PAD ELF_STR_LIST \
@@ -63,6 +63,24 @@
 											"Section Headers num     "
 # define	ELF_STR_EHDR_SECT_TXT_INDEX		ELF_STR_PAD ELF_STR_LIST \
 											"Section text index      "
+
+# define	ELF_STR_PHDR					"Program Header"
+# define	ELF_STR_PHDR_TYPE				ELF_STR_PAD ELF_STR_PAD ELF_STR_LIST \
+											"Type                    "
+# define	ELF_STR_PHDR_OFFSET				ELF_STR_PAD ELF_STR_PAD ELF_STR_LIST \
+											"Offset                  "
+# define	ELF_STR_PHDR_VADDR				ELF_STR_PAD ELF_STR_PAD ELF_STR_LIST \
+											"Virtual address         "
+# define	ELF_STR_PHDR_PADDR				ELF_STR_PAD ELF_STR_PAD ELF_STR_LIST \
+											"Physical address        "
+# define	ELF_STR_PHDR_FILESZ				ELF_STR_PAD ELF_STR_PAD ELF_STR_LIST \
+											"Size in file            "
+# define	ELF_STR_PHDR_MEMSZ				ELF_STR_PAD ELF_STR_PAD ELF_STR_LIST \
+											"Size in memory          "
+# define	ELF_STR_PHDR_FLAGS				ELF_STR_PAD ELF_STR_PAD ELF_STR_LIST \
+											"Flags                   "
+# define	ELF_STR_PHDR_ALIGN				ELF_STR_PAD ELF_STR_PAD ELF_STR_LIST \
+											"Align                   "
 
 # define	ELF_STR_SHDR					"Elf section headers"
 # define	ELF_STR_SHDR_NAME				ELF_STR_PAD ELF_STR_PAD ELF_STR_LIST \

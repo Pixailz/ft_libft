@@ -259,19 +259,18 @@ SRC_SORT := sort/ft_qsort.c \
 ### BINARY
 SRC_BIN_ELF := binary/elf/e_hdr/attr/entry.c \
 			   binary/elf/e_hdr/attr/flags.c \
-			   binary/elf/e_hdr/attr/header_size.c \
 			   binary/elf/e_hdr/attr/machine.c \
+			   binary/elf/e_hdr/attr/phentsize.c \
+			   binary/elf/e_hdr/attr/phnum.c \
 			   binary/elf/e_hdr/attr/phoff.c \
-			   binary/elf/e_hdr/attr/prog_header_num.c \
-			   binary/elf/e_hdr/attr/prog_header_size.c \
-			   binary/elf/e_hdr/attr/sect_header_num.c \
-			   binary/elf/e_hdr/attr/sect_header_size.c \
-			   binary/elf/e_hdr/attr/sect_header_txt_index.c \
+			   binary/elf/e_hdr/attr/shentsize.c \
+			   binary/elf/e_hdr/attr/shnum.c \
 			   binary/elf/e_hdr/attr/shoff.c \
+			   binary/elf/e_hdr/attr/shstrndx.c \
+			   binary/elf/e_hdr/attr/size.c \
 			   binary/elf/e_hdr/attr/type.c \
 			   binary/elf/e_hdr/attr/version.c \
-			   binary/elf/e_hdr/cast.c \
-			   binary/elf/e_hdr/check.c \
+			   binary/elf/e_hdr/make.c \
 			   binary/elf/e_hdr/read.c \
 			   binary/elf/e_ident/check_padding.c \
 			   binary/elf/e_ident/read.c \
@@ -281,8 +280,18 @@ SRC_BIN_ELF := binary/elf/e_hdr/attr/entry.c \
 			   binary/elf/e_ident/read_endianess.c \
 			   binary/elf/e_ident/read_mag.c \
 			   binary/elf/e_ident/read_version.c \
-			   binary/elf/error.c \
 			   binary/elf/open.c \
+			   binary/elf/p_hdr/attr/align.c \
+			   binary/elf/p_hdr/attr/filesz.c \
+			   binary/elf/p_hdr/attr/flags.c \
+			   binary/elf/p_hdr/attr/memsz.c \
+			   binary/elf/p_hdr/attr/offset.c \
+			   binary/elf/p_hdr/attr/paddr.c \
+			   binary/elf/p_hdr/attr/type.c \
+			   binary/elf/p_hdr/attr/vaddr.c \
+			   binary/elf/p_hdr/make.c \
+			   binary/elf/p_hdr/reads.c \
+			   binary/elf/read.c \
 			   binary/elf/s_hdr/attr/addr.c \
 			   binary/elf/s_hdr/attr/align.c \
 			   binary/elf/s_hdr/attr/entsize.c \
@@ -293,9 +302,8 @@ SRC_BIN_ELF := binary/elf/e_hdr/attr/entry.c \
 			   binary/elf/s_hdr/attr/offset.c \
 			   binary/elf/s_hdr/attr/size.c \
 			   binary/elf/s_hdr/attr/type.c \
-			   binary/elf/s_hdr/cast.c \
-			   binary/elf/s_hdr/check.c \
 			   binary/elf/s_hdr/get_section.c \
+			   binary/elf/s_hdr/make.c \
 			   binary/elf/s_hdr/reads.c \
 			   binary/elf/sym/attr/info.c \
 			   binary/elf/sym/attr/name.c \
@@ -303,8 +311,7 @@ SRC_BIN_ELF := binary/elf/e_hdr/attr/entry.c \
 			   binary/elf/sym/attr/shndx.c \
 			   binary/elf/sym/attr/size.c \
 			   binary/elf/sym/attr/value.c \
-			   binary/elf/sym/cast.c \
-			   binary/elf/sym/check.c \
+			   binary/elf/sym/make.c \
 			   binary/elf/sym/read.c \
 			   binary/elf/sym/type.c
 

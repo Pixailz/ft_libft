@@ -6,15 +6,13 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:51:16 by brda-sil          #+#    #+#             */
-/*   Updated: 2025/04/21 14:26:28 by brda-sil         ###   ########.fr       */
+/*   Updated: 2025/04/24 23:14:10 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_binary/elf.h"
 
 # define ELF_SHDR_NB_TYPE	31
-
-extern t_uint8	NM_CLASS;
 
 t_id_str SHDR_TYPE[ELF_SHDR_NB_TYPE] = {
 	{SHT_NULL,			"Section header table entry unused"},
@@ -50,50 +48,50 @@ t_id_str SHDR_TYPE[ELF_SHDR_NB_TYPE] = {
 	{SHT_GNU_versym | SHT_HISUNW | SHT_HIOS,	"Version symbol table / Sun-specific high bound / End OS-specific type"},
 };
 
-// #define SHT_LOPROC	  0x70000000	/* Start of processor-specific */
-// #define SHT_HIPROC	  0x7fffffff	/* End of processor-specific */
-// #define SHT_LOUSER	  0x80000000	/* Start of application-specific */
-// #define SHT_HIUSER	  0x8fffffff	/* End of application-specific */
-
-t_sh_type	ft_get_s_hdr_type(t_elf_shdr *s_hdr)
+t_sh_type	ft_s_hdr_get_type_32(t_s_hdr_view *s_hdr)
 {
-	t_sh_type	type;
-
-	if (ft_is_good_s_hdr(s_hdr))
-		return (0);
-	if (NM_CLASS == ELFCLASS64)
-		type = s_hdr->_64->sh_type;
-	else if (NM_CLASS == ELFCLASS32)
-		type = (t_sh_type)s_hdr->_32->sh_type;
-	return (type);
+	return (t_sh_type)s_hdr->raw._32->sh_type;
 }
 
-t_elf_error	ft_check_s_hdr_type(t_elf_shdr *s_hdr)
+t_sh_type	ft_s_hdr_get_type_64(t_s_hdr_view *s_hdr)
 {
-	t_sh_type	type;
+	return (t_sh_type)s_hdr->raw._64->sh_type;
+}
+
+void	ft_s_hdr_set_type_32(t_s_hdr_view *s_hdr, t_sh_type value)
+{
+	s_hdr->raw._32->sh_type = value;
+}
+
+void	ft_s_hdr_set_type_64(t_s_hdr_view *s_hdr, t_sh_type value)
+{
+	s_hdr->raw._64->sh_type = value;
+}
+
+void	ft_check_s_hdr_type(t_sh_type value)
+{
 	int			counter;
 
-	type = ft_get_s_hdr_type(s_hdr);
 	counter = 0;
 	while(counter < ELF_SHDR_NB_TYPE)
 	{
-		if (type == (t_uint32)SHDR_TYPE[counter].id)
+		if (value == (t_uint32)SHDR_TYPE[counter].id)
 		{
 			ft_pdeb(ELF_STR_SHDR_TYPE SEP "%s\n", SHDR_TYPE[counter].str);
-			return (SUCCESS);
+			return ;
 		}
 		counter++;
 	}
-	if (type >= SHT_LOPROC && type <= SHT_HIPROC)
+	if (value >= SHT_LOPROC && value <= SHT_HIPROC)
 	{
 		ft_pdeb(ELF_STR_EHDR_TYPE SEP "Processor-specific\n");
-		return (SUCCESS);
+		return ;
 	}
-	if (type >= SHT_LOUSER)
+	if (value >= SHT_LOUSER)
 	{
 		ft_pdeb(ELF_STR_EHDR_TYPE SEP "Application-specific\n");
-		return (SUCCESS);
+		return ;
 	}
 	ft_pdeb(ELF_STR_SHDR_TYPE SEP "Unknown\n");
-	return (SUCCESS);
+	return ;
 }
